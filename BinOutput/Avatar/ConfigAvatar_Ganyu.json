@@ -192,7 +192,6 @@
 		"elementAbsorb": "PRIVATE_Pendant",
 		"elementPendant": "PRIVATE_Pendant"
 	},
-	"bindEmotions": [],
 	"combat":
 	{
 		"property":
@@ -2503,6 +2502,18 @@
 					"usage": "Any"
 				},
 				{
+					"currentStateName": "FastAimLoop",
+					"audioEvent":
+					{
+						"text": "Play_sfx_weapon_bow_girl_aimNormal"
+					},
+					"otherStateNames":
+					[
+						"FastAimShoot"
+					],
+					"usage": "Except"
+				},
+				{
 					"currentStateName": "JumpForWalk",
 					"audioEvent":
 					{
@@ -2627,7 +2638,7 @@
 					"currentStateName": "FastAimLoop",
 					"audioEvent":
 					{
-						"text": "Play_sfx_char_ambor_arrow_fire_aim_start"
+						"text": "Play_sfx_weapon_bow_aimFocus"
 					},
 					"otherStateNames": [],
 					"usage": "Any"

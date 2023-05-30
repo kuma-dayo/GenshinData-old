@@ -832,7 +832,7 @@
   ],
   ////////////////////////////////////////////////////////////////
   //
-  //  12503 Claymore_Widsith 流浪的田园诗
+  //  12503 Claymore_Widsith 流浪的田园诗 （旧设计 待删除）
   //
   ////////////////////////////////////////////////////////////////
   "Weapon_Claymore_EnergyPoem": [
@@ -883,6 +883,55 @@
       "paramRatio": 0,
     },
   ],
+
+////////////////////////////////////////////////////////////////
+//
+//  12503 Claymore_Widsith 流浪的田园诗
+//
+////////////////////////////////////////////////////////////////
+  "Weapon_Claymore_Widsith":
+  [
+    {
+      "$type": "AddAbility",
+      "abilityName": "Weapon_Claymore_Widsith",
+    },
+    {
+      "$type": "ModifyAbility",
+      "abilityName": "Weapon_Claymore_Widsith",
+      "paramSpecial": "TriggerCD",
+      "paramDelta": "%2",
+      "paramRatio": 0,
+    },
+    {
+      "$type": "ModifyAbility",
+      "abilityName": "Weapon_Claymore_Widsith",
+      "paramSpecial": "Dura",
+      "paramDelta": "%3",
+      "paramRatio": 0,
+    },
+    {
+      "$type": "ModifyAbility",
+      "abilityName": "Weapon_Claymore_Widsith",
+      "paramSpecial": "ClaymoreBuff",
+      "paramDelta": "%4",
+      "paramRatio": 0,
+    },
+    {
+      "$type": "ModifyAbility",
+      "abilityName": "Weapon_Claymore_Widsith",
+      "paramSpecial": "CommonBuff",
+      "paramDelta": "%5",
+      "paramRatio": 0,
+    },
+    {
+      "$type": "ModifyAbility",
+      "abilityName": "Weapon_Claymore_Widsith",
+      "paramSpecial": "CDTime",
+      "paramDelta": "%6",
+      "paramRatio": 0,
+    },
+  ],
+
 ////////////////////////////////////////////////////////////////
 //
 //  12504

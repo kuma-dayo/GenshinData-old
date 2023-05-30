@@ -7,7 +7,7 @@
 -- 怪物
 monsters = {
 	{ config_id = 20001, monster_id = 22020101, pos = { x = -3.749, y = 0.003, z = -7.439 }, rot = { x = 0.000, y = 30.000, z = 0.000 }, level = 1, pose_id = 101 },
-	{ config_id = 20006, monster_id = 22030101, pos = { x = 4.126, y = 0.002, z = -7.249 }, rot = { x = 0.000, y = 330.000, z = 0.000 }, level = 1 }
+	{ config_id = 20006, monster_id = 22030101, pos = { x = 4.126, y = 0.002, z = -7.249 }, rot = { x = 0.000, y = 330.000, z = 0.000 }, level = 1, pose_id = 101 }
 }
 
 -- NPC

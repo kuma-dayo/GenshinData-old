@@ -167,6 +167,11 @@
 				"stateIDs": ["CreatePillar_BS", "CreatePillar"],
 				"modifierName": "CreatePillar_BS",
 			},
+			{
+				"$type": "AttachToPoseIDMixin",
+				"poseIDs": [901],
+				"modifierName": "ReturnToBorn_DestoryPillar",
+			},
 		],
 		"onAbilityStart": 
 		[
@@ -242,6 +247,25 @@
 		],
 		"modifiers":
 		{
+			"ReturnToBorn_DestoryPillar":
+			{
+				"onRemoved":
+				[
+					{
+						"$type": "RemoveUniqueModifier",
+						"otherTargets":
+						{
+							"$type": "SelectTargetsByChildren",
+							"configID": 42103011,
+						},
+						"modifierName": "UNIQUE_RockPillar_Element",
+					},
+					{
+						"$type": "SetAISkillCDAvailableNow",
+						"skillIDs": [401],
+					},
+				],
+			},
 			"CreatePillar_BS":
 			{
 				"onAdded":

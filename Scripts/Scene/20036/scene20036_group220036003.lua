@@ -14,7 +14,7 @@ npcs = {
 
 -- 装置
 gadgets = {
-	{ config_id = 3001, gadget_id = 70211032, pos = { x = 343.384, y = -11.535, z = 243.210 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, chest_drop_id = 1000100, drop_count = 1, state = GadgetState.ChestLocked },
+	{ config_id = 3001, gadget_id = 70210116, pos = { x = 343.384, y = -11.535, z = 243.210 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, chest_drop_id = 1000100, drop_count = 1, state = GadgetState.ChestLocked },
 	{ config_id = 3002, gadget_id = 70350002, pos = { x = 343.330, y = -11.186, z = 240.280 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
 	{ config_id = 3003, gadget_id = 70310011, pos = { x = 343.238, y = -13.023, z = 269.341 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, state = GadgetState.GearStart },
 	{ config_id = 3004, gadget_id = 70310011, pos = { x = 338.257, y = -13.023, z = 259.397 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, state = GadgetState.GearStart },

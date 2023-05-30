@@ -1745,10 +1745,6 @@
 				},
 			},
 			{
-				"$type": "KillSelf",
-				"duration": 0.0,
-			},
-			{
 				"$type": "TriggerSetVisible",
 				"visible": false,
 				"target": "Self",

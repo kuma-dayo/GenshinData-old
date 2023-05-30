@@ -1103,4 +1103,138 @@
 			},
 		},
 	},
+///////////////////////////////////////////////////////////
+//
+// 1.5 导能圆盘活动 地脉之果碎片
+//
+///////////////////////////////////////////////////////////
+	{
+		"Default": 
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "SceneObj_Area_Common_Property_Ani_Prop_LaylineShard_01_Ability",
+			"abilityMixins":
+			[
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 0,
+					"modifierName": "LockState",
+				},
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 201,
+					"modifierName": "UnlockState",
+				},
+				{
+					"$type":"AttachToStateIDMixin",
+					"stateIDs":["ChestNoOpenState"],
+					"modifierName": "ChestNoOpen",
+				},
+			],
+			"modifiers": 
+			{
+				"LockState":
+				{
+					"onAdded":
+					[
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_SceneObj_LaylineShard_01_Normal",
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName": "RootNode",
+							},
+						},
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_Item_SpecialTreasureBox_LockIdle",
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName": "RootNode",
+							},
+						},
+					],
+				},
+				"UnlockState":
+				{
+					"duration":2,
+					"onAdded":
+					[
+						{
+							"$type":"FireEffect",
+							"effectPattern":"Eff_Item_SpecialTreasureBox_Unlock",
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName": "RootNode",
+							},
+							"predicates":
+							[
+								{
+									"$type":"ByAnimatorBool",
+									"parameter":"HaveUnlock",
+									"value":false
+								}
+							]
+						},
+						{
+							"$type": "SetAnimatorBool",
+							"boolID": "HaveUnlock",
+							"value": true,
+							"MPTriggerOnRemote": true,
+							"predicates":
+							[
+								{
+									"$type":"ByAnimatorBool",
+									"parameter":"HaveUnlock",
+									"value":false
+								}
+							]
+						},
+
+					],
+					"onRemoved":
+					[
+
+						{
+							"$type": "EnableGadgetIntee",
+							"enable": true,
+						},
+					],			
+				},
+				"ChestNoOpen":
+				{
+					"onAdded":
+					[
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_SceneObj_LaylineShard_01_Powerup",
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName": "RootNode",
+							},
+						},
+					],
+				},
+				"ChestOpen":
+				{
+					"onAdded":
+					[
+						{
+							"$type":"FireEffect",
+							"effectPattern":"Eff_SceneObj_LaylineShard_01_Destroy",
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName": "RootNode",
+							},
+						},
+					],
+				},
+			},
+		},
+	},	
 ]

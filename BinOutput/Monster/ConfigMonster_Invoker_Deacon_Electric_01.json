@@ -265,7 +265,8 @@
 					"$type": "ConfigMonsterStateIDInfo",
 					"animatorStates":
 					{
-						"NormalAtk": ["Monster_Invoker_Deacon_Electric_NormalAtk", "Audio_Monster_lnvoker_Deacon_Electric_NormalAtk"],
+						"NormalAtk": ["Monster_Invoker_Deacon_Electric_NormalAtk", "Audio_Monster_lnvoker_Deacon_Electric_NormalAtk", "Audio_Monster_lnvoker_Deacon_Electric_NormalAtk_VO"],
+						"NormalAtk_Plus": ["Monster_Invoker_Deacon_Electric_NormalAtk", "Audio_Monster_lnvoker_Deacon_Electric_NormalAtk", "Audio_Monster_lnvoker_Deacon_Electric_NormalAtk_VO_Plus"],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -275,7 +276,8 @@
 					"$type": "ConfigMonsterStateIDInfo",
 					"animatorStates":
 					{
-						"RangeAtk": ["Monster_Invoker_Deacon_Electric_RangeAtk", "Audio_Monster_lnvoker_Deacon_Electric_RangeAtk"],
+						"RangeAtk": ["Monster_Invoker_Deacon_Electric_RangeAtk", "Audio_Monster_lnvoker_Deacon_Electric_RangeAtk", "Audio_Monster_lnvoker_Deacon_Electric_RangeAtk_VO"],
+						"RangeAtk_Plus": ["Monster_Invoker_Deacon_Electric_RangeAtk", "Audio_Monster_lnvoker_Deacon_Electric_RangeAtk", "Audio_Monster_lnvoker_Deacon_Electric_RangeAtk_VO_Plus"],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -285,7 +287,8 @@
 					"$type": "ConfigMonsterStateIDInfo",
 					"animatorStates":
 					{
-						"MeleeAtk": ["Monster_Invoker_Deacon_Electric_MeleeAtk", "Audio_Monster_lnvoker_Deacon_Electric_MeleeAtk"],
+						"MeleeAtk": ["Monster_Invoker_Deacon_Electric_MeleeAtk", "Audio_Monster_lnvoker_Deacon_Electric_MeleeAtk", "Audio_Monster_lnvoker_Deacon_Electric_MeleeAtk_VO"],
+						"MeleeAtk_Plus": ["Monster_Invoker_Deacon_Electric_MeleeAtk", "Audio_Monster_lnvoker_Deacon_Electric_MeleeAtk", "Audio_Monster_lnvoker_Deacon_Electric_MeleeAtk_VO_Plus"],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -296,7 +299,8 @@
 					"$type": "ConfigMonsterStateIDInfo",
 					"animatorStates":
 					{
-						"ChargeAtk01": ["Monster_Invoker_Deacon_Electric_ChargeAtk01", "Audio_Monster_lnvoker_Deacon_Electric_ChargeAtk01"],
+						"ChargeAtk01": ["Monster_Invoker_Deacon_Electric_ChargeAtk01", "Audio_Monster_lnvoker_Deacon_Electric_ChargeAtk01", "Audio_Monster_lnvoker_Deacon_Electric_CargeAtk01_VO"],
+						"ChargeAtk01_Plus": ["Monster_Invoker_Deacon_Electric_ChargeAtk01", "Audio_Monster_lnvoker_Deacon_Electric_ChargeAtk01", "Audio_Monster_lnvoker_Deacon_Electric_CargeAtk01_VO_Plus"],
 						"ChargeAtk02": ["Monster_Invoker_Deacon_Electric_ChargeAtk02", "Audio_Monster_lnvoker_Deacon_Electric_ChargeAtk02"],
 					},
 					"combatMove" : true,
@@ -311,6 +315,7 @@
 						"Transform": ["Monster_Invoker_Deacon_Electric_Transform", "Audio_Monster_lnvoker_Deacon_Electric_Transform"],
 					},
 					"combatMove" : true,
+					"resetAnimatorTriggerOnEnter": ["BeHit" ],
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
 					"addEndure": 0.0,
 				},
@@ -415,7 +420,7 @@
 		},
 		"threat":
 		{
-			"clearThreatTargetDistance": 30.0,
+			"clearThreatTargetDistance": 50.0,
 			"clearThreatByLostPath": true,
 			"clearThreatTimerByLostPath": 10,
 			"resistTauntLevel": "Monster_TauntLevel_3",
@@ -493,6 +498,7 @@
 				"stateIDs": ["NormalAtk"],
 				"triggerGCD": false,
 				"skillGroupCDID": 200,
+				"flagTargetReachable": "11",
 				"castCondition":
 				{
 					"pickRangeMin": 0.0,
@@ -511,6 +517,7 @@
 				"stateIDs": ["RangeAtk"],
 				"triggerGCD": false,
 				"skillGroupCDID": 200,
+				"flagTargetReachable": "11",
 				"castCondition":
 				{
 					"pickRangeMin": 0.0,
@@ -528,6 +535,7 @@
 				"stateIDs": ["MeleeAtk"],
 				"triggerGCD": false,
 				"skillGroupCDID": 200,
+				"flagTargetReachable": "11",
 				"castCondition":
 				{
 					"pickRangeMin": 0.0,
@@ -544,6 +552,7 @@
 				"priority": 2,
 				"name": "ChargeAtk01",
 				"stateIDs": ["ChargeAtk01"],
+				"flagTargetReachable": "11",
 				"castCondition":
 				{
 					"pickRangeMin": 0.0,
@@ -559,6 +568,7 @@
 				"priority": 1,
 				"name": "ChargeAtk02",
 				"stateIDs": ["ChargeAtk02"],
+				"flagTargetReachable": "11",
 				"castCondition":
 				{
 					"pickRangeMin": 0.0,

@@ -2058,6 +2058,109 @@
 },
 ///////////////////////////////////////
 //
+//  无相冰低温区域
+//
+////////////////////////////////////
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "Ice_Boss_Region",
+		"onFieldEnter":
+		[
+			{
+				"$type": "AttachModifier",
+				"target": "Target",
+				"modifierName": "LowTemperature_Avatar",
+				"predicates":
+				[
+					{
+						"$type" : "ByTargetGadgetState",
+						"target": "Self",
+						"gadgetState"  : 0,
+					},
+				],
+			},
+			{
+	            "$type": "DebugLog",
+	            "content": "IceRegionBorn",
+	            "doOffStage": true,
+	    	},
+		],
+		"onFieldExit":
+		[
+			{
+				"$type": "RemoveModifier",
+				"target": "Target",
+				"modifierName": "LowTemperature_Avatar",
+			},
+		],
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToGadgetStateMixin",
+				"gadgetState": 202,
+				"modifierName": "NormalTemperature",
+			},
+		],
+		"modifiers": 
+		{
+			"NormalTemperature":
+			{
+				"onAdded":
+				[
+					{
+						"$type": "RemoveModifier",
+						"modifierName": "LowTemperature_Avatar",
+						"otherTargets": 
+						{
+							"$type": "SelectTargetsByShape",
+							"shapeName": "CircleR30",
+							"centerBasedOn": "Self",
+							"campTargetType": "AllExceptSelf",
+							"campBasedOn": "Self",
+						},
+						"predicates"  : 
+						[
+							{
+								"$type" : "ByEntityTypes",
+								"entityTypes"  : ["Avatar"],
+							},
+						],
+					},
+				],
+			},
+
+			"LowTemperature_Avatar":
+			{
+				/*
+				"onAdded":
+				[
+					//首次进入冰风暴時的引導提升
+					{
+						"$type":"DoWatcherSystemAction",
+						"watcherId":1103,
+						"authorityOnly":true,
+					},
+				],
+				*/
+				"modifierMixins":
+				[
+					{
+						"$type": "ResistClimateMixin",
+						"type":"Current",
+						"climateTypes": ["Cold"],
+						"source": "All",
+						"trend": "Rise",
+						"ratio": 2,
+					},
+				],
+			},
+		},
+	},
+},
+///////////////////////////////////////
+//
 //  冰风暴  R60
 //
 ////////////////////////////////////

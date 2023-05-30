@@ -925,7 +925,6 @@
 					"canSteer": true,
 					"followAnimRotation": true,
 					"canDoSkill" : true,
-					"canSyncMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill"],
 					"addEndure" : 0,
 					"massRatio" : 20,
@@ -953,7 +952,6 @@
 					"canSteer": true,
 					"followAnimRotation": true,
 					"canDoSkill" : true,
-					"canSyncMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill"],
 					"addEndure" : 0,
 					"massRatio" : 20,
@@ -1011,10 +1009,6 @@
 		{
 			"abilityID": "Monster_Drake_Rock_CrushAtkNoHit",
 			"abilityName": "Monster_Drake_Rock_CrushAtkNoHit",
-		},
-		{
-			"abilityID": "Monster_Drake_Rock_CrushAtkFailed",
-			"abilityName": "Monster_Drake_Rock_CrushAtkFailed",
 		},
 		{
 			"abilityID": "Monster_Drake_Rock_AnimationSteer",

@@ -414,6 +414,11 @@
 									"useFocusSticky": true,
 									"useGyro": false,
 								},
+								"ps5":
+								{
+									"useFocusSticky": true,
+									"useGyro": false,
+								},									
 								"other":
 								{
 									"useFocusSticky": true,
@@ -785,6 +790,11 @@
 									"useFocusSticky": true,
 									"useGyro": false,
 								},
+								"ps5":
+								{
+									"useFocusSticky": true,
+									"useGyro": false,
+								},								
 								"other":
 								{
 									"useFocusSticky": true,

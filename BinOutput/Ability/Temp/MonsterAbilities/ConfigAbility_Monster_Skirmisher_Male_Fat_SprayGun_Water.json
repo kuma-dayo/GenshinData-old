@@ -623,8 +623,9 @@
 						"predicates" :
 						[
 							{
-								"$type" : "ByTargetIsSelf",
-								"isSelf" : false,
+								"$type": "ByTargetType",
+								"targetType": "Self",
+								"isTarget": false,
 							},
 							{
 								"$type" : "ByAttackTags",
@@ -700,8 +701,9 @@
 				"targetPredicates" :
 				[
 					{
-						"$type" : "ByTargetIsSelf",
-						"isSelf" : false,
+						"$type": "ByTargetType",
+						"targetType": "Self",
+						"isTarget": false,
 					},
 					{
 						"$type" : "ByEntityTypes",
@@ -844,8 +846,9 @@
 				"targetPredicates" :
 				[
 					{
-						"$type" : "ByTargetIsSelf",
-						"isSelf" : false,
+						"$type": "ByTargetType",
+						"targetType": "Self",
+						"isTarget": false,
 					},
 					{
 						"$type" : "ByEntityTypes",
@@ -929,8 +932,9 @@
 				"targetPredicates" :
 				[
 					{
-						"$type" : "ByTargetIsSelf",
-						"isSelf" : false,
+						"$type": "ByTargetType",
+						"targetType": "Self",
+						"isTarget": false,
 					},
 					{
 						"$type" : "ByEntityTypes",
@@ -1221,8 +1225,9 @@
 						"targetPredicates" :
 						[
 							{
-								"$type" : "ByTargetIsSelf",
-								"isSelf" : false,
+								"$type": "ByTargetType",
+								"targetType": "Self",
+								"isTarget": false,
 							},
 							{
 								"$type" : "ByEntityTypes",

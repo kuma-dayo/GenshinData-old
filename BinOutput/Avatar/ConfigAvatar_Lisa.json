@@ -10,14 +10,6 @@
 		"mass": 10.0,
 		"affectedByWorld": true,
 		"checkInSurface": true,
-		"effectGroups":
-		[
-			"AvatarSkill_Lisa_Effects"
-		],
-		"consoleEffectGroups":
-		[
-			"AvatarSkill_Lisa_Effects"
-		],
 		"avatarHeight": 1.72169,
 		"avatarModelHeight": 1.7,
 		"height": 1.81699991,
@@ -146,30 +138,6 @@
 		"elementAbsorb": "PRIVATE_Pendant",
 		"elementPendant": "PRIVATE_Pendant"
 	},
-	"bindEmotions":
-	[
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Fight_Attack_01",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Fight_Attack_02",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Fight_Attack_03",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Fight_Attack_04",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Fight_Attack_BS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Fight_Attack_ExtraAttack",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Fight_Attack_ExtraAttack_AS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Fight_Attack_ExtraAttack_Charge",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Fight_Attack_FlickerWave",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Fight_Attack_FlickerWave_Pre",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Fight_Attack_ThunderFall_AS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Fight_Attack_ThunderFall_Charge",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Fight_Attack_ThunderFall_Ready",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Skill_PierceLightning",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Skill_PierceLightning_AS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Normal",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Lisa_Show_01",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_RelicShow_BS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_RelicShow_Loop",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_RelicShow_AS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_Normal"
-	],
 	"combat":
 	{
 		"property":

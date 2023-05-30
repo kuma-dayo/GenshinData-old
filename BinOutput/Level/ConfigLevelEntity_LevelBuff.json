@@ -2119,4 +2119,635 @@
 
     ],
   }, //LevelEntity_TowerBuff_EnemyDefDownOnFallingAttack_Ver_1_14------下落攻击命中敌人时额外掉落元素晶球
+
+
+  "LevelEntity_Avatar_ShieldOnBeingHitDoDamage_Ver_1_15": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_Avatar_ShieldOnBeingHitDoDamage_Ver_1_15",
+        "abilityName": "LevelEntity_Avatar_ShieldOnBeingHitDoDamage_Ver_1_15",
+      },
+    ],
+  }, //怪物血量提升
+
+
+  "LevelEntity_HpUp_100p": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+    ],
+    "abilities": [
+    ],
+    "teamAbilities": [
+    ],
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_HpUp_100p",
+        "abilityName": "LevelEntity_HpUp_100p",
+      },
+    ]
+  }, //怪物血量提升
+
+  "LevelEntity_HpUp_20p": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+    ],
+    "abilities": [
+    ],
+    "teamAbilities": [
+    ],
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_HpUp_20p",
+        "abilityName": "LevelEntity_HpUp_20p",
+      },
+    ]
+  }, //怪物血量提升
+
+/////////////////////////////////////////
+//////2021.1.26导能圆盘词缀配置///////////
+////////////////////////////////////////
+
+//主题：爆炸晶核
+  "LevelEntity_EnergyDisk_Lv1_HpUp": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv1_HpUp",
+        "abilityName": "LevelEntity_EnergyDisk_Lv1_HpUp",
+      },
+
+    ],
+  }, //生命值提升
+
+  "LevelEntity_EnergyDisk_Lv1_AtkUp": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv1_AtkUp",
+        "abilityName": "LevelEntity_EnergyDisk_Lv1_AtkUp",
+      },
+
+    ],
+  }, //怪物的攻击力提升
+
+  "LevelEntity_EnergyDisk_Lv1_ElecSubHurtDelta": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv1_ElecSubHurtDelta",
+        "abilityName": "LevelEntity_EnergyDisk_Lv1_ElecSubHurtDelta",
+      },
+
+    ],
+  }, //敌人对雷属性抗性提高XX点
+
+  "LevelEntity_EnergyDisk_Lv1_FireSubHurtDelta": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv1_FireSubHurtDelta",
+        "abilityName": "LevelEntity_EnergyDisk_Lv1_FireSubHurtDelta",
+      },
+
+    ],
+  }, //敌人对火属性抗性提高XX点
+
+  "LevelEntity_EnergyDisk_Lv1_HealDown": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv1_HealDown",
+        "abilityName": "LevelEntity_EnergyDisk_Lv1_HealDown",
+      },
+
+    ],
+  }, //治疗效果降低
+
+  "LevelEntity_EnergyDisk_Lv1_NoShieldAtkDown": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv1_NoShieldAtkDown",
+        "abilityName": "LevelEntity_EnergyDisk_Lv1_NoShieldAtkDown",
+      },
+
+    ],
+  }, //不处于护盾庇护下时，攻击力降低
+
+  "LevelEntity_EnergyDisk_Lv1_ChargeEfficiencyDown": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv1_ChargeEfficiencyDown",
+        "abilityName": "LevelEntity_EnergyDisk_Lv1_ChargeEfficiencyDown",
+      },
+
+    ],
+  }, //充能效率减低
+
+  "LevelEntity_EnergyDisk_Lv1_MoveSpeedDown": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv1_MoveSpeedDown",
+        "abilityName": "LevelEntity_EnergyDisk_Lv1_MoveSpeedDown",
+      },
+
+    ],
+  }, //移速降低
+
+  "LevelEntity_EnergyDisk_Lv1_DashStaminaUp": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv1_DashStaminaUp",
+        "abilityName": "LevelEntity_EnergyDisk_Lv1_DashStaminaUp",
+      },
+
+    ],
+  }, //冲刺消耗体力提高
+
+  "LevelEntity_EnergyDisk_Lv1_RecoverStaminaRatioDown": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv1_RecoverStaminaRatioDown",
+        "abilityName": "LevelEntity_EnergyDisk_Lv1_RecoverStaminaRatioDown",
+      },
+
+    ],
+  }, //体力恢复速度降低
+
+  "LevelEntity_EnergyDisk_Lv1_SprintBeHurtDamageUp": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv1_SprintBeHurtDamageUp",
+        "abilityName": "LevelEntity_EnergyDisk_Lv1_SprintBeHurtDamageUp",
+      },
+
+    ],
+  }, //队伍中的所有角色在冲刺后的X秒内，自身队伍中所有角色受到伤害提升
+  
+  "LevelEntity_EnergyDisk_DeathRattleCrystal_ExtraLifeTime": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_GeneralSkill_DeathRattleCrystal_ExtraLifeTime",
+        "abilityName": "LevelEntity_GeneralSkill_DeathRattleCrystal_ExtraLifeTime",
+      },
+    ],
+  }, //强化结晶持续时间
+
+  "LevelEntity_EnergyDisk_DeathRattleCrystal_ExtraTimes": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_GeneralSkill_DeathRattleCrystal_ExtraTimes",
+        "abilityName": "LevelEntity_GeneralSkill_DeathRattleCrystal_ExtraTimes",
+      },
+    ],
+  }, //强化结晶爆炸次数
+
+//主题：电球
+  "LevelEntity_EnergyDisk_Lv2_HpUp": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv2_HpUp",
+        "abilityName": "LevelEntity_EnergyDisk_Lv2_HpUp",
+      },
+
+    ],
+  }, //生命值提升
+
+  "LevelEntity_EnergyDisk_Lv2_AtkUp": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv2_AtkUp",
+        "abilityName": "LevelEntity_EnergyDisk_Lv2_AtkUp",
+      },
+
+    ],
+  }, //怪物的攻击力提升（百分比）
+
+  "LevelEntity_EnergyDisk_Lv2_ShieldCostMinusDown": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv2_ShieldCostMinusDown",
+        "abilityName": "LevelEntity_EnergyDisk_Lv2_ShieldCostMinusDown",
+      },
+
+    ],
+  }, //护盾强效降低
+
+  "LevelEntity_EnergyDisk_Lv2_DashStaminaUp": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv2_DashStaminaUp",
+        "abilityName": "LevelEntity_EnergyDisk_Lv2_DashStaminaUp",
+      },
+
+    ],
+  }, ////冲刺消耗体力提高
+
+  "LevelEntity_EnergyDisk_Lv2_RockSubHurtDelta": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv2_RockSubHurtDelta",
+        "abilityName": "LevelEntity_EnergyDisk_Lv2_RockSubHurtDelta",
+      },
+
+    ],
+  }, //敌人对岩属性抗性提高XX点
+
+  "LevelEntity_EnergyDisk_Lv2_WindSubHurtDelta": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv2_WindSubHurtDelta",
+        "abilityName": "LevelEntity_EnergyDisk_Lv2_WindSubHurtDelta",
+      },
+
+    ],
+  }, //敌人对风属性抗性提高XX点
+
+  "LevelEntity_EnergyDisk_Lv2_AtkDownLowHP": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv2_AtkDownLowHP",
+        "abilityName": "LevelEntity_EnergyDisk_Lv2_AtkDownLowHP",
+      },
+
+    ],
+  }, //血量低于70%时造成的伤害降低30%，低于35%时造成的伤害降低60% 
+  
+  "LevelEntity_EnergyDisk_Lv2_RecoverStaminaRatioDown": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv2_RecoverStaminaRatioDown",
+        "abilityName": "LevelEntity_EnergyDisk_Lv2_RecoverStaminaRatioDown",
+      },
+
+    ],
+  }, //体力恢复速度降低
+
+   "LevelEntity_EnergyDisk_Lv2_SprintBeHurtDamageUp": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv2_SprintBeHurtDamageUp",
+        "abilityName": "LevelEntity_EnergyDisk_Lv2_SprintBeHurtDamageUp",
+      },
+
+    ],
+  }, //队伍中的所有角色在冲刺后的X秒内，自身队伍中所有角色受到伤害提升
+
+//////毒圈主题////////////////////////
+  "LevelEntity_EnergyDisk_Lv3_HpUp": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv3_HpUp",
+        "abilityName": "LevelEntity_EnergyDisk_Lv3_HpUp",
+      },
+
+    ],
+  }, //生命值提升   
+
+  "LevelEntity_EnergyDisk_Lv3_AtkUp": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv3_AtkUp",
+        "abilityName": "LevelEntity_EnergyDisk_Lv3_AtkUp",
+      },
+
+    ],
+  }, //怪物的攻击力提升（百分比）
+
+  "LevelEntity_EnergyDisk_Lv3_Actor_IceSubHurtDelta": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv3_Actor_IceSubHurtDelta",
+        "abilityName": "LevelEntity_EnergyDisk_Lv3_Actor_IceSubHurtDelta",
+      },
+
+    ],
+  }, //敌人对冰属性抗性提高XX点
+
+    "LevelEntity_EnergyDisk_Lv3_Actor_WaterSubHurtDelta": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv3_Actor_WaterSubHurtDelta",
+        "abilityName": "LevelEntity_EnergyDisk_Lv3_Actor_WaterSubHurtDelta",
+      },
+
+    ],
+  }, //敌人对水属性抗性提高XX点
+
+  "LevelEntity_EnergyDisk_Lv3_FireSubHurtDelta": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv3_FireSubHurtDelta",
+        "abilityName": "LevelEntity_EnergyDisk_Lv3_FireSubHurtDelta",
+      },
+
+    ],
+  }, //敌人对火属性抗性提高XX点
+
+  "LevelEntity_EnergyDisk_Lv3_ShieldCostMinusDown": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv3_ShieldCostMinusDown",
+        "abilityName": "LevelEntity_EnergyDisk_Lv3_ShieldCostMinusDown",
+      },
+
+    ],
+  }, //护盾强效降低
+
+  "LevelEntity_EnergyDisk_Lv3_CriticalDeltaDown": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv3_CriticalDeltaDown",
+        "abilityName": "LevelEntity_EnergyDisk_Lv3_CriticalDeltaDown",
+      },
+
+    ],
+  }, //暴击率降低
+
+  "LevelEntity_EnergyDisk_Lv3_AtkDownLowHP": {
+    "$type": "ConfigLevelEntity",
+    "teamAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv3_AtkDownLowHP",
+        "abilityName": "LevelEntity_EnergyDisk_Lv3_AtkDownLowHP",
+      },
+
+    ],
+  }, //血量低于X%时，攻击力降低X%
+
+
+  "LevelEntity_EnergyDisk_Lv3_AtkDownHighHP": {
+    "$type": "ConfigLevelEntity",
+    "teamAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv3_AtkDownHighHP",
+        "abilityName": "LevelEntity_EnergyDisk_Lv3_AtkDownHighHP",
+      },
+
+    ],
+  }, //血量高于X%时，攻击力降低X%
+
+  "LevelEntity_EnergyDisk_Lv3_SpeedDownLowHP": {
+    "$type": "ConfigLevelEntity",
+    "teamAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv3_SpeedDownLowHP",
+        "abilityName": "LevelEntity_EnergyDisk_Lv3_SpeedDownLowHP",
+      },
+
+    ],
+  }, //血量低于X%时，移动速度降低X%
+
+  "LevelEntity_EnergyDisk_Lv3_SkillCDIncrement": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv3_SkillCDIncrement",
+        "abilityName": "LevelEntity_EnergyDisk_Lv3_SkillCDIncrement",
+      },
+
+    ],
+  }, //技能冷却时间延长
+
+  "LevelEntity_EnergyDisk_Lv3_SprintBeHurtDamageUp": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv3_SprintBeHurtDamageUp",
+        "abilityName": "LevelEntity_EnergyDisk_Lv3_SprintBeHurtDamageUp",
+      },
+
+    ],
+  }, //队伍中的所有角色在冲刺后的X秒内，自身队伍中所有角色受到伤害提升
+
+  "LevelEntity_EnergyDisk_Lv3_BeHurtDamageUpAfterChangeAvatar": {
+    "$type": "ConfigLevelEntity",
+    "teamAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv3_BeHurtDamageUpAfterChangeAvatar",
+        "abilityName": "LevelEntity_EnergyDisk_Lv3_BeHurtDamageUpAfterChangeAvatar",
+      },
+
+    ],
+  }, //每次切换角色，受到伤害提升X%，最多叠加4层
+
+  "LevelEntity_EnergyDisk_Lv3_ChargeEfficiencyDown": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv3_ChargeEfficiencyDown",
+        "abilityName": "LevelEntity_EnergyDisk_Lv3_ChargeEfficiencyDown",
+      },
+
+    ],
+  }, //充能效率降低
+
+////////连接主题//////////////////////////////
+  "LevelEntity_EnergyDisk_Lv4_Actor_IceSubHurtDelta": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv4_Actor_IceSubHurtDelta",
+        "abilityName": "LevelEntity_EnergyDisk_Lv4_Actor_IceSubHurtDelta",
+      },
+
+    ],
+  }, //怪物的冰属性抗性提高
+
+  "LevelEntity_EnergyDisk_Lv4_PhysicalSubHurt": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv4_PhysicalSubHurt",
+        "abilityName": "LevelEntity_EnergyDisk_Lv4_PhysicalSubHurt",
+      },
+
+    ],
+  }, //怪物的物理抗性提升
+
+  "LevelEntity_EnergyDisk_Lv4_CriticalDeltaDown": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv4_CriticalDeltaDown",
+        "abilityName": "LevelEntity_EnergyDisk_Lv4_CriticalDeltaDown",
+      },
+
+    ],
+  }, //暴击率降低
+
+  "LevelEntity_EnergyDisk_Lv4_CriticalHurtDeltaDown": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv4_CriticalHurtDeltaDown",
+        "abilityName": "LevelEntity_EnergyDisk_Lv4_CriticalHurtDeltaDown",
+      },
+
+    ],
+  }, //暴击伤害降低
+
+  "LevelEntity_EnergyDisk_Lv4_SprintBeHurtDamageUp": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv4_SprintBeHurtDamageUp",
+        "abilityName": "LevelEntity_EnergyDisk_Lv4_SprintBeHurtDamageUp",
+      },
+
+    ],
+  }, //队伍中的所有角色在冲刺后的X秒内，自身队伍中所有角色受到伤害提升
+
+  "LevelEntity_EnergyDisk_Lv4_ShieldCostMinusDown": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv4_ShieldCostMinusDown",
+        "abilityName": "LevelEntity_EnergyDisk_Lv4_ShieldCostMinusDown",
+      },
+
+    ],
+  }, //护盾强效降低
+
+  "LevelEntity_EnergyDisk_Lv4_SkillCDIncrement": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv4_SkillCDIncrement",
+        "abilityName": "LevelEntity_EnergyDisk_Lv4_SkillCDIncrement",
+      },
+
+    ],
+  }, //技能冷却时间延长
+
+  "LevelEntity_EnergyDisk_Lv4_DashStaminaUp": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv4_DashStaminaUp",
+        "abilityName": "LevelEntity_EnergyDisk_Lv4_DashStaminaUp",
+      },
+
+    ],
+  }, //冲刺消耗体力提高
+
+  "LevelEntity_EnergyDisk_Lv4_HpUp": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv4_HpUp",
+        "abilityName": "LevelEntity_EnergyDisk_Lv4_HpUp",
+      },
+
+    ],
+  }, //生命值提升(百分比)
+
+  "LevelEntity_EnergyDisk_Lv4_AtkUp": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv4_AtkUp",
+        "abilityName": "LevelEntity_EnergyDisk_Lv4_AtkUp",
+      },
+
+    ],
+  }, //怪物的攻击力提升（百分比）
+
+  "LevelEntity_EnergyDisk_Lv4_BeHurtDamageUpAfterULT": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_EnergyDisk_Lv4_BeHurtDamageUpAfterULT",
+        "abilityName": "LevelEntity_EnergyDisk_Lv4_BeHurtDamageUpAfterULT",
+      },
+
+    ],
+  }, //释放元素爆发后的X秒内，受到伤害提升
+
+  "LevelEntity_EnergyDisk_Sovereign_ExtraHeal": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_GeneralSkill_Sovereign_ExtraHeal",
+        "abilityName": "LevelEntity_GeneralSkill_Sovereign_ExtraHeal",
+      },
+
+    ],
+  }, //强化链接恢复效果
+
+  "LevelEntity_EnergyDisk_Sovereign_AtkUp": {
+    "$type": "ConfigLevelEntity",
+    "monsterAbilities": [
+      {
+        "abilityID": "LevelEntity_GeneralSkill_Sovereign_AtkUp",
+        "abilityName": "LevelEntity_GeneralSkill_Sovereign_AtkUp",
+      },
+
+    ],
+  }, //额外强化链接主体攻击力
+
+
+  //=================================================================================================================
+  //=================================================================================================================
+  //====================================================================================1.5_2021/02/08日新增
+  //【1.5 backlog内】1.5爬塔月度主题因子制作单（因子制作+数值+关卡配置）
+  //=================================================================================================================
+  //=================================================================================================================
+  "LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack",
+        "abilityName": "LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack",
+      },
+
+    ],
+  }, //LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack 角色的普通攻击在2秒内连续命中敌人时，会获得物理伤害增加的效果 (每层5%物理伤害增加)。该效果持续A秒 (10秒)，至多叠加（buff叠加时内置CD0.1秒）B层 (5层)，叠加到第X层 (5层)后，每次击中敌人都可触发一个冲击波，内置CD N秒 (CD 1秒; 系数 0.75)。（冲击波单次伤害可以低一点，但需保证触发频率较高）
+
+  "LevelEntity_TowerBuff_ShieldBeingHitDoAttack": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_TowerBuff_ShieldBeingHitDoAttack",
+        "abilityName": "LevelEntity_TowerBuff_ShieldBeingHitDoAttack",
+      },
+
+    ],
+  }, //LevelEntity_TowerBuff_ShieldBeingHitDoAttack 角色处于护盾状态下时，每次被怪物攻击命中都会反弹触发一个冲击波，内置CD N秒 (CD 6秒; 系数 7.5)
+  
+  "LevelEntity_TowerBuff_CriticalUpAreaAttack": {
+    "$type": "ConfigLevelEntity",
+    "avatarAbilities": [
+      {
+        "abilityID": "LevelEntity_TowerBuff_CriticalUpAreaAttack",
+        "abilityName": "LevelEntity_TowerBuff_CriticalUpAreaAttack",
+      },
+
+    ],
+  }, //LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack 角色的每次物理攻击（包括装备的被动技能所产生的物理攻击）命中敌人时，暴击率提升X% (3%)，该效果持续A秒 (10秒)，最多可叠加（buff叠加时内置CD0.1秒）N层 (5层)。同时角色每次触发暴击时，会附带一个冲击波，内置CD N秒 (CD 1秒; 系数 1)（冲击波单次伤害可以低一点，但需保证触发频率较高）
+
 }

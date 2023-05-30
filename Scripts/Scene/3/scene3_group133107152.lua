@@ -46,7 +46,8 @@ triggers = {
 	{ config_id = 1152005, name = "ENTER_REGION_152005", event = EventType.EVENT_ENTER_REGION, source = "", condition = "condition_EVENT_ENTER_REGION_152005", action = "action_EVENT_ENTER_REGION_152005", tag = "666" },
 	{ config_id = 1152008, name = "ENTER_REGION_152008", event = EventType.EVENT_ENTER_REGION, source = "", condition = "condition_EVENT_ENTER_REGION_152008", action = "action_EVENT_ENTER_REGION_152008", tag = "666" },
 	{ config_id = 1152010, name = "ENTER_REGION_152010", event = EventType.EVENT_ENTER_REGION, source = "", condition = "condition_EVENT_ENTER_REGION_152010", action = "action_EVENT_ENTER_REGION_152010", tag = "666" },
-	{ config_id = 1152015, name = "GADGET_CREATE_152015", event = EventType.EVENT_GADGET_CREATE, source = "", condition = "condition_EVENT_GADGET_CREATE_152015", action = "action_EVENT_GADGET_CREATE_152015" }
+	{ config_id = 1152011, name = "CHALLENGE_FAIL_152011", event = EventType.EVENT_CHALLENGE_FAIL, source = "888", condition = "", action = "action_EVENT_CHALLENGE_FAIL_152011" },
+	{ config_id = 1152015, name = "QUEST_START_152015", event = EventType.EVENT_QUEST_START, source = "4133808", condition = "", action = "action_EVENT_QUEST_START_152015" }
 }
 
 -- 变量
@@ -79,7 +80,7 @@ suites = {
 		monsters = { },
 		gadgets = { 152001, 152004, 152006, 152007, 152009, 152012, 152013, 152020, 152021, 152023, 152024, 152025, 152026, 152027 },
 		regions = { 152002, 152003, 152005, 152008, 152010 },
-		triggers = { "ENTER_REGION_152002", "ENTER_REGION_152003", "ENTER_REGION_152005", "ENTER_REGION_152008", "ENTER_REGION_152010", "GADGET_CREATE_152015" },
+		triggers = { "ENTER_REGION_152002", "ENTER_REGION_152003", "ENTER_REGION_152005", "ENTER_REGION_152008", "ENTER_REGION_152010", "CHALLENGE_FAIL_152011", "QUEST_START_152015" },
 		rand_weight = 100
 	}
 }
@@ -240,17 +241,19 @@ function action_EVENT_ENTER_REGION_152010(context, evt)
 	return 0
 end
 
--- 触发条件
-function condition_EVENT_GADGET_CREATE_152015(context, evt)
-	if 152004 ~= evt.param1 then
-		return false
+-- 触发操作
+function action_EVENT_CHALLENGE_FAIL_152011(context, evt)
+	-- 通知任务系统完成条件类型"LUA通知"，复杂参数为quest_param的进度+1
+	if 0 ~= ScriptLib.AddQuestProgress(context, "4133899") then
+		ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : add_quest_progress")
+	  return -1
 	end
 	
-	return true
+	return 0
 end
 
 -- 触发操作
-function action_EVENT_GADGET_CREATE_152015(context, evt)
+function action_EVENT_QUEST_START_152015(context, evt)
 	-- 触发镜头注目，注目位置为坐标（-237，395，459），持续时间为2秒，并且为强制注目形式，不广播其他玩家
 		local pos = {x=-237, y=395, z=459}
 	  local pos_follow = {x=0, y=0, z=0}
@@ -260,6 +263,12 @@ function action_EVENT_GADGET_CREATE_152015(context, evt)
 					ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : active_cameraLook_Begin")
 	        return -1
 				end 
+	
+	-- 创建编号为888（该挑战的识别id),挑战内容为184的区域挑战，具体参数填写方式，见DungeonChallengeData表中的注释，所有填写的值都必须是int类型
+	if 0 ~= ScriptLib.ActiveChallenge(context, 888, 184, 60, 4, 666, 5) then
+	  ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : active_challenge")
+		return -1
+	end
 	
 	return 0
 end

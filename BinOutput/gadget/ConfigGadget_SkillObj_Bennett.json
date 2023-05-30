@@ -13,9 +13,14 @@
 			"property":
 			{
 				"useCreatorProperty": true, // 是否继承创造者的数值
-				"denyLockOn": true,
 				"isGhostToAllied": true,
 				"isGhostToEnemy": true,
+				"isInvincible":true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+				"lockType": "Gadget_Lv1",
 			},
 			"beHit":
 			{

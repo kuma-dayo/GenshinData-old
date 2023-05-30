@@ -2905,6 +2905,10 @@
 								{
 									"useGyro": false,
 								},
+								"ps5":
+								{
+									"useGyro": false,
+								},									
 								"other":
 								{
 									"useGyro": true,

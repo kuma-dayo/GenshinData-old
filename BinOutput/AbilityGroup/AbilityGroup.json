@@ -65,4 +65,16 @@
       }
     ],
   },
+  "Watcher_SuperTrial_RangeKillEnemy":
+  {
+    "AbilityGroupSourceType":"ABILITY_GROUP_SOURCE_WATCHER",
+    "abilityGroupTargetType":"ABILITY_GROUP_TARGET_AVATAR",
+    "targetAbilities":
+    [
+      {
+        "abilityID":"Avatar_Watcher_SuperTrial_RangeKillEnemy",
+        "abilityName":"Avatar_Watcher_SuperTrial_RangeKillEnemy",
+      }
+    ],
+  },
 }

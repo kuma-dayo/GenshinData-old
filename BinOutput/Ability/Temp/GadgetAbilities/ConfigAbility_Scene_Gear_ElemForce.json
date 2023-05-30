@@ -20,8 +20,9 @@
 		"abilityName": "SceneObj_Gear_ElemForce_SuccessBuff",
 		"modifiers":
 		{
-			"SuccessBuff_Attack":
+			"SERVER_SuccessBuff_Attack":
 			{
+				"stacking": "Multiple",
 				"isLimitedProperties": true,
 				"state": "AttackUp",
 				"buffID":10001,
@@ -19019,10 +19020,6 @@
 				"modifierMixins":
 				[
 					{
-						"$type": "ApplyModifierWithSharedDurabilityMixin",
-						"modifierName": "RockForce_Avatar_Handler",
-					},
-					{
 					    "$type": "AttachModifierToSelfGlobalValueMixin",
 					    "globalValueKey": "_HAS_ELEMFORCE_ROCK",
 					    "valueSteps" : [-1,0.5, 1.5, 2.5, 3.5],
@@ -19049,15 +19046,6 @@
 						"modifierName": "UNIQUE_RockSeed",
 					},
 				],
-			},
-
-			"RockForce_Avatar_Handler":
-			{
-				"isLimitedProperties": true,
-				"properties":
-				{
-					"Actor_CostStaminaRatio" : -0.3,
-				},
 			},
 
 			"Team_Avatar_Eff1":

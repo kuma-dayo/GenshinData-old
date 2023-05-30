@@ -17,7 +17,8 @@ npcs = {
 
 -- 装置
 gadgets = {
-	{ config_id = 408, gadget_id = 70211012, pos = { x = 483.591, y = 200.399, z = -44.532 }, rot = { x = 0.000, y = 300.314, z = 0.000 }, level = 16, drop_tag = "战斗中级璃月", state = GadgetState.ChestLocked, isOneoff = true, persistent = true, explore = { name = "chest", exp = 1 }, area_id = 9 }
+	{ config_id = 408, gadget_id = 70211012, pos = { x = 483.591, y = 200.399, z = -44.532 }, rot = { x = 0.000, y = 300.314, z = 0.000 }, level = 16, drop_tag = "战斗中级璃月", state = GadgetState.ChestLocked, isOneoff = true, persistent = true, explore = { name = "chest", exp = 1 }, area_id = 9 },
+	{ config_id = 151001, gadget_id = 70300087, pos = { x = 478.299, y = 201.169, z = -40.396 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, area_id = 9 }
 }
 
 -- 区域
@@ -57,7 +58,7 @@ suites = {
 		-- suite_id = 1,
 		-- description = suite_1,
 		monsters = { 253, 254, 255 },
-		gadgets = { 408 },
+		gadgets = { 408, 151001 },
 		regions = { },
 		triggers = { "ANY_MONSTER_DIE_193" },
 		rand_weight = 100

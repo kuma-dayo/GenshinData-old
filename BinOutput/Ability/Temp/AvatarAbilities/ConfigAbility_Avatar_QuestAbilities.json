@@ -1155,7 +1155,7 @@
                         },
 						{
 							"$type": "CreateGadget",
-							"gadgetID": 420000002,
+							"gadgetID": 44000002,
 							"campID": 1001,
 							"campTargetType": "Self",
 							"born":
@@ -1206,7 +1206,7 @@
 					[
 						{
 							"$type": "CreateGadget",
-							"gadgetID": 420000003,
+							"gadgetID": 44000003,
 							"campID": 1001,
 							"campTargetType": "Self",
 							"born":
@@ -1232,7 +1232,7 @@
 					[
 						{
 							"$type": "CreateGadget",
-							"gadgetID": 420000004,
+							"gadgetID": 44000004,
 							"campID": 1001,
 							"campTargetType": "Self",
 							"born":
@@ -1538,56 +1538,11 @@
 				},
 				"FlyBall_FailOnLanded_AvatarHandler":
 				{
-					"modifierMixins":
-					[
-						{
-							"$type": "AttachToStateIDMixin",
-							"stateIDs": ["Fly","Fall","FallingAnthem_BS","FallingAnthem_Loop","FallingAnthem_AS_1","FallingAnthem_AS_2","BeHitAir"],
-							"modifierName": "FlyBall_FailOnLanded",
-						},
-						{
-							"$type": "AttachToStateIDMixin",
-							"stateIDs": ["Jump","Fly","Fall","FallingAnthem_BS","FallingAnthem_Loop","FallingAnthem_AS_1","FallingAnthem_AS_2","BeHitAir"],
-							"modifierName": "FlyBall_ChangePlayMode",
-						},
-					],
-				},
-				"FlyBall_FailOnLanded":
-				{
-					"onRemoved":
-					[	
-						{
-							"$type": "ServerLuaCall",
-							"doOffStage":true,
-							"target": "Self",
-							"isTarget": true,
-							"luaCallType": "CurGalleryControlGroup",
-							"funcName": "FlyBalloonLanding",
-							"predicates": 
-							[
-								{
-		                            "$type": "ByTargetGlobalValue",
-		                            "key": "has_end_game",
-		                            "value": 0,
-		                            "compareType": "NoneOrEqual",
-		                        },
-							],
-						},
-						{
-							"$type": "SetGlobalValue",
-							"doOffStage":true,
-							"key": "has_end_game",	
-							"target":"Team",				
-							"value": 1,
-						},
-					],
-				},				
-				"FlyBall_ChangePlayMode":
-				{
 					"onAdded": 
 					[
 						{
 							"$type": "ChangePlayMode",
+							"doOffStage":true,
 							"muteRemoteAction": true,
 							"toPlayMode": "FleurFairFall",
 						},
@@ -1601,7 +1556,88 @@
 							"toPlayMode": "Normal",
 			            },
 					],
+					"modifierMixins":
+					[
+						{
+							"$type": "AttachToStateIDMixin",
+							"stateIDs": ["Fly","Fall","FallingAnthem_BS","FallingAnthem_Loop","FallingAnthem_AS_1","FallingAnthem_AS_2","BeHitAir"],
+							"modifierName": "FlyBall_FailOnLanded",
+						},
+					],
 				},
+				"FlyBall_FailOnLanded":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "SetGlobalValue",
+							"key": "Avatar_Activity_FlyBall_FlyTimer",
+							"doOffStage":true,
+							"value": 0,
+							"target": "Team",
+							"useLimitRange": true,
+							"maxValue": 10,
+							"minValue": 0,
+						},
+					],
+					"thinkInterval": 1.0,
+					"onThinkInterval":
+					[
+						{
+							"$type": "AddGlobalValue",
+							"key": "Avatar_Activity_FlyBall_FlyTimer",
+							"doOffStage":true,
+							"value": 1,
+							"target": "Team",
+							"useLimitRange": true,
+							"maxValue": 10,
+							"minValue": 0,
+						},
+					],
+					"onRemoved":
+					[	
+						{
+							"$type": "Predicated",
+							"target": "Team",
+							"targetPredicates": 
+							[
+								{
+		                            "$type": "ByTargetGlobalValue",
+		                            "key": "Avatar_Activity_FlyBall_FlyTimer",
+		                            "value": 4.5,
+		                            "compareType": "MoreThanAndEqual",//在空中飞行时间确认，以防类似魈开大进场直接起跳
+		                        },
+							],
+							"successActions": 
+							[
+		 						{
+									"$type": "ServerLuaCall",
+									"doOffStage":true,
+									"target": "Self",
+									"isTarget": true,
+									"luaCallType": "CurGalleryControlGroup",
+									"funcName": "FlyBalloonLanding",
+									"predicates": 
+									[
+										{
+				                            "$type": "ByTargetGlobalValue",
+				                            "key": "has_end_game",
+				                            "value": 0,
+				                            "compareType": "NoneOrEqual",
+				                        },
+									],
+								},
+								{
+									"$type": "SetGlobalValue",
+									"doOffStage":true,
+									"key": "has_end_game",	
+									"target":"Team",				
+									"value": 1,
+								},
+							],
+						},				
+					],
+				},				
 			},
 		},
 	},

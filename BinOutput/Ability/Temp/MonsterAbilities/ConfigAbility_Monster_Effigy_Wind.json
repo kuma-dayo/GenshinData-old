@@ -1737,8 +1737,9 @@
 						"compareType": "Equal",
 					},
 					{
-						"$type" : "ByTargetIsSelf",
-						"isSelf" : false,
+						"$type": "ByTargetType",
+						"targetType": "Self",
+						"isTarget": false,
 					},
 				],
 				"successActions":
@@ -1840,7 +1841,7 @@
 		[
 			{
 				"$type": "AttachToAnimatorStateIDMixin",
-				"stateIDs": ["ReturnToBorn_Blink","Dying_Blink"],
+				"stateIDs": ["ReturnToBorn_Blink","Dying_Blink","StandbyFree"],
 				"modifierName": "KillElemBall",
 			},
 		],
@@ -8236,8 +8237,9 @@
 						"compareType": "Equal",
 					},
 					{
-						"$type" : "ByTargetIsSelf",
-						"isSelf" : false,
+						"$type": "ByTargetType",
+						"targetType": "Self",
+						"isTarget": false,
 					},
 				],
 				"successActions":
@@ -8341,8 +8343,9 @@
 								"compareType": "Equal",
 							},
 							{
-								"$type" : "ByTargetIsSelf",
-								"isSelf" : false,
+								"$type": "ByTargetType",
+								"targetType": "Self",
+								"isTarget": false,
 							},
 						],
 						"successActions":
@@ -8422,8 +8425,9 @@
 								"compareType": "Equal",
 							},
 							{
-								"$type" : "ByTargetIsSelf",
-								"isSelf" : false,
+								"$type": "ByTargetType",
+								"targetType": "Self",
+								"isTarget": false,
 							},
 						],
 						"successActions":
@@ -8529,8 +8533,9 @@
 								"compareType": "Equal",
 							},
 							{
-								"$type" : "ByTargetIsSelf",
-								"isSelf" : false,
+								"$type": "ByTargetType",
+								"targetType": "Self",
+								"isTarget": false,
 							},
 						],
 						"successActions":
@@ -8610,8 +8615,9 @@
 								"compareType": "Equal",
 							},
 							{
-								"$type" : "ByTargetIsSelf",
-								"isSelf" : false,
+								"$type": "ByTargetType",
+								"targetType": "Self",
+								"isTarget": false,
 							},
 						],
 						"successActions":
@@ -8717,8 +8723,9 @@
 								"compareType": "Equal",
 							},
 							{
-								"$type" : "ByTargetIsSelf",
-								"isSelf" : false,
+								"$type": "ByTargetType",
+								"targetType": "Self",
+								"isTarget": false,
 							},
 						],
 						"successActions":
@@ -8798,8 +8805,9 @@
 								"compareType": "Equal",
 							},
 							{
-								"$type" : "ByTargetIsSelf",
-								"isSelf" : false,
+								"$type": "ByTargetType",
+								"targetType": "Self",
+								"isTarget": false,
 							},
 						],
 						"successActions":
@@ -8905,8 +8913,9 @@
 								"compareType": "Equal",
 							},
 							{
-								"$type" : "ByTargetIsSelf",
-								"isSelf" : false,
+								"$type": "ByTargetType",
+								"targetType": "Self",
+								"isTarget": false,
 							},
 						],
 						"successActions":
@@ -8986,8 +8995,9 @@
 								"compareType": "Equal",
 							},
 							{
-								"$type" : "ByTargetIsSelf",
-								"isSelf" : false,
+								"$type": "ByTargetType",
+								"targetType": "Self",
+								"isTarget": false,
 							},
 						],
 						"successActions":

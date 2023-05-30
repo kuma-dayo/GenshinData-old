@@ -30,15 +30,6 @@
 							"y": 0.0,
 							"z": 0.0,
 						},
-/*						{
-							"$type": "ConfigDirectionByWorld",
-							"eularAngles":
-							{
-								"x": 0,
-								"y": 0,
-								"z": 0,
-							},
-						},*/
 					},
 				},
 			],
@@ -1831,6 +1822,7 @@
 				{
 					"$type": "CreateGadget",
 					"gadgetID": 70500021,
+					//"byserver": true,
 					"campID": 5001,
 					"campTargetType": "Enemy",
 					"onGround": true,
@@ -2109,104 +2101,259 @@
 //纯水小精灵
 //
 ///////////////////////////////////////////////////////////////////////////
+{
+    "Default" :
+    {
+        "$type": "ConfigAbility",
+        "abilityName": "SceneObj_Toys_Endora",
+        "onAdded":
+        [
+            {
+                "$type": "AttachModifier",
+                "target": "Team",
+                "modifierName": "UNIQUE_EndoraEFF",
+                "doOffStage": true,
+            },
+            {
+                "$type": "AttachModifier",
+                "modifierName": "ProtectEff",
+                "doOffStage": true,
+            },
+    	],
+    "onAvatarIn":
+    [
+        {
+            "$type": "ApplyModifier",
+            "target": "Team",
+            "modifierName": "UNIQUE_EndoraEFF",
+            "doOffStage": true,
+        },
+    ],
+    "onRemoved":
+    [
+        {
+            "$type": "RemoveModifier",
+            "target": "Team",
+            "modifierName": "UNIQUE_EndoraEFF",
+        },
+    ],
+    "onKill":
+    [
+        {
+            "$type": "RemoveModifier",
+            "target": "Team",
+            "modifierName": "UNIQUE_EndoraEFF",
+        },
+    ],
+    "modifiers":
+    {
+        "ProtectEff":
+        {
+            "thinkInterval": 1.5,
+            "onThinkInterval":
+            [
+                {
+                        "$type": "ApplyModifier",
+                        "target": "Team",
+                        "modifierName": "UNIQUE_EndoraEFF",
+                        "doOffStage": true,
+                },
+                {
+                        "$type": "RemoveModifier",
+                        "modifierName": "ProtectEff",
+                },
+            ],
+        },
+
+        "CombatCheck":
+        {
+            "onAdded":
+            [
+                {
+                    "$type": "Predicated",
+                    "targetPredicates":
+                    [
+                            {
+                                    "$type" : "ByIsCombat",
+                            },
+                    ],
+                    "successActions":
+                    [
+                            {
+                                    "$type":"SendEffectTrigger",
+                                    "target": "Team",
+                                    "effectPattern":"Eff_SceneObj_Widget_Endora_01",
+                                    "type": "Int",
+                                    "parameter":"Enable",
+                                    "value": 0,
+                            },
+                    ],
+                    "failActions":
+                    [
+                            {
+                                    "$type":"SendEffectTrigger",
+                                    "target": "Team",
+                                    "effectPattern":"Eff_SceneObj_Widget_Endora_01",
+                                    "type": "Int",
+                                    "parameter":"Enable",
+                                    "value": 1,
+                            },        
+                    ],
+                },
+            ],
+            "thinkInterval": 2,
+            "onThinkInterval":
+            [
+                {
+                    "$type": "Predicated",
+                    "targetPredicates":
+                    [
+                        {
+                           	 "$type" : "ByIsCombat",
+                        },
+                    ],
+                    "successActions":
+                    [
+                        {
+                            "$type":"SendEffectTrigger",
+                            "target": "Team",
+                            "effectPattern":"Eff_SceneObj_Widget_Endora_01",
+                            "type": "Int",
+                            "parameter":"Enable",
+                            "value": 0,
+                        },
+                    ],
+                    "failActions":
+                    [
+                        {
+                            "$type":"SendEffectTrigger",
+                            "target": "Team",
+                            "effectPattern":"Eff_SceneObj_Widget_Endora_01",
+                            "type": "Int",
+                            "parameter":"Enable",
+                            "value": 1,
+                        },        
+                    ],
+                },
+            ],
+        },
+
+        "UNIQUE_EndoraEFF":
+        {
+                "isUnique": true,
+                "stacking": "Unique",
+                "thinkInterval": 20,
+                "modifierMixins":
+                [
+                        {
+                                "$type": "CurLocalAvatarMixin",
+                                "modifierName": "CombatCheck",
+                        },
+                ],
+                "onThinkInterval":
+                [
+                    {
+                        "$type":"Randomed",
+                        "chance":0.7,
+                        "successActions":
+                        [
+                            {
+                                "$type":"SendEffectTrigger",
+                                "target": "Team",
+                                "effectPattern":"Eff_SceneObj_Widget_Endora_01",
+                                "parameter":"RandomIdle1",
+                            },
+                        ],
+                        "failActions":
+                        [
+                            {
+                                "$type":"SendEffectTrigger",
+                                "target": "Team",
+                                "effectPattern":"Eff_SceneObj_Widget_Endora_01",
+                                "parameter":"RandomIdle2",
+                            },
+                        ],
+                    },
+                ],
+                "onAdded":
+                [
+                    {
+                        "$type": "AttachEffect",
+                        "effectPattern": "Eff_SceneObj_Widget_Endora_01",
+                    },
+            ],
+            },
+        },
+    },
+},
+///////////////////////////////////////////////////////////////////
+//
+//尘歌壶(切onAbilityStart播特效)
+//
+///////////////////////////////////////////////////////////////////////////
 	{
 		"Default" :
 		{
 			"$type": "ConfigAbility",
-			"abilityName": "SceneObj_Toys_Endora",
+			"abilityName": "SceneObj_Area_Common_Property_Ani_Prop_AdeptiAbode_01_Ability",
+			"onAbilityStart":
+			[
+				{
+					"$type" : "ApplyModifier",
+					"modifierName" : "CloseIntee",
+				},
+				{
+					"$type": "DungeonFogEffects",
+					"doOffStage": true,
+					"enable": true,
+					"muteRemoteAction": true,
+					"cameraFogEffectName": "Eff_SceneObj_AdeptiAbode_01_CameraAbsorbIn",
+				},
+				{
+					"$type": "AttachEffect",
+					"effectPattern": "Eff_SceneObj_AdeptiAbode_01",
+				},
+			],
 			"onAdded":
 			[
 				{
-					"$type": "AttachModifier",
-					"target": "Team",
-					"modifierName": "UNIQUE_EndoraEFF",
-					"doOffStage": true,
+					"$type": "FireEffect",
+					"effectPattern": "Eff_SceneObj_Common_AppearMask_03",
 				},
 				{
-					"$type": "AttachModifier",
-					"modifierName": "ProtectEff",
-					"doOffStage": true,
+					//当处于家园室外或室内尝尽，切换尘歌壶小道具交互文本为“离开尘歌壶”
+					"$type":"ChangeGadgetUIInteractHint",
+					"hintTextMapId":"UI_HOMEWORLD_ADEPTIABODE_EXITTITLE",
+			        "predicates":
+                    [
+                        {
+                          "$type": "ByCurrentSceneTypes",
+                          "SceneTypes": ["SCENE_HOME_WORLD","SCENE_HOME_ROOM"],
+                        }
+                    ],
 				},
 			],
-			"onAvatarIn":
-			[
-				{
-					"$type": "ApplyModifier",
-					"target": "Team",
-					"modifierName": "UNIQUE_EndoraEFF",
-					"doOffStage": true,
-				},
-			],
-			"onRemoved":
-			[
-				{
-					"$type": "RemoveModifier",
-					"target": "Team",
-					"modifierName": "UNIQUE_EndoraEFF",
-				},
-			],
-			"onKill":
-			[
-				{
-					"$type": "RemoveModifier",
-					"target": "Team",
-					"modifierName": "UNIQUE_EndoraEFF",
-				},
-			],
-			"modifiers":
+			"modifiers": 
 			{
-				"ProtectEff":
+				"CloseIntee":
 				{
-					"duration": 1.5,
-					"onRemoved" :
-					[
-						{
-							"$type": "ApplyModifier",
-							"target": "Team",
-							"modifierName": "UNIQUE_EndoraEFF",
-							"doOffStage": true,
-						},
-					],
-				},
-				"UNIQUE_EndoraEFF":
-				{
-					"isUnique": true,
-					"stacking": "Unique",
-					"thinkInterval": 20,
-					"onThinkInterval":
-					[
-						{
-							"$type":"Randomed",
-							"chance":0.7,
-							"successActions":
-							[
-								{
-									"$type":"SendEffectTrigger",
-									"target": "Team",
-									"effectPattern":"Eff_SceneObj_Widget_Endora_01",
-									"parameter":"RandomIdle1",
-								},
-							],
-							"failActions":
-							[
-								{
-									"$type":"SendEffectTrigger",
-									"target": "Team",
-									"effectPattern":"Eff_SceneObj_Widget_Endora_01",
-									"parameter":"RandomIdle2",
-								},
-							],
-						},
-					],
+					"duration":5,
 					"onAdded":
 					[
 						{
-							"$type": "AttachEffect",
-							"effectPattern": "Eff_SceneObj_Widget_Endora_01",
+							"$type": "EnableGadgetIntee",
+							"enable": false,
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "EnableGadgetIntee",
+							"enable": true,
 						},
 					],
 				},
 			},
 		},
-	},
+	},	
 ]

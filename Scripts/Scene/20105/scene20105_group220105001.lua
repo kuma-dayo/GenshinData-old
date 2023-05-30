@@ -22,7 +22,7 @@ gadgets = {
 	{ config_id = 1006, gadget_id = 70350005, pos = { x = -29.122, y = 44.693, z = -51.285 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
 	{ config_id = 1007, gadget_id = 70350005, pos = { x = -28.111, y = 45.491, z = -84.600 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
 	{ config_id = 1009, gadget_id = 70211101, pos = { x = -114.333, y = 9.021, z = -93.576 }, rot = { x = 0.000, y = 90.000, z = 0.000 }, level = 11, drop_tag = "解谜低级璃月", isOneoff = true, persistent = true },
-	{ config_id = 1010, gadget_id = 70211121, pos = { x = -147.744, y = 1.261, z = -43.126 }, rot = { x = 0.000, y = 270.000, z = 0.000 }, level = 11, drop_tag = "解谜高级璃月", isOneoff = true, persistent = true },
+	{ config_id = 1010, gadget_id = 70211121, pos = { x = -145.149, y = 1.176, z = -46.156 }, rot = { x = 0.000, y = 180.000, z = 0.000 }, level = 11, drop_tag = "解谜高级璃月", isOneoff = true, persistent = true },
 	{ config_id = 1011, gadget_id = 70211101, pos = { x = -85.231, y = 18.922, z = -98.137 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 11, drop_tag = "解谜低级璃月", isOneoff = true, persistent = true },
 	{ config_id = 1012, gadget_id = 70350005, pos = { x = -157.704, y = 2.244, z = -12.383 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
 	{ config_id = 1014, gadget_id = 70220014, pos = { x = -86.321, y = 18.771, z = -96.340 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
@@ -100,9 +100,9 @@ suites = {
 		-- suite_id = 1,
 		-- description = ,
 		monsters = { },
-		gadgets = { 1001, 1004, 1006, 1007, 1009, 1011, 1012, 1014, 1015, 1025, 1027, 1030 },
-		regions = { 1013, 1023 },
-		triggers = { "GADGET_CREATE_1002", "GADGET_CREATE_1008", "ENTER_REGION_1013", "ENTER_REGION_1023", "QUEST_START_1034" },
+		gadgets = { 1001, 1004, 1006, 1007, 1009, 1011, 1012, 1014 },
+		regions = { 1003, 1013, 1023 },
+		triggers = { "GADGET_CREATE_1002", "ENTER_REGION_1003", "GADGET_CREATE_1008", "ENTER_REGION_1013", "ENTER_REGION_1023", "QUEST_START_1034" },
 		rand_weight = 100,
 		ban_refresh = true
 	},
@@ -110,9 +110,9 @@ suites = {
 		-- suite_id = 2,
 		-- description = ,
 		monsters = { },
-		gadgets = { 1016, 1017, 1018, 1019, 1021, 1022, 1024, 1026, 1028, 1029, 1031, 1032, 1033, 1035, 1037 },
-		regions = { 1003 },
-		triggers = { "ENTER_REGION_1003" },
+		gadgets = { 1015, 1016, 1017, 1018, 1019, 1021, 1022, 1024, 1025, 1026, 1027, 1028, 1029, 1030, 1031, 1032, 1033, 1035, 1037 },
+		regions = { },
+		triggers = { },
 		rand_weight = 100,
 		ban_refresh = true
 	},
@@ -331,6 +331,9 @@ end
 function action_EVENT_QUEST_START_1034(context, evt)
 	-- 添加suite3的新内容
 	    ScriptLib.AddExtraGroupSuite(context, 220105001, 3)
+	
+	-- 删除suite2的所有内容
+	    ScriptLib.RemoveExtraGroupSuite(context, 220105001, 2)
 	
 	return 0
 end

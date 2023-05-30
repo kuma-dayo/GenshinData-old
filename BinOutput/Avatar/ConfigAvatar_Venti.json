@@ -10,14 +10,6 @@
 		"mass": 10.0,
 		"affectedByWorld": true,
 		"checkInSurface": true,
-		"effectGroups":
-		[
-			"AvatarSkill_Venti_Effects"
-		],
-		"consoleEffectGroups":
-		[
-			"AvatarSkill_Venti_Effects"
-		],
 		"avatarHeight": 1.6286,
 		"avatarModelHeight": 1.61,
 		"height": 1.66,
@@ -231,32 +223,6 @@
 		"elementAbsorb": "PRIVATE_Pendant",
 		"elementPendant": "PRIVATE_Pendant"
 	},
-	"bindEmotions":
-	[
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Fight_Attack_01",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Fight_Attack_02",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Fight_Attack_03",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Fight_Attack_04",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Fight_Attack_05",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Fight_Attack_06",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Skill_Rise_Pre",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Skill_Rise_Charge",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Skill_WindBlade_Land",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Skill_Rise_Charge_1",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Skill_WindBlade",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Skill_WindBlade_RiseUP",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Skill_WindBlade_AS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Fight_Aim",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Fight_AimBS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Fight_AimAS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Fight_AimAttack",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Normal",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Venti_Show_01",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_RelicShow_BS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_RelicShow_Loop",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_RelicShow_AS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_Normal"
-	],
 	"combat":
 	{
 		"property":
@@ -1388,6 +1354,37 @@
 					"actionPanelState": "FastAim",
 					"needFaceToAnimParam": true
 				},
+				"FastAimShoot":
+				{
+					"$type": "ConfigAvatarStateIDInfo",
+					"animatorStates":
+					{
+						"FastAimShoot":
+						[
+							"Venti_AimShoot",
+							"Audio_Boy_Bow_Venti_Fast_Aim_Shoot"
+						]
+					},
+					"moveType": "combatMove",
+					"canDoSkill": true,
+					"canChangeAvatar":
+					[
+						{
+							"normalizeStart": 0.0,
+							"normalizeEnd": 1.0
+						}
+					],
+					"resetAnimatorTriggerOnEnter": [],
+					"resetAnimatorTriggerOnExit":
+					[
+						"BeHit",
+						"DoSkill",
+						"Jump"
+					],
+					"setAnimatorBoolean": [],
+					"battouOnStart": true,
+					"actionPanelState": "FastAim"
+				},
 				"WindBlade_Rise_BS":
 				{
 					"$type": "ConfigAvatarStateIDInfo",
@@ -2220,7 +2217,7 @@
 						"FastAimShoot":
 						[
 							"Venti_AimShoot",
-							"Audio_Boy_Bow_Venti_Shoot",
+							"Audio_Boy_Bow_Venti_Fast_Aim_Shoot",
 							"Emo_Avatar_Venti_Fight_AimAttack"
 						]
 					},
@@ -2380,6 +2377,30 @@
 					},
 					"otherStateNames": [],
 					"usage": "Any"
+				},
+				{
+					"currentStateName": "AimLoop",
+					"audioEvent":
+					{
+						"text": "Play_sfx_weapon_bow_girl_aimNormal"
+					},
+					"otherStateNames":
+					[
+						"AimShoot"
+					],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "FastAimLoop",
+					"audioEvent":
+					{
+						"text": "Play_sfx_weapon_bow_girl_aimNormal"
+					},
+					"otherStateNames":
+					[
+						"FastAimShoot"
+					],
+					"usage": "Except"
 				},
 				{
 					"currentStateName": "StandbyPutaway",
@@ -2768,6 +2789,24 @@
 			"onTransitionIn":
 			[
 				{
+					"currentStateName": "AimLoop",
+					"audioEvent":
+					{
+						"text": "Play_sfx_weapon_bow_aimFocus"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "FastAimLoop",
+					"audioEvent":
+					{
+						"text": "Play_sfx_weapon_bow_aimFocus"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
 					"currentStateName": "SprintBS",
 					"audioEvent":
 					{
@@ -2960,7 +2999,7 @@
 					"PCNoTessellation":
 					{
 						"effect": "Eff_Character_Snow_Footprint",
-						"deformation": "",
+						"deformation": ""
 					},
 					"pc":
 					{
@@ -2983,7 +3022,7 @@
 					"PCNoTessellation":
 					{
 						"effect": "Eff_Character_Snow_Footprint",
-						"deformation": "",
+						"deformation": ""
 					},
 					"pc":
 					{

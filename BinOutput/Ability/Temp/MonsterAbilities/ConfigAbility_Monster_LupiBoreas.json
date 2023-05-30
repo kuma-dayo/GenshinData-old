@@ -320,6 +320,7 @@
 					{
 						"$type" : "AttachAbilityStateResistance",
 						"resistanceListID": 13002,
+						"doOffStage": true,
 					},
 				],
 			},
@@ -6494,10 +6495,76 @@
 		],
 		"onAbilityStart": 
 		[
+			// {
+			// 	"$type": "TriggerAttackEvent",
+			// 	"targetType": "Enemy",
+			// 	"attackEvent":
+			// 	{
+			// 		"attackPattern":
+			// 		{
+			// 			"$type": "ConfigAttackSphere",
+			// 			"triggerType": "TriggerNoRepeat",
+		 //   			    "radius": 1.0,
+		 //          		"born":
+			// 			{
+			// 				"$type": "ConfigBornByCollisionPoint",
+			// 			},
+		 //        	},
+			// 		"attackInfo":
+			// 		{
+			// 			"attackProperty":
+			// 			{
+			// 				"damagePercentage": 0.5,
+			// 				"strikeType": "Default",
+			// 				"elementType": "Wind",
+			// 				"elementDurability": 100,
+			// 				"enBreak": 1000,
+			// 			},
+			// 			"hitPattern":
+			// 			{
+			// 				"onHitEffectName": "default",
+			// 				"hitImpulseType": "LV7",
+			// 				"hitHaltTime": 0,
+			// 				"hitHaltTimeScale": 0,
+			// 				"muteHitText": false,
+			// 			},
+			// 			"forceCameraShake": false,
+			// 			"cameraShake":
+			// 			{
+			// 				"shakeRange": 0.24,
+			// 				"shakeTime": 0.24,
+			// 			},
+			//         }
+			// 	},
+			// },
+			// {
+			// 	"$type": "TriggerAttackEvent",
+			// 	"targetType": "Alliance",
+			// 	"attackEvent":
+			// 	{
+			// 		"attackPattern":
+			// 		{
+			// 			"$type": "ConfigAttackSphere",
+			// 			"triggerType": "TriggerNoRepeat",
+		 //   			    "radius": 1.0,
+		 //          		"born":
+			// 			{
+			// 				"$type": "ConfigBornByCollisionPoint",
+			// 			},
+		 //        	},
+			// 		"attackInfo":
+			// 		{
+			// 			"attackTag": "LupiBoreas_Wind",
+			// 			"attackProperty":
+			// 			{
+			// 				"damagePercentage": 0,
+			//         	},
+			//         }
+			// 	},
+			// },
 			{
-				"$type": "TriggerAttackEvent",
-				"targetType": "Enemy",
-				"attackEvent":
+				"$type" : "TriggerAttackTargetMapEvent",
+				"attackTargetMapEvent":
 				{
 					"attackPattern":
 					{
@@ -6508,59 +6575,45 @@
 						{
 							"$type": "ConfigBornByCollisionPoint",
 						},
-		        	},
-					"attackInfo":
+					},
+					"attackInfoMap":
 					{
-						"attackProperty":
+						"Enemy":
 						{
-							"damagePercentage": 0.5,
-							"strikeType": "Default",
-							"elementType": "Wind",
-							"elementDurability": 100,
-							"enBreak": 1000,
+							"attackProperty":
+							{
+								"damagePercentage": 0.5,
+								"strikeType": "Default",
+								"elementType": "Wind",
+								"elementDurability": 100,
+								"enBreak": 1000,
+							},
+							"hitPattern":
+							{
+								"onHitEffectName": "default",
+								"hitImpulseType": "LV7",
+								"hitHaltTime": 0,
+								"hitHaltTimeScale": 0,
+								"muteHitText": false,
+							},
+							"forceCameraShake": false,
+							"cameraShake":
+							{
+								"shakeRange": 0.24,
+								"shakeTime": 0.24,
+							},
 						},
-						"hitPattern":
+						"Alliance":
 						{
-							"onHitEffectName": "default",
-							"hitImpulseType": "LV7",
-							"hitHaltTime": 0,
-							"hitHaltTimeScale": 0,
-							"muteHitText": false,
+							"attackTag": "LupiBoreas_Wind",
+							"attackProperty":
+							{
+								"damagePercentage": 0,
+				        	},
 						},
-						"forceCameraShake": false,
-						"cameraShake":
-						{
-							"shakeRange": 0.24,
-							"shakeTime": 0.24,
-						},
-			        }
+					}
 				},
 			},
-			{
-				"$type": "TriggerAttackEvent",
-				"targetType": "Alliance",
-				"attackEvent":
-				{
-					"attackPattern":
-					{
-						"$type": "ConfigAttackSphere",
-						"triggerType": "TriggerNoRepeat",
-		   			    "radius": 1.0,
-		          		"born":
-						{
-							"$type": "ConfigBornByCollisionPoint",
-						},
-		        	},
-					"attackInfo":
-					{
-						"attackTag": "LupiBoreas_Wind",
-						"attackProperty":
-						{
-							"damagePercentage": 0,
-			        	},
-			        }
-				},
-			},	
 		],
 		"modifiers":
 		{

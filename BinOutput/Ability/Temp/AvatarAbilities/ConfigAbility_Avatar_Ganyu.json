@@ -121,6 +121,11 @@
 									"useFocusSticky": true,
 									"useGyro": false,
 								},
+								"ps5":
+								{
+									"useFocusSticky": true,
+									"useGyro": false,
+								},									
 								"other":
 								{
 									"useFocusSticky": true,
@@ -279,6 +284,11 @@
 									"useFocusSticky": true,
 									"useGyro": false,
 								},
+								"ps5":
+								{
+									"useFocusSticky": true,
+									"useGyro": false,
+								},								
 								"other":
 								{
 									"useFocusSticky": true,
@@ -2448,15 +2458,17 @@
 			        "modifierName": "IceBreakerElementBall",
 		        },
 			],
-			"abilityMixins":
+			"onKill":
 			[
 				{
-					"$type": "ServerCreateGadgetOnKillMixin",	//莲花被打死时服务器先知道，所以本地onkill时创建会无法读取属性，必须服务器创建
-					"gadgetIDList": [41037015],
+					"$type": "CreateGadget",
+					"gadgetID": 41037015,
 					"campID": 1001,
 					"campTargetType": "Enemy",
-					"randomCreate": false,
-					"useOriginOwnerAsGadgetOwner": true,	//防止莲花被打死的时候导致爆炸gadget丢失和Avatar的关系，所以指派甘雨作为其Owner
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+					},
 				},
 			],
 			"modifiers":
@@ -2539,16 +2551,6 @@
 					],
 					"onRemoved":
 					[
-						{
-							"$type": "CreateGadget",
-							"gadgetID": 41037015,
-							"campID": 1001,
-							"campTargetType": "Enemy",
-							"born":
-							{
-								"$type": "ConfigBornBySelf",
-							},
-						},
 						{
 							"$type": "KillSelf",
 						},
@@ -3811,18 +3813,27 @@
 					"successActions":
 					[
 						{
-							"$type": "FireEffect",
+							"$type": "FireSubEmitterEffect",
 							"effectPattern": "Eff_Ganyu_UnbreakableIce_Iceberg1_AS1",
 							"born":
 							{
 								"$type": "ConfigBornByCollisionPoint",
 							},
 						},
+						{
+							"$type" : "TriggerAudio",
+							"responder" : "Caster",
+							"operation":
+							{
+								"$type": "ConfigAudioEventOp",
+								"operation": { "text" : "Play_sfx_char_chongyun_elementalSkill_hit" }
+							},
+						},
 					],
 					"failActions":
 					[
 						{
-							"$type": "FireEffect",
+							"$type": "FireSubEmitterEffect",
 							"effectPattern": "Eff_Ganyu_UnbreakableIce_Iceberg1_AS",
 							"born":
 							{
@@ -3831,15 +3842,15 @@
 						},
 					],
 				},
-				// {
-				// 	"$type" : "TriggerAudio",
-				// 	"responder" : "Caster",
-				// 	"operation":
-				// 	{
-				// 		"$type": "ConfigAudioEventOp",
-				// 		"operation": { "text" : "Play_sfx_char_ganyu_unbreakAbleice_hit" }
-				// 	},
-				// },
+				{
+					"$type" : "TriggerAudio",
+					"responder" : "Caster",
+					"operation":
+					{
+						"$type": "ConfigAudioEventOp",
+						"operation": { "text" : "Play_sfx_char_ganyu_unbreakAbleice_hit" }
+					},
+				},
 			],
 			"abilitySpecials":
 			{

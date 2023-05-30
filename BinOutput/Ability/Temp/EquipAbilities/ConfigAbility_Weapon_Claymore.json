@@ -3296,7 +3296,7 @@
 	},
 	///////////////////////////////////////////////////////////////
 	//
-	//  12503 松籁响起之时
+	//  12503 松籁响起之时 （旧设计，待删除）
 	//  某项数值能力提升XX
 	//  获得元素微粒与元素晶球时，可以获得一次充能，在此期间XX属性提升XX%，持续6s；期间再次充能会刷新效果持续时间，并叠加属性提升，该效果至多叠加至4层，充能叠层间隔为0.5s；
 	//  当叠加为4层之后，再度触发该效果时，可获得哀思嗟叹之歌，获得一次强力效果提升，攻击力提升50%，重击伤害提升50%，持续12秒;叠层爆发属性每30s至多触发一次。
@@ -3673,6 +3673,355 @@
                 "SpeedRate":0,
                 "Dura":0,
                 "CDTime":0,
+            },
+		},
+	},
+
+///////////////////////////////////////////////////////////////
+//
+//  12503 松籁响起之时
+//  某项数值能力提升XX
+//  普攻或重击命中敌人时叠层，叠满4层时获得全队Buff，普攻速度+攻击力提升
+//
+///////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Weapon_Claymore_Widsith",
+			"isDynamicAbility":true,
+			"onAdded":
+			[
+				{
+					"$type":"SetGlobalValue",
+					"key": "_ABILITY_Weapon_Claymore_Widsith",
+        			"value":0,
+				},
+				{
+					"$type":"SetGlobalValue",
+					"key": "_ABILITY_Weapon_Claymore_Widsith_Check",
+        			"value":0,
+				},
+			],
+			"abilityMixins":
+			[	
+				{
+                    "$type": "AttachModifierToSelfGlobalValueMixin",
+                    "globalValueKey": "_ABILITY_Weapon_Claymore_Widsith_Check",
+                    "valueSteps":[-1.5, -0.5, 0.5],
+                    "removeAppliedModifier": true,
+                    "modifierNameSteps":
+                    [
+                    	"UNIQUE_Weapon_Claymore_Widsith_CD",
+                    	"UNIQUE_Weapon_Claymore_Widsith_Handler",
+                    ],
+                },
+                {
+                    "$type": "AttachModifierToSelfGlobalValueMixin",
+                    "globalValueKey": "_ABILITY_Weapon_Claymore_Widsith",
+                    "valueSteps":[-0.5, 0.5, 1.5, 2.5, 3.5, 100],
+                    "removeAppliedModifier": true,
+                    "modifierNameSteps":
+                    [
+                    	"UNIQUE_Weapon_Claymore_Widsith_0",
+                    	"UNIQUE_Weapon_Claymore_Widsith_1",
+                    	"UNIQUE_Weapon_Claymore_Widsith_2",
+                    	"UNIQUE_Weapon_Claymore_Widsith_3",
+                    	"UNIQUE_Weapon_Claymore_Widsith_Full",
+                    ],
+                },
+			],
+			"modifiers":
+			{
+                "UNIQUE_Weapon_Claymore_Widsith_CD":
+                {
+                	"duration":"%CDTime",
+                	"isUnique":true,                	
+                    "onRemoved":
+                    [
+                        {
+                            "$type":"SetGlobalValue",
+                            "key":"_ABILITY_Weapon_Claymore_Widsith",
+                            "value":0,
+                            "doOffStage":true,
+                        },
+                        {
+                        	"$type":"SetGlobalValue",
+		        			"key":"_ABILITY_Weapon_Claymore_Widsith_Check",
+		        			"value":0,
+		        			"doOffStage":true,
+                        },
+                    ],
+                },
+				"UNIQUE_Weapon_Claymore_Widsith_Handler": 
+				{
+					"isUnique":true,
+					"onAttackLanded":
+					[
+						{
+							"$type":"Predicated",
+							"target":"Target",
+							// "doOffStage":true,   //普攻与重击不需要后场检测，只有前场触发的应用场景
+							"targetPredicates":
+							[
+								{
+									"$type":"ByEntityTypes",
+									"entityTypes":["Monster",],
+								},
+								{
+				                 	"$type": "ByTargetGlobalValue",
+				                 	"key": "_ANIMAL_ENTITY_TYPE",
+				                 	"value": 0,
+				                 	"compareType": "NoneOrEqual",
+				                },
+								{
+									"$type":"ByAttackTags",
+									"attackTags":
+									[
+										"NormalAttack_01",
+										"NormalAttack_02",
+										"NormalAttack_03",
+										"NormalAttack_04",
+										"NormalAttack_05",
+										"NormalAttack_06",
+										"ExtraAttack",
+									],
+								},
+								{
+									"$type":"ByEquipAffixReady",
+									"target":"Self",
+									"equipAffixDataID":112503,
+								},
+							],
+							"successActions":
+							[
+								{
+									"$type":"ApplyModifier",
+									"modifierName":"UNIQUE_Weapon_Claymore_Widsith_AddGlobalvalue", 
+									// "doOffStage":true,
+								},
+							],
+						},
+					],
+				},
+				"UNIQUE_Weapon_Claymore_Widsith_AddGlobalvalue":
+				{
+					"stacking":"Unique",
+					"isUnique":true,
+					"duration":"%TriggerCD", //内置触发cd。
+					"onAdded":
+					[
+						{
+	                        "$type": "AddGlobalValue",
+	                        "key":"_ABILITY_Weapon_Claymore_Widsith",
+	                        "value":1,
+	                        "useLimitRange":true,
+	                        "maxValue":4,
+							"doOffStage":true,
+	                    },
+	                    {
+	                    	"$type":"ApplyModifier",
+	                    	"modifierName":"UNIQUE_Weapon_Claymore_Widsith_Timer",
+							"doOffStage":true,
+	                    },
+					],
+				},
+				 "UNIQUE_Weapon_Claymore_Widsith_Timer":
+                {
+                    "duration": 30,   //这一系列的相思之符持续时间都会比较久
+                    "isUnique": true,
+                    "onRemoved":
+                    [
+                        {
+                            "$type":"SetGlobalValue",
+	                        "key":"_ABILITY_Weapon_Claymore_Widsith",
+                            "value":0,
+                     	    "doOffStage":true, //恢复的操作必须是offstage
+                            "predicates":
+                            [
+                            	{
+                            		"$type":"ByTargetGlobalValue",
+	                        		"key":"_ABILITY_Weapon_Claymore_Widsith", //当4的时候已经触发buff了，就不该清除了。
+                            		"value":3,
+                            		"compareType":"LessAndEqual",
+                            	},
+                            ],
+                        },
+                    ],
+                },
+				"UNIQUE_Weapon_Claymore_Widsith_0":
+				{
+                    "isUnique":true,
+				},
+				"UNIQUE_Weapon_Claymore_Widsith_1":
+                {
+                    "isUnique":true,
+                    "onAdded":
+                    [
+                        {
+                            "$type":"AttachEffect",
+                            "effectPattern":"Eff_Weapon_EnergyPoem_Stack1",
+                            "doOffStage":true,
+                        },
+                    ],
+                },
+                "UNIQUE_Weapon_Claymore_Widsith_2":
+                {
+                    "isUnique":true,
+                    "onAdded":
+                    [
+                        {
+                            "$type":"AttachEffect",
+                            "effectPattern":"Eff_Weapon_EnergyPoem_Stack2",
+                            "doOffStage":true,
+                        },
+                    ],
+                },
+                "UNIQUE_Weapon_Claymore_Widsith_3":
+                {
+                    "isUnique":true,
+                    "onAdded":
+                    [
+                        {
+                            "$type":"AttachEffect",
+                            "effectPattern":"Eff_Weapon_EnergyPoem_Stack3",
+                            "doOffStage":true,
+                        },
+                    ],
+                },
+                "UNIQUE_Weapon_Claymore_Widsith_Full":
+                {
+                	"isUnique":true,
+                	"stacking":"Unique",
+                    "duration":"%Dura",
+                    "onAdded":
+                    [
+                        {
+                            "$type":"EquipAffixStart",
+                            "CD":"%CDTime",
+                            "equipAffixDataID":112503,
+                            "doOffStage":true,
+                        },
+                        {
+                        	//关闭叠层检测
+                        	"$type":"SetGlobalValue",   
+		        			"key":"_ABILITY_Weapon_Claymore_Widsith_Check",
+		        			"value":-1,
+		        			"doOffStage":true,
+                        },
+                        {
+                            "$type":"FireEffect",
+                            "effectPattern":"Eff_Weapon_Widsith_Bow_Burst",
+                            "doOffStage":true,
+                        },
+                        {
+                        	//这个buff会成长，所以需要移除再加。如果不成长其实可以不移除再加。
+                        	"$type":"RemoveUniqueModifier",
+                        	"target": "AllPlayerAvatars",
+                        	"modifierName":"UNIQUE_Weapon_Widsith_CommonBuff",   
+							"doOffStage":true,
+							"predicates":
+							[
+								{
+									"$type":"ByTargetPositionToSelfPosition",
+									"compareType":"XZ",
+									"value":40,
+									"logic": "LesserOrEqual",
+								},
+							],
+                        },
+                        {//这个buff会成长，所以需要移除再加。
+                        	"$type":"RemoveUniqueModifier",
+                            "target":"AllPlayerAvatars",
+                        	"modifierName":"UNIQUE_Weapon_Claymore_Widsith_ClaymoreBuff",  
+							"doOffStage":true,
+							"predicates":
+							[
+								{
+									"$type":"ByTargetPositionToSelfPosition",
+									"compareType":"XZ",
+									"value":40,
+									"logic": "LesserOrEqual",
+								},
+							],
+                        },
+                        {
+                        	"$type":"ApplyModifier",
+                            "target":"AllPlayerAvatars",
+                        	"modifierName":"UNIQUE_Weapon_Widsith_CommonBuff",
+							"doOffStage":true,
+							"predicates":
+							[
+								{
+									"$type":"ByTargetPositionToSelfPosition",
+									"compareType":"XZ",
+									"value":40,
+									"logic": "LesserOrEqual",
+								},
+							],
+                        },
+                        {
+                        	"$type":"ApplyModifier",
+                            "target":"AllPlayerAvatars",
+                        	"modifierName":"UNIQUE_Weapon_Claymore_Widsith_ClaymoreBuff",
+							"doOffStage":true,
+							"predicates":
+							[
+								{
+									"$type":"ByTargetPositionToSelfPosition",
+									"compareType":"XZ",
+									"value":40,
+									"logic": "LesserOrEqual",
+								},
+							],
+                        },
+                    ],
+                },
+                "UNIQUE_Weapon_Widsith_CommonBuff": //这个套装buff效果
+                {
+                	"isUnique": true,
+                	"duration": "%Dura",
+                	"isLimitedProperties": true,
+                	"state": "AttackUp",
+                	"buffID": 10001,
+                	"onAdded":
+                	[
+                		{
+                			"$type":"FireEffect",
+                			"effectPattern":"Eff_Weapon_Widsith_Common_TeamBuff",
+                		},
+                	],
+                	"properties":
+                	{
+						"Actor_AttackRatio": "%CommonBuff",
+                	},
+                },
+                "UNIQUE_Weapon_Claymore_Widsith_ClaymoreBuff":  //这个是单个武器buff效果
+                {
+                	"isUnique": true,
+                	"stacking": "Refresh", 
+                	"duration": "%Dura",
+                	"isLimitedProperties": true,
+                	"onAdded":
+                	[
+                		{
+                			"$type":"FireEffect",
+                			"effectPattern":"Eff_Weapon_Widsith_Claymore_TeamBuff", 
+                		},
+                	],
+                	"properties":
+                	{
+						"Animator_AttackSpeedRatio": "%ClaymoreBuff",
+                	},
+                },
+			},
+            "abilitySpecials":
+            {
+                "TriggerCD":0, //触发间隔
+                "Dura":0,    //buff持续时间
+            	"ClaymoreBuff":0,  //大剑buff数值
+                "CommonBuff":0, //commonBuff强度，尽量避免精炼会升级导致来回覆盖。
+                "CDTime":0, //buff的cd
             },
 		},
 	},

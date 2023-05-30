@@ -83,6 +83,12 @@
 			"includeForces": ["FixedRushMoveType"],
 		},
 		"positionModifyState": "Run",
+		"positionModifyStateMap":
+		{
+			"201":"None",
+			"202":"None",
+			"301":"None",
+		},
 	},
 	"dither":
 	{

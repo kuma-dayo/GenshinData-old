@@ -3148,6 +3148,30 @@
 					"usage": "Any"
 				},
 				{
+					"currentStateName": "FastAimLoop",
+					"audioEvent":
+					{
+						"text": "Play_sfx_weapon_bow_girl_aimNormal"
+					},
+					"otherStateNames":
+					[
+						"FastAimShoot"
+					],
+					"usage": "Except"
+				},
+				{
+					"currentStateName": "AimLoop",
+					"audioEvent":
+					{
+						"text": "Play_sfx_weapon_bow_girl_aimNormal"
+					},
+					"otherStateNames":
+					[
+						"AimShoot"
+					],
+					"usage": "Except"
+				},
+				{
 					"currentStateName": "AimLoop",
 					"audioEvent":
 					{
@@ -3573,6 +3597,24 @@
 			],
 			"onTransitionIn":
 			[
+				{
+					"currentStateName": "AimLoop",
+					"audioEvent":
+					{
+						"text": "Play_sfx_weapon_bow_aimFocus"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "FastAimLoop",
+					"audioEvent":
+					{
+						"text": "Play_sfx_weapon_bow_aimFocus"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
 				{
 					"currentStateName": "NormalDie",
 					"audioEvent":

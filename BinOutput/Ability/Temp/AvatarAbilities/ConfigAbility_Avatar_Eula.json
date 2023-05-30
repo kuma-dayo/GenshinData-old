@@ -1,7 +1,7 @@
 [
 ////////////////////////////////////////////////////////////////
 //
-//  重击 ExtraAttack
+//  ??? ExtraAttack
 //
 ////////////////////////////////////////////////////////////////
 	{
@@ -55,10 +55,10 @@
 					[
 						{
 							"$type": "SetAnimatorTrigger",
-							"triggerID": "EndHoldTrigger", //制造一个持续0.5秒的modifier，remove的时候都add一下trigger并移除trigger
+							"triggerID": "EndHoldTrigger", 
 						},
 						{
-							"$type":"ApplyModifier",  //因为在第二击进入时可能已经松开按键了，导致EndHoldTrigger被干掉。所以设置了一个modifier保持这个trigger1秒，transation一般都小于一秒，就没问题了。
+							"$type":"ApplyModifier",  
 							"modifierName":"SetTrigger",
 						},
 					],
@@ -138,7 +138,7 @@
 			"abilitySpecials":
 			{
 				"ExtraAttack_Claymore_Stamina_Cost":0,
-				"Max_Dura":5
+				"Max_Dura":0,
 			},
 		},
 	},
@@ -149,19 +149,815 @@
 //
 ////////////////////////////////////////////////////////////////
 
-//根据自身的BUFF层数，消耗BUIFF并触发效果
+    {
+        "Default":
+        {
+            "$type":"ConfigAbility",
+            "abilityName" :"Avatar_Eula_ElementalArt_ExtraAttack_1",
+            "onAdded":
+            [
+                {
+                    "$type": "SetSelfAttackTarget",
+                    "otherTargets":
+                    {
+                        "$type": "SelectTargetsByShape",
+                        "shapeName": "CircleLockEnemy",
+                        "centerBasedOn": "Self",
+                        "campTargetType": "Enemy",
+                        "campBasedOn": "Self",
+                        "topLimit":1,
+                        "sortType": "Nearest",
+                    },
+                    "predicates":
+                    [
+                        {
+                            "$type" : "ByEntityTypes",
+                            "entityTypes" : ["Monster",],
+                        },
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "key": "_ANIMAL_ENTITY_TYPE",
+                            "value": 0,
+                            "compareType": "NoneOrEqual",
+                        },
+                    ],
+                },
+                {
+                    "$type" : "Predicated",
+                    "targetPredicates" :
+                    [
+                        {
+                            "$type":"ByHasAttackTarget",
+                        },
+                    ],
+                    "successActions" :
+                    [
+                        {
+                            "$type": "ApplyModifier",
+                            "modifierName":"HasTarget",
+                        },
+                    ],
+                    "failActions" :
+                    [
+                        {
+                            "$type": "ApplyModifier",
+                            "modifierName": "NoTarget",
+                        },
+                    ],
+                },
+            ],
+            "modifiers":
+            {
+                "HasTarget":
+                {
+                    "duration":0.8,
+                    "onAdded":
+                    [
+                        {
+                            "$type": "SetGlobalPos",
+                            "target": "SelfAttackTarget",
+                            "key": "_ABILITY_Eula_ElementalArt_ExtraAttack_Pos_1",
+                            "born":
+                            {
+                                "$type": "ConfigBornByTarget",
+                                "onGround": true,
+                            },
+                            "setTarget": false,
+                        },
+                        {
+                            "$type":"FireEffect",
+                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_ElementalArt_ExtraAttack",
+                            "born":
+                            {
+                                "$type": "ConfigBornByGlobalValue",
+                                "positionKey":"_ABILITY_Eula_ElementalArt_ExtraAttack_Pos_1",
+                                "offset":
+                                {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0,
+                                },
+                                "onGround": true,
+                            },
+                        },
+                    ],
+                    "thinkInterval":0.5,
+                    "onThinkInterval":
+                    [
+                        // {
+                        //     "$type": "FireEffect",
+                        //     "effectPattern": "Eff_Avatar_Lady_Claymore_Eula_ElementalArt_ExtraAttack_Explode",
+                        //     "born":
+                        //     {
+                        //         "$type": "ConfigBornByGlobalValue",
+                        //         "positionKey":"_ABILITY_Eula_ElementalArt_ExtraAttack_Pos_1",
+                        //         "offset":
+                        //         {
+                        //             "x": 0.0,
+                        //             "y": 0.0,
+                        //             "z": 0.0,
+                        //         },
+                        //         "onGround": true,
+                        //     },
+                        // },
+                        {
+                            "$type" : "TriggerAttackEvent",
+                            "target":"Caster",
+                            "targetType" : "Enemy",
+                            "attackEvent":
+                            {
+                                "attackPattern" :
+                                {
+                                    "$type" : "ConfigAttackSphere",
+                                    "triggerType" : "TriggerNoRepeat",
+                                    "radius" : 3.5,
+                                    "born":
+                                    {
+                                        "$type": "ConfigBornByGlobalValue",
+                                        "positionKey":"_ABILITY_Eula_ElementalArt_ExtraAttack_Pos_1",
+                                        "offset":
+                                        {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0,
+                                        },
+                                        "onGround": true,
+                                    },
+                                },
+                                "attackInfo":
+                                {
+                                    "attenuationTag": "Elemental_Art",
+                                    "canBeModifiedBy": "OriginOwner",
+                                    "attackTag": "Elemental_Art",
+                                    "attackProperty":
+                                    {
+                                        "damagePercentage": "%ElementalArt_Extra_Damage",
+                                        "strikeType": "Default",
+                                        "attackType": "Default",
+                                        "elementType": "Ice",
+                                        "elementDurability": 25,
+                                        "enBreak": 50,
+                                    },
+                                    "hitPattern" :
+                                    {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType":"LV1",
+                                        "reboundRatio": 0,
+                                        "hitHaltTime": 0.0,
+                                        "hitHaltTimeScale": 0.05,
+                                        "muteHitText": false,
+                                    },
+                                    "forceCameraShake": false,
+                                    "cameraShake":
+                                    {
+                                        "shakeType": "CustomVector",
+                                        "shakeRange": 0.36,
+                                        "shakeTime": 0.12,
+                                        "shakeDistance": 30,
+                                    },
+                                },
+                            },
+                        },
+                    ],
+                },
+                "NoTarget":
+                {
+                    "duration":0.8,
+                    "onAdded":
+                    [
+                        {
+                            "$type":"FireEffect",
+                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_ElementalArt_ExtraAttack",
+                            "born":
+                            {
+                                "$type": "ConfigBornBySelf",
+                                "offset":
+                                {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0,
+                                },
+                                "onGround": true,
+                            },
+                        },
+                    ],
+                    "thinkInterval":0.5,
+                    "onThinkInterval":
+                    [
+                        // {
+                        //     "$type": "FireEffect",
+                        //     "effectPattern": "Eff_Avatar_Lady_Claymore_Eula_ElementalArt_ExtraAttack_Explode",
+                        //     "born":
+                        //     {
+                        //         "$type": "ConfigBornBySelf",
+                        //         "offset":
+                        //         {
+                        //             "x": 0.0,
+                        //             "y": 0.0,
+                        //             "z": 0.0,
+                        //         },
+                        //         "onGround": true,
+                        //     },
+                        // },
+                        {
+                            "$type" : "TriggerAttackEvent",
+                            "target":"Caster",
+                            "targetType" : "Enemy",
+                            "attackEvent":
+                            {
+                                "attackPattern" :
+                                {
+                                    "$type" : "ConfigAttackSphere",
+                                    "triggerType" : "TriggerNoRepeat",
+                                    "radius" : 3.5,
+                                    "born":
+                                    {
+                                        "$type": "ConfigBornBySelf",
+                                        "offset":
+                                        {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0,
+                                        },
+                                        "onGround": true,
+                                    },
+                                },
+                                "attackInfo":
+                                {
+                                    "attenuationTag": "Elemental_Art",
+                                    "canBeModifiedBy": "OriginOwner",
+                                    "attackTag": "Elemental_Art",
+                                    "attackProperty":
+                                    {
+                                        "damagePercentage": "%ElementalArt_Extra_Damage",
+                                        "strikeType": "Default",
+                                        "attackType": "Default",
+                                        "elementType": "Ice",
+                                        "elementDurability": 25,
+                                        "enBreak": 50,
+                                    },
+                                    "hitPattern" :
+                                    {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType":"LV1",
+                                        "reboundRatio": 0,
+                                        "hitHaltTime": 0.0,
+                                        "hitHaltTimeScale": 0.05,
+                                        "muteHitText": false,
+                                    },
+                                    "forceCameraShake": false,
+                                    "cameraShake":
+                                    {
+                                        "shakeType": "CustomVector",
+                                        "shakeRange": 0.36,
+                                        "shakeTime": 0.12,
+                                        "shakeDistance": 30,
+                                    },
+                                },
+                            },
+                        },
+                    ],
+                },
+            },
+            "abilitySpecials":
+            {
+                "ElementalArt_Extra_Damage":0,
+            },
+        },
+    },
+
+    {
+        "Default":
+        {
+            "$type":"ConfigAbility",
+            "abilityName" :"Avatar_Eula_ElementalArt_ExtraAttack_2",
+            "onAdded":
+            [
+                {
+                    "$type": "SetSelfAttackTarget",
+                    "otherTargets":
+                    {
+                        "$type": "SelectTargetsByShape",
+                        "shapeName": "CircleLockEnemy",
+                        "centerBasedOn": "Self",
+                        "campTargetType": "Enemy",
+                        "campBasedOn": "Self",
+                        "topLimit":1,
+                        "sortType": "Nearest",
+                    },
+                    "predicates":
+                    [
+                        {
+                            "$type" : "ByEntityTypes",
+                            "entityTypes" : ["Monster",],
+                        },
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "key": "_ANIMAL_ENTITY_TYPE",
+                            "value": 0,
+                            "compareType": "NoneOrEqual",
+                        },
+                    ],
+                },
+                {
+                    "$type" : "Predicated",
+                    "targetPredicates" :
+                    [
+                        {
+                            "$type":"ByHasAttackTarget",
+                        },
+                    ],
+                    "successActions" :
+                    [
+                        {
+                            "$type": "ApplyModifier",
+                            "modifierName":"HasTarget",
+                        },
+                    ],
+                    "failActions" :
+                    [
+                        {
+                            "$type": "ApplyModifier",
+                            "modifierName": "NoTarget",
+                        },
+                    ],
+                },
+//突破天赋1效果，额外的充能技攻击
+                {
+                    "$type":"ApplyModifier",
+                    "modifierName":"Eula_PermanentSkill_1_Attack",
+                    "predicates":
+                    [
+                        {
+                            "$type":"ByUnlockTalentParam",
+                            "talentParam":"Eula_PermanentSkill_1",
+                        },
+                    ],
+                }
+            ],
+            "modifiers":
+            {
+                "HasTarget":
+                {
+                    "duration":0.6,
+                    "onAdded":
+                    [
+                        {
+                            "$type": "SetGlobalPos",
+                            "target": "SelfAttackTarget",
+                            "key": "_ABILITY_Eula_ElementalArt_ExtraAttack_Pos_2",
+                            "born":
+                            {
+                                "$type": "ConfigBornByTarget",
+                                "onGround": true,
+                            },
+                            "setTarget": false,
+                        },
+                        {
+                            "$type":"FireEffect",
+                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_ElementalArt_ExtraAttack_1",
+                            "born":
+                            {
+                                "$type": "ConfigBornByGlobalValue",
+                                "positionKey":"_ABILITY_Eula_ElementalArt_ExtraAttack_Pos_2",
+                                "offset":
+                                {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0,
+                                },
+                                "onGround": true,
+                            },
+                        },
+                    ],
+                    "thinkInterval":0.4,
+                    "onThinkInterval":
+                    [
+                        {
+                            "$type" : "TriggerAttackEvent",
+                            "target":"Caster",
+                            "targetType" : "Enemy",
+                            "attackEvent":
+                            {
+                                "attackPattern" :
+                                {
+                                    "$type" : "ConfigAttackSphere",
+                                    "triggerType" : "TriggerNoRepeat",
+                                    "radius" : 3.5,
+                                    "born":
+                                    {
+                                        "$type": "ConfigBornByGlobalValue",
+                                        "positionKey":"_ABILITY_Eula_ElementalArt_ExtraAttack_Pos_2",
+                                        "offset":
+                                        {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0,
+                                        },
+                                        "onGround": true,
+                                    },
+                                },
+                                "attackInfo":
+                                {
+                                    "attenuationTag": "Elemental_Art",
+                                    "canBeModifiedBy": "OriginOwner",
+                                    "attackTag": "Elemental_Art",
+                                    "attackProperty":
+                                    {
+                                        "damagePercentage": "%ElementalArt_Extra_Damage",
+                                        "strikeType": "Default",
+                                        "attackType": "Default",
+                                        "elementType": "Ice",
+                                        "elementDurability": 25,
+                                        "enBreak": 50,
+                                    },
+                                    "hitPattern" :
+                                    {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType":"LV1",
+                                        "reboundRatio": 0,
+                                        "hitHaltTime": 0.0,
+                                        "hitHaltTimeScale": 0.05,
+                                        "muteHitText": false,
+                                    },
+                                    "forceCameraShake": false,
+                                    "cameraShake":
+                                    {
+                                        "shakeType": "CustomVector",
+                                        "shakeRange": 0.36,
+                                        "shakeTime": 0.12,
+                                        "shakeDistance": 30,
+                                    },
+                                },
+                            },
+                        },
+                    ],
+                },
+                "NoTarget":
+                {
+                    "duration":0.6,
+                    "onAdded":
+                    [
+                        {
+                            "$type":"FireEffect",
+                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_ElementalArt_ExtraAttack_1",
+                            "born":
+                            {
+                                "$type": "ConfigBornBySelf",
+                                "offset":
+                                {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0,
+                                },
+                                "onGround": true,
+                            },
+                        },
+                    ],
+                    "thinkInterval":0.4,
+                    "onThinkInterval":
+                    [
+                        {
+                            "$type" : "TriggerAttackEvent",
+                            "target":"Caster",
+                            "targetType" : "Enemy",
+                            "attackEvent":
+                            {
+                                "attackPattern" :
+                                {
+                                    "$type" : "ConfigAttackSphere",
+                                    "triggerType" : "TriggerNoRepeat",
+                                    "radius" : 3.5,
+                                    "born":
+                                    {
+                                        "$type": "ConfigBornBySelf",
+                                        "offset":
+                                        {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0,
+                                        },
+                                        "onGround": true,
+                                    },
+                                },
+                                "attackInfo":
+                                {
+                                    "attenuationTag": "Elemental_Art",
+                                    "canBeModifiedBy": "OriginOwner",
+                                    "attackTag": "Elemental_Art",
+                                    "attackProperty":
+                                    {
+                                        "damagePercentage": "%ElementalArt_Extra_Damage",
+                                        "strikeType": "Default",
+                                        "attackType": "Default",
+                                        "elementType": "Ice",
+                                        "elementDurability": 25,
+                                        "enBreak": 50,
+                                    },
+                                    "hitPattern" :
+                                    {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType":"LV1",
+                                        "reboundRatio": 0,
+                                        "hitHaltTime": 0.0,
+                                        "hitHaltTimeScale": 0.05,
+                                        "muteHitText": false,
+                                    },
+                                    "forceCameraShake": false,
+                                    "cameraShake":
+                                    {
+                                        "shakeType": "CustomVector",
+                                        "shakeRange": 0.36,
+                                        "shakeTime": 0.12,
+                                        "shakeDistance": 30,
+                                    },
+                                },
+                            },
+                        },
+                    ],
+                },
+                "Eula_PermanentSkill_1_Attack":
+                {
+                    "duration":1.2,
+                    "thinkInterval":0.8,
+                    "onThinkInterval":
+                    [
+                        {
+                            "$type": "SetSelfAttackTarget",
+                            "otherTargets":
+                            {
+                                "$type": "SelectTargetsByShape",
+                                "shapeName": "CircleLockEnemy",
+                                "centerBasedOn": "Self",
+                                "campTargetType": "Enemy",
+                                "campBasedOn": "Self",
+                                "topLimit":1,
+                                "sortType": "Nearest",
+                            },
+                            "predicates":
+                            [
+                                {
+                                    "$type" : "ByEntityTypes",
+                                    "entityTypes" : ["Monster",],
+                                },
+                            ],
+                        },
+                        {
+                            "$type" : "Predicated",
+                            "targetPredicates" :
+                            [
+                                {
+                                    "$type":"ByHasAttackTarget",
+                                },
+                            ],
+                            "successActions" :
+                            [
+                                {
+                                    "$type": "ApplyModifier",
+                                    "modifierName":"Eula_PermanentSkill_1_Attack_HasTarget",
+                                },
+                            ],
+                            "failActions" :
+                            [
+                                {
+                                    "$type": "ApplyModifier",
+                                    "modifierName": "Eula_PermanentSkill_1_Attack_NoTarget",
+                                },
+                            ],
+                        },
+                    ],
+                },
+                "Eula_PermanentSkill_1_Attack_HasTarget":
+                {
+                    "duration":1,
+                    "onAdded":
+                    [
+                        {
+                            "$type": "SetGlobalPos",
+                            "target": "SelfAttackTarget",
+                            "key": "_ABILITY_Eula_PermanentSkill_1_Attack_Pos",
+                            "born":
+                            {
+                                "$type": "ConfigBornByTarget",
+                                "onGround": true,
+                            },
+                            "setTarget": false,
+                        },
+                        {
+                            "$type":"FireEffect",
+                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_PermanentSkill_1_Attack",
+                            "born":
+                            {
+                                "$type": "ConfigBornByGlobalValue",
+                                "positionKey":"_ABILITY_Eula_PermanentSkill_1_Attack_Pos",
+                                "offset":
+                                {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0,
+                                },
+                                "onGround": true,
+                            },
+                        },
+                        {
+                            "$type": "TriggerAttackEvent",
+                            "target":"OriginOwner",
+                            "targetType": "Enemy",
+                            "attackEvent":
+                            {
+                                "attackPattern":
+                                {
+                                    "$type": "ConfigAttackSphere",
+                                    "triggerType": "TriggerNoRepeat",
+                                    "radius": 6.5,
+                                    "born":
+                                    {
+                                        "$type": "ConfigBornByGlobalValue",
+                                        "positionKey":"_ABILITY_Eula_PermanentSkill_1_Attack_Pos",
+                                        "offset":
+                                        {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0,
+                                        },
+                                        "onGround": true,
+                                    },
+                                },
+                                "attackInfo":
+                                {
+                                    "attackTag": "Elemental_Burst",
+                                    "canBeModifiedBy":"OriginOwner",
+                                    "attackProperty":
+                                    {
+                                        "damagePercentage": "%Elemental_Burst_Judgment_BaseDamage*%PermanentSkill_1_Judgment_Ratio",
+                                        "strikeType": "Blunt",
+                                        "attackType": "Range",
+                                        "elementDurability": 50,
+                                        "elementRank": 1.5,
+                                        "enBreak": 180,
+                                    },
+                                    "hitPattern":
+                                    {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType":"LV3",
+                                        // "overrideHitImpulse":
+                                        // {
+                                        //     "hitLevel": "Air",  //hitlevel = special
+                                        //     "hitImpulseX": 0,   //hitlevel = special
+                                        //     "hitImpulseY": 800,    //hitlevel = special
+                                        // },
+                                        "reboundRatio": 0,
+                                        "hitHaltTime": 0.0,
+                                        "hitHaltTimeScale": 0.02,
+                                        "muteHitText": false,
+                                    },
+                                    "forceCameraShake": false,
+                                    "cameraShake":
+                                    {
+                                        "shakeType": "CustomVector",
+                                        "shakeRange": 0.36,
+                                        "shakeTime": 0.12,
+                                        "shakeDistance": 30,
+                                        "shakeDir":
+                                        {
+                                            "x": 0,
+                                            "y": 0,
+                                            "z": 1
+                                        },
+                                    },
+                                }
+                            }
+                        },
+                    ],
+                },
+                "Eula_PermanentSkill_1_Attack_NoTarget":
+                {
+                    "duration":1,
+                    "onAdded":
+                    [
+                        {
+                            "$type":"FireEffect",
+                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_PermanentSkill_1_Attack",
+                            "born":
+                            {
+                                "$type": "ConfigBornBySelf",
+                                "offset":
+                                {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 2.0,
+                                },
+                                "onGround": true,
+                            },
+                        },
+                        {
+                            "$type": "TriggerAttackEvent",
+                            "target":"OriginOwner",
+                            "targetType": "Enemy",
+                            "attackEvent":
+                            {
+                                "attackPattern":
+                                {
+                                    "$type": "ConfigAttackSphere",
+                                    "triggerType": "TriggerNoRepeat",
+                                    "radius": 6.5,
+                                    "born":
+                                    {
+                                        "$type": "ConfigBornBySelf",
+                                        "offset":
+                                        {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 2.0,
+                                        },
+                                        "onGround": true,
+                                    },
+                                },
+                                "attackInfo":
+                                {
+                                    "attackTag": "Elemental_Burst",
+                                    "canBeModifiedBy":"OriginOwner",
+                                    "attackProperty":
+                                    {
+                                        "damagePercentage": "%Elemental_Burst_Judgment_BaseDamage*%PermanentSkill_1_Judgment_Ratio",
+                                        "strikeType": "Blunt",
+                                        "attackType": "Range",
+                                        "elementDurability": 50,
+                                        "elementRank": 1.5,
+                                        "enBreak": 180,
+                                    },
+                                    "hitPattern":
+                                    {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType":"LV3",
+                                        // "overrideHitImpulse":
+                                        // {
+                                        //     "hitLevel": "Air",  //hitlevel = special
+                                        //     "hitImpulseX": 0,   //hitlevel = special
+                                        //     "hitImpulseY": 800,    //hitlevel = special
+                                        // },
+                                        "reboundRatio": 0,
+                                        "hitHaltTime": 0.0,
+                                        "hitHaltTimeScale": 0.02,
+                                        "muteHitText": false,
+                                    },
+                                    "forceCameraShake": false,
+                                    "cameraShake":
+                                    {
+                                        "shakeType": "CustomVector",
+                                        "shakeRange": 0.36,
+                                        "shakeTime": 0.12,
+                                        "shakeDistance": 30,
+                                        "shakeDir":
+                                        {
+                                            "x": 0,
+                                            "y": 0,
+                                            "z": 1
+                                        },
+                                    },
+                                }
+                            }
+                        },
+                    ],
+                },
+            },
+            "abilitySpecials":
+            {
+                "ElementalArt_Extra_Damage":0,
+                "Elemental_Burst_Judgment_BaseDamage":0,
+                "PermanentSkill_1_Judgment_Ratio":0,
+            },
+        },
+    },
+
+//???????UFF????????UIFF??????Ч??
 	{
 		"Default":
 		{
 			"$type": "ConfigAbility",
 			"abilityName": "Avatar_Eula_ElementalArt",
+            "onAdded":
+            [
+                // {
+                //     "$type":"ApplyModifier",
+                //     "target":"Self",
+                //     "modifierName":"PermanentSkill_2_ModifySkillCD_Handler",
+                //     "predicates":
+                //     [
+                //         {
+                //             "$type":"ByUnlockTalentParam",
+                //             "talentParam":"Eula_PermanentSkill_2",
+                //         },
+                //     ],
+                // },
+            ],
             "abilityMixins":
             [
                 {
                     "$type": "SkillButtonHoldChargeMixin",
                     "skillID": 10512,
                     "beforeStateIDs" : ["Eula_ElementalArt_BS"],
-                    "chargeLoopStateIDs" : ["Eula_ElementalArt_Charge", "Eula_ElementalArt_Burst"],
+                    "chargeLoopStateIDs" : ["Eula_ElementalArt_Burst"],
                     "chargeLoopDurations" : [ 0.05, ],
                     "nextLoopTriggerID" : "NextLoopTrigger",
                     "endHoldTrigger" : "EndHoldTrigger",
@@ -203,78 +999,16 @@
                     ],
                 },
                 {
-                    "$type": "ApplyModifier",
-                    "doOffStage": true,
-                    "target": "Self",
-                    "modifierName": "Eula_ElementalArt_ExtraAttack_3",
-                    "predicates":
-                    [
-                        {
-                            "$type": "ByTargetGlobalValue",
-                            "key": "_ABILITY_Eula_ElementalArt_Mark_Count",
-                            "forceByCaster": true,
-                            "value": 3,
-                            "compareType": "MoreThanAndEqual",
-                        },
-                    ],
-                },
-                {
-                    "$type": "AddElementDurability",
-                    "modifierName": "Unique_Eula_ElementalArt_Burst_DefenceDown",
-                    "otherTargets":
-                    {
-                        "$type": "SelectTargetsByShape",
-                        "shapeName": "CircleR7",
-                        "centerBasedOn": "Self",
-                        "campTargetType": "Enemy",
-                        "campBasedOn": "Self",
-                    },
-                    "value": "%BaseDuration",
-                    "useLimitRange": true,
-                    "maxValue": "%BaseDuration*5",
-                    "minValue": 0,
-                    "doOffStage":true,
-                    "predicates":
-                    [
-                        {
-                            "$type" : "ByEntityTypes",
-                            "entityTypes" : ["Monster",],
-                        },
-                    ],
-                },
-                {
-                    "$type": "ApplyModifier",
-                    "modifierName": "Unique_Eula_ElementalArt_Burst_DefenceDown",
-                    "otherTargets":
-                    {
-                        "$type": "SelectTargetsByShape",
-                        "shapeName": "CircleR7",
-                        "centerBasedOn": "Self",
-                        "campTargetType": "Enemy",
-                        "campBasedOn": "Self",
-                    },
-                    "predicates":
-                    [
-                        {
-                            "$type" : "ByEntityTypes",
-                            "entityTypes" : ["Monster",],
-                        },
-                    ],
-                },
-                {
                     "$type":"SetGlobalValueToOverrideMap",
                     "globalValueKey":"_ABILITY_Eula_ElementalArt_Mark_Count",
                     "overrideMapKey":"Count",
                 },
-//长按爆发后使自身的计数归零
+//移除两遍，保证能全部清除干净
                 {
-                    "$type" : "AddGlobalValue",
-                    "doOffStage" : true,
-                    "key" : "_ABILITY_Eula_ElementalArt_Mark_Count",
-                    "value" : -3,
-                    "useLimitRange" : true,
-                    "maxValue" : "%Eula_ElementalArt_MaxCount",
-                    "minValue" : 0,
+                    "$type":"RemoveUniqueModifier",
+                    "modifierName":"UNIQUE_Eula_ElementalArt_Mark_Count",
+                    "target":"Self",
+                    "doOffStage":true,
                 },
                 {
                     "$type":"RemoveUniqueModifier",
@@ -285,235 +1019,189 @@
             ],
             "modifiers":
             {
-                "Unique_Eula_ElementalArt_Burst_DefenceDown":
+                "UNIQUE_Eula_ElementalArt_Burst_DefenceDown":
                 {
                     "duration":"%BaseDuration",
-                    "elementDurability":"%BaseDuration",
+                    // "elementDurability":"%BaseDuration",
                     "isLimitedProperties": true,
                     "isUnique" : true,
                     "stacking" : "Unique",
                     "properties" :
                     {
-                        "Actor_PhysicalSubHurtDelta" : -0.35,//物抗最多降到-1，超导给了-0.4，这里给-0.35
-                        "Actor_IceSubHurtDelta": -0.35,
+                        "Actor_PhysicalSubHurtDelta" : "%Eula_ElementalArt_PhysicalSubHurtDelta",//物抗最多降到-1，超导给了-0.4，这里给-0.35
+                        "Actor_IceSubHurtDelta": "%Eula_ElementalArt_IceSubHurtDelta",
                     },
                     "state":"DefenseDown",
+                },
+//消耗印记增加物理伤害
+                "UNIQUE_Eula_Talent_PhysicalAddHurt":
+                {
+                    "onAdded":
+                    [
+                        {
+                            "$type":"AttachModifier",
+                            "modifierName":"UNIQUE_Eula_Talent_Weapon_Fx",
+                            "otherTargets":
+                            {
+                                "$type":"SelectTargetsByEquipParts",
+                                "equipPartNames" : ["equip01","equip02","sheathPoint"],
+                            },
+                        },
+                    ],
+                    "thinkInterval":0.5,
+                    "onThinkInterval":
+                    [
+                        {
+                            "$type":"AttachModifier",
+                            "modifierName":"UNIQUE_Eula_Talent_Weapon_Fx",
+                            "otherTargets":
+                            {
+                                "$type":"SelectTargetsByEquipParts",
+                                "equipPartNames" : ["equip01","equip02","sheathPoint"],
+                            },
+                        },
+                    ],
+                    "duration":"%PhysicalAddHurt_BaseDuration+6",
+                    "elementDurability":"%PhysicalAddHurt_BaseDuration+6",
+                    "isLimitedProperties": true,
+                    "isUnique" : true,
+                    "stacking" : "Unique",
+                    "properties" :
+                    {
+                        "Actor_PhysicalAddHurtDelta" : "%Eula_Constellation_2_PhysicalAddHurtDelta",
+                    },
+                    // "state":"AttackUp",
+                },
+                "UNIQUE_Eula_Talent_Weapon_Fx":
+                {
+                    "duration":0.6,
+                    "onAdded":
+                    [
+                        {
+                            "$type":"AttachEffect",
+                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_Talent_Weapon",
+                        },
+                    ],
                 },
                 "Eula_ElementalArt_ExtraAttack_1":
                 {
                     "duration":1,
                     "onAdded":
                     [
+                        // {
+                        //     "$type": "AddElementDurability",
+                        //     "modifierName": "UNIQUE_Eula_ElementalArt_Burst_DefenceDown",
+                        //     "otherTargets":
+                        //     {
+                        //         "$type": "SelectTargetsByShape",
+                        //         "shapeName": "CircleR7",
+                        //         "centerBasedOn": "Self",
+                        //         "campTargetType": "Enemy",
+                        //         "campBasedOn": "Self",
+                        //     },
+                        //     "value": "%BaseDuration",
+                        //     "useLimitRange": true,
+                        //     "maxValue": "%DefenceDown_MaxDuration",
+                        //     "minValue": 0,
+                        //     "doOffStage":true,
+                        //     "predicates":
+                        //     [
+                        //         {
+                        //             "$type" : "ByEntityTypes",
+                        //             "entityTypes" : ["Monster",],
+                        //         },
+                        //         {
+                        //             "$type": "ByTargetGlobalValue",
+                        //             "key": "_ANIMAL_ENTITY_TYPE",
+                        //             "value": 0,
+                        //             "compareType": "NoneOrEqual",
+                        //         },
+                        //     ],
+                        // },
                         {
-                            "$type": "TriggerAttackEvent",
-                            "targetType": "Enemy",
-                            "doOffStage":true,
-                            "attackEvent":
+                            "$type":"RemoveUniqueModifier",
+                            "modifierName":"UNIQUE_Eula_ElementalArt_Burst_DefenceDown",
+                            "otherTargets":
                             {
-                                "attackPattern":
+                                "$type": "SelectTargetsByShape",
+                                "shapeName": "CircleR7",
+                                "centerBasedOn": "Self",
+                                "campTargetType": "Enemy",
+                                "campBasedOn": "Self",
+                            },
+                            "predicates":
+                            [
                                 {
-                                    "$type": "ConfigAttackSphere",
-                                    "triggerType": "TriggerNoRepeat",
-                                    "radius": 3.5,
-                                    "born":
-                                    {
-                                        "$type": "ConfigBornBySelf",
-                                        "offset":
-                                        {
-                                            "x": 2.0,
-                                            "y": 0.0,
-                                            "z": 2.0
-                                        }
-                                    }
+                                    "$type" : "ByEntityTypes",
+                                    "entityTypes" : ["Monster",],
                                 },
-                                "attackInfo":
                                 {
-                                    "attackTag": "Elemental_Art",
-                                    "attackProperty":
-                                    {
-                                        "damagePercentage": "%ElementalArt_Extra_Damage",
-                                        "strikeType": "Blunt",
-                                        "attackType": "Melee",
-                                        "elementType": "Ice",
-                                        "elementDurability": 50,
-                                        "elementRank": 1.5,
-                                        "enBreak": 140,
-                                    },
-                                    "hitPattern":
-                                    {
-                                        "onHitEffectName": "default",
-                                        "hitImpulseType":"LV1",
-                                        "reboundRatio": 0,
-                                        "hitHaltTime": 0.0,
-                                        "hitHaltTimeScale": 0.02,
-                                        "muteHitText": false,
-                                    },
-                                    "forceCameraShake": false,
-                                    "cameraShake":
-                                    {
-                                        "shakeType": "Center",
-                                        "shakeRange": 0.36,
-                                        "shakeTime": 0.12,
-                                        "shakeDistance": 30,
-                                    },
-                                }
-                            }
-                        },
-                        {
-                            "$type":"FireEffect",   //爆炸特效
-                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_ElementalArt_ExtraAttack",
-                            "born":
-                            {
-                                "$type": "ConfigBornBySelf",
-                                "offset":
-                                {
-                                    "x": 2.0,
-                                    "y": 0.0,
-                                    "z": 2.0
-                                }
-                            }
-                        },
-                    ],
-                },
-                "Eula_ElementalArt_ExtraAttack_2":
-                {
-                    "duration":0.5,
-                    "onRemoved":
-                    [
-                        {
-                            "$type": "TriggerAttackEvent",
-                            "targetType": "Enemy",
-                            "doOffStage":true,
-                            "attackEvent":
-                            {
-                                "attackPattern":
-                                {
-                                    "$type": "ConfigAttackSphere",
-                                    "triggerType": "TriggerNoRepeat",
-                                    "radius": 3.5,
-                                    "born":
-                                    {
-                                        "$type": "ConfigBornBySelf",
-                                        "offset":
-                                        {
-                                            "x": -2.0,
-                                            "y": 0.0,
-                                            "z": 2.0
-                                        }
-                                    }
+                                    "$type": "ByTargetGlobalValue",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
+                                    "value": 0,
+                                    "compareType": "NoneOrEqual",
                                 },
-                                "attackInfo":
-                                {
-                                    "attackTag": "Elemental_Art",
-                                    "attackProperty":
-                                    {
-                                        "damagePercentage": "%ElementalArt_Extra_Damage",
-                                        "strikeType": "Blunt",
-                                        "attackType": "Melee",
-                                        "elementType": "Ice",
-                                        "elementDurability": 50,
-                                        "elementRank": 1.5,
-                                        "enBreak": 140,
-                                    },
-                                    "hitPattern":
-                                    {
-                                        "onHitEffectName": "default",
-                                        "hitImpulseType":"LV1",
-                                        "reboundRatio": 0,
-                                        "hitHaltTime": 0.0,
-                                        "hitHaltTimeScale": 0.02,
-                                        "muteHitText": false,
-                                    },
-                                    "forceCameraShake": false,
-                                    "cameraShake":
-                                    {
-                                        "shakeType": "Center",
-                                        "shakeRange": 0.36,
-                                        "shakeTime": 0.12,
-                                        "shakeDistance": 30,
-                                    },
-                                }
-                            }
+                            ],
                         },
                         {
-                            "$type":"FireEffect",   //爆炸特效
-                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_ElementalArt_ExtraAttack",
-                            "born":
-                            {
-                                "$type": "ConfigBornBySelf",
-                                "offset":
-                                {
-                                    "x": -2.0,
-                                    "y": 0.0,
-                                    "z": 2.0
-                                }
-                            }
-                        },
-                    ],
-                },
-                "Eula_ElementalArt_ExtraAttack_3":
-                {
-                    "duration":1.0,
-                    "onRemoved":
-                    [
-                        {
-                            "$type": "TriggerAttackEvent",
-                            "targetType": "Enemy",
+                            "$type": "AddElementDurability",
+                            "modifierName": "UNIQUE_Eula_Talent_PhysicalAddHurt",
+                            "target":"Self",
+                            "value": "%PhysicalAddHurt_BaseDuration",
+                            "useLimitRange": true,
+                            "maxValue": "%PhysicalAddHurt_MaxDuration",
+                            "minValue": 0,
                             "doOffStage":true,
-                            "attackEvent":
-                            {
-                                "attackPattern":
+                            "predicates":
+                            [
                                 {
-                                    "$type": "ConfigAttackSphere",
-                                    "triggerType": "TriggerNoRepeat",
-                                    "radius": 3.5,
-                                    "born":
-                                    {
-                                        "$type": "ConfigBornBySelf",
-                                        "offset":
-                                        {
-                                            "x": 0.0,
-                                            "y": 0.0,
-                                            "z": -2.0
-                                        }
-                                    }
+                                    "$type":"ByUnlockTalentParam",
+                                    "talentParam":"Avatar_Eula_Constellation_1",
                                 },
-                                "attackInfo":
-                                {
-                                    "attackTag": "Elemental_Art",
-                                    "attackProperty":
-                                    {
-                                        "damagePercentage": "%ElementalArt_Extra_Damage",
-                                        "strikeType": "Blunt",
-                                        "attackType": "Melee",
-                                        "elementType": "Ice",
-                                        "elementDurability": 50,
-                                        "elementRank": 1.5,
-                                        "enBreak": 140,
-                                    },
-                                    "hitPattern":
-                                    {
-                                        "onHitEffectName": "default",
-                                        "hitImpulseType":"LV1",
-                                        "reboundRatio": 0,
-                                        "hitHaltTime": 0.0,
-                                        "hitHaltTimeScale": 0.02,
-                                        "muteHitText": false,
-                                    },
-                                    "forceCameraShake": false,
-                                    "cameraShake":
-                                    {
-                                        "shakeType": "Center",
-                                        "shakeRange": 0.36,
-                                        "shakeTime": 0.12,
-                                        "shakeDistance": 30,
-                                    },
-                                }
-                            }
+                            ],
                         },
                         {
-                            "$type":"FireEffect",   //爆炸特效
-                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_ElementalArt_ExtraAttack",
+                            "$type": "ApplyModifier",
+                            "modifierName": "UNIQUE_Eula_ElementalArt_Burst_DefenceDown",
+                            "otherTargets":
+                            {
+                                "$type": "SelectTargetsByShape",
+                                "shapeName": "CircleR7",
+                                "centerBasedOn": "Self",
+                                "campTargetType": "Enemy",
+                                "campBasedOn": "Self",
+                            },
+                            "predicates":
+                            [
+                                {
+                                    "$type" : "ByEntityTypes",
+                                    "entityTypes" : ["Monster",],
+                                },
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
+                                    "value": 0,
+                                    "compareType": "NoneOrEqual",
+                                },
+                            ],
+                        },
+                        {
+                            "$type": "ApplyModifier",
+                            "modifierName": "UNIQUE_Eula_Talent_PhysicalAddHurt",
+                            "target":"Self",
+                            "predicates":
+                            [
+                                {
+                                    "$type":"ByUnlockTalentParam",
+                                    "talentParam":"Avatar_Eula_Constellation_1",
+                                },
+                            ],
+                        },
+                        {
+                            "$type": "CreateGadget",
+                            "gadgetID":41051003,
+                            "campID": 1001,
+                            "campTargetType": "Enemy",
                             "born":
                             {
                                 "$type": "ConfigBornBySelf",
@@ -521,28 +1209,722 @@
                                 {
                                     "x": 0.0,
                                     "y": 0.0,
-                                    "z": -2.0
-                                }
-                            }
+                                    "z": 2.0,
+                                },
+                            },
                         },
+                        // {
+                        //     "$type": "TriggerAttackEvent",
+                        //     "targetType": "Enemy",
+                        //     "doOffStage":true,
+                        //     "attackEvent":
+                        //     {
+                        //         "attackPattern":
+                        //         {
+                        //             "$type": "ConfigAttackSphere",
+                        //             "triggerType": "TriggerNoRepeat",
+                        //             "radius": 3.5,
+                        //             "born":
+                        //             {
+                        //                 "$type": "ConfigBornBySelf",
+                        //                 "offset":
+                        //                 {
+                        //                     "x": 2.0,
+                        //                     "y": 0.0,
+                        //                     "z": 2.0
+                        //                 }
+                        //             }
+                        //         },
+                        //         "attackInfo":
+                        //         {
+                        //             "attackTag": "Elemental_Art",
+                        //             "attackProperty":
+                        //             {
+                        //                 "damagePercentage": "%ElementalArt_Extra_Damage",
+                        //                 "strikeType": "Default",
+                        //                 "attackType": "Melee",
+                        //                 "elementType": "Ice",
+                        //                 "elementDurability": 25,
+                        //                 "elementRank": 1.5,
+                        //                 "enBreak": 140,
+                        //             },
+                        //             "hitPattern":
+                        //             {
+                        //                 "onHitEffectName": "default",
+                        //                 "hitImpulseType":"LV1",
+                        //                 "reboundRatio": 0,
+                        //                 "hitHaltTime": 0.0,
+                        //                 "hitHaltTimeScale": 0.02,
+                        //                 "muteHitText": false,
+                        //             },
+                        //             "forceCameraShake": false,
+                        //             "cameraShake":
+                        //             {
+                        //                 "shakeType": "Center",
+                        //                 "shakeRange": 0.36,
+                        //                 "shakeTime": 0.12,
+                        //                 "shakeDistance": 30,
+                        //             },
+                        //         }
+                        //     }
+                        // },
+                        // {
+                        //     "$type":"FireEffect",   ///爆炸特效
+                        //     "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_ElementalArt_ExtraAttack",
+                        //     "born":
+                        //     {
+                        //         "$type": "ConfigBornBySelf",
+                        //         "offset":
+                        //         {
+                        //             "x": 2.0,
+                        //             "y": 0.0,
+                        //             "z": 2.0
+                        //         }
+                        //     }
+                        // },
                     ],
                 },
+                "Eula_ElementalArt_ExtraAttack_2":
+                {
+                    "duration":0.2,
+                    "onAdded":
+                    [
+                    ],
+                    "onRemoved":
+                    [
+                        // {
+                        //     "$type": "AddElementDurability",
+                        //     "modifierName": "UNIQUE_Eula_ElementalArt_Burst_DefenceDown",
+                        //     "otherTargets":
+                        //     {
+                        //         "$type": "SelectTargetsByShape",
+                        //         "shapeName": "CircleR7",
+                        //         "centerBasedOn": "Self",
+                        //         "campTargetType": "Enemy",
+                        //         "campBasedOn": "Self",
+                        //     },
+                        //     "value": "%BaseDuration",
+                        //     "useLimitRange": true,
+                        //     "maxValue": "%DefenceDown_MaxDuration",
+                        //     "minValue": 0,
+                        //     "doOffStage":true,
+                        //     "predicates":
+                        //     [
+                        //         {
+                        //             "$type" : "ByEntityTypes",
+                        //             "entityTypes" : ["Monster",],
+                        //         },
+                        //         {
+                        //             "$type": "ByTargetGlobalValue",
+                        //             "key": "_ANIMAL_ENTITY_TYPE",
+                        //             "value": 0,
+                        //             "compareType": "NoneOrEqual",
+                        //         },
+                        //     ],
+                        // },
+                        {
+                            "$type": "AddElementDurability",
+                            "modifierName": "UNIQUE_Eula_Talent_PhysicalAddHurt",
+                            "target":"Self",
+                            "value": "%PhysicalAddHurt_BaseDuration",
+                            "useLimitRange": true,
+                            "maxValue": "%PhysicalAddHurt_MaxDuration",
+                            "minValue": 0,
+                            "doOffStage":true,
+                            "predicates":
+                            [
+                                {
+                                    "$type":"ByUnlockTalentParam",
+                                    "talentParam":"Avatar_Eula_Constellation_1",
+                                },
+                            ],
+                        },
+                        {
+                            "$type": "CreateGadget",
+                            "gadgetID":41051004,
+                            "campID": 1001,
+                            "campTargetType": "Enemy",
+                            "born":
+                            {
+                                "$type": "ConfigBornBySelf",
+                                "offset":
+                                {
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 2.0,
+                                },
+                            },
+                        },
+                        // {
+                        //     "$type": "TriggerAttackEvent",
+                        //     "targetType": "Enemy",
+                        //     "doOffStage":true,
+                        //     "attackEvent":
+                        //     {
+                        //         "attackPattern":
+                        //         {
+                        //             "$type": "ConfigAttackSphere",
+                        //             "triggerType": "TriggerNoRepeat",
+                        //             "radius": 3.5,
+                        //             "born":
+                        //             {
+                        //                 "$type": "ConfigBornBySelf",
+                        //                 "offset":
+                        //                 {
+                        //                     "x": -2.0,
+                        //                     "y": 0.0,
+                        //                     "z": 2.0
+                        //                 }
+                        //             }
+                        //         },
+                        //         "attackInfo":
+                        //         {
+                        //             "attackTag": "Elemental_Art",
+                        //             "attackProperty":
+                        //             {
+                        //                 "damagePercentage": "%ElementalArt_Extra_Damage",
+                        //                 "strikeType": "Default",
+                        //                 "attackType": "Melee",
+                        //                 "elementType": "Ice",
+                        //                 "elementDurability": 25,
+                        //                 "elementRank": 1.5,
+                        //                 "enBreak": 140,
+                        //             },
+                        //             "hitPattern":
+                        //             {
+                        //                 "onHitEffectName": "default",
+                        //                 "hitImpulseType":"LV1",
+                        //                 "reboundRatio": 0,
+                        //                 "hitHaltTime": 0.0,
+                        //                 "hitHaltTimeScale": 0.02,
+                        //                 "muteHitText": false,
+                        //             },
+                        //             "forceCameraShake": false,
+                        //             "cameraShake":
+                        //             {
+                        //                 "shakeType": "Center",
+                        //                 "shakeRange": 0.36,
+                        //                 "shakeTime": 0.12,
+                        //                 "shakeDistance": 30,
+                        //             },
+                        //         }
+                        //     }
+                        // },
+                        // {
+                        //     "$type":"FireEffect",   //??ը?Ч
+                        //     "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_ElementalArt_ExtraAttack",
+                        //     "born":
+                        //     {
+                        //         "$type": "ConfigBornBySelf",
+                        //         "offset":
+                        //         {
+                        //             "x": -2.0,
+                        //             "y": 0.0,
+                        //             "z": 2.0
+                        //         }
+                        //     }
+                        // },
+                    ],
+                },
+                // "PermanentSkill_2_ModifySkillCD_Handler":
+                // {
+                //     "onAttackLanded" :
+                //     [
+                //         {
+                //             "$type" : "Predicated",
+                //             "target" : "Target",
+                //             "targetPredicates":
+                //             [
+                //                 {
+                //                     "$type" : "ByAttackTags",
+                //                     "attackTags" : ["NormalAttack_01","NormalAttack_02","NormalAttack_03","NormalAttack_04","NormalAttack_05",],
+                //                 },
+                //                 {
+                //                     "$type":"ByHitCritical",
+                //                 },
+                //                 {
+                //                     "$type" : "ByEntityTypes",
+                //                     "entityTypes" : ["Monster",],
+                //                 },
+                //                 {
+                //                     "$type": "ByTargetGlobalValue",
+                //                     "key": "_ANIMAL_ENTITY_TYPE",
+                //                     "value": 0,
+                //                     "compareType": "NoneOrEqual",
+                //                 },
+                //             ],
+                //             "successActions":
+                //             [
+                //                 {
+                //                     "$type" : "ApplyModifier",
+                //                     "target" : "Self",
+                //                     "modifierName" : "Eula_PermanentSkill_ModifySkillCD",
+                //                 },
+                //             ],
+                //         },
+                //     ],
+                // },
+                // "Eula_PermanentSkill_ModifySkillCD":
+                // {
+                //     "duration" : 0.1,
+                //     "stacking" : "Unique",
+                //     "onAdded":
+                //     [
+                //         {
+                //             "$type" : "ModifyAvatarSkillCD",
+                //             "skillID" : 10512,
+                //             "cdDelta" : "%PermanentSkill_2_cdDelta",
+                //         },
+                //     ]
+                // },
             },
 			"abilitySpecials":
 			{
-                "ElementalArt_Extra_Damage":1,
-                "BaseDuration":7,
+                "ElementalArt_Extra_Damage":0,
+                "BaseDuration":0,
+                "DefenceDown_MaxDuration":0,
                 "Eula_ElementalArt_MaxCount":2,
+                "PhysicalAddHurt_BaseDuration":0,
+                "Elemental_Burst_Judgment_BaseDamage":0,
+                "PermanentSkill_1_Judgment_Ratio":0,
+                "Eula_Constellation_2_PhysicalAddHurtDelta":0,
+                "Eula_ElementalArt_PhysicalSubHurtDelta":0,
+                "Eula_ElementalArt_IceSubHurtDelta":0,
+                "PhysicalAddHurt_MaxDuration":0,
 			},
 		},
 	},
 
-
+//管理元素战技的层数
+    {
+        "Default":
+        {
+            "$type" : "ConfigAbility",
+            "abilityName" : "Avatar_Eula_ElementalArt_SetMark",
+//解锁突破2后，释放元素爆发给自己添加一层BUFF
+            "onAbilityStart":
+            [
+                {
+                    "$type" : "ApplyModifier",
+                    "modifierName" : "UNIQUE_Eula_ElementalArt_Mark_Count",
+                },
+            ],
+            "onAdded" :
+            [
+                {
+                    "$type" : "AddGlobalValue",
+                    "key" : "_ABILITY_Eula_ElementalArt_Mark_Count",
+                    "value" : 0,
+                    "useLimitRange" : true,
+                    "maxValue" : 0,
+                    "minValue" : 0,
+                },
+                {
+                    "$type": "ApplyModifier",
+                    "modifierName": "Eula_ElementalArt_SetMark",
+                },
+                {
+                    "$type": "ApplyModifier",
+                    "modifierName": "SetRenderersEnable_Mdoifier",
+                },
+            ],
+            "onAvatarIn"://角色进入后台deactive后，状态机重置，所以入场时需要根绝BUFF层数重置披风状态
+            [
+                {
+                    "$type": "SetAnimatorTrigger",
+                    "triggerID": "Mark_1",
+                    "MPTriggerOnRemote":true,
+                    "predicates":
+                    [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "key": "_ABILITY_Eula_ElementalArt_Mark_Count",
+                            "forceByCaster": true,
+                            "value": 1,
+                            "compareType": "Equal",
+                        },
+                    ],
+                },
+                {
+                    "$type" : "FireEffect",
+                    "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_CoolHeart_Head_1",
+                    "predicates":
+                    [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "key": "_ABILITY_Eula_ElementalArt_Mark_Count",
+                            "forceByCaster": true,
+                            "value": 1,
+                            "compareType": "Equal",
+                        },
+                    ],
+                },
+                {
+                    "$type": "SetAnimatorTrigger",
+                    "triggerID": "Mark_2",
+                    "MPTriggerOnRemote":true,
+                    "predicates":
+                    [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "key": "_ABILITY_Eula_ElementalArt_Mark_Count",
+                            "forceByCaster": true,
+                            "value": 2,
+                            "compareType": "Equal",
+                        },
+                    ],
+                },
+                {
+                    "$type" : "FireEffect",
+                    "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_CoolHeart_Head_2",
+                    "predicates":
+                    [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "key": "_ABILITY_Eula_ElementalArt_Mark_Count",
+                            "forceByCaster": true,
+                            "value": 2,
+                            "compareType": "Equal",
+                        },
+                    ],
+                },
+            ],
+            "abilityMixins" :
+            [
+                {
+                    "$type": "AttachModifierToSelfGlobalValueMixin",
+                    "globalValueKey": "_ABILITY_Eula_ElementalArt_Mark_Count",
+                    "valueSteps" : [-1, 0.5, 1.5, 2.5, 3.5, 4.5],
+                    "removeAppliedModifier": true,
+                    "modifierNameSteps" : ["Blank", "Eula_ElementalArt_Mark_1", "Eula_ElementalArt_Mark_2", "Eula_ElementalArt_Mark_3", "Eula_ElementalArt_Mark_4"],
+                },
+            ],
+            "onKill":
+            [
+                {
+                    "$type": "SetAnimatorTrigger",
+                    "triggerID": "Mark_End_1",
+                    "doOffStage":true,
+                    "MPTriggerOnRemote":true,
+                    "predicates":
+                    [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "key": "_ABILITY_Eula_ElementalArt_Mark_Count",
+                            "forceByCaster": true,
+                            "value": 1,
+                            "compareType": "Equal",
+                        },
+                    ],
+                },
+                {
+                    "$type": "SetAnimatorTrigger",
+                    "triggerID": "Mark_End_2",
+                    "doOffStage":true,
+                    "MPTriggerOnRemote":true,
+                    "predicates":
+                    [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "key": "_ABILITY_Eula_ElementalArt_Mark_Count",
+                            "forceByCaster": true,
+                            "value": 2,
+                            "compareType": "Equal",
+                        },
+                    ],
+                },
+            ],
+            //ɭ???
+            "modifiers" :
+            {
+                "Eula_ElementalArt_SetMark" :
+                {
+                    "onAttackLanded" :
+                    [
+                        {
+                            "$type" : "Predicated",
+                            "target" : "Target",
+                            "targetPredicates":
+                            [
+                                {
+                                    "$type" : "ByAttackTags",
+                                    "attackTags" : ["Elemental_Art",],
+                                },
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
+                                    "value": 0,
+                                    "compareType": "NoneOrEqual",
+                                },
+                                {
+                                    "$type" : "ByEntityTypes",
+                                    "entityTypes" : ["Monster",],
+                                },
+//区分此次攻击是单点还是长按
+                                {
+                                    "$type": "ByHitEnBreak",
+                                    "enBreak": 120,
+                                    "logic": "Equal",
+                                },
+                                // {
+                                //     "$type":"ByHitStrikeType",//区分单点还是长按
+                                //     "strikeType":"Slash",
+                                // },
+                            ],
+                            "successActions":
+                            [
+                                {
+                                    "$type" : "ApplyModifier",
+                                    "modifierName" : "Eula_ElementalArt_Mark_Add",
+                                    "target" : "Caster",
+                                },
+                            ],
+                        },
+                    ],
+                },
+                "Eula_ElementalArt_Mark_Add":
+                {
+                    "duration" : 0.3,
+                    "stacking" : "Unique",
+                    "onAdded" :
+                    [
+                        {
+                            "$type" : "ApplyModifier",
+                            "modifierName" : "UNIQUE_Eula_ElementalArt_Mark_Count",
+                        },
+                    ],
+                },
+                "UNIQUE_Eula_ElementalArt_Mark_Count":
+                {
+                    "duration" : 18.0,
+                    "isUnique" : true,
+                    "stacking" : "MultipleAllRefresh",
+                    "stackingOption" :
+                    {
+                        "maxModifierNumForMultipleType" : 2,//最多叠加两层
+                    },
+                    "onAdded" :
+                    [
+                        {
+                            "$type" : "AddGlobalValue",
+                            "doOffStage" : true,
+                            "key" : "_ABILITY_Eula_ElementalArt_Mark_Count",
+                            "value" : 1,
+                            "useLimitRange" : true,
+                            "maxValue" : "%Eula_ElementalArt_MaxCount",
+                            "minValue" : 0,
+                        },
+                    ],
+                    "onRemoved" :
+                    [
+                        {
+                            "$type" : "AddGlobalValue",
+                            "doOffStage" : true,
+                            "key" : "_ABILITY_Eula_ElementalArt_Mark_Count",
+                            "value" : -2,
+                            "useLimitRange" : true,
+                            "maxValue" : "%Eula_ElementalArt_MaxCount",
+                            "minValue" : 0,
+                        },
+                    ],
+                },
+                "Blank":
+                {
+//这个人很懒，什么都没留下
+                },
+                "Eula_ElementalArt_Mark_1":
+                {
+                    // "state":"AttackUp",
+                    "isLimitedProperties":true,
+                    "properties":
+                    {
+                        "Actor_DefenceRatio" :"%Eula_ElementalArt_Mark_DefencekUp_1",
+                        "Actor_EndureDelta":0.5,
+                    },
+                    "onAdded":
+                    [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "Mark_1",
+                            "doOffStage":true,
+                            "MPTriggerOnRemote":true,
+                            "canBeHandledOnRecover": true,
+                        },
+                        {
+                            "$type" : "FireEffect",
+                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_EelementalArt_Blast",
+                        },
+                        {
+                            "$type" : "FireEffect",
+                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_CoolHeart_Head_1",
+                        },
+                        // {
+                        //     "$type" : "AttachEffect",
+                        //     "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_ElementalArt_SnowDust_1",
+                        // },
+                    ],
+                    // "onReconnect":
+                    // [
+                    //     {
+                    //         "$type": "SetAnimatorTrigger",
+                    //         "triggerID": "Mark_1",
+                    //         "doOffStage":true,
+                    //         "MPTriggerOnRemote":true,
+                    //     },
+                    // ],
+                    "onRemoved":
+                    [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "Mark_End_1",
+                            "doOffStage":true,
+                            "MPTriggerOnRemote":true,
+                        },
+                    ],
+                },
+                "Eula_ElementalArt_Mark_2":
+                {
+                    // "state":"AttackUp",
+                    "isLimitedProperties":true,
+                    "properties":
+                    {
+                        "Actor_DefenceRatio" :"%Eula_ElementalArt_Mark_DefencekUp_2*2",
+                        "Actor_EndureDelta":0.5,
+                    },
+                    "onAdded":
+                    [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "Mark_2",
+                            "doOffStage":true,
+                            "MPTriggerOnRemote":true,
+                            "canBeHandledOnRecover": true,
+                        },
+                        {
+                            "$type" : "FireEffect",
+                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_EelementalArt_Blast_2",
+                        },
+                        {
+                            "$type" : "FireEffect",
+                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_CoolHeart_Head_2",
+                        },
+                        {
+                            "$type" : "AttachEffect",
+                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_ElementalArt_SnowDust_2",
+                        },
+                    ],
+                    // "onReconnect":
+                    // [
+                    //     {
+                    //         "$type": "SetAnimatorTrigger",
+                    //         "triggerID": "Mark_2",
+                    //         "doOffStage":true,
+                    //         "MPTriggerOnRemote":true,
+                    //     },
+                    // ],
+                    "onRemoved":
+                    [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "Mark_End_2",
+                            "doOffStage":true,
+                            "MPTriggerOnRemote":true,
+                        },
+                    ],
+                    "onAttackLanded" :
+                    [
+                        {
+                            "$type" : "Predicated",
+                            "target" : "Target",
+                            "targetPredicates":
+                            [
+                                {
+                                    "$type" : "ByAttackTags",
+                                    "attackTags" : ["Elemental_Art",],
+                                },
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
+                                    "value": 0,
+                                    "compareType": "NoneOrEqual",
+                                },
+                                {
+                                    "$type" : "ByEntityTypes",
+                                    "entityTypes" : ["Monster",],
+                                },
+//区分此次攻击是单点还是长按
+                                {
+                                    "$type": "ByHitEnBreak",
+                                    "enBreak": 120,
+                                    "logic": "Equal",
+                                },
+                            ],
+                            "successActions":
+                            [
+                                {
+                                    "$type" : "FireEffect",
+                                    "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_CoolHeart_Head_2",
+                                },
+                            ],
+                        },
+                    ],
+                },
+                "Eula_ElementalArt_Mark_3"://???
+                {
+                    // "state":"AttackUp",
+                    "isLimitedProperties":true,
+                    "properties":
+                    {
+                        "Actor_DefenceRatio" :"%Eula_ElementalArt_Mark_DefencekUp_3",
+                    },
+                },
+                "Eula_ElementalArt_Mark_4"://???
+                {
+                    // "state":"AttackUp",
+                    "isLimitedProperties":true,
+                    "properties":
+                    {
+                        "Actor_DefenceRatio" :"%Eula_ElementalArt_Mark_DefencekUp_4",
+                    },
+                },
+                "SetRenderersEnable_Mdoifier":
+                {
+                    "onAdded":
+                    [
+                        {
+                            "$type" : "TriggerSetRenderersEnable",
+                            "doOffStage" : true,
+                            "renderNames" : ["Body_CloakEffectMesh"],
+                            "setEnable" : true,
+                            "canBeHandledOnRecover": true,
+                        },
+                    ],
+                },
+            },
+            "abilitySpecials":
+            {
+                "Eula_ElementalArt_MaxCount" : 2,
+                "Eula_ElementalArt_Mark_DefencekUp_1":0,
+                "Eula_ElementalArt_Mark_DefencekUp_2":0,
+                "Eula_ElementalArt_Mark_DefencekUp_3":0,
+                "Eula_ElementalArt_Mark_DefencekUp_4":0,
+            },
+        },
+    },
+//元素战技单点
     {
         "Default":
         {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Eula_ElementalArt_Click",
+            "onAdded":
+            [
+                {
+                    "$type":"ApplyModifier",
+                    "target":"Self",
+                    "modifierName":"Eula_ElementalArt_Click_GenerateElemBall_Handler",
+                },
+            ],
             "abilityMixins":
             [
             ],
@@ -560,19 +1942,21 @@
                     {
                         "attackPattern":
                         {
-                            "$type": "ConfigAttackSphere",
+                            "$type": "ConfigAttackCircle",
                             "triggerType": "TriggerNoRepeat",
+                            "height":1.8,
+                            "fanAngle": 360.0,
                             "radius": 3.5,
                             "born":
                             {
                                 "$type": "ConfigBornBySelf",
                                 "offset":
                                 {
-                                    "x": 0.0,
-                                    "y": 0.0,
-                                    "z": 0.0
-                                }
-                            }
+                                    "x" : 0.0,
+                                    "y" : 0.0,
+                                    "z" : 1.0,
+                                },
+                            },
                         },
                         "attackInfo":
                         {
@@ -580,20 +1964,21 @@
                             "attackProperty":
                             {
                                 "damagePercentage": "%ElementalArt_Click_Damage",
-                                "strikeType": "Slash",
+                                "strikeType": "Blunt",
                                 "attackType": "Melee",
                                 "elementType": "Ice",
-                                "elementDurability": 50,
+                                "elementDurability": 25,
                                 "elementRank": 1.5,
-                                "enBreak": 140,
+                                "enBreak": 120,
                             },
                             "hitPattern":
                             {
                                 "onHitEffectName": "default",
                                 "hitImpulseType":"LV3",
                                 "reboundRatio": 0,
-                                "hitHaltTime": 0.0,
-                                "hitHaltTimeScale": 0.02,
+                                "canBeDefenceHalt": true,
+                                "hitHaltTime": 0.09,
+                                "hitHaltTimeScale": 0.01,
                                 "muteHitText": false,
                             },
                             "forceCameraShake": false,
@@ -608,24 +1993,147 @@
                     }
                 },
             ],
+            "modifiers":
+            {
+                "Eula_ElementalArt_Click_GenerateElemBall_Handler":
+                {
+                    "onAttackLanded":
+                    [
+                        {
+                            "$type" : "Predicated",
+                            "target" : "Target",
+                            "targetPredicates":
+                            [
+                                {
+                                    "$type" : "ByAttackTags",
+                                    "attackTags" : ["Elemental_Art",],
+                                },
+                                {
+                                    "$type" : "ByEntityTypes",
+                                    "entityTypes" : ["Monster",],
+                                },
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
+                                    "value": 0,
+                                    "compareType": "NoneOrEqual",
+                                },
+//区分此次攻击是单点还是长按
+                                {
+                                    "$type": "ByHitEnBreak",
+                                    "enBreak": 120,
+                                    "logic": "Equal",
+                                },
+                                // {
+                                //     "$type":"ByHitStrikeType",//区分此次攻击是否是单点
+                                //     "strikeType":"Slash",
+                                // },
+                            ],
+                            "successActions":
+                            [
+                                {
+                                    "$type" : "ApplyModifier",
+                                    "modifierName" : "Eula_ElementalArt_Click_DropBall",
+                                    "target" : "Caster",
+                                },
+                            ],
+                        },
+                    ],
+                },
+                "Eula_ElementalArt_Click_DropBall":
+                {
+                    "duration": 0.3,
+                    "stacking": "Unique",
+                    "onAdded":
+                    [
+                        {
+                            "$type":"Randomed",
+                            "chance":0.5,
+                            "successActions":
+                            [
+                                {
+                                    "$type": "GenerateElemBall",
+                                    "configID": 2022,
+                                    "baseEnergy": 3,
+                                    "ratio": 2,
+                                    "born":
+                                    {
+                                        "$type": "ConfigBornByTarget",
+                                        "offset" :
+                                        {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 1.0,
+                                        },
+                                    },
+                                },
+                            ],
+                            "failActions":
+                            [
+                                {
+                                    "$type": "GenerateElemBall",
+                                    "configID": 2022,
+                                    "baseEnergy": 3,
+                                    "ratio": 1,
+                                    "born":
+                                    {
+                                        "$type": "ConfigBornByTarget",
+                                        "offset" :
+                                        {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 1.0,
+                                        },
+                                    },
+                                },
+                            ],
+                        },
+                        // {
+                        //     "$type": "GenerateElemBall",
+                        //     "configID": 2022,
+                        //     "baseEnergy": 3,
+                        //     "ratio": "%GetElementRatio",
+                        //     "born":
+                        //     {
+                        //         "$type": "ConfigBornByTarget",
+                        //         "offset" :
+                        //         {
+                        //             "x": 0.0,
+                        //             "y": 0.0,
+                        //             "z": 1.0,
+                        //         },
+                        //     },
+                        // },
+                    ],
+                },
+            },
             "abilitySpecials":
             {
-                "ElementalArt_Click_Damage":1,
+                "ElementalArt_Click_Damage":0,
+                // "GetElementRatio":1,
             },
         },
     },
-//长按攻击，并且希望这次攻击是向上击飞怪物
+//元素战技长按
     {
         "Default":
         {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Eula_ElementalArt_Burst",
+            "onAdded":
+            [
+                {
+                    "$type":"ApplyModifier",
+                    "target":"Self",
+                    "modifierName":"Eula_ElementalArt_Burst_GenerateElemBall_Handler",
+                },
+            ],
             "onAbilityStart":
             [
                 {
                     "$type" : "AvatarSkillStart",
                     "skillID" : 10512,
-                    "cdRatio" : 2.5,
+                    "cdRatio" : "%SkillStart_Ratio",
                 },
                 {
                     "$type": "TriggerAttackEvent",
@@ -634,19 +2142,21 @@
                     {
                         "attackPattern":
                         {
-                            "$type": "ConfigAttackSphere",
+                            "$type": "ConfigAttackCircle",
                             "triggerType": "TriggerNoRepeat",
-                            "radius": 3.5,
+                            "height":1.8,
+                            "fanAngle": 360.0,
+                            "radius": 5.5,
                             "born":
                             {
                                 "$type": "ConfigBornBySelf",
                                 "offset":
                                 {
-                                    "x": 0.0,
-                                    "y": 0.0,
-                                    "z": 0.0
-                                }
-                            }
+                                    "x" : 0.0,
+                                    "y" : 0.0,
+                                    "z" : 1.0,
+                                },
+                            },
                         },
                         "attackInfo":
                         {
@@ -657,23 +2167,24 @@
                                 "strikeType": "Blunt",
                                 "attackType": "Melee",
                                 "elementType": "Ice",
-                                "elementDurability": 50,
+                                "elementDurability": 25,
                                 "elementRank": 1.5,
-                                "enBreak": 140,
+                                "enBreak": 150,
                             },
                             "hitPattern":
                             {
                                 "onHitEffectName": "default",
-                                "hitImpulseType":"LV3",
-                                "overrideHitImpulse":
-                                {
-                                    "hitLevel": "Air",
-                                    "hitImpulseX": 200,
-                                    "hitImpulseY": 800,
-                                },
+                                "hitImpulseType":"LV5",
+                                // "overrideHitImpulse":
+                                // {
+                                //     "hitLevel": "Air",
+                                //     "hitImpulseX": 200,
+                                //     "hitImpulseY": 800,
+                                // },
+                                "canBeDefenceHalt": true,
                                 "reboundRatio": 0,
-                                "hitHaltTime": 0.0,
-                                "hitHaltTimeScale": 0.02,
+                                "hitHaltTime": 0.12,
+                                "hitHaltTimeScale": 0.01,
                                 "muteHitText": false,
                             },
                             "forceCameraShake": false,
@@ -707,56 +2218,9 @@
             ],
             "modifiers":
             {
-
-            },
-            "abilitySpecials":
-            {
-                "ElementalArt_Burst_Damage":2,
-                "Eula_ElementalArt_MaxCount":2,
-                "BaseDuration":4,
-                "Count":1,
-            },
-        },
-    },
-
-
-//攻击的时候，判定给自己加个标记。
-    {
-        "Default":
-        {
-            "$type" : "ConfigAbility",
-            "abilityName" : "Avatar_Eula_ElementalArt_SetMark",
-            "onAdded" :
-            [
+                "Eula_ElementalArt_Burst_GenerateElemBall_Handler":
                 {
-                    "$type" : "AddGlobalValue",
-                    "key" : "_ABILITY_Eula_ElementalArt_Mark_Count",
-                    "value" : 0,
-                    "useLimitRange" : true,
-                    "maxValue" : 0,
-                    "minValue" : 0,
-                },
-                {
-                    "$type": "ApplyModifier",
-                    "modifierName": "Eula_ElementalArt_SetMark",
-                },
-            ],
-            "abilityMixins" :
-            [
-                {
-                    "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "globalValueKey": "_ABILITY_Eula_ElementalArt_Mark_Count",
-                    "valueSteps" : [-1, 0.5, 1.5, 2.5, 3.5, 4.5],
-                    "removeAppliedModifier": true,
-                    "modifierNameSteps" : ["Blank", "Eula_ElementalArt_Mark_1", "Eula_ElementalArt_Mark_2", "Eula_ElementalArt_Mark_3", "Eula_ElementalArt_Mark_4"],
-                },
-            ],
-            //森罗万象
-            "modifiers" :
-            {
-                "Eula_ElementalArt_SetMark" :
-                {
-                    "onAttackLanded" :
+                    "onAttackLanded":
                     [
                         {
                             "$type" : "Predicated",
@@ -772,265 +2236,108 @@
                                     "entityTypes" : ["Monster",],
                                 },
                                 {
-                                    "$type":"ByHitStrikeType",//区分此次攻击是否是单点
-                                    "strikeType":"Slash",
+                                    "$type": "ByTargetGlobalValue",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
+                                    "value": 0,
+                                    "compareType": "NoneOrEqual",
                                 },
+//区分此次攻击是单点还是长按
+                                {
+                                    "$type": "ByHitEnBreak",
+                                    "enBreak": 150,
+                                    "logic": "Equal",
+                                },
+                                // {
+                                //     "$type":"ByHitStrikeType",//区分此次攻击是否是长按
+                                //     "strikeType":"Blunt",
+                                // },
                             ],
                             "successActions":
                             [
                                 {
                                     "$type" : "ApplyModifier",
-                                    "modifierName" : "Eula_ElementalArt_Mark_Add",
+                                    "modifierName" : "Eula_ElementalArt_Burst_DropBall",
                                     "target" : "Caster",
                                 },
                             ],
                         },
                     ],
                 },
-                "Eula_ElementalArt_Mark_Add":
+                "Eula_ElementalArt_Burst_DropBall":
                 {
-                    "duration" : 1.0,
-                    "stacking" : "Unique",
-                    "onAdded" :
-                    [
-                        {
-                            "$type" : "ApplyModifier",
-                            "modifierName" : "UNIQUE_Eula_ElementalArt_Mark_Count",
-                        },
-                    ],
-                },
-                "UNIQUE_Eula_ElementalArt_Mark_Count":
-                {
-                    "duration" : 18.0,
-                    "isUnique" : true,
-                    "stacking" : "MultipleAllRefresh",
-                    "stackingOption" :
-                    {
-                        "maxModifierNumForMultipleType" : 3,
-                    },
-                    "onAdded" :
-                    [
-                        {
-                            "$type" : "AddGlobalValue",
-                            "doOffStage" : true,
-                            "key" : "_ABILITY_Eula_ElementalArt_Mark_Count",
-                            "value" : 1,
-                            "useLimitRange" : true,
-                            "maxValue" : "%Eula_ElementalArt_MaxCount",
-                            "minValue" : 0,
-                        },
-                    ],
-                    "onRemoved" :
-                    [
-                        {
-                            "$type" : "AddGlobalValue",
-                            "doOffStage" : true,
-                            "key" : "_ABILITY_Eula_ElementalArt_Mark_Count",
-                            "value" : -1,
-                            "useLimitRange" : true,
-                            "maxValue" : "%Eula_ElementalArt_MaxCount",
-                            "minValue" : 0,
-                        },
-                    ],
-                },
-                "Blank":
-                {
-//这个人很懒，什么都没有留下
-                },
-                "Eula_ElementalArt_Mark_1":
-                {
-                    "state":"AttackUp",
-                    "isLimitedProperties":true,
-                    "properties":
-                    {
-                        "Actor_DefenceRatio" :"%Eula_ElementalArt_Mark_DefencekUp_1",
-                    },
+                    "duration": 0.5,
+                    "stacking": "Unique",
                     "onAdded":
                     [
                         {
-                            "$type" : "AttachEffect",
-                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_ElementalArt_Mark_1",
-                        },
-                    ],
-                },
-                "Eula_ElementalArt_Mark_2":
-                {
-                    "state":"AttackUp",
-                    "isLimitedProperties":true,
-                    "properties":
-                    {
-                        "Actor_DefenceRatio" :"%Eula_ElementalArt_Mark_DefencekUp_2",
-                    },
-                    "onAdded":
-                    [
-                        {
-                            "$type" : "AttachEffect",
-                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_ElementalArt_Mark_1",
-                        },
-                        {
-                            "$type" : "AttachEffect",
-                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_ElementalArt_Mark_2",
-                        },
-                    ],
-                },
-                "Eula_ElementalArt_Mark_3":
-                {
-                    "state":"AttackUp",
-                    "isLimitedProperties":true,
-                    "properties":
-                    {
-                        "Actor_DefenceRatio" :"%Eula_ElementalArt_Mark_DefencekUp_3",
-                    },
-                    "onAdded":
-                    [
-                        {
-                            "$type" : "AttachEffect",
-                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_ElementalArt_Mark_1",
-                        },
-                        {
-                            "$type" : "AttachEffect",
-                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_ElementalArt_Mark_2",
-                        },
-                        {
-                            "$type" : "AttachEffect",
-                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_ElementalArt_Mark_3",
-                        },
-                    ],
-                },
-                "Eula_ElementalArt_Mark_4":
-                {
-                    "state":"AttackUp",
-                    "isLimitedProperties":true,
-                    "properties":
-                    {
-                        "Actor_DefenceRatio" :"%Eula_ElementalArt_Mark_DefencekUp_4",
-                    },
-                    "onAdded":
-                    [
-                        {
-                            "$type" : "AttachEffect",
-                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_ElementalArt_Mark_1",
-                        },
-                        {
-                            "$type" : "AttachEffect",
-                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_ElementalArt_Mark_2",
-                        },
-                        {
-                            "$type" : "AttachEffect",
-                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_ElementalArt_Mark_3",
-                        },
-                        {
-                            "$type" : "AttachEffect",
-                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_ElementalArt_Mark_4",
-                        },
-                    ],
-                },
-            },
-            "abilitySpecials":
-            {
-                "Eula_ElementalArt_MaxCount" : 2,
-                "Eula_ElementalArt_Mark_DefencekUp_1":0.6,
-                "Eula_ElementalArt_Mark_DefencekUp_2":0.12,
-                "Eula_ElementalArt_Mark_DefencekUp_3":0.18,
-                "Eula_ElementalArt_Mark_DefencekUp_4":0.24,//用不到吧，怎么想都用不到吧，
-            },
-        },
-    },
-
-    {
-        "Default":
-        {
-            "$type": "ConfigAbility",
-            "abilityName": "Avatar_Eula_ElementalArt_IceWave", 
-            "onAdded":
-            [
-                {
-                    "$type":"ApplyModifier",
-                    "modifierName":"ElementalArt_IceWave_Attack_Handler",
-                    "target":"Self",
-                }
-            ],
-            "modifiers":
-            {
-                "ElementalArt_IceWave_Attack_Handler":
-                {
-                    "thinkInterval":1,
-                    "onThinkInterval":
-                    [
-                        {
-                            "$type": "TriggerAttackEvent",
-                            "targetType": "Enemy",
-                            "attackEvent":
-                            {
-                                "attackPattern":
+                            "$type":"Randomed",
+                            "chance":0.5,
+                            "successActions":
+                            [
                                 {
-                                    "$type": "ConfigAttackSphere",
-                                    "triggerType": "TriggerNoRepeat",
-                                    "radius": 3.5,
+                                    "$type": "GenerateElemBall",
+                                    "configID": 2022,
+                                    "baseEnergy": 3,
+                                    "ratio": 3,
                                     "born":
                                     {
-                                        "$type": "ConfigBornBySelf",
-                                        "offset":
+                                        "$type": "ConfigBornByTarget",
+                                        "offset" :
                                         {
                                             "x": 0.0,
                                             "y": 0.0,
-                                            "z": 0.0
-                                        }
-                                    }
-                                },
-                                "attackInfo":
-                                {
-                                    "attackTag": "Elemental_Art",
-                                    "attackProperty":
-                                    {
-                                        "damagePercentage": "%ElementalArt_IceWave_Damage",
-                                        "strikeType": "Default",
-                                        "attackType": "Melee",
-                                        "elementType": "Ice",
-                                        "elementDurability": 50,
-                                        "elementRank": 1.5,
-                                        "enBreak": 140,
-                                    },
-                                    "hitPattern":
-                                    {
-                                        "onHitEffectName": "default",
-                                        "hitImpulseType":"LV6",
-                                        "overrideHitImpulse":
-                                        {
-                                            "hitLevel": "Air",  //hitlevel = special
-                                            "hitImpulseX": 0,   //hitlevel = special
-                                            "hitImpulseY": 800,    //hitlevel = special
+                                            "z": 1.0,
                                         },
-                                        "reboundRatio": 0,
-                                        "hitHaltTime": 0.0,
-                                        "hitHaltTimeScale": 0.02,
-                                        "muteHitText": false,
                                     },
-                                    "forceCameraShake": false,
-                                    "cameraShake":
+                                },
+                            ],
+                            "failActions":
+                            [
+                                {
+                                    "$type": "GenerateElemBall",
+                                    "configID": 2022,
+                                    "baseEnergy": 3,
+                                    "ratio": 2,
+                                    "born":
                                     {
-                                        "shakeType": "Center",
-                                        "shakeRange": 0.36,
-                                        "shakeTime": 0.12,
-                                        "shakeDistance": 30,
+                                        "$type": "ConfigBornByTarget",
+                                        "offset" :
+                                        {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 1.0,
+                                        },
                                     },
-                                }
-                            }
+                                },
+                            ],
                         },
-                        {
-                            "$type": "FireEffect",
-                            "effectPattern": "Eff_Avatar_Lady_Claymore_Eula_ElementalArt_IceWaveAttack",
-                        },
+                        // {
+                        //     "$type": "GenerateElemBall",
+                        //     "configID": 2022,
+                        //     "baseEnergy": 3,
+                        //     "ratio": "%GetElementRatio",
+                        //     "born":
+                        //     {
+                        //         "$type": "ConfigBornByTarget",
+                        //         "offset" :
+                        //         {
+                        //             "x": 0.0,
+                        //             "y": 0.0,
+                        //             "z": 1.0,
+                        //         },
+                        //     },
+                        // },
                     ],
                 },
             },
             "abilitySpecials":
             {
-                "ElementalArt_IceWave_Damage":1.2,
+                "ElementalArt_Burst_Damage":0,
+                // "GetElementRatio":1,
+                "SkillStart_Ratio":2.5,
             },
         },
     },
-
 ////////////////////////////////////////////////////////////////
 //
 //  元素爆发
@@ -1045,13 +2352,64 @@
             [
                 {
                     "$type":"AttachToStateIDMixin",
-                    "stateIDs":["Eula_ElementalBurst","Eula_ElementalBurst_AS"],
+                    "stateIDs":["Eula_ElementalBurst"],
                     "modifierName":"Camera",
+                },
+                {
+                    "$type":"AttachToStateIDMixin",
+                    "stateIDs":["Eula_ElementalBurst","Eula_ElementalBurst_AS"],
+                    "modifierName":"Emotion_Controller",
+                },
+                {
+                    "$type":"AttachToStateIDMixin",
+                    "stateIDs":["Eula_ElementalBurst"],
+                    "modifierName":"Eula_ElementalBurst_Push",
+                },
+                {
+                    "$type":"AttachToStateIDMixin",
+                    "stateIDs":["Eula_ElementalBurst","Eula_ElementalBurst_AS"],
+                    "modifierName":"WeatherControl",
+                },
+                {
+                    "$type":"AttachToStateIDMixin",
+                    "stateIDs":["Eula_ElementalBurst",],
+                    "modifierName":"Eula_ElementalBurst_Weapon_Fx",
+                },
+                {
+                    "$type":"AttachToStateIDMixin",
+                    "stateIDs":["Eula_ElementalBurst","Eula_ElementalBurst_AS"],
+                    "modifierName":"HideWeapon",
                 },
                 {
                     "$type":"AttachToStateIDMixin",
                     "stateIDs":["Eula_ElementalBurst",],
                     "modifierName":"Elemental_Burst_Invincible",
+                },
+                {
+                    "$type":"ModifyDamageMixin",
+                    "ignoreEventInfo":true,
+                    "damagePercentageRatio":"%Eula_Constellation_4_DamagePercentage",
+                    "predicates":
+                    [
+                        {
+                            "$type":"ByTargetHPRatio",
+                            "HPRatio":"%HPRatio",
+                            "logic":"LesserOrEqual",
+                        },
+                        //只加光降之剑
+                        {
+                            "$type": "ByAttackType",
+                            "attackType": "Range",
+                        },
+                        {
+                            "$type":"ByAttackTags",
+                            "attackTags":["Elemental_Burst"],
+                        },
+                        {
+                            "$type":"ByUnlockTalentParam",
+                            "talentParam":"Eula_Constellation_4",
+                        },
+                    ],
                 },
             ],
             "onAdded":
@@ -1061,26 +2419,24 @@
                     "modifierName":"Eula_ElementalBurst_Judgment_Handler",
                 },
             ],
-//角色死亡或换人时立即出发充能技效果
+//角色死亡或换人时立即触发充能技效果
             "onKill":
             [
                 {
-                    "$type":"RemoveUniqueModifier",
-                    "modifierName":"UNIQUE_Timer",
-                    "doOffStage":true,
-                    "otherTargets":
+                    "$type": "KillGadget",
+                    "gadgetInfo":
                     {
                         "$type": "SelectTargetsByChildren",
                         "configID": 41051002,
                         "sortType": "Default",
-                    },
+                    }
                 },
             ],
             "onAvatarOut":
             [
                 {
                     "$type":"RemoveUniqueModifier",
-                    "modifierName":"UNIQUE_Timer",
+                    "modifierName":"UNIQUE_DamoclesSword_Timer",
                     "doOffStage":true,
                     "otherTargets":
                     {
@@ -1108,63 +2464,31 @@
                         }
                     }
                 },
-                // {
-                //     "$type":"AvatarEnterCameraShot",
-                //     "cameraMoveCfgPath":"Camera_Eula_ElementalBurst",
-                //     "predicates":
-                //     [
-                //         {
-                //             "$type":"ByAttackNotHitScene",
-                //             "attackPattern":
-                //             {
-                //                 "$type": "ConfigAttackCircle",
-                //                 "triggerType": "TriggerNoRepeat",
-                //                 "height":0.2,
-                //                 "fanAngle": 360.0,
-                //                 "radius": 1.4,
-                //                 "born":
-                //                 {
-                //                     "$type": "ConfigBornBySelf",
-                //                     "offset":
-                //                     {
-                //                         "x" : 0.0,
-                //                         "y" : 1.0,
-                //                         "z" : 0.0,
-                //                     },
-                //                 },
-                //             },
-                //         },
-                //         {
-                //             "$type":"ByAttackNotHitScene",
-                //             "attackPattern":
-                //             {
-                //                 "$type": "ConfigAttackBox",
-                //                 "triggerType": "TriggerNoRepeat",
-                //                 "size":
-                //                 {
-                //                     "x": 2.0,
-                //                     "y": 2.0,
-                //                     "z": 8.0,
-                //                 },
-                //                 "born":
-                //                 {
-                //                     "$type": "ConfigBornBySelf",
-                //                     "offset":
-                //                     {
-                //                         "x" : 0.0,
-                //                         "y" : 1.0,
-                //                         "z" : -4.0,
-                //                     },
-                //                 },
-                //             },
-                //         },
-                //         {
-                //             "$type": "ByAvatarInWaterDepth",
-                //             "compareType": "LessAndEqual",
-                //             "depth": 0.5,
-                //         },
-                //     ],
-                // },
+                {
+                    "$type" : "ModifyAvatarSkillCD",
+                    "skillID" : 10512,
+                    "target" : "Self",
+                    "cdRatio" : -1,
+                    "predicates" :
+                    [
+                        {
+                            "$type" : "ByUnlockTalentParam",
+                            "talentParam" : "Eula_PermanentSkill_2",
+                        },
+                    ],
+                },
+                {
+                    "$type":"TriggerAbility",
+                    "abilityName":"Avatar_Eula_ElementalArt_SetMark",
+                    "target":"Self",
+                    "predicates" :
+                    [
+                        {
+                            "$type" : "ByUnlockTalentParam",
+                            "talentParam" : "Eula_PermanentSkill_2",
+                        },
+                    ],                    
+                }
             ],
             "modifiers":
             {
@@ -1173,15 +2497,9 @@
                     "onAttackLanded":
                     [
                         {
-                            "$type":"ApplyModifier",
-                            "modifierName":"Eula_ElementalBurst_AddGlobalValueToGadget",
-                            "otherTargets":
-                            {
-                                "$type": "SelectTargetsByChildren",
-                                "configID": 41051002,
-                                "sortType": "Default",
-                            },
-                            "predicates":
+                            "$type":"Predicated",
+                            "target":"Target",
+                            "targetPredicates":
                             [
                                 {
                                     "$type": "ByHitDamage", //有伤害才触发
@@ -1189,21 +2507,35 @@
                                     "logic": "Greater"
                                 },
                                 {
-                                    "$type":"ByAny",
-                                    "predicates":
-                                    [
-                                        {
-                                            "$type": "ByHitElement", //非元素伤害能触发，这代表着武器技能也能触发
-                                            "element": "None",
-                                        },
-                                        {
-                                            "$type": "ByHitElement", //冰元素伤害也能触发
-                                            "element": "Ice",
-                                        },
-                                    ],
-                                }
+                                    "$type" : "ByAttackTags",
+                                    "attackTags" : ["NormalAttack_01","NormalAttack_02","NormalAttack_03","NormalAttack_04","NormalAttack_05","Elemental_Art","Elemental_Burst"],
+                                },
+                                {
+                                    "$type":"ByEntityTypes",
+                                    "entityTypes":["Monster"],
+                                },
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
+                                    "value": 0,
+                                    "compareType": "NoneOrEqual",
+                                },
+                            ],
+                            "successActions":
+                            [
+                                {
+                                    "$type":"ApplyModifier",
+                                    "modifierName":"Eula_ElementalBurst_AddGlobalValueToGadget",
+                                    "otherTargets":
+                                    {
+                                        "$type": "SelectTargetsByChildren",
+                                        "configID": 41051002,
+                                        "sortType": "Default",
+                                    },
+                                },
                             ],
                         },
+
                     ],
                 },
                 "Eula_ElementalBurst_AddGlobalValueToGadget":
@@ -1220,12 +2552,127 @@
                             "minValue":0,
                         },
                         {
-                            "$type":"FireEffect",
-                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_DamoclesSword_Blink",
+                            "$type":"Randomed",
+                            "chance":"%Chance",
+                            "successActions":
+                            [
+                                {
+                                    "$type":"AddGlobalValue",
+                                    "value":1,
+                                    "key":"_ABILITY_DAMOCLESSWORD_DAMAGE_RATIO",
+                                    "useLimitRange":true,
+                                    "maxValue":"%DamoclesSword_Max_Damage_Ratio",
+                                    "minValue":0,
+                                },
+                            ],
+                            "predicates":
+                            [
+                                {
+                                    "$type":"ByUnlockTalentParam",
+                                    "talentParam":"Eula_Constellation_6_1",
+                                },
+                            ],
                         },
                     ],
                 },
                 "Camera":
+                {
+                    "onAdded":
+                    [
+                        {
+                            "$type":"AvatarEnterCameraShot",
+                            "cameraMoveCfgPath":"Camera_Eula_ElementalBurst",
+                            "predicates":
+                            [
+                                {
+                                    "$type":"ByAttackNotHitScene",
+                                    "attackPattern":
+                                    {
+                                        "$type": "ConfigAttackCircle",
+                                        "triggerType": "TriggerNoRepeat",
+                                        "height":0.2,
+                                        "fanAngle": 360.0,
+                                        "radius": 1.4,
+                                        "born":
+                                        {
+                                            "$type": "ConfigBornBySelf",
+                                            "offset":
+                                            {
+                                                "x" : 0.0,
+                                                "y" : 1.0,
+                                                "z" : 0.0,
+                                            },
+                                        },
+                                    },
+                                },
+                                {
+                                    "$type":"ByAttackNotHitScene",
+                                    "attackPattern":
+                                    {
+                                        "$type": "ConfigAttackBox",
+                                        "triggerType": "TriggerNoRepeat",
+                                        "size":
+                                        {
+                                            "x": 2.0,
+                                            "y": 2.0,
+                                            "z": 8.0,
+                                        },
+                                        "born":
+                                        {
+                                            "$type": "ConfigBornBySelf",
+                                            "offset":
+                                            {
+                                                "x" : 0.0,
+                                                "y" : 1.0,
+                                                "z" : -4.0,
+                                            },
+                                        },
+                                    },
+                                },
+                                {
+                                    "$type": "ByAvatarInWaterDepth",
+                                    "compareType": "LessAndEqual",
+                                    "depth": 0.5,
+                                },
+                            ],
+                        },
+///非屏幕后效，为了加一个一直面向摄像机的角色身上的特效
+                        {
+                            "$type":"DungeonFogEffects",
+                            "enable":true,
+                            "muteRemoteAction":true,
+                            "cameraFogEffectName":"Eff_Avatar_Lady_Claymore_Eula_ElementalBurst_DungeonEffect",
+                            "localOffset":
+                            {
+                                "x":0,
+                                "y":0,
+                                "z":0,
+                            },
+                        },
+                    ],
+                    "onRemoved":
+                    [
+                        {
+                            "$type": "DungeonFogEffects",
+                            "cameraFogEffectName":"Eff_Avatar_Lady_Claymore_Eula_ElementalBurst_DungeonEffect",
+                            "enable": false,
+                        },
+                        {
+                            "$type":"AvatarExitCameraShot",
+                            "doOffStage":true,
+                        },
+                        {
+                            "$type": "AvatarCameraParam",
+                            "cameraParam":
+                            {
+                                "forceRadius": 6.0,
+                                "forceRadiusDuration": 0,
+                                "shouldKeepForceRadius": true,
+                            },
+                        },
+                    ],
+                },
+                "Emotion_Controller":
                 {
                     "onAdded":
                     [
@@ -1244,10 +2691,6 @@
                     "onRemoved":
                     [
                         {
-                            "$type":"AvatarExitCameraShot",
-                            "doOffStage":true,
-                        },
-                        {
                             "$type" : "ControlEmotion",
                             "doOffStage": true,
                             "toggleBlink" : true,
@@ -1255,18 +2698,19 @@
                             "toggleEmoSync": true,
                         },
                         {
-                            "$type": "AvatarCameraParam",
-                            "cameraParam":
-                            {
-                                "forceRadius": 6.0,
-                                "forceRadiusDuration": 0,
-                                "shouldKeepForceRadius": true,
-                            },
-                        },
-                        {
                             "$type": "EnableHeadControl",
                             "enable": true,
                             "doOffStage": true,
+                        },
+                    ],
+                },
+                "Eula_ElementalBurst_Weapon_Fx":
+                {
+                    "onAdded":
+                    [
+                        {
+                            "$type":"FireEffect",
+                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_Camera_DamoclesSword",
                         },
                     ],
                 },
@@ -1281,13 +2725,148 @@
                     ],
                     "state": "Invincible",
                 },
+                "WeatherControl":
+                {
+                    "onAdded":
+                    [
+                        {
+                            "$type":"FireEffect",
+                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_Cast",
+                        },
+                    ],
+                    "modifierMixins":
+                    [
+                        {
+                            "$type":"TriggerWeatherMixin",
+                            "type":"Skill",
+                            "weatherPattern":"Weather_Eula_ElementalBurst",
+                            "transDuration":0.7,
+                            "duration":2.0,
+                        },
+                    ],
+                },
+                "HideWeapon":
+                {
+                    "onAdded":
+                    [
+                        {
+                            "$type": "TriggerHideWeapon",
+                            "visible": false,
+                            "partNames": ["equip01", "equip02", "sheathPoint"],
+                        },
+                    ],
+                    "onRemoved":
+                    [
+                        {
+                            "$type": "TriggerHideWeapon",
+                            "visible": true,
+                            "partNames": ["equip01", "equip02", "sheathPoint"],
+                            "doOffStage": true,
+                        },
+                    ],
+                },
+                "Eula_ElementalBurst_Push":
+                {
+                    "onAdded":
+                    [
+                        {
+                            "$type":"TriggerAttackEvent",
+                            "targetType":"Enemy",
+                            "attackEvent":
+                            {
+                                "attackPattern":
+                                {
+                                    "$type": "ConfigAttackCircle",
+                                    "triggerType": "TriggerNoRepeat",
+                                    "fanAngle": 360.0,
+                                    "radius": 4,
+                                    "ignoreMassive":true,
+                                    "born":
+                                    {
+                                        "$type": "ConfigBornBySelf",
+                                        "offset":
+                                        {
+                                            "x" : 0.0,
+                                            "y" : 0.0,
+                                            "z" : 0.0,
+                                        },
+                                    },
+                                },
+                                "attackInfo":
+                                {
+                                    "attackProperty":
+                                    {
+                                        "damagePercentage": 0,
+                                        "strikeType": "Blunt",
+                                        "attackType": "Melee",
+                                        "enBreak": 400,
+                                    },
+                                    "hitPattern":
+                                    {
+                                        "onHitEffectName": "",
+                                        "hitImpulseType":"LV3",
+                                        "reboundRatio": 0,
+                                        "canBeDefenceHalt": false,
+                                        "hitHaltTime": 0.00,
+                                        "hitHaltTimeScale":0.01,
+                                        "muteHitText": false,
+                                        "retreatType":"ByHitDirection",
+                                    },
+                                },
+                            },
+                        },
+                    ],
+                },
             },
 			"abilitySpecials":
 			{
-                "DamoclesSword_Max_Damage_Ratio":10,
+                "DamoclesSword_Max_Damage_Ratio":0,
+                "Chance":0,
+                "Eula_Constellation_4_DamagePercentage":0,
+                "HPRatio":0.5,
 			},
 		},
 	},
+
+    {
+        "Default": 
+        {
+            "$type": "ConfigAbility",
+            "abilityName": "Avatar_Eula_ElementalBurst_PostEffect",
+            "onAbilityStart": 
+            [
+                {
+                    "$type":"ApplyModifier",
+                    "modifierName":"CameraEffect",
+                },
+//在充能技最开始的时候就清除之前的gadget
+                {
+                    "$type": "KillGadget",
+                    "gadgetInfo":
+                    {
+                        "$type": "SelectTargetsByChildren",
+                        "configID": 41051002,
+                        "sortType": "Default",
+                    }
+                },
+            ],
+            "modifiers":
+            {
+                "CameraEffect":
+                {
+                    "duration":1.5,
+                    "modifierMixins":
+                    [
+                        {
+                            "$type":"TriggerPostProcessEffectMixin",
+                            "postEffectAssetName":"PostEffect_Avatar_Eula_ElementalBurst_ScreenEffect",
+                            "duration":3,
+                        },
+                    ],
+                },
+            },
+        },
+    },
 
     {
         "Default":
@@ -1296,6 +2875,15 @@
             "abilityName": "Avatar_Eula_ElementalBurst_Attack",
             "onAbilityStart":
             [
+                {
+                    "$type":"ActCameraRadialBlur",
+                    "cameraRadialBlur" :
+                    {
+                        "power": 1.5,
+                        "blurTime": 0.6,
+                        "fadeTime": 0.1,
+                    },
+                },
                 {
                     "$type" : "AvatarSkillStart",
                     "skillID" : 10515,
@@ -1308,9 +2896,12 @@
                     {
                         "attackPattern":
                         {
-                            "$type": "ConfigAttackSphere",
+                            "$type": "ConfigAttackCircle",
                             "triggerType": "TriggerNoRepeat",
-                            "radius": 3.5,
+                            "height": 3.0,
+                            "fanAngle": 360.0,
+                            "radius": 8.0,
+                            "massiveAttackRatio": 0.5,
                             "born":
                             {
                                 "$type": "ConfigBornBySelf",
@@ -1328,12 +2919,12 @@
                             "attackProperty":
                             {
                                 "damagePercentage": "%Elemental_Burst_Damage",
-                                "strikeType": "Default",
+                                "strikeType": "Blunt",
                                 "attackType": "Melee",
                                 "elementType": "Ice",
                                 "elementDurability": 50,
                                 "elementRank": 1.5,
-                                "enBreak": 140,
+                                "enBreak": 0,
                             },
                             "hitPattern":
                             {
@@ -1350,13 +2941,19 @@
                                 "hitHaltTimeScale": 0.02,
                                 "muteHitText": false,
                             },
-                            "forceCameraShake": false,
+                            "forceCameraShake": true,
                             "cameraShake":
                             {
-                                "shakeType": "Center",
+                                "shakeType": "CustomVector",
                                 "shakeRange": 0.36,
                                 "shakeTime": 0.12,
                                 "shakeDistance": 30,
+                                "shakeDir":
+                                {
+                                    "x": -1,
+                                    "y": 0,
+                                    "z": 0
+                                },
                             },
                         }
                     }
@@ -1365,27 +2962,10 @@
                     "$type": "FireEffect",
                     "effectPattern": "Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_Impact",
                 },
-//释放元素爆发后，立即是自己获得3层效果
-                // {
-                //     "$type" : "AddGlobalValue",
-                //     "doOffStage" : true,
-                //     "key" : "_ABILITY_Eula_ElementalArt_Mark_Count",
-                //     "value" : 3,
-                //     "useLimitRange" : true,
-                //     "maxValue" : "%Eula_ElementalArt_MaxCount",
-                //     "minValue" : 0,
-                // },
-//释放元素爆发后，立即清除元素战技的CD
-                // {
-                //     "$type" : "ModifyAvatarSkillCD",
-                //     "skillID" : 10512,
-                //     "target" : "Self",
-                //     "cdRatio" : -1,
-                // },
             ],
             "abilitySpecials":
             {
-                "Elemental_Burst_Damage":2,
+                "Elemental_Burst_Damage":0,
                 "Eula_ElementalArt_MaxCount":2,
             },
         },
@@ -1399,26 +2979,55 @@
             "onAdded":
             [
                 {
-                    "$type":"ApplyModifier",
-                    "modifierName":"UNIQUE_Timer",
+                    "$type":"AttachModifier",
+                    "modifierName":"DamoclesSword_Fx",
                 },
                 {
-                    "$type":"AddGlobalValue",//系数得有一个保底
-                    "value":1,
+                    "$type":"ApplyModifier",
+                    "modifierName":"UNIQUE_DamoclesSword_Timer",
+                },
+                {
+                    "$type":"AttachModifier",
+                    "modifierName":"ChangeFollowDampTime_Handler",
+                    "target":"Owner",
+                },
+                {
+                    "$type":"AddGlobalValue",//系数保底
+                    "value":0,
                     "key":"_ABILITY_DAMOCLESSWORD_DAMAGE_RATIO",
                     "useLimitRange":true,
-                    "maxValue":1,
+                    "maxValue":"%DamoclesSword_Max_Damage_Ratio",
                     "minValue":0,
+                },
+                {
+                    "$type":"AddGlobalValue",//????֮??󣬳?ʼֵ???
+                    "value":"%Eula_Constellation_6_DamoclesSword_Ratio",
+                    "key":"_ABILITY_DAMOCLESSWORD_DAMAGE_RATIO",
+                    "useLimitRange":true,
+                    "maxValue":"%DamoclesSword_Max_Damage_Ratio",
+                    "minValue":0,
+                    "predicates":
+                    [
+                        {
+                            "$type":"ByUnlockTalentParam",
+                            "talentParam":"Eula_Constellation_6",
+                        },
+                    ],
+                },
+                {
+                    "$type":"AttachModifier",
+                    "modifierName":"Eula_EelementalBurst_ClearEndura",
+                    "target":"Owner",
                 },
             ],
             "abilityMixins":
             [
                 {
-                    "$type": "AttachModifierToSelfGlobalValueMixin", //根据伤害的层数决定特效的表现
+                    "$type": "AttachModifierToSelfGlobalValueMixin", //????˺??Ĳ???????Ч?ı??
                     "globalValueKey": "_ABILITY_DAMOCLESSWORD_DAMAGE_RATIO",
-                    "valueSteps" : [-1, 1.5, 3.5, 7.5, 10.5],
+                    "valueSteps" : [-1, 3.5, 7.5, 10.5, 15.5, 20.5],
                     "removeAppliedModifier":false,
-                    "modifierNameSteps" : ["Blank", "Blank", "Blank", "Blank"],
+                    "modifierNameSteps" : ["Blank", "Blank", "Blank", "Blank", "Blank"],
                     "actionQueues":
                     [
                         [
@@ -1445,6 +3054,13 @@
                                 "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_DamoclesSword",
                             },
                         ],
+                        [
+                            {
+                                "$type": "SendEffectTrigger",
+                                "parameter" : "Level_5",
+                                "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_DamoclesSword",
+                            },
+                        ],
                     ],
                 },
             ],
@@ -1453,14 +3069,8 @@
             ],
             "modifiers":
             {
-                "Blank"://无实际用处，防止mixin报错
+                "DamoclesSword_Fx":
                 {
-
-                },
-                "UNIQUE_Timer":
-                {
-                    "duration":10,
-                    "isUnique":true,
                     "onAdded":
                     [
                         {
@@ -1468,10 +3078,27 @@
                             "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_DamoclesSword",
                         },
                         {
-                            "$type":"AttachModifier",
-                            "target":"Owner",
-                            "modifierName":"Eula_ElementalBurst_DamoclesSword_ModifyCD",
+                            "$type":"AttachEffect",
+                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_DamoclesSword_Explode",
                         },
+                    ],
+                },
+                "Blank"://?ʵ??ô?????ֹmixin????
+                {
+
+                },
+                "UNIQUE_DamoclesSword_Timer":
+                {
+                    "duration":7.5,//刨除创生物出现演出的时间
+                    "isUnique":true,
+                    "onAdded":
+                    [
+                        //测试效果
+                        // {
+                        //     "$type":"AttachModifier",
+                        //     "target":"Owner",
+                        //     "modifierName":"Eula_ElementalBurst_KeepCombo_Handler",
+                        // },
                     ],
                     "onRemoved":
                     [
@@ -1481,7 +3108,92 @@
                             "overrideMapKey":"Elemental_Burst_Judgment_Ratio",
                         },
                         {
+                            "$type":"ApplyModifier",
+                            "modifierName":"DamoclesSword_Damage",
+                        },
+                        {
+                            "$type" : "SendEffectTrigger",
+                            "parameter" : "Attack01",
+                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_DamoclesSword",
+                            "predicates":
+                            [
+                                {
+                                    "$type" : "ByTargetGlobalValue",
+                                    "target":"Self",
+                                    "key":"_ABILITY_DAMOCLESSWORD_DAMAGE_RATIO",
+                                    "value":6,
+                                    "compareType":"LessAndEqual",
+                                },
+                            ],
+                        },
+                        {
+                            "$type" : "SendEffectTrigger",
+                            "parameter" : "Attack01",
+                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_DamoclesSword_Explode",
+                            "predicates":
+                            [
+                                {
+                                    "$type" : "ByTargetGlobalValue",
+                                    "target":"Self",
+                                    "key":"_ABILITY_DAMOCLESSWORD_DAMAGE_RATIO",
+                                    "value":6,
+                                    "compareType":"LessAndEqual",
+                                },
+                            ],
+                        },
+                        {
+                            "$type" : "SendEffectTrigger",
+                            "parameter" : "Attack02",
+                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_DamoclesSword",
+                            "predicates":
+                            [
+                                {
+                                    "$type" : "ByTargetGlobalValue",
+                                    "target":"Self",
+                                    "key":"_ABILITY_DAMOCLESSWORD_DAMAGE_RATIO",
+                                    "value":7,
+                                    "compareType":"MoreThanAndEqual",
+                                },
+                            ],
+                        },
+                        {
+                            "$type" : "SendEffectTrigger",
+                            "parameter" : "Attack02",
+                            "effectPattern" : "Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_DamoclesSword_Explode",
+                            "predicates":
+                            [
+                                {
+                                    "$type" : "ByTargetGlobalValue",
+                                    "target":"Self",
+                                    "key":"_ABILITY_DAMOCLESSWORD_DAMAGE_RATIO",
+                                    "value":7,
+                                    "compareType":"MoreThanAndEqual",
+                                },
+                            ],
+                        },
+                        // {
+                        //     "$type": "FireEffect",
+                        //     "effectPattern": "Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_JudgmentExplode",
+                        // },
+                        {
+                            "$type":"DummyAction",
+                            "doOffStage":true,
+                        },
+                        // {
+                        //     "$type":"KillSelf",
+                        //     "duration":1.5,
+                        // },
+                    ],
+                },
+                "DamoclesSword_Damage":
+                {
+                    "duration":0.8,
+                    "thinkInterval":0.55,
+                    "onThinkInterval":
+                    [
+                        {
                             "$type": "TriggerAttackEvent",
+                            "target":"Owner",
                             "targetType": "Enemy",
                             "attackEvent":
                             {
@@ -1504,84 +3216,336 @@
                                 "attackInfo":
                                 {
                                     "attackTag": "Elemental_Burst",
+                                    "canBeModifiedBy":"Owner",
                                     "attackProperty":
                                     {
-                                        "damagePercentage": "%Elemental_Burst_Judgment_BaseDamage*%Elemental_Burst_Judgment_Ratio",
+                                        "damagePercentage": "%Elemental_Burst_Judgment_BaseDamage+%Elemental_Burst_Judgment_Ratio*%Elemental_Burst_Judgment_Damage_Factor",
                                         "strikeType": "Blunt",
-                                        "attackType": "Melee",
+                                        "attackType": "Range",
                                         "elementDurability": 50,
-                                        "elementRank": 1.5,
-                                        "enBreak": 180,
+                                        "enBreak": 400,
                                     },
                                     "hitPattern":
                                     {
                                         "onHitEffectName": "default",
                                         "hitImpulseType":"LV6",
-                                        "overrideHitImpulse":
-                                        {
-                                            "hitLevel": "Air",  //hitlevel = special
-                                            "hitImpulseX": 0,   //hitlevel = special
-                                            "hitImpulseY": 800,    //hitlevel = special
-                                        },
+                                        // "overrideHitImpulse":
+                                        // {
+                                        //     "hitLevel": "Air",  //hitlevel = special
+                                        //     "hitImpulseX": 0,   //hitlevel = special
+                                        //     "hitImpulseY": 800,    //hitlevel = special
+                                        // },
                                         "reboundRatio": 0,
                                         "hitHaltTime": 0.0,
                                         "hitHaltTimeScale": 0.02,
                                         "muteHitText": false,
                                     },
-                                    "forceCameraShake": false,
+                                    "forceCameraShake": true,
                                     "cameraShake":
                                     {
-                                        "shakeType": "Center",
+                                        "shakeType": "CustomVector",
                                         "shakeRange": 0.36,
                                         "shakeTime": 0.12,
                                         "shakeDistance": 30,
+                                        "shakeDir":
+                                        {
+                                            "x": -1,
+                                            "y": 0,
+                                            "z": 0
+                                        },
                                     },
                                 }
                             }
                         },
                         {
-                            "$type": "FireEffect",
-                            "effectPattern": "Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_JudgmentExplode",
-                        },
-                        {
                             "$type":"KillSelf",
+                            "duration":0.5,
                         },
                     ],
                 },
-                "Eula_ElementalBurst_DamoclesSword_ModifyCD":
+                "Eula_ElementalBurst_KeepCombo_Handler":
                 {
-                    "duration":15,
-                    "onAttackLanded":
+                    "duration":7,
+                    "modifierMixins":
                     [
                         {
-                            "$type" : "ModifyAvatarSkillCD",
-                            "skillID" : 10512,
-                            "target" : "Self",
-                            "cdRatio" : -1,
-                            "predicates" :
+                            "$type" : "AttachToStateIDMixin",
+                            "stateIDs" : ["Eula_ElementalArt_BS","Eula_ElementalArt_Click","Eula_ElementalArt_Burst"],
+                            "modifierName" : "PushCombo",
+                        },
+                        {
+                            "$type" : "AttachToStateIDMixin",
+                            "stateIDs" : ["Eula_ElementalArt_Click_AS","Eula_ElementalArt_Burst_AS"],
+                            "modifierName" : "PopCombo",
+                        },
+                    ],
+                },
+                "PushCombo":
+                {
+                    "onAdded":
+                    [
+                        {
+                            "$type":"AddGlobalValue",
+                            "key":"_ABILITY_Eula_ComboCount",
+                            "value":0,
+                            "useLimitRange":true,
+                            "maxValue":0,
+                            "predicates":
                             [
                                 {
-                                    "$type":"ByHitCritical",
+                                    "$type":"ByAnimatorInt",
+                                    "value":0,
+                                    "parameter":"ComboCount",
+                                    "logic":"LesserOrEqual",
                                 },
+                            ],
+                        },
+                        {
+                            "$type":"AddGlobalValue",
+                            "key":"_ABILITY_Eula_ComboCount",
+                            "value":1,
+                            "useLimitRange":true,
+                            "maxValue":1,
+                            "predicates":
+                            [
                                 {
-                                    "$type":"ByAttackTags",
-                                    "attackTags":["NormalAttack_01","NormalAttack_02","NormalAttack_03","NormalAttack_04","NormalAttack_05",],
+                                    "$type":"ByAnimatorInt",
+                                    "value":1,
+                                    "parameter":"ComboCount",
+                                    "logic":"Equal",
+                                },
+                            ],
+                        },
+                        {
+                            "$type":"AddGlobalValue",
+                            "key":"_ABILITY_Eula_ComboCount",
+                            "value":2,
+                            "useLimitRange":true,
+                            "maxValue":2,
+                            "predicates":
+                            [
+                                {
+                                    "$type":"ByAnimatorInt",
+                                    "value":2,
+                                    "parameter":"ComboCount",
+                                    "logic":"Equal",
+                                },
+                            ],
+                        },
+                        {
+                            "$type":"AddGlobalValue",
+                            "key":"_ABILITY_Eula_ComboCount",
+                            "value":3,
+                            "useLimitRange":true,
+                            "maxValue":3,
+                            "predicates":
+                            [
+                                {
+                                    "$type":"ByAnimatorInt",
+                                    "value":3,
+                                    "parameter":"ComboCount",
+                                    "logic":"Equal",
+                                },
+                            ],
+                        },
+                        {
+                            "$type":"AddGlobalValue",
+                            "key":"_ABILITY_Eula_ComboCount",
+                            "value":4,
+                            "useLimitRange":true,
+                            "maxValue":4,
+                            "predicates":
+                            [
+                                {
+                                    "$type":"ByAnimatorInt",
+                                    "value":4,
+                                    "parameter":"ComboCount",
+                                    "logic":"Equal",
+                                },
+                            ],
+                        },
+                        {
+                            "$type":"AddGlobalValue",
+                            "key":"_ABILITY_Eula_ComboCount",
+                            "value":0,
+                            "useLimitRange":true,
+                            "maxValue":0,
+                            "minValue":0,
+                            "predicates":
+                            [
+                                {
+                                    "$type":"ByAnimatorInt",
+                                    "value":5,
+                                    "parameter":"ComboCount",
+                                    "logic":"GreaterOrEqual",
                                 },
                             ],
                         },
                     ],
                 },
+                "PopCombo":
+                {
+                    "onAdded":
+                    [
+                        {
+                            "$type":"SetGlobalValueToOverrideMap",
+                            "globalValueKey":"_ABILITY_Eula_ComboCount",
+                            "overrideMapKey":"ComboCount",
+                        },
+                        {
+                            "$type":"SetAnimatorInt",
+                            "intID":"ComboCount",
+                            "value":"%ComboCount",
+                        },
+                    ],
+                    "onRemoved":
+                    [
+                        {
+                            "$type":"SetAnimatorInt",
+                            "intID":"ComboCount",
+                            "value":0,
+                        },
+                    ],
+                },
+                "ChangeFollowDampTime_Handler":
+                {
+                    "modifierMixins":
+                    [
+                        {
+                            "$type": "AttachToAnimatorStateIDMixin",
+                            "stateIDs":
+                            [
+                                "Attack01",
+                                "Attack02",
+                                "Attack03",
+                                "Attack04",
+                                "Attack05",
+                                "Attack01_BS",
+                                "ExtraAttack",
+                                "ExtraAttack1",
+                                "ExtraAttack2",
+                                "ExtraAttack3",
+                                "Eula_ElementalArt_BS",
+                                "Eula_ElementalArt_Click",
+                                "Eula_ElementalArt_Click_AS",
+                                "Eula_ElementalArt_Burst",
+                                "Eula_ElementalArt_Burst_AS",
+                            ],
+                            "modifierName": "ChangeFollowDampTime",
+                        },
+                    ],
+                },
+                "ChangeFollowDampTime":
+                {
+                    "onAdded":
+                    [
+                        {
+                            "$type":"ChangeFollowDampTime",
+                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_DamoclesSword",
+                            "PositionDampTime":4,
+                        },
+                    ],
+                    "onRemoved":
+                    [
+                        {
+                            "$type":"ChangeFollowDampTime",
+                            "effectPattern":"Eff_Avatar_Lady_Claymore_Eula_EelementalBurst_DamoclesSword",
+                            "PositionDampTime":0.2,
+                        },
+                    ],
+                },
+                "Eula_EelementalBurst_ClearEndura":
+                {
+                    "duration":8,
+                    "onAdded":
+                    [
+                        {
+                            "$type": "ClearEndura",
+                            "target": "Self",
+                        },
+                    ],
+                    "properties":
+                    {
+                        "Actor_EndureDelta": 0, 
+                    },
+                },
             },
             "abilitySpecials":
             {
-                "Elemental_Burst_Judgment_BaseDamage":1,
+                "Elemental_Burst_Judgment_BaseDamage":0,
                 "Elemental_Burst_Judgment_Ratio":0,
+                "Elemental_Burst_Judgment_Damage_Factor":0,
+                "Eula_Constellation_6_DamoclesSword_Ratio":0,
+                "ComboCount":0,
+                "DamoclesSword_Max_Damage_Ratio":0,
             },
         },
     },
 ////////////////////////////////////////////////////////////////
 //
-//  空中攻击
+//  普攻伤害提升
+//
+/////////////////////////////////////////////////////////////////
+
+    {
+        "Default":
+        {
+            "$type": "ConfigAbility",
+            "abilityName": "Avatar_Eula_NormalAttackDamage_Handler",
+            "abilityMixins":
+            [
+                {
+                    "$type":"ModifyDamageMixin",
+                    "attackTags":["NormalAttack_01"],
+                    "damagePercentage":"%Attack01",
+                },
+                {
+                    "$type":"ModifyDamageMixin",
+                    "attackTags":["NormalAttack_02"],
+                    "damagePercentage":"%Attack02",
+                },
+                {
+                    "$type":"ModifyDamageMixin",
+                    "attackTags":["NormalAttack_03"],
+                    "damagePercentage":"%Attack03",
+                },
+                {
+                    "$type":"ModifyDamageMixin",
+                    "attackTags":["NormalAttack_04"],
+                    "damagePercentage":"%Attack04",
+                },
+                {
+                    "$type":"ModifyDamageMixin",
+                    "attackTags":["NormalAttack_05"],
+                    "damagePercentage":"%Attack05",
+                },
+                {
+                    "$type":"ModifyDamageMixin",
+                    "animEventNames": ["ExtraAttack1"],
+                    "damagePercentage":"%ExtraAttack1",
+                },
+                {
+                    "$type":"ModifyDamageMixin",
+                    "animEventNames": ["ExtraAttack2"],
+                    "damagePercentage":"%ExtraAttack2",
+                },
+            ],
+            "abilitySpecials":
+            {
+                "Attack01":0,
+                "Attack02":0,
+                "Attack03":0,
+                "Attack04":0,
+                "Attack05":0,
+                "ExtraAttack1":0,
+                "ExtraAttack2":0,
+            },
+        },
+    },
+
+////////////////////////////////////////////////////////////////
+//
+//  下落攻击
 //
 ////////////////////////////////////////////////////////////////
     {
@@ -1594,8 +3558,8 @@
                 {
                     "$type": "AvatarChangeSkillMixin",
                     "priority":"AvatarCommon",
-                    "jumpSkillID": 5024010,
-                    "flySkillID": 5024010,
+                    "jumpSkillID": 5051010,
+                    "flySkillID": 5051010,
                 },
                 {
                     "$type": "AttachToStateIDMixin",
@@ -1693,7 +3657,7 @@
             ],
             "onAbilityStart":
             [
-                //普通状态第一段
+                //?ͨ״̬?????
                 {
                     "$type": "TriggerAttackEvent",
                     "targetType": "Enemy",
@@ -1796,7 +3760,7 @@
                         },
                     ],
                 },
-                //普通状态第二段
+                //?ͨ״̬?ڶ???
                 {
                     "$type": "TriggerAttackEvent",
                     "targetType": "Enemy",
@@ -1886,7 +3850,7 @@
                         },
                     ],
                 },
-                //普通状态第一段
+                //?ͨ״̬?????
                 {
                     "$type": "FireEffect",
                     "effectPattern": "Eff_Avatar_Claymore_FallAnthem_Strike_01",
@@ -1901,7 +3865,7 @@
                         },
                     ],
                 },
-                //普通状态第二段
+                //?ͨ״̬?ڶ???
                 {
                     "$type": "FireEffect",
                     "effectPattern": "Eff_Avatar_Claymore_FallAnthem_Strike_02",
@@ -2190,7 +4154,7 @@
                         },
                     ],
                 },
-                //水平惯性继承
+                //ˮƽ??Լ̳?
                 "Inertia":
                 {
                     "modifierMixins":
@@ -2403,4 +4367,5 @@
 			},
         },
     },
+
 ]

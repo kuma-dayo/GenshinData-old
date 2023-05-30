@@ -101,6 +101,15 @@ suites = {
 		regions = { },
 		triggers = { "GADGET_STATE_CHANGE_380012", "GADGET_CREATE_380013", "GADGET_CREATE_380014", "GADGET_CREATE_380015", "GADGET_CREATE_380016", "GADGET_CREATE_380017", "TIMER_EVENT_380018" },
 		rand_weight = 100
+	},
+	{
+		-- suite_id = 3,
+		-- description = ,
+		monsters = { },
+		gadgets = { },
+		regions = { },
+		triggers = { },
+		rand_weight = 100
 	}
 }
 

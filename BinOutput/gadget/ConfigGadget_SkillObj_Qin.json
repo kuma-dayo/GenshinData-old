@@ -36,7 +36,7 @@
 		"field":
 		{
 			"shape": "CircleR6", //形状，不填为collider
-			"lifeTime": 14.0, //存在时间
+			"lifeTime": 21.0, //存在时间   //应该优化成Timer{lifeTime},但为了减少改动。沿用原配置。
 		},
 		"abilities":
 		[

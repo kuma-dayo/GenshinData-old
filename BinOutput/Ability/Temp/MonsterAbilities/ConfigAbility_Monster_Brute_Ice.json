@@ -1072,46 +1072,23 @@
 		"abilityMixins":
 		[		
 			{
-				"$type":"AttachModifierToSelfGlobalValueMixin",
-				"globalValueKey":"_MONSTER_BRUTE_ICE_IMPROVENUM",
-				"valueSteps":[-0.5,0.5,100],
-				"modifierNameSteps":["Monster_Brute_Ice_FirstImprove","Empty"]
-			},
-			{
-				"$type":"AttachModifierToSelfGlobalValueMixin",
-				"globalValueKey":"_MONSTER_BRUTE_ICE_IMPROVED",
-				"valueSteps":[-0.5,0.5,1.5],
-				"modifierNameSteps":["Monster_Brute_Ice_NormalState","Monster_Brute_Ice_PowerUp"]
-			},
-			{
 				"$type":"AttachToPoseIDMixin",
 				"poseIDs":[901,902,903],
 				"modifierName":"Monster_Brute_Ice_ExitBattle"
+			},
+			{
+				"$type":"AttachModifierToSelfGlobalValueMixin",
+				"globalValueKey":"_MONSTER_BRUTE_ICE_POWER_STATE",
+				"valueSteps":[-0.5,0.5,1.5],
+				"modifierNameSteps":["Monster_Brute_Ice_PowerStateOff","Monster_Brute_Ice_PowerStateOn"]
 			}
 		],
 		"onAbilityStart":
 		[
 			{
-				"$type":"AddGlobalValue",
-				"key":"_MONSTER_BRUTE_ICE_IMPROVED",
-				"value":1,
-				"useLimitRange":true,
-				"minValue":0,
-				"maxValue":1,
-			},
-			{
-				"$type":"AddGlobalValue",
-				"key":"_MONSTER_BRUTE_ICE_IMPROVENUM",
-				"value":1,
-				"useLimitRange":true,
-				"minValue":0,
-				"maxValue":2,
-			},
-			{
-				"$type":"SetAnimatorBool",
-				"boolID":"PowerState",
-				"value":true
-			}		
+				"$type":"ApplyModifier",
+				"modifierName":"Monster_Brute_Ice_Improve_Handler"
+			}	
 		],
 		"onKill":
 		[
@@ -1168,71 +1145,20 @@
 						"target":"Self"
 					},
 					{
-						"$type":"SetAnimatorBool",
-						"boolID":"PowerState",
+						"$type":"SetPoseBool",
+						"boolID":"ExitPower",
 						"value":false
 					},
 					{
-						"$type":"AddGlobalValue",
-						"key":"_MONSTER_BRUTE_ICE_IMPROVED",
-						"value":-2,
-						"useLimitRange":true,
-						"minValue":0,
-						"maxValue":1,
-					},
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_BRUTE_ICE_POWER_STATE",
+						"value":0
+					}
 				]
 			},
 			"Empty":
 			{
 				
-			},
-			"Monster_Brute_Ice_NormalState":
-			{
-				"onAdded":
-				[
-					{
-						"$type":"SetPoseInt",
-						"intID":"CoreState",
-						"value":0,
-					},
-					{
-						"$type":"SetAISkillGCD",
-						"value":4,
-						"canBeHandledOnRecover":true
-					},
-					{
-						"$type":"AddGlobalValue",
-						"key":"_MONSTER_BRUTE_ICE_POSE",
-						"value":-3,
-						"useLimitRange":true,
-						"maxValue":2,
-						"minValue":0,
-					},
-					{
-						"$type":"SetAnimatorBool",
-						"boolID":"PowerState",
-						"value":false
-					},
-					{
-						"$type":"AddGlobalValue",
-						"key":"_MONSTER_BRUTE_ICE_IMPROVED",
-						"value":-2,
-						"useLimitRange":true,
-						"minValue":0,
-						"maxValue":1,
-					}
-				]
-			},
-			"Monster_Brute_Ice_FirstImprove":
-			{
-				"onAdded":
-				[
-					{
-						"$type":"SetAISkillCDAvailableNow",
-						"skillIDs":[1],
-						"canBeHandledOnRecover":true
-					}
-				]
 			},
 			"Monster_Brute_Ice_PowerUp":
 			{
@@ -1276,15 +1202,15 @@
 						"modifierName":"UNIQUE_Monster_Brute_Ice_SoundEffect"
 					},
 					{
-						"$type":"SetAnimatorBool",
-						"boolID":"PowerState",
-						"value":true
-					},
-					{
 						"$type": "SetGlobalValue",
 						"key": "_WATCHER_82070_",
 						"value": 1,
-					},		
+					},	
+					{
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_BRUTE_ICE_POWER_STATE",
+						"value":1
+					}	
 				],
 				"modifierMixins":
 				[
@@ -1295,12 +1221,9 @@
 				"onRemoved":
 				[
 					{
-						"$type":"ReTriggerAISkillInitialCD",
-						"skillIDs":[1001]
-					},
-					{
-						"$type":"SetAISkillCDAvailableNow",
-						"skillIDs":[1001]
+						"$type":"SetPoseBool",
+						"boolID":"ExitPower",
+						"value":true
 					},
 					{
 						"$type": "SetGlobalValue",
@@ -1324,6 +1247,158 @@
 						}
 					}
 				]
+			},
+			"Monster_Brute_Ice_Improve_Handler":
+			{
+				"duration":1.28,
+				"onRemoved":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Brute_Ice_PowerUp",
+						"predicates":
+						[
+							{
+								"$type":"ByNot",
+								"predicates":
+								[
+									{
+										"$type":"ByTargetGlobalValue",
+										"key":"_MONSTER_BRUTE_ICE_POWER_STATE",
+										"value":1,
+										"compareType":"Equal"
+									}
+								]
+							}
+						]
+					},
+					{
+						"$type":"ActCameraShake",
+						"cameraShake":
+						{
+							"shakeRange":8,
+							"shakeTime":0.4,
+							"shakeDistance":40,
+							"extension":
+							{
+								"baseOnCamera":false
+							}
+						},
+						"born":
+						{
+							"$type":"ConfigBornBySelf"
+						}
+					}
+				],
+				"onAdded":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Brute_Ice_CoreOn_ForSure"
+					}
+				]
+			},
+			"Monster_Brute_Ice_CoreOn_ForSure":
+			{
+				"duration":5,
+				"onChangeAuthority":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Brute_Ice_PowerUp",
+						"predicates":
+						[
+							{
+								"$type":"ByNot",
+								"predicates":
+								[
+									{
+										"$type":"ByTargetGlobalValue",
+										"key":"_MONSTER_BRUTE_ICE_POWER_STATE",
+										"value":1,
+										"compareType":"Equal"
+									}
+								]
+							}
+						]
+					}
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Brute_Ice_PowerUp",
+						"predicates":
+						[
+							{
+								"$type":"ByNot",
+								"predicates":
+								[
+									{
+										"$type":"ByTargetGlobalValue",
+										"key":"_MONSTER_BRUTE_ICE_POWER_STATE",
+										"value":1,
+										"compareType":"Equal"
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"Monster_Brute_Ice_PowerStateOff":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetAnimatorBool",
+						"boolID":"PowerState",
+						"value":false
+					}
+				],
+				"onChangeAuthority":
+				[
+					{
+						"$type":"SetAnimatorBool",
+						"boolID":"PowerState",
+						"value":false
+					}
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"SetAnimatorBool",
+						"boolID":"PowerState",
+						"value":false
+					}
+				]
+			},
+			"Monster_Brute_Ice_PowerStateOn":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetAnimatorBool",
+						"boolID":"PowerState",
+						"value":true
+					}
+				],
+				"onChangeAuthority":
+				[
+					{
+						"$type":"SetAnimatorBool",
+						"boolID":"PowerState",
+						"value":true
+					}
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"SetAnimatorBool",
+						"boolID":"PowerState",
+						"value":true
+					}
+				]
 			}
 		}
 	}
@@ -1336,37 +1411,84 @@
 		"onAbilityStart":
 		[
 			{
-				"$type":"AddGlobalValue",
-				"key":"_MONSTER_BRUTE_ICE_IMPROVED",
-				"value":-2,
-				"useLimitRange":true,
-				"minValue":0,
-				"maxValue":1,
+				"$type":"ApplyModifier",
+				"modifierName":"Monster_Brute_Ice_ExitPower_Handler"
+			}
+		],
+		"modifiers":
+		{
+			"Monster_Brute_Ice_ExitPower_Handler":
+			{
+				"duration":0.8,
+				"onRemoved":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Brute_Ice_ExitPower"
+					}
+				],
+				"onAdded":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Brute_Ice_ExitPower_ForSure"
+					}
+				]
 			},
+			"Monster_Brute_Ice_ExitPower_ForSure":
 			{
-				"$type":"SetPoseInt",
-				"intID":"CoreState",
-				"value":0,
+				"duration":5,
+				"onChangeAuthority":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Brute_Ice_ExitPower"
+					}
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Brute_Ice_ExitPower"
+					}
+				]
 			},
+			"Monster_Brute_Ice_ExitPower":
 			{
-				"$type":"AddGlobalValue",
-				"key":"_MONSTER_BRUTE_ICE_POSE",
-				"value":-3,
-				"useLimitRange":true,
-				"maxValue":2,
-				"minValue":0,
-			},	
-			{
-				"$type":"SetAISkillGCD",
-				"value":7,
-				"target":"Self"
-			},
-			{
-				"$type":"SetAnimatorBool",
-				"boolID":"PowerState",
-				"value":false
-			}	
-		]
+				"duration":1,
+				"onAdded":
+				[
+					{
+						"$type":"SetPoseInt",
+						"intID":"CoreState",
+						"value":0,
+					},
+					{
+						"$type":"AddGlobalValue",
+						"key":"_MONSTER_BRUTE_ICE_POSE",
+						"value":-3,
+						"useLimitRange":true,
+						"maxValue":2,
+						"minValue":0,
+					},	
+					{
+						"$type":"SetAISkillGCD",
+						"value":7,
+						"target":"Self"
+					},
+					{
+						"$type":"SetPoseBool",
+						"boolID":"ExitPower",
+						"value":false
+					},
+					{
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_BRUTE_ICE_POWER_STATE",
+						"value":0
+					}
+				]
+			}
+		}
 	}
 },
 ////////////////////////////////////////////////////////////////

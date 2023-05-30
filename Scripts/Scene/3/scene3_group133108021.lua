@@ -6,11 +6,11 @@
 
 -- 怪物
 monsters = {
-	{ config_id = 21001, monster_id = 20011001, pos = { x = -61.226, y = 200.070, z = -196.209 }, rot = { x = 0.000, y = 289.244, z = 0.000 }, level = 19, drop_tag = "史莱姆", area_id = 7 },
+	{ config_id = 21001, monster_id = 20011001, pos = { x = -64.344, y = 200.000, z = -192.157 }, rot = { x = 0.000, y = 289.244, z = 0.000 }, level = 19, drop_tag = "史莱姆", area_id = 7 },
 	{ config_id = 21002, monster_id = 20011001, pos = { x = -42.191, y = 200.000, z = -174.247 }, rot = { x = 0.000, y = 340.970, z = 0.000 }, level = 19, drop_tag = "史莱姆", area_id = 7 },
-	{ config_id = 21003, monster_id = 20011001, pos = { x = -60.276, y = 199.930, z = -196.027 }, rot = { x = 0.000, y = 334.370, z = 0.000 }, level = 19, drop_tag = "史莱姆", area_id = 7 },
-	{ config_id = 21004, monster_id = 20011001, pos = { x = -45.130, y = 200.042, z = -213.410 }, rot = { x = 0.000, y = 344.400, z = 0.000 }, level = 19, drop_tag = "史莱姆", area_id = 7 },
-	{ config_id = 21006, monster_id = 20011001, pos = { x = -45.812, y = 200.042, z = -211.749 }, rot = { x = 0.000, y = 73.710, z = 0.000 }, level = 19, drop_tag = "史莱姆", area_id = 7 },
+	{ config_id = 21003, monster_id = 20011001, pos = { x = -63.395, y = 200.000, z = -191.976 }, rot = { x = 0.000, y = 334.370, z = 0.000 }, level = 19, drop_tag = "史莱姆", area_id = 7 },
+	{ config_id = 21004, monster_id = 20011001, pos = { x = -78.733, y = 200.000, z = -232.367 }, rot = { x = 0.000, y = 344.400, z = 0.000 }, level = 19, drop_tag = "史莱姆", area_id = 7 },
+	{ config_id = 21006, monster_id = 20011001, pos = { x = -79.415, y = 200.165, z = -230.706 }, rot = { x = 0.000, y = 73.710, z = 0.000 }, level = 19, drop_tag = "史莱姆", area_id = 7 },
 	{ config_id = 21010, monster_id = 20011001, pos = { x = -60.930, y = 200.000, z = -245.778 }, rot = { x = 0.000, y = 21.020, z = 0.000 }, level = 19, drop_tag = "史莱姆", area_id = 7 },
 	{ config_id = 21011, monster_id = 20011001, pos = { x = -54.968, y = 200.000, z = -243.881 }, rot = { x = 0.000, y = 134.350, z = 0.000 }, level = 19, drop_tag = "史莱姆", area_id = 7 },
 	{ config_id = 21012, monster_id = 20011001, pos = { x = -113.772, y = 200.000, z = -264.012 }, rot = { x = 0.000, y = 304.565, z = 0.000 }, level = 19, drop_tag = "史莱姆", area_id = 7 },

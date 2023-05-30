@@ -10,14 +10,6 @@
 		"mass": 10.0,
 		"affectedByWorld": true,
 		"checkInSurface": true,
-		"effectGroups":
-		[
-			"AvatarSkill_Razor_Effects"
-		],
-		"consoleEffectGroups":
-		[
-			"AvatarSkill_Razor_Effects"
-		],
 		"avatarHeight": 1.6286,
 		"avatarModelHeight": 1.61,
 		"height": 1.662,
@@ -72,30 +64,6 @@
 		"elementAbsorb": "PRIVATE_Pendant",
 		"elementPendant": "PRIVATE_Pendant"
 	},
-	"bindEmotions":
-	[
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Fight_Attack_01",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Fight_Attack_02",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Fight_Attack_03",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Fight_Attack_04",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Fight_Attack_ExtraAttackBS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Fight_Attack_ExtraAttack1",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Fight_Attack_ExtraAttack2",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Fight_Attack_ExtraAttackAS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Skill_ClawMark_BS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Skill_ClawMark_Charge",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Skill_ClawMark_Click",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Skill_ClawMark_Click_2",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Skill_ClawMark_Explode",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Skill_ThunderFang",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Skill_ThunderFang_AS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Normal",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Razor_Show_01_Tun",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_RelicShow_BS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_RelicShow_Loop",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_RelicShow_AS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_Normal"
-	],
 	"combat":
 	{
 		"property":

@@ -5502,5 +5502,264 @@
 			"triggerRadius": 4,
 			"triggerHeight": 6,
 		},
-	},				
+	},
+///////////////////////////////////////////////////////////
+//
+// 1.5 试玩地城挑战机关 减时间
+//
+///////////////////////////////////////////////////////////
+	"SceneObj_Gear_Operator_MistTrial_Time_Operator" :
+	{
+		"$type" : "ConfigGadget",
+		"common":
+		{
+			"disableTickDistance": 100000,
+		},
+		"field" :
+		{
+			"concernType" : "LocalAvatar",
+			"shape" : "CircleR2",		//形状，不填为collider
+			"checkInterval" : 0.5,		//触发间隔
+			"triggerInfinite" : true,	//是否永远触发
+			"lifeInfinite" : true,		//如果未触发是否一致存在
+			"overwriteCampType" : true,
+			"campType" : "SelfCamp",
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : false,
+				"HP" : 99999,
+				"attack" : 200,
+				"defense" : 0,
+				"weight" : 50,
+				"isInvincible":false,
+				"isLockHP":true,
+				"endure":99,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+				"canTriggerBullet" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+				"lockType": "Gadget_Lv1"
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"hitAutoRedirect": false,
+				"muteAllHit" : false,
+				"muteAllHitEffect" : false,
+				"muteAllHitText" : true,
+			},
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "OperatorActive",
+
+				"abilityName":"SceneObj_Gear_Operator_MistTrial_Time_Operator"
+			},
+		],	     
+	},
+///////////////////////////////////////////////////////////
+//
+// 1.5 试玩地城挑战机关 复活
+//
+///////////////////////////////////////////////////////////
+	"SceneObj_Gear_Operator_MistTrial_Revive_Operator" :
+	{
+		"$type" : "ConfigGadget",
+		"common":
+		{
+			"disableTickDistance": 100000,
+		},
+		"field" :
+		{
+			"concernType" : "LocalAvatar",
+			"shape" : "CircleR2",		//形状，不填为collider
+			"checkInterval" : 0.5,		//触发间隔
+			"triggerInfinite" : true,	//是否永远触发
+			"lifeInfinite" : true,		//如果未触发是否一致存在
+			"overwriteCampType" : true,
+			"campType" : "SelfCamp",
+		},
+		// "hasModel": true,
+		// "model":
+		// {
+		// 	"attachEffect": "Eff_Gear_ElementDungeon_Operator",
+		// },
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : false,
+				"HP" : 99999,
+				"attack" : 200,
+				"defense" : 0,
+				"weight" : 50,
+				"isInvincible":false,
+				"isLockHP":true,
+				"endure":99,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+				"canTriggerBullet" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+				"lockType": "Gadget_Lv1"
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"hitAutoRedirect": false,
+				"muteAllHit" : false,
+				"muteAllHitEffect" : false,
+				"muteAllHitText" : true,
+			},
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "OperatorActive",
+
+				"abilityName":"SceneObj_Gear_Operator_MistTrial_Revive_Operator"
+			},
+		],	     
+    },
+///////////////////////////////////////////////////////////
+//
+// 1.5 试玩地城挑战机关 攻击加成
+//
+///////////////////////////////////////////////////////////
+"SceneObj_Gear_Operator_MistTrial_Attack_Operator" :
+{
+	"$type" : "ConfigGadget",
+	"common":
+	{
+		"disableTickDistance": 100000,
+	},
+	"field" :
+		{
+			"concernType" : "LocalAvatar",
+			"shape" : "CircleR2",		//形状，不填为collider
+			"checkInterval" : 0.5,		//触发间隔
+			"triggerInfinite" : true,	//是否永远触发
+			"lifeInfinite" : true,		//如果未触发是否一致存在
+			"overwriteCampType" : true,
+			"campType" : "SelfCamp",
+		},
+	// "hasModel": true,
+	// "model":
+	// {
+	// 	"attachEffect": "Eff_Gear_ElementDungeon_Operator",
+	// },
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : false,
+			"HP" : 99999,
+			"attack" : 200,
+			"defense" : 0,
+			"weight" : 50,
+			"isInvincible":false,
+			"isLockHP":true,
+			"endure":99,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : true,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+			"lockType": "Gadget_Lv1"
+		},
+		"beHit" :
+		{
+			"hitBloodEffect" : "",
+			"hitAutoRedirect": false,
+			"muteAllHit" : false,
+			"muteAllHitEffect" : false,
+			"muteAllHitText" : true,
+		},
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "OperatorActive",
+
+			"abilityName":"SceneObj_Gear_Operator_MistTrial_Attack_Operator"
+		},
+	],	     
+},
+///////////////////////////////////////////////////////////
+//
+// 1.5 试玩地城挑战机关 加速
+//
+///////////////////////////////////////////////////////////
+"SceneObj_Gear_Operator_MistTrial_Turbo_Operator" :
+{
+	"$type" : "ConfigGadget",
+	"common":
+	{
+		"disableTickDistance": 100000,
+	},
+	"field" :
+		{
+			"concernType" : "LocalAvatar",
+			"shape" : "CircleR2",		//形状，不填为collider
+			"checkInterval" : 0.5,		//触发间隔
+			"triggerInfinite" : true,	//是否永远触发
+			"lifeInfinite" : true,		//如果未触发是否一致存在
+			"overwriteCampType" : true,
+			"campType" : "SelfCamp",
+		},
+	// "hasModel": true,
+	// "model":
+	// {
+	// 	"attachEffect": "Eff_Gear_ElementDungeon_Operator",
+	// },
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : false,
+			"HP" : 99999,
+			"attack" : 200,
+			"defense" : 0,
+			"weight" : 50,
+			"isInvincible":false,
+			"isLockHP":true,
+			"endure":99,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : true,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+			"lockType": "Gadget_Lv1"
+		},
+		"beHit" :
+		{
+			"hitBloodEffect" : "",
+			"hitAutoRedirect": false,
+			"muteAllHit" : false,
+			"muteAllHitEffect" : false,
+			"muteAllHitText" : true,
+		},
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "OperatorActive",
+
+			"abilityName":"SceneObj_Gear_Operator_MistTrial_Turbo_Operator"
+		},
+	],	     
+},				
 }

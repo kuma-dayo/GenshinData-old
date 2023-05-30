@@ -1709,6 +1709,12 @@
 					"feelRange": 0.0,
 					"hearAttractionRange": 0.0,
 				},
+				"LowAlertForMimiTomo":
+				{
+					"viewRange": 5.0,
+					"feelRange": 2.5,
+					"hearAttractionRange": 0.0,
+				},
 			},
 			"templates":
 			{
@@ -1738,6 +1744,15 @@
 					"9010": "NeverCombat",
 					"9011": "NeverCombat",
 					"9012": "NeverCombat",
+				},
+				"LowAlertForMimiTomoTemplate":
+				{
+					"DefaultPoses": "LowAlertForMimiTomo",
+					"9002": "LowAlertForMimiTomo",
+					"9003": "LowAlertForMimiTomo",
+					"9010": "LowAlertForMimiTomo",
+					"9011": "LowAlertForMimiTomo",
+					"9012": "LowAlertForMimiTomo",
 				},
 			},
 		},

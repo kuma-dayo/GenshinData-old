@@ -1709,6 +1709,10 @@
                     "$type":"ApplyModifier",
                     "modifierName":"Collider_Open_Timer",
                 },
+                {
+                    "$type":"ApplyModifier",
+                    "modifierName":"Z_Xiangling_FireCircle_Time",
+                },
             ],
             "modifiers":
             {
@@ -1861,6 +1865,16 @@
                     {
                         "Entity_LifeTimeDelta": "%Time_Rate*%FireCircleTime+%FireCircleTimeDelta",//10是基础时长。
                     },
+                },
+                "Z_Xiangling_FireCircle_Time": //增加了保底的干掉自己的时间
+                {
+                    "duration":"%Time_Rate*%FireCircleTime+%FireCircleTimeDelta+2",
+                    "onRemoved":
+                    [
+                        {
+                            "$type":"KillSelf",
+                        },
+                    ],
                 },
                 //"Change_Damage": {
                 //  "modifierMixins": [

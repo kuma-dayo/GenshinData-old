@@ -17,7 +17,6 @@
       "property": {
         "useCreatorProperty": true, // 是否继承创造者的数值
         "weight": 0,
-        "denyLockOn": true,
         "canTriggerBullet": false,
       },
       "die": {
@@ -25,6 +24,13 @@
         "dieEndTime": 0,
         "dieForceDisappearTime": 0,
         "dieModelFadeDelay": 0,
+      },
+      "combatLock": {
+        "denyLockOn": true,
+        "lockType": "Gadget_Lv1",
+        "overrideRange": -1,
+        "overrideNormalPri": -1,
+        "overrideCombatPri": -1,
       },
     },
     "timer": {
@@ -52,7 +58,6 @@
       "property": {
         "useCreatorProperty": true, // 是否继承创造者的数值
         "weight": 0,
-        "denyLockOn": true,
         "canTriggerBullet": false,
       },
       "die": {
@@ -60,6 +65,13 @@
         "dieEndTime": 0,
         "dieForceDisappearTime": 0,
         "dieModelFadeDelay": 0,
+      },
+      "combatLock": {
+        "denyLockOn": true,
+        "lockType": "Gadget_Lv1",
+        "overrideRange": -1,
+        "overrideNormalPri": -1,
+        "overrideCombatPri": -1,
       },
     },
     "timer": {
@@ -87,7 +99,6 @@
       "property": {
         "useCreatorProperty": true, // 是否继承创造者的数值
         "weight": 0,
-        "denyLockOn": true,
         "canTriggerBullet": false,
       },
       "die": {
@@ -95,6 +106,13 @@
         "dieEndTime": 0,
         "dieForceDisappearTime": 0,
         "dieModelFadeDelay": 0,
+      },
+      "combatLock": {
+        "denyLockOn": true,
+        "lockType": "Gadget_Lv1",
+        "overrideRange": -1,
+        "overrideNormalPri": -1,
+        "overrideCombatPri": -1,
       },
     },
     "timer": {
@@ -122,13 +140,19 @@
         "HP": 999999,
         "attack": 30.0,
         "defense": 999999,
-        "denyLockOn": true,
       },
       "beHit": {
         "hitBloodEffect": "",
         "muteAllHit": true,
         "muteAllHitEffect": true,
         "muteAllHitText": true,
+      },
+      "combatLock": {
+        "denyLockOn": true,
+        "lockType": "Gadget_Lv1",
+        "overrideRange": -1,
+        "overrideNormalPri": -1,
+        "overrideCombatPri": -1,
       },
     },
     // 生命周期管理
@@ -161,11 +185,9 @@
       "property": {
         "useCreatorProperty": true, // 是否继承创造者的数值
         "weight": 0,
-        "denyLockOn": true,
         "canTriggerBullet": true,
       },
-      "combatLock":
-      {
+      "combatLock": {
         "denyLockOn": true,
         "lockType": "Avatar&Monster_Lv4",
       },
@@ -215,7 +237,6 @@
       "property": {
         "useCreatorProperty": true, // 是否继承创造者的数值
         "weight": 0,
-        "denyLockOn": true,
         "canTriggerBullet": false,
       },
       "die": {
@@ -230,6 +251,13 @@
         "muteAllHit": false,
         "muteAllHitEffect": true,
         "muteAllHitText": true,
+      },
+      "combatLock": {
+        "denyLockOn": true,
+        "lockType": "Gadget_Lv1",
+        "overrideRange": -1,
+        "overrideNormalPri": -1,
+        "overrideCombatPri": -1,
       },
     },
     "timer": {
@@ -262,7 +290,6 @@
       "property": {
         "useCreatorProperty": true, // 是否继承创造者的数值
         "weight": 0,
-        "denyLockOn": true,
         "canTriggerBullet": false,
       },
       "die": {
@@ -270,6 +297,13 @@
         "dieEndTime": 4,
         "dieForceDisappearTime": 0,
         "dieModelFadeDelay": 0,
+      },
+      "combatLock": {
+        "denyLockOn": true,
+        "lockType": "Gadget_Lv1",
+        "overrideRange": -1,
+        "overrideNormalPri": -1,
+        "overrideCombatPri": -1,
       },
     },
     "timer": {
@@ -301,7 +335,6 @@
       "property": {
         "useCreatorProperty": true, // 是否继承创造者的数值
         "weight": 0,
-        "denyLockOn": true,
         "canTriggerBullet": false,
       },
       "die": {
@@ -309,6 +342,13 @@
         "dieEndTime": 0,
         "dieForceDisappearTime": 0,
         "dieModelFadeDelay": 0,
+      },
+      "combatLock": {
+        "denyLockOn": true,
+        "lockType": "Gadget_Lv1",
+        "overrideRange": -1,
+        "overrideNormalPri": -1,
+        "overrideCombatPri": -1,
       },
     },
     "timer": {

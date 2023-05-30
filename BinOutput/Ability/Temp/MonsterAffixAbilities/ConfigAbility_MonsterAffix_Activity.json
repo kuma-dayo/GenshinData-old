@@ -2647,6 +2647,7 @@
 		},
 	},
 },
+
 ////////////////////////////////////////////////////////////////
 //
 //  MonsterAffix_Property_HpUp_02_ForTowerDefense--4112
@@ -2715,6 +2716,104 @@
 	},
 },
 
+///////家园活动
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_LowAlert_ForMimiTomo--4114
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "MonsterAffix_LowAlert_ForMimiTomo",
+		"isDynamicAbility": true,
+		"onAdded": 
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "MonsterAffix_LowAlert_ForMimiTomo",
+			},
+		],
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToAIAlertnessMixin",
+				"alertness": [1, 2],
+				"modifierName": "MonsterAffix_LowAlert_ForMimiTomo_IntoBattle",
+			},
+		],
+		"modifiers":
+		{
+			"MonsterAffix_LowAlert_ForMimiTomo":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "HideUIBillBoard",
+						"hide"  : true,
+					},
+					{
+						"$type": "ResetAIThreatBroadcastRange",
+						"range": 0.0,
+						"canBeHandledOnRecover": true,
+					},
+				],			
+			},
+			"MonsterAffix_LowAlert_ForMimiTomo_IntoBattle":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "HideUIBillBoard",
+						"hide"  : false,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "HideUIBillBoard",
+						"hide"  : true,
+					},
+				],
+			},
+		},
+	},
+},
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_01_ForHunting--4032
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_01_ForMimiTomo",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_01_ForMimiTomo",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_01_ForMimiTomo":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 9.0,
+				},
+			},
+		},
+	},
+},
 /////////擂台活动
 ////////////////////////////////////////////////////////////////
 //
@@ -2749,4 +2848,40 @@
 		},
 	},
 },
+
+/////////圆盘活动
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_Property_HpUp_01_ForChannellerSlab--4116
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default" : 
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "MonsterAffix_Property_HpUp_01_ForChannellerSlab",
+		"isDynamicAbility": true,
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "UNIQUE_MonsterAffix_Property_HpUp_01_ForChannellerSlab",
+				"target": "Self",
+			},
+		],
+		"modifiers" : 
+		{
+			"UNIQUE_MonsterAffix_Property_HpUp_01_ForChannellerSlab":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"properties":
+				{
+					"Actor_MaxHPRatio": 1.5,
+				},
+			},
+		},
+	},
+},
+
 ]

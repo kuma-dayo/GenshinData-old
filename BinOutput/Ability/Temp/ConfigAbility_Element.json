@@ -1460,8 +1460,9 @@
 							"predicates":
 							[
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : true,
+								    "$type": "ByTargetType",
+								    "targetType":"Self",
+								    "isTarget":true,
 								},
 								{
 									"$type" : "ByHasElement",
@@ -1490,8 +1491,9 @@
 							"predicates":
 							[
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+								    "$type": "ByTargetType",
+								    "targetType":"Self",
+								    "isTarget":false,
 								},
 								{
 									"$type" : "ByHasElement",
@@ -1640,8 +1642,9 @@
 							"predicates":
 							[
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : true,
+								    "$type": "ByTargetType",
+								    "targetType":"Self",
+								    "isTarget":true,
 								},
 								{
 									"$type" : "ByHasElement",
@@ -1670,8 +1673,9 @@
 							"predicates":
 							[
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+								    "$type": "ByTargetType",
+								    "targetType":"Self",
+								    "isTarget":false,
 								},
 								{
 									"$type" : "ByHasElement",
@@ -2726,104 +2730,6 @@
 						],
 					},
 				],
-				"onBeingHit":
-				[
-					{
-						"$type": "FireEffect",
-						"effectPattern": "Eff_Element_FreezeBroken",
-						"born":
-						{
-							"$type": "ConfigBornByHitPoint",
-							"direction":
-							{
-								"$type": "ConfigDirectionByBackToHitBoxCenter",
-							},
-							"alongGround": true,
-						},
-						"predicates":
-						[
-							{
-								"$type":"ByAny",
-								"predicates":
-								[
-									{
-										"$type": "ByHitStrikeType",
-										"strikeType": "Blunt",
-									},
-									{
-										"$type":"ByHitElement",
-										"element":"Rock",
-									},
-								],
-							},
-							{
-								"$type":"ByNot",
-								"predicates":
-								[
-									{
-										"$type":"ByEntityTypes",
-										"target":"Self",
-										"entityTypes":["Water"],
-									},
-								],
-							},
-						],
-					},
-					{
-						"$type":"SetSystemValueToOverrideMap",
-						"type":"PlayerElementLevelCoWithMastery",
-						"key":"Freeze_BaseReactionDamage",
-						"target":"Other",
-						"predicates":
-						[
-							{
-								"$type":"ByAny",
-								"predicates":
-								[
-									{
-										"$type": "ByHitStrikeType",
-										"strikeType": "Blunt",
-									},
-									{
-										"$type":"ByHitElement",
-										"element":"Rock",
-									},
-								],
-							},
-						],
-					},
-					{
-						"$type": "SetGlobalValue",//这个值记在level上是不会同步的，所以要copy到被冰冻的目标上
-						"key": "ElementAbility_Freeze_BaseReactionDamage",
-						"value":"%Freeze_BaseReactionDamage",
-						"useLimitRange": true,
-						"target": "Self",
-						"maxValue":"%Freeze_BaseReactionDamage",
-						"minValue":0,
-					},
-					{
-						"$type" : "ApplyModifier",
-						"modifierName" : "FrozenBrokenDamage",
-						"target" : "Self",
-						"predicates":
-						[
-							{
-								"$type":"ByAny",
-								"predicates":
-								[
-									{
-										"$type": "ByHitStrikeType",
-										"strikeType": "Blunt",
-									},
-									{
-										"$type":"ByHitElement",
-										"element":"Rock",
-									},
-								],
-							},
-						],
-					},
-				],
 				"onKill":
 				[
 					{
@@ -2984,104 +2890,6 @@
 						],
 					},
 				],
-				"onBeingHit":
-				[
-					{
-						"$type": "FireEffect",
-						"effectPattern": "Eff_Element_FreezeBroken",
-						"born":
-						{
-							"$type": "ConfigBornByHitPoint",
-							"direction":
-							{
-								"$type": "ConfigDirectionByBackToHitBoxCenter",
-							},
-							"alongGround": true,
-						},
-						"predicates":
-						[
-							{
-								"$type":"ByAny",
-								"predicates":
-								[
-									{
-										"$type": "ByHitStrikeType",
-										"strikeType": "Blunt",
-									},
-									{
-										"$type":"ByHitElement",
-										"element":"Rock",
-									},
-								],
-							},
-							{
-								"$type":"ByNot",
-								"predicates":
-								[
-									{
-										"$type":"ByEntityTypes",
-										"target":"Self",
-										"entityTypes":["Water"],
-									},
-								],
-							},
-						],
-					},
-					{
-						"$type":"SetSystemValueToOverrideMap",
-						"type":"PlayerElementLevelCoWithMastery",
-						"key":"Freeze_BaseReactionDamage",
-						"target":"Other",
-						"predicates":
-						[
-							{
-								"$type":"ByAny",
-								"predicates":
-								[
-									{
-										"$type": "ByHitStrikeType",
-										"strikeType": "Blunt",
-									},
-									{
-										"$type":"ByHitElement",
-										"element":"Rock",
-									},
-								],
-							},
-						],
-					},
-					{
-						"$type": "AddGlobalValue",//这个值记在level上是不会同步的，所以要copy到被冰冻的目标上
-						"key": "ElementAbility_Freeze_BaseReactionDamage",
-						"value":"%Freeze_BaseReactionDamage",
-						"useLimitRange": true,
-						"target": "Self",
-						"maxValue":"%Freeze_BaseReactionDamage",
-						"minValue":0,
-					},
-					{
-						"$type" : "ApplyModifier",
-						"modifierName" : "FrozenBrokenDamage",
-						"target" : "Self",
-						"predicates":
-						[
-							{
-								"$type":"ByAny",
-								"predicates":
-								[
-									{
-										"$type": "ByHitStrikeType",
-										"strikeType": "Blunt",
-									},
-									{
-										"$type":"ByHitElement",
-										"element":"Rock",
-									},
-								],
-							},
-						],
-					},
-				],
 				"onKill":
 				[
 					{
@@ -3117,11 +2925,58 @@
 					"Actor_CostStaminaRatio" : -999,
 				},
 			},
-			"FrozenBrokenDamage":
+ 		},
+		"abilitySpecials":
+		{
+			"Freeze_BaseReactionDamage":0,
+			"Ability_Freeze_Duration" : 0.2,
+			"Ability_Freeze_Durability" : 2,
+			"Ability_Freeze_Alter_DurationRate": 4,
+			"ElementAbility_Freeze_BaseReactionDamage" : 0,
+			"FrozenBroken_Damage_Factor" : 1.5,
+		},
+	},
+},
+
+{
+"Default" :
+	{
+		"$type" : "ConfigAbility",
+		"abilityName" : "ElementAbility_Frozen_Broken",
+		"onAbilityStart" :
+		[								
+			{
+				"$type" : "ApplyLevelModifier",
+				"modifierName" : "FrozenBrokenModifier",
+				"target" : "Target",
+			},
+		],
+		"modifiers" :
+		{
+			"FrozenBrokenModifier":
 			{
 				"duration":0.2,
 				"onAdded":
 				[
+					{
+						"$type": "FireEffect",
+						"effectPattern": "Eff_Element_FreezeBroken",
+						"target" : "Self",
+						"predicates":
+						[
+							{
+								"$type":"ByNot",
+								"predicates":
+								[
+									{
+										"$type":"ByEntityTypes",
+										"target":"Self",
+										"entityTypes":["Water"],
+									},
+								],
+							},
+						],
+					},
 					{
 						"$type": "ActCameraShake",
 			        	"cameraShake":
@@ -3132,16 +2987,6 @@
 							"shakeDistance": 30,
 			        	},
 			        },
-					// {
-					// 	"$type":"CopyGlobalValue",
-					// 	"srcTarget":"Applier",
-					// 	"srcKey":"ElementAbility_Freeze_BaseReactionDamage",
-					// 	"dstKey":"ElementAbility_Freeze_BaseReactionDamage",
-					// },
-					// {
-					// 	"$type" : "UpdateReactionDamage",
-					// 	"reactionDamageName" : "ElementAbility_Frozen_BaseReactionDamage"
-					// },
 					{
 						"$type" : "DamageByAttackValue",
 						"target" : "Self",
@@ -3164,7 +3009,7 @@
 							"attackProperty":
 							{
 								"damagePercentage": 0.0,
-								"damageExtra": "%ElementAbility_Freeze_BaseReactionDamage*%FrozenBroken_Damage_Factor",
+								"damageExtra": "%ElementAbility_Frozen_Broken_BaseReactionDamage*%FrozenBroken_Damage_Factor",
 								"elementType" : "None",
 								"elementDurability" : 0,
 								"strikeType": "Default",
@@ -3189,15 +3034,13 @@
 						"minValue": 0.0,
 					},
 				]
-			}
- 		},
+			},
+
+		},
 		"abilitySpecials":
 		{
 			"Freeze_BaseReactionDamage":0,
-			"Ability_Freeze_Duration" : 0.2,
-			"Ability_Freeze_Durability" : 2,
-			"Ability_Freeze_Alter_DurationRate": 4,
-			"ElementAbility_Freeze_BaseReactionDamage" : 0,
+			"ElementAbility_Frozen_Broken_BaseReactionDamage" : 0,
 			"FrozenBroken_Damage_Factor" : 1.5,
 		},
 	},

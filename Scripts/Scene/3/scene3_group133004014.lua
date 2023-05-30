@@ -6,9 +6,12 @@
 
 -- 怪物
 monsters = {
-	{ config_id = 16, monster_id = 22010301, pos = { x = 1880.882, y = 202.604, z = -176.594 }, rot = { x = 0.000, y = 202.196, z = 0.000 }, level = 16, drop_tag = "深渊法师", affix = { 1001 }, isElite = true },
-	{ config_id = 561, monster_id = 21010901, pos = { x = 1877.928, y = 201.913, z = -176.990 }, rot = { x = 0.000, y = 180.622, z = 0.000 }, level = 12, drop_tag = "远程丘丘人" },
-	{ config_id = 562, monster_id = 21030101, pos = { x = 1881.459, y = 202.150, z = -179.354 }, rot = { x = 0.000, y = 229.765, z = 0.000 }, level = 12, drop_tag = "丘丘萨满" }
+	{ config_id = 14001, monster_id = 28020506, pos = { x = 2227.915, y = 216.068, z = -899.743 }, rot = { x = 0.000, y = 97.440, z = 0.000 }, level = 2, drop_id = 1000100, pose_id = 12, area_id = 1 },
+	{ config_id = 14002, monster_id = 28020503, pos = { x = 2229.266, y = 216.068, z = -899.252 }, rot = { x = 0.000, y = 172.730, z = 0.000 }, level = 2, drop_id = 1000100, pose_id = 13, area_id = 1 },
+	{ config_id = 14003, monster_id = 28020504, pos = { x = 2233.835, y = 214.120, z = -901.583 }, rot = { x = 0.000, y = 195.700, z = 0.000 }, level = 2, drop_id = 1000100, pose_id = 13, area_id = 1 },
+	{ config_id = 14004, monster_id = 28020506, pos = { x = 2238.533, y = 214.090, z = -901.384 }, rot = { x = 0.000, y = 245.540, z = 0.000 }, level = 2, drop_id = 1000100, pose_id = 13, area_id = 1 },
+	{ config_id = 14005, monster_id = 28020503, pos = { x = 2222.865, y = 214.120, z = -899.509 }, rot = { x = 0.000, y = 60.490, z = 0.000 }, level = 2, drop_id = 1000100, pose_id = 12, area_id = 1 },
+	{ config_id = 14006, monster_id = 28020504, pos = { x = 2228.954, y = 216.068, z = -899.918 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 2, drop_id = 1000100, pose_id = 13, area_id = 1 }
 }
 
 -- NPC
@@ -41,7 +44,7 @@ variables = {
 init_config = {
 	suite = 1,
 	end_suite = 0,
-	rand_suite = false
+	rand_suite = true
 }
 
 --================================================================
@@ -54,7 +57,16 @@ suites = {
 	{
 		-- suite_id = 1,
 		-- description = ,
-		monsters = { },
+		monsters = { 14001, 14002, 14003 },
+		gadgets = { },
+		regions = { },
+		triggers = { },
+		rand_weight = 100
+	},
+	{
+		-- suite_id = 2,
+		-- description = ,
+		monsters = { 14004, 14005, 14006 },
 		gadgets = { },
 		regions = { },
 		triggers = { },

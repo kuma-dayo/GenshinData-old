@@ -42,7 +42,7 @@
 					"$type": "ConfigAvatarStateIDInfo",
 					"animatorStates":
 					{
-						"ShowWeapon_BS": ["Girl_Sword_ShowWeapon_BS",],
+						"ShowWeapon_BS": ["Lady_Claymore_ShowWeapon_BS","Emo_Avatar_Common_Lady_Claymore_UI_ShowWeaponBS"],
 					},
 					"setAnimatorBoolean":
 					[
@@ -72,8 +72,8 @@
 					"$type": "ConfigAvatarStateIDInfo",
 					"animatorStates":
 					{
-						"ShowWeapon": [],
-						"ShowWeapon_AS": ["Girl_Sword_ShowWeapon_AS",],
+						"ShowWeapon": ["Emo_Avatar_Common_Lady_Claymore_UI_ShowWeaponLoop"],
+						"ShowWeapon_AS": ["Lady_Claymore_ShowWeapon_AS","Emo_Avatar_Common_Lady_Claymore_UI_ShowWeaponAS"],
 					},
 					"battouOnStart" : true,
 				},
@@ -94,8 +94,8 @@
 					"animatorStates":
 					{
 						"ShowCharacter": [],
-						"Show01": [],
-						"Show02": [],
+						"Show01": ["Manekin_Eula_Show01","Audio_Lady_Claymore_Eula_StandbyShow01_UI"],
+						"Show02": ["Manekin_Eula_Show02","Audio_Lady_Claymore_Eula_StandbyShow02_UI"],
 					},
 					"setAnimatorBoolean":
 					[
@@ -110,7 +110,7 @@
 					"$type": "ConfigAvatarStateIDInfo",
 					"animatorStates":
 					{
-						"Skill_BS": [],
+						"Skill_BS": ["Emo_Avatar_Eula_UI_Talent_Akimbo_02BS"],
 					},
 					"setAnimatorBoolean":
 					[
@@ -137,18 +137,13 @@
 					"$type": "ConfigAvatarStateIDInfo",
 					"animatorStates":
 					{
-						"Skill_AS": [],
+						"Skill_AS": ["Emo_Avatar_Eula_UI_Talent_Akimbo_02AS"],
 					},
 					"setAnimatorBoolean":
 					[
-						// {
-						// 	"name" : "&GotoAction",
-						// 	"normalizeStart":0.0,
-						// },
-						// {
-						// 	"name" : "&GotoAnyState",
-						// 	"normalizeStart":0.91,
-						// },
+						{
+							"name" : "&GotoAnyState",
+						},
 					],
 				},
 				"Story":
@@ -201,10 +196,10 @@
 					"usage": "Any"
 				},
 				{
-					"currentStateName": "Show01",
+					"currentStateName": "Show02",
 					"audioEvent":
 					{
-						"text": "Stop_sfx_standbyShow_hero_blink"
+						"text": "Stop_ui_standbyShow_eula_crystal"
 					},
 					"otherStateNames": [],
 					"usage": "Any"
@@ -216,7 +211,7 @@
 					"currentStateName": "ShowWeapon_BS",
 					"audioEvent":
 					{
-						"text": "Play_ui_menu_weapon_show_heroine"
+						"text": "Play_ui_menu_weapon_show_eula"
 					},
 					"otherStateNames": [],
 					"usage": "Any"
@@ -229,7 +224,7 @@
 					},
 					"otherStateNames": [],
 					"usage": "Any"
-				}
+				},
 			]
 		},
 		"listenerLiftup" : 1.5,

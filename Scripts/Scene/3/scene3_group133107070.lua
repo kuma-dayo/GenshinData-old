@@ -64,6 +64,15 @@ suites = {
 		regions = { },
 		triggers = { "ANY_MONSTER_DIE_70003" },
 		rand_weight = 100
+	},
+	{
+		-- suite_id = 2,
+		-- description = ,
+		monsters = { },
+		gadgets = { },
+		regions = { },
+		triggers = { },
+		rand_weight = 100
 	}
 }
 

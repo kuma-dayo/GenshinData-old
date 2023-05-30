@@ -4,7 +4,7 @@ function stage_ready(context)
         if flag == 1 then
                 ScriptLib.SetPlayerInteractOption(context, "false DisableXiaoDungeon")
         end
- 
+        return 0
 end
 
 --================================================================

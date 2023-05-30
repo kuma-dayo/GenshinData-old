@@ -1082,6 +1082,10 @@
 			"defense" : 999999,
 			"weight" : 10,
 			"isInvincible": true,
+			"isLockHP":true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
 		},
 		"combatLock":
 		{
@@ -1135,6 +1139,10 @@
 			"defense" : 999999,
 			"weight" : 10,
 			"isInvincible": true,
+			"isLockHP":true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
 		},
 		"combatLock":
 		{
@@ -1187,8 +1195,11 @@
 			"attack" : 10.0,
 			"defense" : 999999,
 			"weight" : 10,
-			"denyLockOn" : true,
 			"isInvincible": true,
+			"isLockHP":true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
 		},
 	},
 	// 生命周期管理
@@ -1677,6 +1688,10 @@
 			"defense" : 999999,
 			"weight" : 10,
 			"isInvincible": true,
+			"isLockHP":true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
 		},
 		"combatLock":
 		{
@@ -2076,6 +2091,10 @@
 			"defense" : 999999,
 			"weight" : 10,
 			"isInvincible": true,
+			"isLockHP":true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
 		},
 		"combatLock":
 		{

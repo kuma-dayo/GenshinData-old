@@ -119,6 +119,26 @@
 						"maxValue"  : 1,
 						"minValue"  : 0,
 					},
+					{
+						"$type" : "SetAnimatorBool",
+						"boolID"  : "ElementLayer_Fire",
+						"value"  : false,
+					},
+					{
+						"$type" : "SetAnimatorBool",
+						"boolID"  : "ElementLayer_Ice",
+						"value"  : false,
+					},
+					{
+						"$type" : "SetAnimatorBool",
+						"boolID"  : "ElementLayer_Elec",
+						"value"  : false,
+					},
+					{
+						"$type" : "SetAnimatorBool",
+						"boolID"  : "ElementLayer_Water",
+						"value"  : false,
+					},
 				]
 			},
 		},
@@ -1886,7 +1906,7 @@
 		[
 			{
 				"$type" : "AttachToAnimatorStateIDMixin",
-				"stateIDs"  : ["CrushAtk_Failed"],
+				"stateIDs"  : ["CrushAtkNoHit"],
 				"modifierName"  : "Monster_Drake_Rock_CrushAtkNoHit",
 			},
 		],
@@ -1896,59 +1916,9 @@
 			{
 				"onAdded":
 				[
-					// {
-					// 	"$type" : "DebugLog",
-					// 	"content"  : "EFFECT FIRE!!!!",
-					// },
 					{
 						"$type": "SetAISkillCDAvailableNow",
 						"skillIDs": [211],
-					},
-					// {
-					// 	"$type" : "FireEffect",
-					// 	"effectPattern"  : "Eff_Monster_Drake_Rock_CrushAtkNohit",
-					// },
-					// {
-					// 	"$type" : "FireEffect",
-					// 	"effectPattern"  : "Eff_Monster_Drake_Rock_CrushAtkNohit_Tail",
-					// },
-				],
-			},
-		},
-	},
-},
-{
-	"Default" : 
-	{
-		"$type" : "ConfigAbility",
-		"abilityName" : "Monster_Drake_Rock_CrushAtkFailed",
-		"abilityMixins": 
-		[
-			{
-				"$type" : "AttachToAnimatorStateIDMixin",
-				"stateIDs"  : ["CrushAtk_Failed"],
-				"modifierName"  : "Monster_Drake_Rock_CrushAtk_FailedState",
-			},
-		],
-		"modifiers":
-		{
-			"Monster_Drake_Rock_CrushAtk_FailedState":
-			{
-				"onRemoved":
-				[
-					{
-						"$type" : "SetPoseBool",
-						"boolID"  : "DigTime",
-						"value"  : true,
-					},
-					{
-						"$type" : "AddGlobalValue",
-						"value"  : 1,
-						"key"  : "_MONSTER_Drake_Rock_DIGMODE",
-						"useLimitRange"  : true,
-						"randomInRange"  : false,
-						"maxValue"  : 1,
-						"minValue"  : 0,
 					},
 				],
 			},

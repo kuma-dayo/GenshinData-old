@@ -1552,4 +1552,112 @@
 			},
 		],
 	},
+/////////////////////////////////////////////////////////////////
+//
+//  Hili_Electric : SlimeThrow
+/////////////////////////////////////////////////////////////////
+	"Hili_Electric_SlimeThrow" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1.0,
+				"scaleY" : 1.0,
+				"scaleZ" : 1.0,
+			},
+			"scale": 1.15,
+			"affectedByWorld": true,
+			"checkInSurface": true,
+			"mass": 5.0,
+		},
+		//战斗参数
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty": true,
+				"HP" : 99999,
+				"attack" : 0,
+				"defense" : 0,
+				"weight" : 50,
+				//"isInvincible":true,
+				"isLockHP": true,
+				"denyLockOn" : true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : false,
+			},
+		},
+		"move" :
+		{
+			"$type" : "ConfigParabolaBulletMove",
+			"speed" : 15.0,
+			"angleOffHor": 45,
+			"gravityOfAcceleration" : 10,
+			"updateAngle" : 
+			{
+				"$type": "ConfigBulletMoveAngleRotating",
+				"angularVelocity":
+				{
+					"x": -900,
+					"y": 0,
+					"z": 0,
+				},
+			},
+			"correction" : 
+			{
+				"$type":"ConfigParabolaBulletMoveCorrection",
+				"deviation": 1.0,
+				"fixAngleOfVer": 15.0,
+				"minSpeed": 5.0,
+				"maxSpeed": 20.0,
+			},
+			"velocityForce":
+			{
+				"includeForces": ["RetreatType","RetreatAirType","WindZoneType"],
+			},
+		},
+		"equipment" :
+		{
+			"attachTo" : "equip01",
+			"equipEntityType" : "Spear",
+		},
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 9,			//存在时间
+		},
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" : 
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerOnce",
+				"bornWithTriggerEnabled": false,
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Hili_Electric_SlimeThrow_Explode",
+				}
+			],
+			"killByOther" : true,
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Hili_Electric_SlimeThrow_Handler",				
+				"abilityName" : "Hili_Electric_SlimeThrow_Handler",
+			},
+			{
+				"abilityID": "Hili_Electric_SlimeThrow_Explode",				
+				"abilityName" : "Hili_Electric_SlimeThrow_Explode",
+			},
+		],
+	},
 }

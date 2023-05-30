@@ -379,6 +379,127 @@
 	},
 /////////////////////////////////////////////////////////
 //
+//高脚火盆(暖源)-躲猫猫特供
+//
+//
+/////////////////////////////////////////////////////////
+	{
+		"Default": 
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "SceneObj_Environment_FireMaterial_FireBasinSnowMountain_HideSeek",
+			"abilityMixins":
+			[
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 0,
+					"modifierName": "Fire_Off",
+				},
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 201,
+					"modifierName": "Fire_On",
+				},
+			],
+			"modifiers": 
+			{
+				"Fire_Off":
+				{
+					"duration": 60,
+					"onRemoved":
+					[
+						{
+							"$type": "ExecuteGadgetLua",
+							"param1": 201,
+						},
+					],
+					"onBeingHit":
+					[
+						{
+							"$type": "ExecuteGadgetLua",
+							"param1": 201,
+							"predicates":
+							[
+								{
+									"$type": "ByHitElement",
+									"element": "Fire",
+								},
+								{
+									"$type": "ByNot",
+									"predicates":
+									[
+										{
+											"$type": "ByHasElement",
+											"element": "Water",
+										},
+									],
+								},
+							],
+						},
+					],
+				},
+				"Fire_On":
+				{
+					"elementType": "Fire",
+					"elementDurability": 25,
+					"modifierMixins":
+					[
+						{
+							"$type": "TileComplexMixin",
+							"attackID": "TileAttack_FireSource",
+							"attachPointName": "attachPoint",
+							"shape": 
+							{
+								"$type": "SphereTileShapeInfo",
+								"radius": 0.4,
+							},
+						},
+					],
+					"onAdded":
+					[
+						{
+							"$type":"AddGlobalValue",
+							"key":"IS_WARM_POINT",
+							"value":1,
+							"useLimitRange":true,
+							"minValue":0,
+							"maxValue":1
+						},
+						{
+							"$type":"AttachEffect",
+							"effectPattern": "Eff_SceneObj_FireBasin_01",
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "ExecuteGadgetLua",
+							"param1": 0,
+						},
+						{
+							"$type":"AddGlobalValue",
+							"key":"IS_WARM_POINT",
+							"value":-1,
+							"useLimitRange":true,
+							"minValue":0,
+							"maxValue":1
+						},
+						{
+							"$type": "FireEffect",
+							"effectPattern": "FireBasin_Smoke",
+							"born": 
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName" : "attachPoint",
+							},
+						},
+					],
+				},
+			},
+		},
+	},
+/////////////////////////////////////////////////////////
+//
 //高亮高脚火盆(暖源)
 //
 //
@@ -712,6 +833,127 @@
 			{
 				"Fire_Off":
 				{
+					"onBeingHit":
+					[
+						{
+							"$type": "ExecuteGadgetLua",
+							"param1": 201,
+							"predicates":
+							[
+								{
+									"$type": "ByHitElement",
+									"element": "Fire",
+								},
+								{
+									"$type": "ByNot",
+									"predicates":
+									[
+										{
+											"$type": "ByHasElement",
+											"element": "Water",
+										},
+									],
+								},
+							],
+						},
+					],
+				},
+				"Fire_On":
+				{
+					"elementType": "Fire",
+					"elementDurability": 25,
+					"modifierMixins":
+					[
+						{
+							"$type": "TileComplexMixin",
+							"attackID": "TileAttack_FireSource",
+							"attachPointName": "attachPoint",
+							"shape": 
+							{
+								"$type": "SphereTileShapeInfo",
+								"radius": 0.4,
+							},
+						},
+					],
+					"onAdded":
+					[
+						{
+							"$type":"AddGlobalValue",
+							"key":"IS_WARM_POINT",
+							"value":1,
+							"useLimitRange":true,
+							"minValue":0,
+							"maxValue":1
+						},
+						{
+							"$type":"AttachEffect",
+							"effectPattern": "Eff_SceneObj_FireBasin_01",
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "ExecuteGadgetLua",
+							"param1": 0,
+						},
+						{
+							"$type":"AddGlobalValue",
+							"key":"IS_WARM_POINT",
+							"value":-1,
+							"useLimitRange":true,
+							"minValue":0,
+							"maxValue":1
+						},
+						{
+							"$type": "FireEffect",
+							"effectPattern": "FireBasin_Smoke",
+							"born": 
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName" : "attachPoint",
+							},
+						},
+					],
+				},		
+			},
+		},
+	},
+/////////////////////////////////////////////////////////
+//
+//篝火（热源）-躲猫猫特供
+//
+//
+/////////////////////////////////////////////////////////
+	{
+		"Default": 
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "SceneObj_Environment_FireMaterial_Bornfires_HideSeek_SnowMountain",
+			"abilityMixins":
+			[
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 0,
+					"modifierName": "Fire_Off",
+				},
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 201,
+					"modifierName": "Fire_On",
+				},
+			],
+			"modifiers": 
+			{
+				"Fire_Off":
+				{
+					"duration": 60,
+					"onRemoved":
+					[
+						{
+							"$type": "ExecuteGadgetLua",
+							"param1": 201,
+						},
+					],
 					"onBeingHit":
 					[
 						{

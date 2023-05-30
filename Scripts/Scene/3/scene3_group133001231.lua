@@ -31,7 +31,8 @@ regions = {
 triggers = {
 	{ config_id = 1231001, name = "ANY_MONSTER_DIE_231001", event = EventType.EVENT_ANY_MONSTER_DIE, source = "", condition = "condition_EVENT_ANY_MONSTER_DIE_231001", action = "action_EVENT_ANY_MONSTER_DIE_231001", trigger_count = 0 },
 	{ config_id = 1231005, name = "QUEST_FINISH_231005", event = EventType.EVENT_QUEST_FINISH, source = "2006302", condition = "condition_EVENT_QUEST_FINISH_231005", action = "action_EVENT_QUEST_FINISH_231005" },
-	{ config_id = 1231006, name = "ANY_MONSTER_DIE_231006", event = EventType.EVENT_ANY_MONSTER_DIE, source = "", condition = "", action = "action_EVENT_ANY_MONSTER_DIE_231006" }
+	{ config_id = 1231006, name = "ANY_MONSTER_DIE_231006", event = EventType.EVENT_ANY_MONSTER_DIE, source = "", condition = "", action = "action_EVENT_ANY_MONSTER_DIE_231006" },
+	{ config_id = 1231007, name = "QUEST_FINISH_231007", event = EventType.EVENT_QUEST_FINISH, source = "2006308", condition = "", action = "action_EVENT_QUEST_FINISH_231007", trigger_count = 0 }
 }
 
 -- 变量
@@ -83,7 +84,7 @@ suites = {
 		monsters = { 231002, 231003, 231004 },
 		gadgets = { },
 		regions = { },
-		triggers = { "ANY_MONSTER_DIE_231001", "QUEST_FINISH_231005", "ANY_MONSTER_DIE_231006" },
+		triggers = { "ANY_MONSTER_DIE_231001", "QUEST_FINISH_231005", "ANY_MONSTER_DIE_231006", "QUEST_FINISH_231007" },
 		rand_weight = 0,
 		ban_refresh = true
 	}
@@ -141,6 +142,17 @@ end
 function action_EVENT_ANY_MONSTER_DIE_231006(context, evt)
 	-- 变量"is_monster_killed"赋值为0
 	ScriptLib.SetGroupVariableValue(context, "is_monster_killed", 0)
+	
+	return 0
+end
+
+-- 触发操作
+function action_EVENT_QUEST_FINISH_231007(context, evt)
+		-- 重新生成指定group，指定suite
+		if 0 ~= ScriptLib.RefreshGroup(context, { group_id = 133001231, suite = 1 }) then
+	    ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : refresh_group_to_suite")
+			return -1
+		end
 	
 	return 0
 end

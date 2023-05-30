@@ -6,9 +6,9 @@
 
 -- 怪物
 monsters = {
-	{ config_id = 11, monster_id = 20010301, pos = { x = 2610.005, y = 205.514, z = -54.299 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 30, drop_tag = "史莱姆" },
-	{ config_id = 12, monster_id = 20010401, pos = { x = 2608.880, y = 205.992, z = -57.206 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 30, drop_tag = "史莱姆", disableWander = true },
-	{ config_id = 20, monster_id = 20010301, pos = { x = 2612.749, y = 205.728, z = -57.796 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 30, drop_tag = "史莱姆" }
+	{ config_id = 11001, monster_id = 28020502, pos = { x = 2301.520, y = 250.106, z = -762.089 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 2, drop_id = 1000100, pose_id = 12, area_id = 1 },
+	{ config_id = 11002, monster_id = 28020505, pos = { x = 2299.977, y = 249.990, z = -762.321 }, rot = { x = 0.000, y = 5.040, z = 0.000 }, level = 2, drop_id = 1000100, pose_id = 13, area_id = 1 },
+	{ config_id = 11003, monster_id = 28020503, pos = { x = 2298.763, y = 249.990, z = -761.321 }, rot = { x = 0.000, y = 95.780, z = 0.000 }, level = 2, drop_id = 1000100, pose_id = 13, area_id = 1 }
 }
 
 -- NPC
@@ -17,7 +17,6 @@ npcs = {
 
 -- 装置
 gadgets = {
-	{ config_id = 40, gadget_id = 70211002, pos = { x = 2607.886, y = 206.907, z = -61.159 }, rot = { x = 0.000, y = 23.433, z = 0.000 }, level = 23, drop_tag = "战斗低级蒙德", state = GadgetState.ChestLocked, isOneoff = true, persistent = true }
 }
 
 -- 区域
@@ -26,7 +25,6 @@ regions = {
 
 -- 触发器
 triggers = {
-	{ name = "ANY_MONSTER_DIE_57", event = EventType.EVENT_ANY_MONSTER_DIE, source = "", condition = "condition_EVENT_ANY_MONSTER_DIE_57", action = "action_EVENT_ANY_MONSTER_DIE_57" }
 }
 
 -- 变量
@@ -43,7 +41,7 @@ variables = {
 init_config = {
 	suite = 1,
 	end_suite = 0,
-	rand_suite = true
+	rand_suite = false
 }
 
 --================================================================
@@ -56,10 +54,10 @@ suites = {
 	{
 		-- suite_id = 1,
 		-- description = ,
-		monsters = { 11, 12, 20 },
-		gadgets = { 40 },
+		monsters = { 11001, 11002, 11003 },
+		gadgets = { },
 		regions = { },
-		triggers = { "ANY_MONSTER_DIE_57" },
+		triggers = { },
 		rand_weight = 100
 	}
 }
@@ -69,23 +67,3 @@ suites = {
 -- 触发器
 -- 
 --================================================================
-
--- 触发条件
-function condition_EVENT_ANY_MONSTER_DIE_57(context, evt)
-	-- 判断剩余怪物数量是否是0
-	if ScriptLib.GetGroupMonsterCount(context) ~= 0 then
-		return false
-	end
-	
-	return true
-end
-
--- 触发操作
-function action_EVENT_ANY_MONSTER_DIE_57(context, evt)
-	-- 解锁目标40
-	if 0 ~= ScriptLib.ChangeGroupGadget(context, { config_id = 40, state = GadgetState.Default }) then
-		return -1
-	end
-	
-	return 0
-end

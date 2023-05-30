@@ -19,6 +19,7 @@ npcs = {
 -- 装置
 gadgets = {
 	{ config_id = 61002, gadget_id = 70211022, pos = { x = 1125.347, y = 217.440, z = 1044.399 }, rot = { x = 359.009, y = 213.663, z = 4.707 }, level = 21, drop_tag = "战斗高级璃月", state = GadgetState.ChestLocked, isOneoff = true, persistent = true, explore = { name = "chest", exp = 1 }, area_id = 6 },
+	{ config_id = 61005, gadget_id = 70300087, pos = { x = 1124.793, y = 217.089, z = 1035.535 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, area_id = 6 },
 	{ config_id = 61008, gadget_id = 70310009, pos = { x = 1120.737, y = 217.279, z = 1033.838 }, rot = { x = 353.498, y = 83.528, z = 358.051 }, level = 1, state = GadgetState.GearStart, area_id = 6 },
 	{ config_id = 61013, gadget_id = 70220013, pos = { x = 1113.717, y = 217.472, z = 1033.639 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, area_id = 6 },
 	{ config_id = 61014, gadget_id = 70220013, pos = { x = 1111.468, y = 217.394, z = 1035.636 }, rot = { x = 358.793, y = 33.118, z = 3.484 }, level = 1, area_id = 6 },
@@ -66,7 +67,7 @@ suites = {
 		-- suite_id = 1,
 		-- description = suite_1,
 		monsters = { 61001, 61004, 61010, 61012 },
-		gadgets = { 61002, 61008, 61013, 61014, 61015, 61016, 61017, 61018, 61019 },
+		gadgets = { 61002, 61005, 61008, 61013, 61014, 61015, 61016, 61017, 61018, 61019 },
 		regions = { },
 		triggers = { "ANY_MONSTER_DIE_61003" },
 		rand_weight = 100

@@ -1501,8 +1501,9 @@
 									"predicates":
 									[
 										{
-											"$type":"ByTargetIsSelf",
-											"isSelf":false,
+										    "$type": "ByTargetType",
+										    "targetType":"Self",
+										    "isTarget":false,
 										},
 										{
 											"$type":"ByTargetPositionToSelfPosition",
@@ -1522,8 +1523,9 @@
 									"predicates":
 									[
 										{
-											"$type":"ByTargetIsSelf",
-											"isSelf":false,
+										    "$type": "ByTargetType",
+										    "targetType":"Self",
+										    "isTarget":false,
 										},
 										{
 											"$type":"ByTargetPositionToSelfPosition",
@@ -4260,7 +4262,7 @@
 //  
 //  Relic_ShieldCostUpWhenElementalArtHit
 //
-//  元素战技命中敌人时，队伍中所有角色获得护盾强效提升20%,攻击力提升20%效果，持续3秒。该效果不可叠加。角色在后台时也能触发效果.
+//  元素战技命中敌人时，队伍中所有角色获得攻击力提升20%,护盾强效提升20%效果，持续3秒。触发cd0.5秒，该效果不可叠加。角色在后台时也能触发效果.
 //
 ////////////////////////////////////////////////////////////////
 
@@ -4310,38 +4312,52 @@
 							],
 							"successActions": 
 							[
-		                        {
-		                        	"$type":"RemoveUniqueModifier",
-		                        	"target": "AllPlayerAvatars",
-		                        	"modifierName":"UNIQUE_Relic_ShieldCostUpWhenElementalArtHit_Buff",
+								{
+									"$type":"AttachModifier",
+									"modifierName":"UNIQUE_Relic_ShieldCostUpWhenElementalArtHit_ApplyBuff",
 									"doOffStage":true,
-									"predicates":
-									[
-										{
-											"$type":"ByTargetPositionToSelfPosition",
-											"compareType":"XZ",
-											"value":40,
-											"logic": "LesserOrEqual",
-										},
-									],
-		                        },
-		                        {
-		                        	"$type":"ApplyModifier",
-		                        	"target": "AllPlayerAvatars",
-		                        	"modifierName":"UNIQUE_Relic_ShieldCostUpWhenElementalArtHit_Buff",
-									"doOffStage":true,
-									"predicates":
-									[
-										{
-											"$type":"ByTargetPositionToSelfPosition",
-											"compareType":"XZ",
-											"value":40,
-											"logic": "LesserOrEqual",
-										},
-									],
-		                        },
+								},
 							],
 						},
+					],
+				},
+				"UNIQUE_Relic_ShieldCostUpWhenElementalArtHit_ApplyBuff":
+				{
+					"duration":"%CDTime",
+					"isUnique":true,
+					"stacking":"Unique",
+					"onAdded":
+					[
+                        {
+                        	"$type":"RemoveUniqueModifier",
+                        	"target": "AllPlayerAvatars",
+                        	"modifierName":"UNIQUE_Relic_ShieldCostUpWhenElementalArtHit_Buff",
+							"doOffStage":true,
+							"predicates":
+							[
+								{
+									"$type":"ByTargetPositionToSelfPosition",
+									"compareType":"XZ",
+									"value":40,
+									"logic": "LesserOrEqual",
+								},
+							],
+                        },
+                        {
+                        	"$type":"ApplyModifier",
+                        	"target": "AllPlayerAvatars",
+                        	"modifierName":"UNIQUE_Relic_ShieldCostUpWhenElementalArtHit_Buff",
+							"doOffStage":true,
+							"predicates":
+							[
+								{
+									"$type":"ByTargetPositionToSelfPosition",
+									"compareType":"XZ",
+									"value":40,
+									"logic": "LesserOrEqual",
+								},
+							],
+                        },
 					],
 				},
 				"UNIQUE_Relic_ShieldCostUpWhenElementalArtHit_Buff":
@@ -4352,16 +4368,17 @@
 					"isLimitedProperties":true,
 					"properties":
 					{
-						"Actor_ShieldCostMinusRatio":"%ShieldCost",
 						"Actor_AttackRatio":"%AttackRate",
+						"Actor_ShieldCostMinusRatio":"%ShieldCost",
 					},
 				},
 			},
 			"abilitySpecials":
 			{
-				"ShieldCost":0,
 				"AttackRate":0,
+				"ShieldCost":0,
 				"Time":0,
+				"CDTime":0,
 			},
 		},
 	},
@@ -4410,13 +4427,12 @@
 					"$type": "AttachModifierToSelfGlobalValueMixin",
 					"globalValueKey": "_ABILITY_Relic_AttackUpWhenNormalAtkAndExtraAtkHit",
 					"defaultGlobalValueOnCreate":0,
-					"valueSteps" : [0.5,1.5,2.5,100],
+					"valueSteps" : [0.5,1.5,100],
 					"removeAppliedModifier":true,
 					"modifierNameSteps" :
 					[
 						"UNIQUE_Relic_AttackUpWhenNormalAtkAndExtraAtkHit_Buff1",
 						"UNIQUE_Relic_AttackUpWhenNormalAtkAndExtraAtkHit_Buff2",
-						"UNIQUE_Relic_AttackUpWhenNormalAtkAndExtraAtkHit_Buff3",
 					],
 				},
 			],
@@ -4476,7 +4492,7 @@
 							"key":"_ABILITY_Relic_AttackUpWhenNormalAtkAndExtraAtkHit",
 							"value":1,
 							"useLimitRange":true,
-							"maxValue":3,
+							"maxValue":2,
 						},
 					],
 				},
@@ -4514,16 +4530,6 @@
 					"properties":
 					{
 						"Actor_AttackRatio":"%Rate*2",
-					},
-				},
-				"UNIQUE_Relic_AttackUpWhenNormalAtkAndExtraAtkHit_Buff3":
-				{
-					"isUnique":true,
-					"state":"AttackUp",
-					"isLimitedProperties":true,
-					"properties":
-					{
-						"Actor_AttackRatio":"%Rate*3",
 						"Actor_PhysicalAddHurtDelta":"%ExtraRate",
 					},
 				},

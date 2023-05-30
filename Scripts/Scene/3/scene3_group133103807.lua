@@ -9,7 +9,7 @@ monsters = {
 	{ config_id = 807001, monster_id = 28020102, pos = { x = 955.704, y = 260.254, z = 1588.425 }, rot = { x = 0.000, y = 260.945, z = 0.000 }, level = 24, drop_tag = "走兽", area_id = 6 },
 	{ config_id = 807002, monster_id = 28020102, pos = { x = 808.248, y = 326.423, z = 1525.113 }, rot = { x = 0.000, y = 54.374, z = 0.000 }, level = 24, drop_tag = "走兽", area_id = 6 },
 	{ config_id = 807003, monster_id = 28020102, pos = { x = 640.115, y = 242.043, z = 1562.637 }, rot = { x = 0.000, y = 46.789, z = 0.000 }, level = 24, drop_tag = "走兽", area_id = 6 },
-	{ config_id = 807004, monster_id = 28020102, pos = { x = 616.874, y = 236.856, z = 1761.904 }, rot = { x = 0.000, y = 9.607, z = 0.000 }, level = 24, drop_tag = "走兽", area_id = 6 },
+	{ config_id = 807004, monster_id = 28020102, pos = { x = 616.874, y = 242.739, z = 1761.904 }, rot = { x = 0.000, y = 9.607, z = 0.000 }, level = 24, drop_tag = "走兽", area_id = 6 },
 	{ config_id = 807005, monster_id = 28020102, pos = { x = 1088.037, y = 280.076, z = 1328.648 }, rot = { x = 0.000, y = 137.881, z = 0.000 }, level = 24, drop_tag = "走兽", area_id = 6 },
 	{ config_id = 807006, monster_id = 28020102, pos = { x = 797.563, y = 268.680, z = 1347.902 }, rot = { x = 0.000, y = 89.866, z = 0.000 }, level = 24, drop_tag = "走兽", area_id = 6 },
 	{ config_id = 807007, monster_id = 28020102, pos = { x = 767.876, y = 321.660, z = 1807.760 }, rot = { x = 0.000, y = 29.415, z = 0.000 }, level = 24, drop_tag = "走兽", area_id = 6 },

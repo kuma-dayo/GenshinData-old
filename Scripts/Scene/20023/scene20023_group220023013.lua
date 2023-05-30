@@ -110,25 +110,31 @@ function action_EVENT_SELECT_OPTION_13002(context, evt)
 	    if 0 ~= ScriptLib.StartPlatform(context, 19) then
 	        return -1
 	    end
+	end
 	
 	-- 删除指定group： 220023012 ；指定config：36；物件身上指定option：1002；
 	if 0 ~= ScriptLib.DelWorktopOptionByGroupId(context, 220023013, 13001, 7) then
 		return -1
 	end
 	
-	
-	-- 杀死Group内指定的monster和gadget
-		if 0 ~= ScriptLib.KillGroupEntity(context, { group_id = 220023012, monsters = {}, gadgets = {12007} }) then
-			return -1
-		end
-	end
-	
 	-- 将configid为 13001 的物件更改为状态 GadgetState.GearStart
 	if 0 ~= ScriptLib.SetGadgetStateByConfigId(context, 13001, GadgetState.GearStart) then
 	  ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : set_gadget_state_by_configId")
 			return -1
-		end 
+	end 
 	
+	
+	-- 将configid为 19 的物件更改为状态 GadgetState.GearStart
+	if 0 ~= ScriptLib.SetGadgetStateByConfigId(context, 19, GadgetState.GearStart) then
+	  ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : set_gadget_state_by_configId")
+			return -1
+	end 
+	
+	
+	-- 杀死Group内指定的monster和gadget
+	if 0 ~= ScriptLib.KillGroupEntity(context, { group_id = 220023012, monsters = {}, gadgets = {12007} }) then
+		return -1
+	end
 	
 	
 	return 0

@@ -965,8 +965,9 @@
 							"predicates":
 							[
 								{
-									"$type": "ByTargetIsCaster",
-									"isCaster": false,
+								    "$type": "ByTargetType",
+								    "targetType":"Caster",
+								    "isTarget":false,
 								},
 								{
 									"$type": "ByTargetPositionToSelfPosition",
@@ -988,8 +989,9 @@
 							"predicates":
 							[
 								{
-									"$type": "ByTargetIsCaster",
-									"isCaster": false,
+								    "$type": "ByTargetType",
+								    "targetType":"Caster",
+								    "isTarget":false,
 								},
 								{
 									"$type": "ByTargetPositionToSelfPosition",
@@ -1132,8 +1134,9 @@
 							"predicates":
 							[
 								{
-									"$type": "ByTargetIsCaster",
-									"isCaster": false,
+								    "$type": "ByTargetType",
+								    "targetType":"Caster",
+								    "isTarget":false,
 								},
 								{
 									"$type": "ByTargetPositionToSelfPosition",
@@ -1155,8 +1158,9 @@
 							"predicates":
 							[
 								{
-									"$type": "ByTargetIsCaster",
-									"isCaster": false,
+								    "$type": "ByTargetType",
+								    "targetType":"Caster",
+								    "isTarget":false,
 								},
 								{
 									"$type": "ByTargetPositionToSelfPosition",
@@ -2015,8 +2019,9 @@
 									"attackTags": ["Elemental_Burst"],
 								},
 								{
-									"$type": "ByTargetIsCaster",
-									"isCaster": true,
+								    "$type": "ByTargetType",
+								    "targetType":"Caster",
+								    "isTarget":true,
 								},
 							],
 							"successActions": 

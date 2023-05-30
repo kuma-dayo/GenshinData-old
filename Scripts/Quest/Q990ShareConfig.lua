@@ -113,3 +113,19 @@ quest_data["99005"] =
 		}
 	},
 }
+
+quest_data["99007"] = 
+{
+	npcs = 
+	{
+		{
+			alias = "Barbara",
+			script = "Actor/Npc/TempNPC",
+			id = 1008,
+			pos = "Q7000701Player",
+			scene_id = 1004,
+			room_id = 100401,
+			data_index = 1,
+		}
+	},
+}

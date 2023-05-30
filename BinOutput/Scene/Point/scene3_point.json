@@ -37,6 +37,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 2154.555,
         "y": 234.814026,
@@ -488,6 +489,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 2133.95142,
         "y": 207.827148,
@@ -563,6 +565,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1662.15979,
         "y": 258.637268,
@@ -1040,6 +1043,7 @@
       "mapVisibility": "OnUnlocked",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 2658.27734,
         "y": 300.936127,
@@ -1107,6 +1111,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1331.883,
         "y": 303.2621,
@@ -1178,6 +1183,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1710.25281,
         "y": 256.078247,
@@ -1248,6 +1254,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1679.78223,
         "y": 263.5595,
@@ -1288,19 +1295,12 @@
       "titleTextID": "UI_DUNGEON_ENTRY_31",
       "hideOnMap": false,
       "showLevel": 0,
-      "dungeonRandomList": [
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16
-      ],
+      "dungeonRandomList": [],
       "dungeonEntryType": "Tower",
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1638.7793,
         "y": 195.045837,
@@ -1393,6 +1393,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 2498.41577,
         "y": 263.6277,
@@ -1463,6 +1464,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 2257.22827,
         "y": 272.066132,
@@ -1528,6 +1530,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1663.61267,
         "y": 197.147858,
@@ -1885,6 +1888,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 2252.00562,
         "y": 215.989059,
@@ -2471,6 +2475,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 2373.09448,
         "y": 262.898743,
@@ -2789,6 +2794,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1865.0813,
         "y": 226.23,
@@ -2926,6 +2932,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1689.24878,
         "y": 284.450256,
@@ -2991,6 +2998,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1761.9386,
         "y": 237.9015,
@@ -3097,6 +3105,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 107.128494,
         "y": 176.26178,
@@ -3162,6 +3171,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1921.86523,
         "y": 207.4935,
@@ -3325,6 +3335,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1664.73682,
         "y": 225.47641,
@@ -3448,6 +3459,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 2550.17114,
         "y": 214.211884,
@@ -3518,6 +3530,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 663.044434,
         "y": 153.3027,
@@ -3585,6 +3598,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 390.1174,
         "y": 204.22699,
@@ -3655,6 +3669,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 729.687561,
         "y": 248.936035,
@@ -3727,6 +3742,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": -288.2882,
         "y": 210.8327,
@@ -3796,6 +3812,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1290.534,
         "y": 282.710052,
@@ -3883,6 +3900,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": -591.0161,
         "y": 209.6687,
@@ -4365,6 +4383,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 711.5435,
         "y": 199.2708,
@@ -4430,6 +4449,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": -541.1909,
         "y": 248.11,
@@ -4708,6 +4728,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": -906.3842,
         "y": 249.576218,
@@ -4773,6 +4794,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": -512.947449,
         "y": 210.20253,
@@ -4838,6 +4860,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1079.69763,
         "y": 354.215057,
@@ -4941,6 +4964,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": -367.9006,
         "y": 228.815414,
@@ -5006,6 +5030,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1079.69763,
         "y": 354.215057,
@@ -5100,6 +5125,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1045.40771,
         "y": 303.1035,
@@ -5215,6 +5241,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1386.434,
         "y": 165.2962,
@@ -5648,6 +5675,7 @@
       "mapVisibility": "OnUnlocked",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": -904.009644,
         "y": 249.634735,
@@ -5738,6 +5766,7 @@
       "mapVisibility": "Normal",
       "forbidSimpleUnlock": false,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1038.608,
         "y": 449.8286,
@@ -5815,6 +5844,7 @@
       "mapVisibility": "OnUnlocked",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1252.72351,
         "y": 250.87709,
@@ -5980,6 +6010,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1607.98608,
         "y": 287.986969,
@@ -6086,6 +6117,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1402.917,
         "y": 230.998016,
@@ -6172,6 +6204,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1402.85,
         "y": 231.083313,
@@ -6251,6 +6284,7 @@
       "mapVisibility": "Never",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 71.78067,
         "y": 420.0444,
@@ -6281,6 +6315,72 @@
       "cutsceneList": [],
       "groupLimit": false,
       "entryPointId": 260
+    },
+    "262": {
+      "type": "NORMAL",
+      "$type": "DungeonEntry",
+      "gadgetId": 70360001,
+      "pos": {
+        "x": 1761.812,
+        "y": 238.0002,
+        "z": -963.941
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "areaId": 3,
+      "unlocked": false,
+      "cutsceneList": [],
+      "groupLimit": false,
+      "size": {
+        "x": 10.0,
+        "y": 10.0,
+        "z": 10.0
+      },
+      "dungeonIds": [
+        1116
+      ],
+      "titleTextID": "UI_DUNGEON_ENTRY_Eula",
+      "hideOnMap": true,
+      "showLevel": 1,
+      "dungeonRandomList": [],
+      "dungeonEntryType": "Normal",
+      "mapVisibility": "Never",
+      "forbidSimpleUnlock": true,
+      "fireFieldEvent": false,
+      "dungeonRosterList": [],
+      "tranPos": {
+        "x": 1760.81116,
+        "y": 238.0002,
+        "z": -964.082947
+      },
+      "tranRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "263": {
+      "type": "NORMAL",
+      "$type": "DungeonExit",
+      "gadgetId": 70010001,
+      "pos": {
+        "x": 1763.822,
+        "y": 237.7484,
+        "z": -958.9689
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 16.1293,
+        "z": 0.0
+      },
+      "areaId": 3,
+      "unlocked": true,
+      "cutsceneList": [],
+      "groupLimit": false,
+      "entryPointId": 262
     },
     "265": {
       "type": "NORMAL",
@@ -6318,6 +6418,7 @@
       "mapVisibility": "OnUnlocked",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": true,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 2333.24585,
         "y": 223.13,
@@ -6381,6 +6482,7 @@
       "mapVisibility": "OnUnlocked",
       "forbidSimpleUnlock": true,
       "fireFieldEvent": false,
+      "dungeonRosterList": [],
       "tranPos": {
         "x": 1572.407,
         "y": 252.0814,
@@ -6411,6 +6513,521 @@
       "cutsceneList": [],
       "groupLimit": false,
       "buildingType": "FleurFairNPC",
+      "fogId": 0
+    },
+    "269": {
+      "type": "NORMAL",
+      "$type": "DungeonEntry",
+      "gadgetId": 70360001,
+      "pos": {
+        "x": 613.8143,
+        "y": 227.6975,
+        "z": 1753.442
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 32.4399948,
+        "z": 0.0
+      },
+      "areaId": 6,
+      "unlocked": false,
+      "cutsceneList": [],
+      "groupLimit": false,
+      "size": {
+        "x": 10.0,
+        "y": 10.0,
+        "z": 5.0
+      },
+      "dungeonIds": [
+        107
+      ],
+      "titleTextID": "UI_DUNGEON_ENTRY_DRAGONBOSS",
+      "hideOnMap": true,
+      "showLevel": 1,
+      "dungeonRandomList": [],
+      "dungeonEntryType": "Normal",
+      "mapVisibility": "Never",
+      "forbidSimpleUnlock": true,
+      "fireFieldEvent": false,
+      "dungeonRosterList": [],
+      "tranPos": {
+        "x": 612.0967,
+        "y": 227.882126,
+        "z": 1753.93372
+      },
+      "tranRot": {
+        "x": 1.23615766,
+        "y": 283.350952,
+        "z": 0.4661351
+      }
+    },
+    "270": {
+      "type": "NORMAL",
+      "$type": "DungeonExit",
+      "gadgetId": 70010001,
+      "pos": {
+        "x": 579.5397,
+        "y": 233.6524,
+        "z": 1719.424
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 227.5683,
+        "z": 0.0
+      },
+      "areaId": 6,
+      "unlocked": true,
+      "cutsceneList": [],
+      "groupLimit": false,
+      "entryPointId": 269
+    },
+    "271": {
+      "type": "NORMAL",
+      "$type": "DungeonEntry",
+      "gadgetId": 70360001,
+      "pos": {
+        "x": 614.4861,
+        "y": 227.7007,
+        "z": 1753.062
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 32.4399948,
+        "z": 0.0
+      },
+      "areaId": 6,
+      "unlocked": false,
+      "cutsceneList": [],
+      "groupLimit": false,
+      "size": {
+        "x": 10.0,
+        "y": 10.0,
+        "z": 5.0
+      },
+      "dungeonIds": [],
+      "titleTextID": "UI_DUNGEON_ENTRY_DRAGONBOSS",
+      "hideOnMap": false,
+      "showLevel": 0,
+      "dungeonRandomList": [],
+      "dungeonEntryType": "Normal",
+      "mapVisibility": "OnUnlocked",
+      "forbidSimpleUnlock": true,
+      "fireFieldEvent": false,
+      "dungeonRosterList": [
+        1
+      ],
+      "tranPos": {
+        "x": 608.8017,
+        "y": 227.560989,
+        "z": 1754.343
+      },
+      "tranRot": {
+        "x": 0.571436942,
+        "y": 100.650909,
+        "z": 358.3693
+      }
+    },
+    "272": {
+      "type": "NORMAL",
+      "$type": "DungeonExit",
+      "gadgetId": 70010001,
+      "pos": {
+        "x": 608.1683,
+        "y": 227.4201,
+        "z": 1754.482
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 277.4,
+        "z": 0.0
+      },
+      "areaId": 6,
+      "unlocked": true,
+      "cutsceneList": [],
+      "groupLimit": false,
+      "entryPointId": 271
+    },
+    "273": {
+      "type": "NORMAL",
+      "$type": "SceneBuildingPoint",
+      "gadgetId": 70010001,
+      "pos": {
+        "x": 2360.193,
+        "y": 232.0906,
+        "z": -808.0395
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "areaId": 1,
+      "unlocked": false,
+      "cutsceneList": [],
+      "groupLimit": false,
+      "buildingType": "HideAndSeekNPC",
+      "fogId": 0
+    },
+    "274": {
+      "type": "NORMAL",
+      "$type": "DungeonEntry",
+      "gadgetId": 70950059,
+      "pos": {
+        "x": 1541.993,
+        "y": 203.989,
+        "z": -465.3785
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 64.0392,
+        "z": 0.0
+      },
+      "areaId": 1,
+      "unlocked": false,
+      "cutsceneList": [
+        531002
+      ],
+      "groupLimit": false,
+      "size": {
+        "x": 5.0,
+        "y": 5.0,
+        "z": 5.0
+      },
+      "dungeonIds": [
+        7202
+      ],
+      "titleTextID": "UI_DUNGEON_ENTRY_ChannellerSlab_OneOff1",
+      "hideOnMap": false,
+      "showLevel": 1,
+      "dungeonRandomList": [],
+      "dungeonEntryType": "ChannellerSlabOneOff",
+      "mapVisibility": "OnUnlocked",
+      "forbidSimpleUnlock": true,
+      "fireFieldEvent": true,
+      "dungeonRosterList": [],
+      "tranPos": {
+        "x": 1547.24329,
+        "y": 203.304489,
+        "z": -462.644165
+      },
+      "tranRot": {
+        "x": 0.0,
+        "y": 243.246643,
+        "z": 0.0
+      }
+    },
+    "275": {
+      "type": "NORMAL",
+      "$type": "DungeonExit",
+      "gadgetId": 70010001,
+      "pos": {
+        "x": 1550.53,
+        "y": 203.5214,
+        "z": -461.0742
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 64.9818,
+        "z": 0.0
+      },
+      "areaId": 1,
+      "unlocked": true,
+      "cutsceneList": [],
+      "groupLimit": false,
+      "entryPointId": 274
+    },
+    "276": {
+      "type": "NORMAL",
+      "$type": "DungeonEntry",
+      "gadgetId": 70950059,
+      "pos": {
+        "x": -282.1632,
+        "y": 293.2505,
+        "z": 668.5107
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 348.562,
+        "z": 0.0
+      },
+      "areaId": 7,
+      "unlocked": false,
+      "cutsceneList": [
+        531002
+      ],
+      "groupLimit": false,
+      "size": {
+        "x": 5.0,
+        "y": 5.0,
+        "z": 5.0
+      },
+      "dungeonIds": [
+        7203
+      ],
+      "titleTextID": "UI_DUNGEON_ENTRY_ChannellerSlab_OneOff2",
+      "hideOnMap": false,
+      "showLevel": 1,
+      "dungeonRandomList": [],
+      "dungeonEntryType": "ChannellerSlabOneOff",
+      "mapVisibility": "OnUnlocked",
+      "forbidSimpleUnlock": true,
+      "fireFieldEvent": true,
+      "dungeonRosterList": [],
+      "tranPos": {
+        "x": -283.607147,
+        "y": 292.628448,
+        "z": 674.613037
+      },
+      "tranRot": {
+        "x": 0.0,
+        "y": 165.036667,
+        "z": 0.0
+      }
+    },
+    "277": {
+      "type": "NORMAL",
+      "$type": "DungeonExit",
+      "gadgetId": 70010001,
+      "pos": {
+        "x": -283.6467,
+        "y": 292.6745,
+        "z": 674.8154
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 348.562,
+        "z": 0.0
+      },
+      "areaId": 7,
+      "unlocked": true,
+      "cutsceneList": [],
+      "groupLimit": false,
+      "entryPointId": 276
+    },
+    "278": {
+      "type": "NORMAL",
+      "$type": "DungeonEntry",
+      "gadgetId": 70950059,
+      "pos": {
+        "x": 1474.539,
+        "y": 221.5844,
+        "z": 680.8796
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 229.8965,
+        "z": 0.0
+      },
+      "areaId": 6,
+      "unlocked": false,
+      "cutsceneList": [
+        531002
+      ],
+      "groupLimit": false,
+      "size": {
+        "x": 5.0,
+        "y": 5.0,
+        "z": 5.0
+      },
+      "dungeonIds": [
+        7201
+      ],
+      "titleTextID": "UI_DUNGEON_ENTRY_ChannellerSlab_OneOff",
+      "hideOnMap": false,
+      "showLevel": 1,
+      "dungeonRandomList": [],
+      "dungeonEntryType": "ChannellerSlabOneOff",
+      "mapVisibility": "OnUnlocked",
+      "forbidSimpleUnlock": true,
+      "fireFieldEvent": true,
+      "dungeonRosterList": [],
+      "tranPos": {
+        "x": 1470.0791,
+        "y": 220.985245,
+        "z": 677.090637
+      },
+      "tranRot": {
+        "x": 0.0,
+        "y": 50.112812,
+        "z": 0.0
+      }
+    },
+    "279": {
+      "type": "NORMAL",
+      "$type": "DungeonExit",
+      "gadgetId": 70010001,
+      "pos": {
+        "x": 1469.976,
+        "y": 221.1992,
+        "z": 677.0378
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 229.8965,
+        "z": 0.0
+      },
+      "areaId": 6,
+      "unlocked": true,
+      "cutsceneList": [],
+      "groupLimit": false,
+      "entryPointId": 278
+    },
+    "280": {
+      "type": "NORMAL",
+      "$type": "DungeonEntry",
+      "gadgetId": 70950059,
+      "pos": {
+        "x": 326.3836,
+        "y": 221.7691,
+        "z": 1574.43
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 322.952881,
+        "z": 0.0
+      },
+      "areaId": 8,
+      "unlocked": false,
+      "cutsceneList": [
+        531002
+      ],
+      "groupLimit": false,
+      "size": {
+        "x": 5.0,
+        "y": 5.0,
+        "z": 5.0
+      },
+      "dungeonIds": [],
+      "titleTextID": "UI_DUNGEON_ENTRY_ChannellerSlab_Loop",
+      "hideOnMap": false,
+      "showLevel": 1,
+      "dungeonRandomList": [],
+      "dungeonEntryType": "ChannellerSlabLoop",
+      "mapVisibility": "OnUnlocked",
+      "forbidSimpleUnlock": true,
+      "fireFieldEvent": true,
+      "dungeonRosterList": [],
+      "tranPos": {
+        "x": 323.560272,
+        "y": 220.6997,
+        "z": 1578.17029
+      },
+      "tranRot": {
+        "x": 0.0,
+        "y": 143.537857,
+        "z": 0.0
+      }
+    },
+    "281": {
+      "type": "NORMAL",
+      "$type": "DungeonExit",
+      "gadgetId": 70010001,
+      "pos": {
+        "x": 323.5378,
+        "y": 220.9286,
+        "z": 1578.225
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 323.4794,
+        "z": 0.0
+      },
+      "areaId": 8,
+      "unlocked": true,
+      "cutsceneList": [],
+      "groupLimit": false,
+      "entryPointId": 280
+    },
+    "282": {
+      "type": "NORMAL",
+      "$type": "DungeonEntry",
+      "gadgetId": 70120001,
+      "pos": {
+        "x": 1467.936,
+        "y": 243.6,
+        "z": -321.4055
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 87.510994,
+        "z": 0.0
+      },
+      "areaId": 10,
+      "unlocked": false,
+      "cutsceneList": [
+        4
+      ],
+      "groupLimit": false,
+      "size": {
+        "x": 10.0,
+        "y": 10.0,
+        "z": 10.0
+      },
+      "dungeonIds": [
+        5014,
+        5015,
+        5016,
+        5017
+      ],
+      "titleTextID": "UI_DUNGEON_ENTRY_282",
+      "hideOnMap": false,
+      "showLevel": 0,
+      "dungeonRandomList": [],
+      "dungeonEntryType": "Daily",
+      "mapVisibility": "Normal",
+      "forbidSimpleUnlock": false,
+      "fireFieldEvent": false,
+      "dungeonRosterList": [],
+      "tranPos": {
+        "x": 1473.92249,
+        "y": 243.6,
+        "z": -321.235718
+      },
+      "tranRot": {
+        "x": 0.0,
+        "y": 270.0,
+        "z": 0.0
+      }
+    },
+    "283": {
+      "type": "NORMAL",
+      "$type": "DungeonExit",
+      "gadgetId": 70010001,
+      "pos": {
+        "x": 1473.719,
+        "y": 243.4967,
+        "z": -321.2522
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 270.0,
+        "z": 0.0
+      },
+      "areaId": 10,
+      "unlocked": true,
+      "cutsceneList": [],
+      "groupLimit": false,
+      "entryPointId": 282
+    },
+    "286": {
+      "type": "NORMAL",
+      "$type": "SceneBuildingPoint",
+      "gadgetId": 70010001,
+      "pos": {
+        "x": 1454.277,
+        "y": 200.8997,
+        "z": 324.7977
+      },
+      "rot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "areaId": 5,
+      "unlocked": false,
+      "cutsceneList": [],
+      "groupLimit": false,
+      "buildingType": "ChannellerSlabNPC",
       "fogId": 0
     }
   },

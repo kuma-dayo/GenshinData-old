@@ -4739,4 +4739,105 @@
 			"targetIndicatorYOffset": 1.35,
 		},
 	},
+////////////////////////////////////////////////////////////////////
+//
+// 1.5 导能圆盘活动 地脉之果碎片
+//
+////////////////////////////////////////////////////////////////////
+	"SceneObj_Area_Common_Property_Ani_Prop_LaylineShard_01" :
+	{
+		"$type" : "ConfigGadget",
+		"misc":
+		{
+			"pickup":
+			{
+				"$type": "ConfigPickup",
+			},
+			"targetIndicatorYOffset": 2.4,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"HP" : 99999,									
+				"isInvincible":true,
+				"isLockHP":true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"die" :
+			{
+				"hasAnimatorDie": true,
+				"dieEndTime" : 1,
+				"dieForceDisappearTime" : 1,
+			},	
+		},
+		"uiInteract":
+		{
+			"gadgetUIBtnCfgPath": "TEST/TEST_Chest_Btn",
+			"onTouch": "OwnerOnlyReward",
+			"openRewardId" : 4,
+		},
+		"intee":
+		{
+			"$type" : "ConfigIntee",
+			"triggerRadius": 4,
+			"triggerHeight": 6,
+		},
+		"stateLayers":
+		{
+			"defaultLayer":
+			{
+				"$type": "ConfigNormalStateLayer",
+				"stateIDs":
+				{
+					"ChestNoOpenState":
+					{
+						"$type": "ConfigNormalStateIDInfo",
+						"animatorStates":
+						{
+							"ChestNoOpen": [],
+						},
+					},
+					"ChestOpenState":
+					{
+						"$type": "ConfigNormalStateIDInfo",
+						"animatorStates":
+						{
+							"ChestOpen": ["LayLineShard_Open"],
+						},
+					},
+				},
+			},
+		},
+		"gadgetAction":
+		{
+			"gadgetStateActionList":
+			[
+				//0时不能交互
+				{
+					"$type": "ConfigGadgetStateEnableGadgetIntee",
+					"enable": false,
+					"gadgetState": "Default",
+				},
+				{
+					"$type": "ConfigGadgetStateEnableGadgetIntee",
+					"enable": true,
+					"gadgetState": "GearStart",
+				},
+			],
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Ability_01",
+
+				"abilityName" : "SceneObj_Area_Common_Property_Ani_Prop_LaylineShard_01_Ability",
+			},
+			{
+				"abilityID": "Ability_02",
+				"abilityName": "Scene_RockGadget_Summon_Detect",
+			},
+		],
+	},	
 }

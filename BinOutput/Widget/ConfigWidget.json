@@ -1,4 +1,5 @@
 {
+	// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 	"widgets": {
 		"220004": {
 			"$type": "ConfigWidgetClientCollector",
@@ -15,6 +16,7 @@
 			"useGadgetId": 70500005,
 			"allowOtherWorld": false
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		// 宝箱探测器（璃月）
 		"220003": {
 			"$type": "ConfigWidgetClientDetector",
@@ -31,6 +33,7 @@
 			"distanceToAvatar": 1,
 			"height": 1
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		// 宝箱探测器(蒙德）
 		"220009": {
 			"$type": "ConfigWidgetClientDetector",
@@ -47,6 +50,7 @@
 			"distanceToAvatar": 1,
 			"height": 1
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		// 风神瞳搜集器
 		"220001": {
 			"$type": "ConfigWidgetOneoffGatherPointDetector",
@@ -68,6 +72,7 @@
 			"distanceToAvatar": 1,
 			"height": 0.5
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		// 岩神瞳收集器
 		"220002": {
 			"$type": "ConfigWidgetOneoffGatherPointDetector",
@@ -89,6 +94,7 @@
 			"distanceToAvatar": 1,
 			"height": 0.5
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		"220005": {
 			"$type": "ConfigWidgetAnchorPoint",
 			"isConsumeMaterial": true,
@@ -100,6 +106,7 @@
 			"isAllowedInDungeon": false,
 			"isAllowedInRoom": false
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		"220006": {
 			"$type": "ConfigWidgetBonfire",
 			"isConsumeMaterial": true,
@@ -115,11 +122,13 @@
 			"isAllowedInRoom": false,
 			"combatDestroyDistance": 40
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		// 浓缩树脂严格来说不算小道具，所以也不配一般的字段
 		"220007": {
 			"$type": "ConfigWidgetCondenseResin",
 			"replaceResinCount": 20,	// 浓缩树脂只能在哪些体力值的地脉之花或循环地城使用
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		"220008": {
 			"$type": "ConfigWidgetLunchBox",
 			"isEquipable": true,
@@ -164,6 +173,10 @@
 				108189,
 				108190,
 				108200,
+				108176,
+				108177,
+				108178,
+				108244,
 			],
 			"healMaterials": {		// 能放进便当盒的加血类道具
 				"noticeAddHpMaterials": [
@@ -231,11 +244,15 @@
 					108238,
 					108239,
 					108240,
+					108185,
+					108186,
+					108187,
 				],
 				"otherAddHpMaterials": [
 				],
 			},
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		//藏宝图探测器
 		"220013": {
             "$type": "ConfigWidgetTreasureMapDetector",
@@ -251,6 +268,7 @@
             "isAllowedInRoom":false,
 		    "ornamentsType":"Fly",  
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		//藏宝图探测器宠物
 		"220014": {
             "$type": "ConfigWidgetAttachAvatar",
@@ -261,6 +279,7 @@
             "isAllowedInRoom":true,
 		    "ornamentsType":"Fly",   
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		"220015": {
             "$type": "ConfigWidgetAttachAvatar",
             "coolDown": 2,
@@ -270,6 +289,7 @@
             "isAllowedInRoom":true,
 		    "ornamentsType":"Fly", 
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		"220016": {
             "$type": "ConfigWidgetAttachAvatar",
             "coolDown": 2,
@@ -279,6 +299,7 @@
             "isAllowedInRoom":true,  
 		    "ornamentsType":"Fly",   
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		//暖源
 		"220017": {
             "$type": "ConfigWidgetGadgetBuilder",
@@ -292,6 +313,7 @@
       		"maxCountByPlayer":1,
       		"gadgetId":70500014,      		
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		// 截图小道具
     	"220018": {
       		"$type": "ConfigWidgetTakePhoto",
@@ -300,6 +322,7 @@
 			"isAllowedInRoom": true,
 			"hasCameraEffect": false,
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		// 扫五福活动，坏掉的相机
 		"220019": {
 			"$type": "ConfigWidgetBlessingCamera",
@@ -308,6 +331,7 @@
 			"isAllowedInRoom": true,
 			"isFixed": false,
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		// 扫五福活动，修复的相机。改成截图小道具类型了
 		"220020": {
 			"$type": "ConfigWidgetTakePhoto",
@@ -318,6 +342,7 @@
 			"cameraScreenEffect": "PostEffect_Scene_PhotoFilter_Blessing",
 			"mainCameraEffect": "ART/Effect/UI/UI/Eff_UI_BlessingPhoto_MainCamera_Particle",
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		//奇迹炼金釜（奇迹方块）
 		"220021": {
 			"$type": "ConfigWidgetMiracleRing",
@@ -334,6 +359,7 @@
 			"radius": 0.5,
 			"combatDestroyDistance": 40
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		// 纯水精灵-活动
 		"220022": {
 			"$type": "ConfigWidgetWaterSprite",
@@ -348,6 +374,7 @@
 			"isCdUnderTimeScale":false,
 		    "ornamentsType":"Fly", 
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		// 纯水精灵-宠物
 	    "220023": {
 		    "$type": "ConfigWidgetAbilityGroupGenerator",
@@ -358,6 +385,7 @@
 		    "isAllowedInRoom": true,
 		    "ornamentsType":"Fly",
 	    },
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 	    // 气球
 	    "220024": {
             "$type": "ConfigWidgetGadgetBuilder",
@@ -373,6 +401,7 @@
       		"distanceToAvatar":3,
       		"heightToAvatar":2,      		
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 		// 提瓦特琴
 		"220025": {
       "$type": "ConfigWidgetOpenPage",
@@ -383,5 +412,6 @@
       "isAllowedInDungeon":false,
       "isAllowedInRoom":true,     
 		},
+		// !!!!!!!! 这份配置已经废弃，不要再加新的了  This File Has Been Abandend, Do Not Add More !!!!!!!!
 	}
 }

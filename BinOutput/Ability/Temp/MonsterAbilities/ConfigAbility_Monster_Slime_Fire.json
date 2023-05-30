@@ -867,6 +867,222 @@
 	"Default":
 	{
 		"$type": "ConfigAbility",
+		"abilityName": "Slime_Fire_02_FireBorn_Tutorial",
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToElementTypeMixin",
+				"elementTypes": ["Fire"],
+				"reject": true,
+				"modifierName": "FireDetect",
+			},
+			{
+				"$type": "AttachToElementTypeMixin",
+				"elementTypes": ["Water"],
+				"modifierName": "WaterDetect",
+			},
+		],
+		"onAdded":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "ImmuneToFire",
+				"target": "Self",
+			},
+		],
+		"onAbilityStart":
+		[
+			{
+				"$type": "AttachModifier",
+				"modifierName": "OnFire_Trigger",
+				"target": "Self",
+			},
+		],
+		"modifiers":
+		{
+			"ImmuneToFire":
+			{
+				"modifierMixins":
+				[
+					{
+						"$type": "RejectAttackMixin",
+						"attackTag": "BurningDamage",
+					},
+				],
+			},
+			"OnFire_Trigger":
+			{
+				"duration": 0.8,
+				"stacking": "Unique",
+				"onAdded":
+				[
+					{
+						"$type": "SetAnimatorBool",
+						"boolID": "FireShader",
+						"value": true,
+					},
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Slime_Fire_Absorption_Middle",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "UNIQUE_FireBorn",
+						"target": "Self",
+					},
+				],
+			},
+			"FireDetect":
+			{
+				"onBeingHit":
+				[
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Slime_Fire_02_FireBorn_Tutorial",
+						"target": "Self",
+						"predicates":
+						[
+							{
+								"$type": "ByHitElement",
+								"element": "Fire",
+							},
+							{
+								"$type": "ByAnimatorFloat",
+								"parameter": "PoseID",
+								"value": 100.0,
+								"logic": "Lesser",
+							},
+						],
+					},
+				],
+			},
+			"UNIQUE_FireBorn":
+			{
+				"stacking": "Unique",
+				"isUnique": true,
+				"elementType": "Fire",
+				"elementDurability": 25,
+				"modifierMixins":
+				[
+					{
+						"$type": "ReplaceEventPatternMixin",
+						"oldPatterns": ["Monster_Slime_Fire_02_NormalAttack"],
+						"newPatterns": ["Monster_Slime_Fire_02_NormalAttack_Fire"],
+					},
+				],
+				"onAdded":
+				[
+					/*{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Slime_Fire_Burning_Middle",
+					},*/
+					{
+						"$type": "RemoveModifier",
+						"modifierName": "FireReborn",
+					},
+					{
+						"$type": "AttachEffect",
+						"effectPattern": "Eff_Monster_Slime_Fire_Burst_Middle",
+					},
+					{
+						"$type": "SetPoseBool",
+						"boolID": "FireState",
+						"value": true,
+					},
+					{
+						"$type": "SetAnimatorBool",
+						"boolID": "FireShader",
+						"value": true,
+					},
+				],
+				"onBeingHit":
+				[
+					{
+						"$type": "FireEffect",
+						"effectPattern": "Eff_Monster_Slime_Fire_BeHit",
+						"born":
+						{
+							"$type": "ConfigBornByHitPoint",
+							"direction":
+							{
+								"$type": "ConfigDirectionByBackToHitBoxCenter",
+							},
+							"alongGround": true,
+						},
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type": "FireEffect",
+						"effectPattern": "Eff_Monster_Slime_Fire_Extinguish_Middle",
+					},
+					{
+						"$type": "SetPoseBool",
+						"boolID": "FireState",
+						"value": false,
+					},
+					{
+						"$type": "SetAnimatorBool",
+						"boolID": "FireShader",
+						"value": false,
+					},
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "FireReborn",
+						"target": "Self",
+					},
+				],
+			},
+			"FireReborn":
+			{
+				"duration": 7.5,
+				"onAdded":
+				[
+					{
+						"$type": "SetPoseBool",
+						"boolID": "RebornGCD",
+						"value": true,
+					},
+				], 
+				"onRemoved":
+				[
+					{
+						"$type": "SetPoseBool",
+						"boolID": "RebornGCD",
+						"value": false,
+					},
+				], 
+			},
+			"WaterDetect":
+			{
+				"onAdded":
+				[
+					{
+						"$type": "SetPoseBool",
+						"boolID": "IsWet",
+						"value": true,
+					},
+				], 
+				"onRemoved":
+				[
+					{
+						"$type": "SetPoseBool",
+						"boolID": "IsWet",
+						"value": false,
+					},
+				], 
+			},
+		},
+	},
+},
+{
+	"Default":
+	{
+		"$type": "ConfigAbility",
 		"abilityName": "Slime_Fire_03_FireBorn",
 		"abilityMixins":
 		[
@@ -1630,6 +1846,14 @@
 	{
 		"$type": "ConfigAbility",
 		"abilityName": "Slime_Fire_02_TutorialGlobalValue",
+		"abilityMixins":
+		[
+			{
+				"$type": "ReplaceEventPatternMixin",
+				"oldPatterns": ["Monster_Slime_Fire_02_FireReborn"],
+				"newPatterns": ["Monster_Slime_Fire_02_FireReborn_Tutorial"],
+			},
+		],
 		"onAdded": 
 		[
 			{

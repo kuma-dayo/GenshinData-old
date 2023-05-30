@@ -10,18 +10,6 @@
 		"mass": 10.0,
 		"affectedByWorld": true,
 		"checkInSurface": true,
-		"effectGroups":
-		[
-			"AvatarSkill_IceSlash_Effects",
-			"AvatarSkill_LiquidStrike_Effects",
-			"AvatarSkill_SupportFrozenWindmill_Effects"
-		],
-		"consoleEffectGroups":
-		[
-			"AvatarSkill_IceSlash_Effects",
-			"AvatarSkill_LiquidStrike_Effects",
-			"AvatarSkill_SupportFrozenWindmill_Effects"
-		],
 		"avatarHeight": 1.5486,
 		"avatarModelHeight": 1.53,
 		"height": 1.57859993,
@@ -76,25 +64,6 @@
 		"elementAbsorb": "PRIVATE_Pendant",
 		"elementPendant": "PRIVATE_Pendant"
 	},
-	"bindEmotions":
-	[
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Ayaka_Fight_Attack_01",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Ayaka_Fight_Attack_02",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Ayaka_Fight_Attack_03",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Ayaka_Fight_Attack_04",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Ayaka_Fight_Attack_05",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Ayaka_Skill_Windmill_01",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Ayaka_Fight_Attack_ExtraAttack",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Ayaka_Fight_Attack_ExtraAttack_AS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Ayaka_Skill_Icespine",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Ayaka_Skill_Icespine_AS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Ayaka_Normal",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Ayaka_Show_01",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_RelicShow_BS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_RelicShow_Loop",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_RelicShow_AS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_Normal"
-	],
 	"combat":
 	{
 		"property":

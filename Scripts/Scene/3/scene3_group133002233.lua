@@ -37,7 +37,8 @@ triggers = {
 	{ config_id = 1000287, name = "ENTER_REGION_287", event = EventType.EVENT_ENTER_REGION, source = "", condition = "condition_EVENT_ENTER_REGION_287", action = "action_EVENT_ENTER_REGION_287" },
 	{ config_id = 1233001, name = "ANY_MONSTER_DIE_233001", event = EventType.EVENT_ANY_MONSTER_DIE, source = "", condition = "condition_EVENT_ANY_MONSTER_DIE_233001", action = "action_EVENT_ANY_MONSTER_DIE_233001", trigger_count = 0 },
 	{ config_id = 1233006, name = "ANY_MONSTER_DIE_233006", event = EventType.EVENT_ANY_MONSTER_DIE, source = "", condition = "", action = "action_EVENT_ANY_MONSTER_DIE_233006" },
-	{ config_id = 1233007, name = "QUEST_FINISH_233007", event = EventType.EVENT_QUEST_FINISH, source = "2006306", condition = "condition_EVENT_QUEST_FINISH_233007", action = "action_EVENT_QUEST_FINISH_233007" }
+	{ config_id = 1233007, name = "QUEST_FINISH_233007", event = EventType.EVENT_QUEST_FINISH, source = "2006306", condition = "condition_EVENT_QUEST_FINISH_233007", action = "action_EVENT_QUEST_FINISH_233007" },
+	{ config_id = 1233008, name = "QUEST_FINISH_233008", event = EventType.EVENT_QUEST_FINISH, source = "2006308", condition = "", action = "action_EVENT_QUEST_FINISH_233008", trigger_count = 0 }
 }
 
 -- 变量
@@ -90,7 +91,7 @@ suites = {
 		monsters = { 233002, 233003, 233004, 233005 },
 		gadgets = { },
 		regions = { },
-		triggers = { "ANY_MONSTER_DIE_233001", "ANY_MONSTER_DIE_233006", "QUEST_FINISH_233007" },
+		triggers = { "ANY_MONSTER_DIE_233001", "ANY_MONSTER_DIE_233006", "QUEST_FINISH_233007", "QUEST_FINISH_233008" },
 		rand_weight = 0,
 		ban_refresh = true
 	}
@@ -167,6 +168,17 @@ end
 function action_EVENT_QUEST_FINISH_233007(context, evt)
 		-- 重新生成指定group，指定suite
 		if 0 ~= ScriptLib.RefreshGroup(context, { group_id = 133002233, suite = 3 }) then
+	    ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : refresh_group_to_suite")
+			return -1
+		end
+	
+	return 0
+end
+
+-- 触发操作
+function action_EVENT_QUEST_FINISH_233008(context, evt)
+		-- 重新生成指定group，指定suite
+		if 0 ~= ScriptLib.RefreshGroup(context, { group_id = 133002233, suite = 1 }) then
 	    ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : refresh_group_to_suite")
 			return -1
 		end

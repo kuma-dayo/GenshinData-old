@@ -371,6 +371,148 @@
 				],
 				"onRemoved":
 				[
+					//Handle globalValue
+					{
+						//Reset Faint Gloval
+						"$type": "SetGlobalValue",
+						"key": "_MONSTER_REGISVINE_ISFAINT",
+						"value": 0,
+						"doOffStage": true,
+					},
+					{
+						//RTB
+						//Reset Faint Fruit Gloval
+						"$type": "SetGlobalValue",
+						"key": "_MONSTER_REGISVINE_ISFAINT_FRUIT",
+						"value": 0,
+						"doOffStage": true,
+					},
+					{
+						//RTB
+						//Reset Faint Fruit Gloval
+						"$type": "SetGlobalValue",
+						"key": "_MONSTER_REGISVINE_ISFAINT_CORE",
+						"value": 0,
+						"doOffStage": true,
+					},
+					{
+						"$type": "SetGlobalValue",
+						"key": "_MONSTER_REGISVINE_FRUIT_REVIVING",
+						"value": 0,
+						"doOffStage": true,
+					},
+					{
+						"$type": "SetGlobalValue",
+						"key": "_MONSTER_REGISVINE_FRUIT_REVIVEDELAYED",
+						"value": 0,
+						"doOffStage": true,
+					},
+					{
+						// Clear Fruit is broken Gloval
+						"$type": "SetGlobalValue",
+						"key": "_MONSTER_REGISVINE_FRUIT_ISBROKEN",
+						"value": 0,
+						"doOffStage": true,
+					},
+					{
+						// Clear Fruit is broken Gloval
+						"$type": "SetGlobalValue",
+						"key": "_MONSTER_REGISVINE_CORE_ISBROKEN",
+						"value": 0,
+						"doOffStage": true,
+					},
+					{
+						// Clear Fruit is broken Gloval
+						"$type": "SetGlobalValue",
+						"key": "_MONSTER_REGISVINE_CORE_ISSHATTERED",
+						"value": 0,
+						"doOffStage": true,
+					},
+					{
+						//Reset Core reborn Gloval
+						"$type": "SetGlobalValue",
+						"key": "_MONSTER_REGISVINE_CANBORNCORE",
+						"value": 1,
+						"doOffStage": true,
+					},
+					//Handle Pose
+					{
+						"$type": "SetPoseBool",
+						"boolID": "Faint_Core",
+						"value": false,
+					},
+					{
+						"$type": "SetPoseBool",
+						"boolID": "Faint_Fruit",
+						"value": false,
+					},
+					{
+						"$type": "SetPoseBool",
+						"boolID": "CoreIsBroken",
+						"value": false,
+					},
+					{
+						"$type": "SetPoseBool",
+						"boolID": "FruitIsBroken",
+						"value": false,
+					},
+					//Handle weakness
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Regisvine_Fruit_End",
+					},
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Regisvine_Core_End",
+					},
+					//Handle colliders
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Monster_Regisvine_BlizzardSpitPushColliderOff",
+					},
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Monster_Regisvine_FlowerPushColliderOff",
+					},
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Monster_Regisvine_FaintPushColliderOff",
+					},
+					//Handle modifiers
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_Regisvine_Ice_Fruit_Revive",
+					},
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_Regisvine_Fire_Fruit_Revive",
+					},
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_FaintState_Fruit",
+					},
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_FaintState_Core",
+					},
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_Regisvine_Ice_CoreShattered",
+					},
+					{
+						"$type": "RemoveUniqueModifier",
+						"modifierName": "UNIQUE_Regisvine_Fire_CoreShattered",
+					},
+					//Handle gadgets
+					{
+						"$type":"KillGadget",
+						"gadgetInfo":
+						{
+							"$type": "SelectTargetsByChildren",
+							"configID": 42602015,
+							"sortType": "Default",
+						},
+					},
 				],
 			},
 			"Regisvine_NormalIdleState":
@@ -396,12 +538,7 @@
 						"pushColliderNames" : 
 						[
 							"PushCollider_Faint01",
-							"PushCollider_Faint02",
-							"PushCollider_Faint03",
-							"PushCollider_Faint04",
-							"PushCollider_Faint05",
-							"PushCollider_Faint06",
-							"PushCollider_Faint07",
+							"PushCollider_Faint01_Extra",
 							"PushCollider_Head",
 							"PushCollider_BlizzardSpit",
 						],
@@ -3899,6 +4036,10 @@
 							},
 						],
 					},
+					{
+						"$type":"AttachBulletAimPoint",
+						"bulletAimPoint":"Core",
+					},
 				],
 				"onRemoved": 
 				[
@@ -3958,12 +4099,7 @@
 						"pushColliderNames" : 
 						[
 							"PushCollider_Faint01",
-							"PushCollider_Faint02",
-							"PushCollider_Faint03",
-							"PushCollider_Faint04",
-							"PushCollider_Faint05",
-							"PushCollider_Faint06",
-							"PushCollider_Faint07",
+							"PushCollider_Faint01_Extra",
 						],
 						"setEnable" : false,
 					},
@@ -4084,6 +4220,10 @@
 							},
 						],
 					},
+					{
+						"$type":"AttachBulletAimPoint",
+						"bulletAimPoint":"Core",
+					},
 				],
 				"onRemoved": 
 				[
@@ -4115,12 +4255,7 @@
 						"pushColliderNames" : 
 						[
 							"PushCollider_Faint01",
-							"PushCollider_Faint02",
-							"PushCollider_Faint03",
-							"PushCollider_Faint04",
-							"PushCollider_Faint05",
-							"PushCollider_Faint06",
-							"PushCollider_Faint07"
+							"PushCollider_Faint01_Extra",
 						],
 						"setEnable" : false,
 					},
@@ -5503,12 +5638,7 @@
 						"pushColliderNames" : 
 						[
 							"PushCollider_Faint01",
-							"PushCollider_Faint02",
-							"PushCollider_Faint03",
-							"PushCollider_Faint04",
-							"PushCollider_Faint05",
-							"PushCollider_Faint06",
-							"PushCollider_Faint07"
+							"PushCollider_Faint01_Extra",
 						],
 						"setEnable" : true,
 					},
@@ -5525,12 +5655,7 @@
 						"pushColliderNames" : 
 						[
 							"PushCollider_Faint01",
-							"PushCollider_Faint02",
-							"PushCollider_Faint03",
-							"PushCollider_Faint04",
-							"PushCollider_Faint05",
-							"PushCollider_Faint06",
-							"PushCollider_Faint07"
+							"PushCollider_Faint01_Extra",
 						],
 						"setEnable" : false,
 					},

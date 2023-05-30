@@ -991,15 +991,15 @@
 			"defaultSetting":
 			{
 				"speedLevel": 1,
-				"rangeMin": 3,
-				"rangeMax": 5,
+				"rangeMin": 0,
+				"rangeMax": 7,
 				"facingMoveWeight":
 				{
 					"stop": 2,
 					"forward": 1,
 					"back": 0,
-					"left": 0,
-					"right": 0,
+					"left": 1,
+					"right": 1,
 				},
 			},
 			"specification":
@@ -1026,10 +1026,10 @@
 				"skillGroupCDTime":30
 			}
 		],
-		// "network":
-		// {
-		// 	"syncSkill": true,
-		// },
+		"network":
+		{
+			"syncSkill": true,
+		},
 		"skills":
 		{
 			"1":
@@ -1053,8 +1053,8 @@
 			"1001":
 			{
 				"name":"ExitPower",
-				"cd":999999,
-				"initialCD":999999,
+				"cd":0,
+				"initialCD":0,
 				"ignoreGCD":true,
 				"priority":1,
 				"skillType":"Combat",
@@ -1065,7 +1065,7 @@
 				{
 					"pickRangeMin": 0,
 					"pickRangeMax": 50,
-					"pose": [111,114],
+					"pose": [115],
 				}
 			},
 			"103":

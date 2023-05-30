@@ -238,7 +238,7 @@
       "$type": "ModifyAbility",
       "abilityName": "Avatar_Feiyan_ExtraAttack",
       "paramSpecial": "Feiyan_WeightReduceStaminaRatio",
-      "paramDelta": "%15",
+      "paramDelta": "-%15",
       "paramRatio": 0,
     }, //Avatar_Feiyan_ExtraAttack_DoAttack 参数14——每个印记减少的体力消耗
 
@@ -246,7 +246,7 @@
       "$type": "ModifyAbility",
       "abilityName": "Avatar_Feiyan_ExtraAttack_Weight_Handler",
       "paramSpecial": "Feiyan_WeightReduceStaminaRatio",
-      "paramDelta": "%15",
+      "paramDelta": "-%15",
       "paramRatio": 0,
     }, //Avatar_Feiyan_ExtraAttack_DoAttack 参数14——每个印记减少的体力消耗
 
@@ -273,6 +273,15 @@
       "paramDelta": "%18",
       "paramRatio": 0,
     }, //Avatar_Feiyan_FallingAnthem 参数18——强化印记对重击范围加成
+
+    //======================================================================
+    {
+      "$type": "ModifyAbility",
+      "abilityName": "Avatar_Feiyan_ExtraAttack_Weight_Timer",
+      "paramSpecial": "Feiyan_Weight_Count_Timer",
+      "paramDelta": "%19",
+      "paramRatio": 0,
+    }, //Avatar_Feiyan_FallingAnthem 参数19——丹火印持续时间
 
   ], //Feiyan_SkillUpgrade_1 普攻与重击
 
@@ -319,5 +328,11 @@
 
   ],
 
+  "Feiyan_ProudSkill_NonCombat_1": [
+    {
+      "$type": "AddAbility",
+      "abilityName": "Avatar_Feiyan_Radar_Collectables_Liyue",
+    },
+  ],
 
 }

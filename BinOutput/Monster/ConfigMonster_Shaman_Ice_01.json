@@ -372,10 +372,10 @@
 			"abilityID": "Shaman_Ice_AnimationSteer",
 			"abilityName": "Monster_Shaman_Ice_AnimationSteer",
 		},
-  //       {
-		// 	"abilityID": "Monster_Shaman_Rock_EscapeState",
-		// 	"abilityName": "Monster_Shaman_Rock_EscapeState",
-		// },
+        {
+			"abilityID": "Monster_Shaman_Ice_EscapeState",
+			"abilityName": "Monster_Shaman_Ice_EscapeState",
+		},
   //       {
 		// 	"abilityID": "Monster_Shaman_Rock_SupportAttack",
 		// 	"abilityName": "Monster_Shaman_Rock_SupportAttack",

@@ -674,8 +674,12 @@
 							{
 								"ps4":
 								{
-									"useGyro": true,
+									"useGyro": false,
 								},
+								"ps5":
+								{
+									"useGyro": false,
+								},								
 								"other":
 								{
 									"useGyro": true,

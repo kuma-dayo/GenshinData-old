@@ -460,7 +460,7 @@
 				"skillType": "Combat",
 				"castCondition":
 				{
-					"pickRangeMin": 0,
+					"pickRangeMin": 2,
 					"pickRangeMax": 20,
 					"pose": [101]
 				},

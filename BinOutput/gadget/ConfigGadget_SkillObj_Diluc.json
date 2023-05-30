@@ -64,6 +64,10 @@
 				// 	"$type": "ConfigBulletMoveAngleByVelocity", //这个会导致特效抬头，不要配。
 				// },
 			},
+			"velocityForce":
+			{
+				"muteAll": true,
+			},
 			"canBornInWater": true,
 		},
 		// 生命周期管理

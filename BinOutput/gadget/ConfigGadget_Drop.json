@@ -775,4 +775,35 @@
       },
     },
   },
+////////////////////////////////////////////////////////////////
+//
+//  木材
+//
+////////////////////////////////////////////////////////////////
+   "Default_Attract_Item":
+  {
+    "$type": "ConfigGadget",
+    "misc" :
+    {
+      "pickup" :
+      {
+        "$type": "ConfigPickup",
+        "pickType" : "Attract",
+        "disableInitJump": true,
+        "attractDelayTime": 2,
+        "initBackSpeed": 3.0,
+        "backFanAngle": 170.0,
+        "backFanStartAngle": 150.0,
+        "attractAccelerate": 2.0,
+        "attractMaxDistance": 30,
+        "heightOffset":0.6,
+        "rotateVec": {
+          "x": 600,
+          "y": 600,
+          "z": 600,
+        },
+        "attractAudio": "Play_sfx_pickups_object_wood_get",
+      },
+    },
+  }, 
 }

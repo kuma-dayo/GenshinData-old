@@ -31,7 +31,7 @@ gadgets = {
 	{ config_id = 5005, gadget_id = 70350003, pos = { x = 75.804, y = 1.433, z = -28.966 }, rot = { x = 0.000, y = 135.560, z = 0.000 }, level = 1 },
 	{ config_id = 5006, gadget_id = 70211012, pos = { x = 87.927, y = 0.500, z = -61.169 }, rot = { x = 0.000, y = 5.447, z = 0.000 }, level = 1, drop_tag = "战斗中级蒙德", state = GadgetState.ChestLocked, showcutscene = true, isOneoff = true },
 	{ config_id = 5007, gadget_id = 70360001, pos = { x = 84.636, y = 1.323, z = -51.203 }, rot = { x = 0.000, y = 206.115, z = 0.000 }, level = 1 },
-	{ config_id = 5008, gadget_id = 70500000, pos = { x = 88.057, y = 0.500, z = -27.508 }, rot = { x = 0.000, y = 104.057, z = 0.000 }, level = 1, point_type = 1000001 },
+	{ config_id = 5008, gadget_id = 70500000, pos = { x = 88.057, y = 0.500, z = -27.508 }, rot = { x = 0.000, y = 104.057, z = 0.000 }, level = 1, point_type = 2019 },
 	{ config_id = 5009, gadget_id = 70211011, pos = { x = 85.100, y = 0.500, z = -30.860 }, rot = { x = 0.000, y = 168.034, z = 0.000 }, level = 1, drop_tag = "战斗中级蒙德", showcutscene = true, isOneoff = true }
 }
 

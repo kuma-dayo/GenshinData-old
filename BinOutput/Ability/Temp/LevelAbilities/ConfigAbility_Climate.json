@@ -11,8 +11,9 @@
 			"abilityName": "ClimateAbility_Cold",
 			"modifiers":
 			{
-				"ClimateAbility_Cold_Area":
+				"SERVER_ClimateAbility_Cold_Area":
 				{
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -145,8 +146,9 @@
 					
 				},
 
-				"ClimateAbility_Cold_Lv1":
+				"SERVER_ClimateAbility_Cold_Lv1":
 				{
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -234,8 +236,9 @@
 						},
 					],
 				},
-				"ClimateAbility_Cold_Lv2":
+				"SERVER_ClimateAbility_Cold_Lv2":
 				{
+					"stacking": "Multiple",
 					"thinkInterval": 1,
 					"onThinkInterval":
 					[

@@ -2036,27 +2036,18 @@
 				"enterActions":
 				[
 					{
-						"$type" : "DebugLog",
-						"content"  : "TRIGGER BULLET!!!!",
-					},
-					{
 						"$type": "ResetAIAttackTarget",
 					},
+					// {
+					// 	"$type" : "TriggerBullet",
+					// 	"bulletID"  : 42304018,
+					// 	"campID": 4001,
+					// 	"trackTarget"  : "SelfAttackTarget",
+					// },
 					{
-						"$type" : "TriggerBullet",
-						"bulletID"  : 42304018,
-						"target": "SelfAttackTarget",
-						"trackTarget"  : "SelfAttackTarget",
-						"born":
-						{
-							"$type": "ConfigBornByTarget",
-							"offset":
-							{
-								"x": 0.0,
-								"y": 0.1,
-								"z": 0.0,
-							},
-						},
+						"$type" : "ApplyModifier",
+						"modifierName"  : "Monster_Konungmathr_None_TracingLaser_TeamSearcher",
+						"target"  : "SelfAttackTarget",
 					},
 				],
 			},
@@ -2093,6 +2084,34 @@
 		],
 		"modifiers":
 		{
+			"Monster_Konungmathr_None_TracingLaser_TeamSearcher":
+			{
+				"duration": 0.1,
+				"onAdded":
+				[
+					{
+						"$type" : "TriggerBullet",
+						"bulletID"  : 42304018,
+						"campID": 4001,
+						"trackTarget"  : "Team",
+						"doOffStage": true,
+					},
+				],
+			},
+			// "UNIQUE_Monster_Konungmathr_None_TracingLaser_Team":
+			// {
+			// 	"isUnique": true,
+			// 	"duration": 0.5,
+			// 	"onAdded":
+			// 	[
+			// 		{
+			// 			"$type" : "TriggerBullet",
+			// 			"bulletID"  : 42304018,
+			// 			"campID": 4001,
+			// 			"trackTarget"  : "Self",
+			// 		},
+			// 	],
+			// },
 			"Monster_Konungmathr_None_TracingLaser_HeadControl":
 			{
 				"thinkInterval": 0.4,
@@ -2175,35 +2194,18 @@
 						],
 					},
 					{
-						"$type": "SetAnimatorTrigger",
-						"triggerID" : "LaserEndTrigger",
-						"target"  : "Self",
-						"predicates" : 
-						[
-							{
-								"$type": "ByTargetPositionToSelfPosition",
-								"target": "SelfAttackTarget",
-								"compareType": "XYZ",
-								"value": 25,
-								"logic": "GreaterOrEqual",
-							},
-						],
-					},
-				],		
-				"onAdded":
-				[
-					{
-						"$type" : "SetSelfAttackTarget",
+						"$type" : "Predicated",
 						"otherTargets":
 						{
 							"$type": "SelectTargetsByShape",
 							"shapeName": "CircleR50",
 							"centerBasedOn": "Self",
-							"campTargetType": "SelfCamp",
+							"campTargetType": "All",
 							"campBasedOn": "Self",
 							"sortType": "Nearest",
+							"entityTypePriority":["Gadget"],
 						},
-						"predicates"  : 
+						"targetPredicates"  : 
 						[
 							{
 								"$type" : "ByTargetGlobalValue",
@@ -2212,7 +2214,65 @@
 								"compareType"  : "Equal",
 							},
 						],
+						"successActions"  : 
+						[
+							{
+								"$type": "SetAnimatorTrigger",
+								"triggerID" : "LaserEndTrigger",
+								"target"  : "Self",
+								"predicates" : 
+								[
+									{
+										"$type": "ByTargetPositionToSelfPosition",
+										"target": "Target",
+										"compareType": "XYZ",
+										"value": 25,
+										"logic": "GreaterOrEqual",
+									},
+								],
+							},
+						],
 					},
+					// {
+					// 	"$type" : "SetSelfAttackTarget",
+					// 	"otherTargets":
+					// 	{
+					// 		"$type": "SelectTargetsByShape",
+					// 		"shapeName": "CircleR50",
+					// 		"centerBasedOn": "Self",
+					// 		"campTargetType": "All",
+					// 		"campBasedOn": "Self",
+					// 		"sortType": "Nearest",
+					// 		"entityTypePriority":["Gadget"],
+					// 	},
+					// 	"predicates"  : 
+					// 	[
+					// 		{
+					// 			"$type" : "ByTargetGlobalValue",
+					// 			"key"  : "_MONSTER_Konungmathr_None_TracingLaser_ChasingTarget",
+					// 			"value"  : 1,
+					// 			"compareType"  : "Equal",
+					// 		},
+					// 	],
+					// },
+					// {
+					// 	"$type": "SetAnimatorTrigger",
+					// 	"triggerID" : "LaserEndTrigger",
+					// 	"target"  : "Self",
+					// 	"predicates" : 
+					// 	[
+					// 		{
+					// 			"$type": "ByTargetPositionToSelfPosition",
+					// 			"target": "SelfAttackTarget",
+					// 			"compareType": "XYZ",
+					// 			"value": 25,
+					// 			"logic": "GreaterOrEqual",
+					// 		},
+					// 	],
+					// },
+				],		
+				"onAdded":
+				[
 					{
 						"$type" : "Predicated",
 						"targetPredicates"  : 
@@ -2232,10 +2292,40 @@
 								"enable": true,
 							},
 							{
-								"$type": "SetPartControlTarget",
-								"target": "SelfAttackTarget",
-								"partRootNames": ["LaserControl"],
-							},							
+								"$type" : "Predicated",
+								"otherTargets":
+								{
+									"$type": "SelectTargetsByShape",
+									"shapeName": "CircleR50",
+									"centerBasedOn": "Self",
+									"campTargetType": "All",
+									"campBasedOn": "Self",
+									"sortType": "Nearest",
+									"entityTypePriority":["Gadget"],
+								},
+								"targetPredicates"  : 
+								[
+									{
+										"$type" : "ByTargetGlobalValue",
+										"key"  : "_MONSTER_Konungmathr_None_TracingLaser_ChasingTarget",
+										"value"  : 1,
+										"compareType"  : "Equal",
+									},
+								],
+								"successActions"  : 
+								[
+									// {
+									// 	"$type" : "SetSelfAttackTarget",
+									// 	"turnToTargetImmediately"  : false,
+									// 	"target"  : "Target",
+									// },
+									{
+										"$type": "SetPartControlTarget",
+										"target": "Target",
+										"partRootNames": ["LaserControl"],
+									},
+								],
+							},
 							{
 								"$type": "TriggerBullet",
 								"bulletID": 42304017,
@@ -2268,9 +2358,39 @@
 								"enable": true,
 							},
 							{
-								"$type": "SetPartControlTarget",
-								"target": "SelfAttackTarget",
-								"partRootNames": ["HemiLaserControl"],
+								"$type" : "Predicated",
+								"otherTargets":
+								{
+									"$type": "SelectTargetsByShape",
+									"shapeName": "CircleR50",
+									"centerBasedOn": "Self",
+									"campTargetType": "All",
+									"campBasedOn": "Self",
+									"sortType": "Nearest",
+									"entityTypePriority":["Gadget"],
+								},
+								"targetPredicates"  : 
+								[
+									{
+										"$type" : "ByTargetGlobalValue",
+										"key"  : "_MONSTER_Konungmathr_None_TracingLaser_ChasingTarget",
+										"value"  : 1,
+										"compareType"  : "Equal",
+									},
+								],
+								"successActions"  : 
+								[
+									// {
+									// 	"$type" : "SetSelfAttackTarget",
+									// 	"turnToTargetImmediately"  : false,
+									// 	"target"  : "Target",
+									// },
+									{
+										"$type": "SetPartControlTarget",
+										"target": "Target",
+										"partRootNames": ["HemiLaserControl"],
+									},	
+								],
 							},
 							{
 								"$type": "TriggerBullet",
@@ -3445,7 +3565,7 @@
 			{
 				"$type": "SteerAttackMixin",
 				"steerStateIDs": ["TracingLaser_Loop"],
-				"startNormalizedTime" : 0,
+				"startNormalizedTime" : 0.01,
 				"endNormalizedTime" : 4,
 				"angularSpeed" : 25,
 				"attackTrigger" : "",

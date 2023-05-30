@@ -35,9 +35,9 @@ gadgets = {
 	{ config_id = 2021, gadget_id = 70220025, pos = { x = 398.309, y = -23.871, z = 110.226 }, rot = { x = 271.276, y = 284.403, z = 255.601 }, level = 1 },
 	{ config_id = 2022, gadget_id = 70310001, pos = { x = 414.043, y = -22.069, z = 114.938 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
 	{ config_id = 2023, gadget_id = 70310001, pos = { x = 414.102, y = -22.070, z = 126.871 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
-	{ config_id = 2024, gadget_id = 70220025, pos = { x = 389.153, y = -23.907, z = 118.421 }, rot = { x = 271.274, y = 284.403, z = 255.601 }, level = 1 },
-	{ config_id = 2025, gadget_id = 70220025, pos = { x = 389.252, y = -23.968, z = 120.144 }, rot = { x = 271.274, y = 284.403, z = 255.601 }, level = 1 },
-	{ config_id = 2026, gadget_id = 70220025, pos = { x = 389.298, y = -23.936, z = 121.623 }, rot = { x = 271.274, y = 284.403, z = 255.601 }, level = 1 },
+	{ config_id = 2024, gadget_id = 70220025, pos = { x = 389.153, y = -23.907, z = 118.421 }, rot = { x = 271.274, y = 284.403, z = 255.602 }, level = 1 },
+	{ config_id = 2025, gadget_id = 70220025, pos = { x = 389.252, y = -23.968, z = 120.144 }, rot = { x = 271.274, y = 284.403, z = 255.602 }, level = 1 },
+	{ config_id = 2026, gadget_id = 70220025, pos = { x = 389.298, y = -23.936, z = 121.623 }, rot = { x = 271.274, y = 284.403, z = 255.602 }, level = 1 },
 	{ config_id = 2028, gadget_id = 70220025, pos = { x = 399.695, y = -23.375, z = 144.402 }, rot = { x = 271.276, y = 284.403, z = 255.601 }, level = 1 },
 	{ config_id = 2029, gadget_id = 70220013, pos = { x = 389.046, y = -23.988, z = 120.568 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 }
 }
@@ -51,6 +51,7 @@ regions = {
 triggers = {
 	{ config_id = 1002001, name = "ANY_MONSTER_DIE_2001", event = EventType.EVENT_ANY_MONSTER_DIE, source = "", condition = "condition_EVENT_ANY_MONSTER_DIE_2001", action = "action_EVENT_ANY_MONSTER_DIE_2001" },
 	{ config_id = 1002003, name = "ENTER_REGION_2003", event = EventType.EVENT_ENTER_REGION, source = "", condition = "condition_EVENT_ENTER_REGION_2003", action = "action_EVENT_ENTER_REGION_2003" },
+	{ config_id = 1002005, name = "ANY_MONSTER_DIE_2005", event = EventType.EVENT_ANY_MONSTER_DIE, source = "", condition = "", action = "action_EVENT_ANY_MONSTER_DIE_2005" },
 	{ config_id = 1002027, name = "QUEST_FINISH_2027", event = EventType.EVENT_QUEST_FINISH, source = "", condition = "condition_EVENT_QUEST_FINISH_2027", action = "action_EVENT_QUEST_FINISH_2027" }
 }
 
@@ -84,7 +85,7 @@ suites = {
 		monsters = { 2007, 2008, 2013, 2014, 2015, 2030 },
 		gadgets = { 2002, 2004, 2009, 2010, 2011, 2012, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2028, 2029 },
 		regions = { 2003 },
-		triggers = { "ANY_MONSTER_DIE_2001", "ENTER_REGION_2003", "QUEST_FINISH_2027" },
+		triggers = { "ANY_MONSTER_DIE_2001", "ENTER_REGION_2003", "ANY_MONSTER_DIE_2005", "QUEST_FINISH_2027" },
 		rand_weight = 100
 	}
 }
@@ -153,6 +154,17 @@ function action_EVENT_ENTER_REGION_2003(context, evt)
 	  ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : set_gadget_state_by_configId")
 			return -1
 		end 
+	
+	return 0
+end
+
+-- 触发操作
+function action_EVENT_ANY_MONSTER_DIE_2005(context, evt)
+	-- 通知任务系统完成条件类型"LUA通知"，复杂参数为quest_param的进度+1
+	if 0 ~= ScriptLib.AddQuestProgress(context, "200322003") then
+		ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : add_quest_progress")
+	  return -1
+	end
 	
 	return 0
 end

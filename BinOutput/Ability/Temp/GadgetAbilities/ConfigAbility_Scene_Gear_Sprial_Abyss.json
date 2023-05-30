@@ -1549,7 +1549,7 @@
 			},
 			{
 				"$type":"SendEffectTrigger",
-				"effectPattern":"Eff_Tower_Ball_MoveSpeed_01",
+				"effectPattern":"Eff_Tower_Ball_AttackUp_01",
 				"parameter":"Die",
 			},	
 			{
@@ -1560,7 +1560,7 @@
 		[
 			{
 				"$type" : "AttachEffect",
-				"effectPattern" : "Eff_Tower_Ball_MoveSpeed_01",
+				"effectPattern" : "Eff_Tower_Ball_AttackUp_01",
 			},
 		],
 		"modifiers": 
@@ -1598,7 +1598,7 @@
 			},
 			{
 				"$type":"SendEffectTrigger",
-				"effectPattern":"Eff_Tower_Ball_MoveSpeed_01",
+				"effectPattern":"Eff_Tower_Ball_Heal_01",
 				"parameter":"Die",
 			},	
 			{
@@ -1609,7 +1609,7 @@
 		[
 			{
 				"$type" : "AttachEffect",
-				"effectPattern" : "Eff_Tower_Ball_MoveSpeed_01",
+				"effectPattern" : "Eff_Tower_Ball_Heal_01",
 			},
 		],
 		"modifiers": 

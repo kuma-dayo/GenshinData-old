@@ -146,11 +146,17 @@
 	{
 		"property":
 		{
-			"endure": 0,
 			"weight": 75,
-			"lockShape": "CircleLockEnemy",
 			"endureType": "Avatar_Catalyst",
 			"endureShake": 0
+		},
+		"combatLock":
+		{
+			"denyLockOn": false,
+			"lockShape": "CircleLockEnemyClose",
+			"lockWeightYaxisParam": 0.2,
+			"lockWeightYaxisThreshold": 4,
+			"lockType": "Avatar&Monster_Lv4"
 		},
 		"beHit":
 		{
@@ -329,7 +335,8 @@
 					"moveType": "normalMove",
 					"resetAnimatorTriggerOnEnter":
 					[
-						"DoSkill"
+						"DoSkill",
+						"AimEnd"
 					],
 					"resetAnimatorTriggerOnExit": [],
 					"canDoSkill": true,
@@ -606,8 +613,7 @@
 					{
 						"Fly":
 						[
-							"Audio_Girl_Fly",
-							"Audio_Girl_Foley_Once_Feiyan"
+							"Audio_Girl_Fly"
 						],
 						"FlyStart":
 						[
@@ -664,7 +670,8 @@
 					"canDoSkill": true,
 					"resetAnimatorTriggerOnEnter":
 					[
-						"DoSkill"
+						"DoSkill",
+						"AimEnd"
 					],
 					"resetAnimatorTriggerOnExit": [],
 					"setAnimatorBoolean":
@@ -1146,7 +1153,8 @@
 							"Feiyan_Attack01",
 							"SetComboCount1",
 							"Interaction_Bad",
-							"Audio_Girl_Feiyan_Attack_01"
+							"Audio_Girl_Feiyan_Attack_01",
+							"Emo_Girl_Catalyst_Feiyan_NormalAttack01"
 						]
 					},
 					"combatCamera": true,
@@ -1190,7 +1198,8 @@
 							"Feiyan_Attack02",
 							"SetComboCount2",
 							"Interaction_Bad",
-							"Audio_Girl_Feiyan_Attack_02"
+							"Audio_Girl_Feiyan_Attack_02",
+							"Emo_Girl_Catalyst_Feiyan_NormalAttack02"
 						]
 					},
 					"combatCamera": true,
@@ -1234,7 +1243,8 @@
 							"Feiyan_Attack03",
 							"SetComboCount3",
 							"Interaction_Bad",
-							"Audio_Girl_Feiyan_Attack_03"
+							"Audio_Girl_Feiyan_Attack_03",
+							"Emo_Girl_Catalyst_Feiyan_NormalAttack03"
 						]
 					},
 					"combatCamera": true,
@@ -1314,20 +1324,14 @@
 						"ExtraAttack_Charge":
 						[
 							"Feiyan_ExtraAttack_Charge",
-							"Audio_Girl_Feiyan_ExtraAttack_Charge"
+							"Audio_Girl_Feiyan_ExtraAttack_Charge",
+							"Emo_Girl_Catalyst_Feiyan_ExtraAttack_Charge"
 						]
 					},
 					"combatCamera": true,
 					"cameraType": "combatNormal",
 					"moveType": "combatMove",
-					"canDoSkill": true,
-					"canChangeAvatar":
-					[
-						{
-							"normalizeStart": 0.0,
-							"normalizeEnd": 1.0
-						}
-					],
+					"canDoSkill": false,
 					"resetAnimatorTriggerOnEnter": [],
 					"resetAnimatorTriggerOnExit":
 					[
@@ -1353,7 +1357,8 @@
 						"ExtraAttack":
 						[
 							"Feiyan_ExtraAttack",
-							"Interaction_Bad"
+							"Interaction_Bad",
+							"Emo_Girl_Catalyst_Feiyan_ExtraAttack"
 						]
 					},
 					"combatCamera": true,
@@ -1391,7 +1396,8 @@
 					{
 						"ExtraAttack_AS":
 						[
-							"Audio_Girl_Feiyan_ExtraAttack_AS"
+							"Audio_Girl_Feiyan_ExtraAttack_AS",
+							"Emo_Girl_Catalyst_Feiyan_ExtraAttack_AS"
 						]
 					},
 					"combatCamera": true,
@@ -1438,7 +1444,8 @@
 						"ElementalArt_BS":
 						[
 							"Feiyan_ElementalArt_BS",
-							"Audio_Girl_Feiyan_ElementalArt_BS"
+							"Audio_Girl_Feiyan_ElementalArt_BS",
+							"Emo_Girl_Catalyst_Feiyan_ElementalArt_BS"
 						]
 					},
 					"moveType": "combatMove",
@@ -1466,7 +1473,8 @@
 						[
 							"Feiyan_ElementalArt",
 							"Interaction_Bad",
-							"Audio_Girl_Feiyan_ElementalArt"
+							"Audio_Girl_Feiyan_ElementalArt",
+							"Emo_Girl_Catalyst_Feiyan_ElementalArt"
 						]
 					},
 					"moveType": "combatMove",
@@ -1493,7 +1501,8 @@
 					{
 						"ElementalArt_AS":
 						[
-							"Audio_Girl_Feiyan_ElementalArt_AS"
+							"Audio_Girl_Feiyan_ElementalArt_AS",
+							"Emo_Girl_Catalyst_Feiyan_ElementalArt_AS"
 						]
 					},
 					"moveType": "combatMove",
@@ -1537,7 +1546,8 @@
 						[
 							"Feiyan_ElementalBurst_BS",
 							"Interaction_Bad",
-							"Audio_Girl_Feiyan_ElementalBurst"
+							"Audio_Girl_Feiyan_ElementalBurst",
+							"Emo_Girl_Catalyst_Feiyan_ElementalBurst_BS"
 						]
 					},
 					"moveType": "combatMove",
@@ -1554,7 +1564,7 @@
 						"Jump"
 					],
 					"setAnimatorBoolean": [],
-					"sheatheOnStart": true
+					"battouOnStart": true
 				},
 				"ElementalBurst":
 				{
@@ -1563,7 +1573,8 @@
 					{
 						"ElementalBurst":
 						[
-							"Feiyan_ElementalBurst"
+							"Feiyan_ElementalBurst",
+							"Emo_Girl_Catalyst_Feiyan_ElementalBurst"
 						]
 					},
 					"moveType": "combatMove",
@@ -1580,7 +1591,7 @@
 						"Jump"
 					],
 					"setAnimatorBoolean": [],
-					"sheatheOnStart": true
+					"battouOnStart": true
 				},
 				"ElementalBurst_AS":
 				{
@@ -1589,7 +1600,8 @@
 					{
 						"ElementalBurst_AS":
 						[
-							"Audio_Girl_Feiyan_ElementalBurst_AS"
+							"Audio_Girl_Feiyan_ElementalBurst_AS",
+							"Emo_Girl_Catalyst_Feiyan_ElementalBurst_AS"
 						]
 					},
 					"moveType": "combatMove",
@@ -1622,7 +1634,7 @@
 							"normalizeEnd": 1.0
 						}
 					],
-					"sheatheOnStart": true
+					"sheatheOnEnd": true
 				},
 				"FallingAnthem_BS":
 				{
@@ -2065,28 +2077,10 @@
 			"onTransitionOut":
 			[
 				{
-					"currentStateName": "Attack01",
+					"currentStateName": "StandbyShow_02",
 					"audioEvent":
 					{
-						"text": "Stop_sfx_char_feiyan_attack"
-					},
-					"otherStateNames": [],
-					"usage": "Any"
-				},
-				{
-					"currentStateName": "Attack02",
-					"audioEvent":
-					{
-						"text": "Stop_sfx_char_feiyan_attack"
-					},
-					"otherStateNames": [],
-					"usage": "Any"
-				},
-				{
-					"currentStateName": "Attack03",
-					"audioEvent":
-					{
-						"text": "Stop_sfx_char_feiyan_attack"
+						"text": "Stop_sfx_standbyShow_feiyan_02"
 					},
 					"otherStateNames": [],
 					"usage": "Any"
@@ -2095,7 +2089,7 @@
 					"currentStateName": "StandbyShow_02",
 					"audioEvent":
 					{
-						"text": "Stop_sfx_standbyShow_feiyan_02"
+						"text": "Stop_vo_external_1P_3D"
 					},
 					"otherStateNames": [],
 					"usage": "Any"
@@ -2586,7 +2580,7 @@
 		},
 		"voiceSwitch":
 		{
-			"text": "Switch_Feiyan"
+			"text": "Switch_Yanfei"
 		},
 		"bodyTypeSwitch":
 		{
@@ -2612,7 +2606,7 @@
 					"PCNoTessellation":
 					{
 						"effect": "Eff_Character_Snow_Footprint",
-						"deformation": "",
+						"deformation": ""
 					},
 					"pc":
 					{
@@ -2635,7 +2629,7 @@
 					"PCNoTessellation":
 					{
 						"effect": "Eff_Character_Snow_Footprint",
-						"deformation": "",
+						"deformation": ""
 					},
 					"pc":
 					{
@@ -2712,6 +2706,10 @@
 		{
 			"abilityID": "Avatar_Feiyan_ExtraAttack_Weight_Clear",
 			"abilityName": "Avatar_Feiyan_ExtraAttack_Weight_Clear"
+		},
+		{
+			"abilityID": "Avatar_Feiyan_ExtraAttack_Weight_Timer",
+			"abilityName": "Avatar_Feiyan_ExtraAttack_Weight_Timer"
 		},
 		{
 			"abilityID": "Avatar_Feiyan_ElementalArt_BS",

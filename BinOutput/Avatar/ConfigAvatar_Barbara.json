@@ -10,14 +10,6 @@
 		"mass": 10.0,
 		"affectedByWorld": true,
 		"checkInSurface": true,
-		"effectGroups":
-		[
-			"AvatarSkill_Barbara_Effects"
-		],
-		"consoleEffectGroups":
-		[
-			"AvatarSkill_Barbara_Effects"
-		],
 		"avatarHeight": 1.55504,
 		"avatarModelHeight": 1.53,
 		"height": 1.60504007,
@@ -152,25 +144,6 @@
 		"elementAbsorb": "PRIVATE_Pendant",
 		"elementPendant": "PRIVATE_Pendant"
 	},
-	"bindEmotions":
-	[
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Barbara_Fight_Attack_01",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Barbara_Fight_Attack_02",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Barbara_Fight_Attack_03",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Barbara_Fight_Attack_04",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Barbara_Fight_ExtraAttack_BS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Barbara_Fight_ExtraAttack_Charge",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Barbara_Fight_ExtraAttack",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Barbara_Fight_ExtraAttack_AS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Barbara_Skill_WetShield_BS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Barbara_Skill_WetShield",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Barbara_Normal",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Barbara_Show_01",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_RelicShow_BS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_RelicShow_Loop",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_RelicShow_AS",
-		"Cutscene/ShortDialog/Cs_Emo_Avatar_Simple_Common_Set/Cs_Emo_Avatar_Common_Normal"
-	],
 	"combat":
 	{
 		"property":

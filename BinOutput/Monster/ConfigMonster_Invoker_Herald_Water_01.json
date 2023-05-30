@@ -473,6 +473,9 @@
 						"NormalAtk01BS": [],
 						"NormalAtk02BS": [],
 						"NormalAtk03BS": [],
+						"NormalAtk01BS_Plus": [],
+						"NormalAtk02BS_Plus": [],
+						"NormalAtk03BS_Plus": [],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -482,7 +485,8 @@
 					"$type": "ConfigMonsterStateIDInfo",
 					"animatorStates":
 					{
-						"NormalAtk01": ["Monster_Invoker_Herald_Water_NormalAtk01", "Audio_Monster_lnvoker_Herald_Water_NormalAtk01"],	
+						"NormalAtk01": ["Monster_Invoker_Herald_Water_NormalAtk01", "Audio_Monster_lnvoker_Herald_Water_NormalAtk01", "Audio_Monster_lnvoker_Herald_Water_NormalAtk01_VO"],	
+						"NormalAtk01_Plus": ["Monster_Invoker_Herald_Water_NormalAtk01", "Audio_Monster_lnvoker_Herald_Water_NormalAtk01", "Audio_Monster_lnvoker_Herald_Water_NormalAtk01_VO"],	
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -492,7 +496,8 @@
 					"$type": "ConfigMonsterStateIDInfo",
 					"animatorStates":
 					{
-						"NormalAtk02": ["Monster_Invoker_Herald_Water_NormalAtk02", "Audio_Monster_lnvoker_Herald_Water_NormalAtk02"],
+						"NormalAtk02": ["Monster_Invoker_Herald_Water_NormalAtk02", "Audio_Monster_lnvoker_Herald_Water_NormalAtk02", "Audio_Monster_lnvoker_Herald_Water_NormalAtk02_VO"],
+						"NormalAtk02_Plus": ["Monster_Invoker_Herald_Water_NormalAtk02", "Audio_Monster_lnvoker_Herald_Water_NormalAtk02", "Audio_Monster_lnvoker_Herald_Water_NormalAtk02_VO"],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -502,7 +507,8 @@
 					"$type": "ConfigMonsterStateIDInfo",
 					"animatorStates":
 					{
-						"NormalAtk03_01": ["Monster_Invoker_Herald_Water_NormalAtk03_01", "Audio_Monster_lnvoker_Herald_Water_NormalAtk03"],
+						"NormalAtk03_01": ["Monster_Invoker_Herald_Water_NormalAtk03_01", "Audio_Monster_lnvoker_Herald_Water_NormalAtk03", "Audio_Monster_lnvoker_Herald_Water_NormalAtk03_VO"],
+						"NormalAtk03_01_Plus": ["Monster_Invoker_Herald_Water_NormalAtk03_01", "Audio_Monster_lnvoker_Herald_Water_NormalAtk03", "Audio_Monster_lnvoker_Herald_Water_NormalAtk03_VO_Plus"],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -512,7 +518,8 @@
 					"$type": "ConfigMonsterStateIDInfo",
 					"animatorStates":
 					{
-						"NormalAtk03_02": ["Monster_Invoker_Herald_Water_NormalAtk03_02", "Audio_Monster_lnvoker_Herald_Water_NormalAtk03"],
+						"NormalAtk03_02": ["Monster_Invoker_Herald_Water_NormalAtk03_02", "Audio_Monster_lnvoker_Herald_Water_NormalAtk03", "Audio_Monster_lnvoker_Herald_Water_NormalAtk03_VO"],
+						"NormalAtk03_02_Plus": ["Monster_Invoker_Herald_Water_NormalAtk03_02", "Audio_Monster_lnvoker_Herald_Water_NormalAtk03", "Audio_Monster_lnvoker_Herald_Water_NormalAtk03_VO_Plus"],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -523,6 +530,7 @@
 					"animatorStates":
 					{
 						"NormalAtk03": [],
+						"NormalAtk03_Plus": [],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -535,6 +543,9 @@
 						"NormalAtk01AS": [],
 						"NormalAtk02AS": [],
 						"NormalAtk03AS": [],
+						"NormalAtk01AS_Plus": [],
+						"NormalAtk02AS_Plus": [],
+						"NormalAtk03AS_Plus": [],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -544,7 +555,8 @@
 					"$type": "ConfigMonsterStateIDInfo",
 					"animatorStates":
 					{
-						"SlashAtk01": ["Monster_Invoker_Herald_Water_SlashAtk01", "Audio_Monster_lnvoker_Herald_Water_SlashAtk01"],
+						"SlashAtk01": ["Monster_Invoker_Herald_Water_SlashAtk01", "Audio_Monster_lnvoker_Herald_Water_SlashAtk01", "Audio_Monster_lnvoker_Herald_Water_SlashAtk_01_VO"],
+						"SlashAtk01_Plus": ["Monster_Invoker_Herald_Water_SlashAtk01", "Audio_Monster_lnvoker_Herald_Water_SlashAtk01", "Audio_Monster_lnvoker_Herald_Water_SlashAtk_01_VO"],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -554,7 +566,8 @@
 					"$type": "ConfigMonsterStateIDInfo",
 					"animatorStates":
 					{
-						"SlashAtk02": ["Monster_Invoker_Herald_Water_SlashAtk02", "Audio_Monster_lnvoker_Herald_Water_SlashAtk02"],
+						"SlashAtk02": ["Monster_Invoker_Herald_Water_SlashAtk02", "Audio_Monster_lnvoker_Herald_Water_SlashAtk02", "Audio_Monster_lnvoker_Herald_Water_SlashAtk_02_VO_Plus"],
+						"SlashAtk02_Plus": ["Monster_Invoker_Herald_Water_SlashAtk02", "Audio_Monster_lnvoker_Herald_Water_SlashAtk02", "Audio_Monster_lnvoker_Herald_Water_SlashAtk_02_VO_Plus"],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -566,6 +579,8 @@
 					{
 						"SlashAtk01AS": [],
 						"SlashAtk02AS": [],
+						"SlashAtk01AS_Plus": [],
+						"SlashAtk02AS_Plus": [],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -586,7 +601,8 @@
 					"$type": "ConfigMonsterStateIDInfo",
 					"animatorStates":
 					{
-						"ChargeAtk01": ["Monster_Invoker_Herald_Water_ChargeAtk01", "Audio_Monster_lnvoker_Herald_Water_ChargeAtk01"],
+						"ChargeAtk01": ["Monster_Invoker_Herald_Water_ChargeAtk01", "Audio_Monster_lnvoker_Herald_Water_ChargeAtk01", "Audio_Monster_lnvoker_Herald_Water_ChargeAtk01_VO"],
+						"ChargeAtk01_Plus": ["Monster_Invoker_Herald_Water_ChargeAtk01", "Audio_Monster_lnvoker_Herald_Water_ChargeAtk01", "Audio_Monster_lnvoker_Herald_Water_ChargeAtk01_VO_Plus"],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -699,6 +715,7 @@
 						"Transform": ["Monster_Invoker_Herald_Water_Transform", "Audio_Monster_lnvoker_Herald_Water_Transform"],
 					},
 					"combatMove" : true,
+					"resetAnimatorTriggerOnEnter": ["BeHit" ],
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
 					"addEndure": 0.0,
 				},
@@ -718,7 +735,8 @@
 					"$type": "ConfigMonsterStateIDInfo",
 					"animatorStates":
 					{
-						"WhirlWindBS": ["Monster_Invoker_Herald_Water_WhirlWindBS", "Audio_Monster_lnvoker_Herald_Water_WhirlWindBS"],
+						"WhirlWindBS": ["Monster_Invoker_Herald_Water_WhirlWindBS", "Audio_Monster_lnvoker_Herald_Water_WhirlWindBS", "Audio_Monster_lnvoker_Herald_Water_WhirlWind_VO"],
+						"WhirlWindBS_Plus": ["Monster_Invoker_Herald_Water_WhirlWindBS", "Audio_Monster_lnvoker_Herald_Water_WhirlWindBS", "Audio_Monster_lnvoker_Herald_Water_WhirlWind_VO_Plus"],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -730,6 +748,7 @@
 					"animatorStates":
 					{
 						"WhirlWind": [],
+						"WhirlWind_Plus": [],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -741,6 +760,7 @@
 					"animatorStates":
 					{
 						"WhirlWindLoopBS": ["Monster_Invoker_Herald_Water_WhirlWindLoopBS"],
+						"WhirlWindLoopBS_Plus": ["Monster_Invoker_Herald_Water_WhirlWindLoopBS"],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -753,6 +773,8 @@
 					{
 						"WhirlWindLoop": ["Monster_Invoker_Herald_Water_WhirlWindLoop"],
 						"WhirlWindLoopAS": ["Monster_Invoker_Herald_Water_WhirlWindLoopAS", "Audio_Monster_lnvoker_Herald_Water_WhirlWindAS"],
+						"WhirlWindLoop_Plus": ["Monster_Invoker_Herald_Water_WhirlWindLoop"],
+						"WhirlWindLoopAS_Plus": ["Monster_Invoker_Herald_Water_WhirlWindLoopAS"],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -764,6 +786,7 @@
 					"animatorStates":
 					{
 						"WhirlWindAS": ["Monster_Invoker_Herald_Water_WhirlWindAS", "Audio_Monster_lnvoker_Herald_Water_WhirlWindAS"],
+						"WhirlWindAS_Plus": ["Monster_Invoker_Herald_Water_WhirlWindAS"],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -775,6 +798,7 @@
 					"animatorStates":
 					{
 						"WhirlWindOver": [],
+						"WhirlWindOver_Plus": [],
 					},
 					"combatMove" : true,
 					"resetAnimatorTriggerOnExit" : ["BeHit", "DoSkill" ],
@@ -888,7 +912,7 @@
 		},
 		"threat":
 		{
-			"clearThreatTargetDistance": 30.0,
+			"clearThreatTargetDistance": 50.0,
 			"clearThreatByLostPath": true,
 			"clearThreatTimerByLostPath": 10,
 			"resistTauntLevel": "Monster_TauntLevel_3",
@@ -1144,6 +1168,7 @@
 				"stateIDs": ["RushMoveBS", "RushMove", "RushMoveAS"],
 				"ignoreGCD": true,
 				"triggerGCD": false,
+				"flagSelfOnTemplateCollider": "11",
 				"castCondition":
 				{
 					"pickRangeMin": 10.0,
@@ -1159,6 +1184,7 @@
 				"stateIDs":  ["RushMoveBS", "RushMove", "RushMoveAS"],
 				"ignoreGCD": true,
 				"triggerGCD": false,
+				"flagSelfOnTemplateCollider": "11",
 				"castCondition":
 				{
 					"pickRangeMin": 15.0,
@@ -1174,6 +1200,7 @@
 				"stateIDs":  ["RushMoveBS", "RushMove", "RushMoveAS"],
 				"ignoreGCD": true,
 				"triggerGCD": false,
+				"flagSelfOnTemplateCollider": "11",
 				"castCondition":
 				{
 					"pickRangeMin": 0.0,
@@ -1189,6 +1216,7 @@
 				"stateIDs":  ["Turn", "RushMoveBS", "RushMove", "RushMoveAS"],
 				"ignoreGCD": true,
 				"triggerGCD": false,
+				"flagSelfOnTemplateCollider": "11",
 				"castCondition":
 				{
 					"minTargetAngleXZ": 90.0,

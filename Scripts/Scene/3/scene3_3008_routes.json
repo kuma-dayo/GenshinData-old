@@ -9676,14 +9676,13 @@
             "y": 261.405762,
             "z": 0.0
           },
-          "rotRoundWaitRounds": 0,
-          "reachStop": true
+          "rotRoundWaitRounds": 0
         },
         {
           "pos": {
-            "x": 1321.55847,
+            "x": 1320.91455,
             "y": 368.234619,
-            "z": -958.1388
+            "z": -957.983032
           },
           "waitTime": 0.0,
           "targetVelocity": 4.5,
@@ -9934,8 +9933,7 @@
             "y": 334.232056,
             "z": 0.0
           },
-          "rotRoundWaitRounds": 0,
-          "reachStop": true
+          "rotRoundWaitRounds": 0
         },
         {
           "pos": {

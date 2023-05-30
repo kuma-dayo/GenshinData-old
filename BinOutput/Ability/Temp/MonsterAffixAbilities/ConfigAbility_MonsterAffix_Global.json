@@ -2568,6 +2568,57 @@
 		},
 	},
 },
+
+////////////////////////////////////////////////////////////////
+//
+//  MonsterAffix_MonsterState_IsInBattle--怪物是否入战
+//
+////////////////////////////////////////////////////////////////
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "MonsterAffix_MonsterState_IsInBattle",
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToAIAlertnessMixin",
+				"alertness": [1,2],
+				"modifierName": "MonsterState_IsInBattle",
+			},
+		],
+		"modifiers":
+		{
+			"MonsterState_IsInBattle":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_IS_IN_BATTLE",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -1,
+						"key"  : "_IS_IN_BATTLE",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+		},
+	},
+},
+
+/////////任务专用
 ////////////////////////////////////////////////////////////////
 //
 //  MonsterAffix_DemonizeEff_XiaoQuest--1101

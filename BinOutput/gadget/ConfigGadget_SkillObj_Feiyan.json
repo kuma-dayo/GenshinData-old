@@ -257,7 +257,6 @@
       "property": {
         "useCreatorProperty": true, // 是否继承创造者的数值
         "weight": 0,
-        "denyLockOn": true,
         "canTriggerBullet": false,
       },
       "die": {
@@ -271,6 +270,13 @@
         "muteAllHit": true,
         "muteAllHitEffect": true,
         "muteAllHitText": true,
+      },
+      "combatLock": {
+        "denyLockOn": true,
+        "lockType": "Gadget_Lv1",
+        "overrideRange": -1,
+        "overrideNormalPri": -1,
+        "overrideCombatPri": -1,
       },
     },
     "timer": {
@@ -645,16 +651,16 @@
         "ignoreScene": false,
       },
       "triggerActions": [
-        {
-          "$type": "ConfigGadgetTriggerAbility",
-          "abilityName": "Activity_Oceanid_Bubble_Area",
-        },
+        // {
+        //   "$type": "ConfigGadgetTriggerAbility",
+        //   "abilityName": "Activity_Oceanid_Bubble_Area",
+        // },
       ],
       "triggerLifeOverActions": [
-        {
-          "$type": "ConfigGadgetTriggerAbility",
-          "abilityName": "Activity_Oceanid_Bubble_Area",
-        },
+        // {
+        //   "$type": "ConfigGadgetTriggerAbility",
+        //   "abilityName": "Activity_Oceanid_Bubble_Area",
+        // },
       ],
       "killByOther": false,
     },
@@ -663,10 +669,10 @@
       "lifeTime": 1.0,
     },
     "abilities": [
-      {
-        "abilityID": "Activity_Oceanid_Bubble_Area",
-        "abilityName": "Activity_Oceanid_Bubble_Area"
-      },
+      // {
+      //   "abilityID": "Activity_Oceanid_Bubble_Area",
+      //   "abilityName": "Activity_Oceanid_Bubble_Area"
+      // },
     ],
   },
 

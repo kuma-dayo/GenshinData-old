@@ -692,4 +692,54 @@
 			},
 		],
 	},
+////////////////////////////////////////////////////////////////////////////////////
+//
+// Shaman_Electric
+//
+////////////////////////////////////////////////////////////////////////////////////	
+	"Shaman_Electric_Totem" :
+	{
+		"$type" : "ConfigGadget",
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true, // 是否继承创造者的数值
+				"HP" : 100,
+				"isLockHP": true,
+				"isInvincible": false,
+				"isGhostToAllied": false,
+				"isGhostToEnemy": true,
+				"canTriggerBullet" : true,
+				"weight" : 150,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit" :
+			{
+				"hitBloodEffect": "",
+				"muteAllHit": false,
+				"muteAllHitEffect": true,
+				"muteAllHitText": true,
+			},
+		},
+		"timer":
+		{
+			"lifeTime" : 51.0,			//存在时间	
+			"lifeInfinite" : false,			
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Shaman_Electric_TotemSummon",
+				"abilityName" : "Shaman_Electric_TotemSummon",
+			},
+			{
+				"abilityID": "Shaman_Electric_TotemDamage",
+				"abilityName" : "Shaman_Electric_TotemDamage",
+			},
+		],
+	},
 }

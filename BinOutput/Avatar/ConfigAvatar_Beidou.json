@@ -10,14 +10,6 @@
 		"mass": 10.0,
 		"affectedByWorld": true,
 		"checkInSurface": true,
-		"effectGroups":
-		[
-			"AvatarSkill_Beidou_Effects"
-		],
-		"consoleEffectGroups":
-		[
-			"AvatarSkill_Beidou_Effects"
-		],
 		"avatarHeight": 1.72180009,
 		"avatarModelHeight": 1.7,
 		"height": 1.727,
@@ -1717,7 +1709,7 @@
 						]
 					},
 					"moveType": "combatMove",
-					"canDoSkill": true,
+					"canDoSkill": false,
 					"canChangeAvatar":
 					[
 						{

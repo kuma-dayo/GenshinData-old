@@ -195,20 +195,20 @@
 						"$type": "TriggerSetVisible",
 						"visible": false,
 					},
-					{
-						"$type": "HideUIBillBoard",
-						"hide": true,
-					},
-					{
-						"$type": "EnableHitBoxByName",
-						"hitBoxNames": ["HitBox", "HeadBox"],
-						"setEnable": false,
-					},
-					{
-						"$type": "EnablePushColliderName",
-						"pushColliderNames": ["PushCollider"],
-						"setEnable": false,
-					},
+					// {
+					// 	"$type": "HideUIBillBoard",
+					// 	"hide": true,
+					// },
+					// {
+					// 	"$type": "EnableHitBoxByName",
+					// 	"hitBoxNames": ["HitBox", "HeadBox"],
+					// 	"setEnable": false,
+					// },
+					// {
+					// 	"$type": "EnablePushColliderName",
+					// 	"pushColliderNames": ["PushCollider"],
+					// 	"setEnable": false,
+					// },
 				],
 				"onRemoved":
 				[
@@ -220,20 +220,20 @@
 						"$type": "TriggerSetVisible",
 						"visible": true,
 					},
-					{
-						"$type": "HideUIBillBoard",
-						"hide": false,
-					},
-					{
-						"$type": "EnableHitBoxByName",
-						"hitBoxNames": ["HitBox", "HeadBox"],
-						"setEnable": true,
-					},
-					{
-						"$type": "EnablePushColliderName",
-						"pushColliderNames": ["PushCollider"],
-						"setEnable": true,
-					},
+					// {
+					// 	"$type": "HideUIBillBoard",
+					// 	"hide": false,
+					// },
+					// {
+					// 	"$type": "EnableHitBoxByName",
+					// 	"hitBoxNames": ["HitBox", "HeadBox"],
+					// 	"setEnable": true,
+					// },
+					// {
+					// 	"$type": "EnablePushColliderName",
+					// 	"pushColliderNames": ["PushCollider"],
+					// 	"setEnable": true,
+					// },
 				],
 			},
 		},
@@ -537,6 +537,18 @@
 						},
 					},
 					{
+						"$type": "TriggerAudio",
+						"responder": "Caster",
+						"operation":
+						{
+							"$type": "ConfigAudioEventOp",
+							"operation":
+							{
+								"text": "Play_sfx_monster_lnvoker_deacon_electric_vfx_rangeAtk01_damage",
+							},
+						},
+					},
+					{
 						"$type": "TriggerAttackEvent",
 						"targetType": "Enemy",
 						"attackEvent":
@@ -586,6 +598,18 @@
 						{
 							"$type": "ConfigBornBySelf",
 							"onGround": true,
+						},
+					},
+					{
+						"$type": "TriggerAudio",
+						"responder": "Caster",
+						"operation":
+						{
+							"$type": "ConfigAudioEventOp",
+							"operation":
+							{
+								"text": "Play_sfx_monster_lnvoker_deacon_electric_vfx_rangeAtk01_damage",
+							},
 						},
 					},
 					{
@@ -695,7 +719,7 @@
 					{
 						"$type": "FireEffect",
 						"effectPattern": "Eff_Monster_Invoker_Debuff_Hit_Electric",
-						"target": "CurTeamAvatars",
+						"target": "CurLocalAvatar",
 					},
 					{
 						"$type": "ReviveElemEnergy",
@@ -1210,6 +1234,18 @@
 				"effectPattern": "Eff_Monster_Invoker_Deacon_Electric_ChargeAtk02_Explosion",
 			},
 			{
+				"$type": "TriggerAudio",
+				"responder": "Caster",
+				"operation":
+				{
+					"$type": "ConfigAudioEventOp",
+					"operation":
+					{
+						"text": "Play_sfx_monster_lnvoker_deacon_electric_vfx_chargeAtk02_explosion",
+					},
+				},
+			},
+			{
 				"$type": "TriggerAttackEvent",
 				"targetType": "Enemy",
 				"attackEvent":
@@ -1327,7 +1363,7 @@
 				"state" : "Limbo",
 				"properties" :
 				{
-					"Actor_HpThresholdRatio": 0.0,
+					"Actor_HpThresholdRatio": 0.15,
 				},
 				"onAdded":
 				[
@@ -1417,6 +1453,24 @@
 		{
 			"Invoker_Deacon_Electric_Transform":
 			{
+				"state": "LockHPNoHeal",
+				"thinkInterval": 5.0,
+				"onThinkInterval":
+				[
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "UNIQUE_Invoker_Deacon_Electric_ElementShield",
+						"predicates":
+						[
+							{
+								"$type": "ByTargetGlobalValue",
+								"key": "_MONSTER_INVOKER_DEACON_ELECTRIC_ELEMENTSTATE",
+								"value": 0,
+								"compareType": "NoneOrEqual",
+							},
+						],
+					},
+				],
 				"onAdded":
 				[
 					{
@@ -1467,14 +1521,13 @@
 				[
 					{
 						"$type": "SetGlobalValue",
-						"key": "_MONSTER_INVOKER_DEACON_ELECTRIC_DISAPPEAR",
-						"value": 0,
+						"key": "_MONSTER_INVOKER_DEACON_ELECTRIC_ELEMENTSTATE",
+						"value": 1,
 					},
 					{
-						"$type": "SetAnimatorTrigger",
-						"triggerID": "TransformShader",
-						"MPTriggerOnRemote": true,
-						"canBeHandledOnRecover": true,
+						"$type": "SetGlobalValue",
+						"key": "_MONSTER_INVOKER_DEACON_ELECTRIC_DISAPPEAR",
+						"value": 0,
 					},
 					{
 						"$type" : "AttachAbilityStateResistance",
@@ -1483,6 +1536,11 @@
 				],
 				"onRemoved":
 				[
+					{
+						"$type": "SetGlobalValue",
+						"key": "_MONSTER_INVOKER_DEACON_ELECTRIC_ELEMENTSTATE",
+						"value": 0,
+					},
 					{
 						"$type": "SetPoseBool",
 						"boolID": "ElementState",

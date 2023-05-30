@@ -1102,5 +1102,46 @@
 			"attachEffect": "Eff_Stages_GodRay_07_Vo",
 		},
 	},
-
+////////////////////////////////////////////////////////////////////
+//
+// 任务特效物件_钟离II线_循环封印特效
+//
+////////////////////////////////////////////////////////////////////
+	"SceneObj_Quest_Zhongli2_Dungeon_Dahaka" :
+	{
+		"$type" : "ConfigGadget",
+		"hasModel": true,
+		"model":
+		{
+			"attachEffect": "Eff_Quest_Dahaka_Sealed_Circle_Debut",
+		},
+	},
+////////////////////////////////////////////////////////////////////
+//
+// 1.5任务特效物件_家园岩元素痕迹
+//
+////////////////////////////////////////////////////////////////////
+	"SceneObj_Quest_ElementBreath_Rock_Element" :
+	{
+		"$type" : "ConfigGadget",
+		"hasModel": true,
+		"model":
+		{
+			"attachEffect": "Eff_Quest_ElementBreath_Rock_Element",
+		},
+	},
+////////////////////////////////////////////////////////////////////
+//
+// 1.5任务特效物件_钟离封印阵
+//
+////////////////////////////////////////////////////////////////////
+	"SceneObj_Area_Common_Property_Prop_Dahaka_01" :
+	{
+		"$type" : "ConfigGadget",
+		"hasModel": true,
+		"model":
+		{
+			"attachEffect": "Eff_Quest_Dahaka_Sealed_Circle_Debut",
+		},
+	},
 }

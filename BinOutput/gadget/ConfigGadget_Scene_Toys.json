@@ -206,7 +206,7 @@
 		"hasModel" : true,
 		"model":
 		{
-			"bornEffect": "Eff_Item_WindSeed_WindField",
+			"attachEffect": "Eff_Item_WindSeed_WindField",
 		},
 		"combat" :
 		{
@@ -1144,4 +1144,56 @@
 			},
 		],
 	},
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// 尘歌壶
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	"SceneObj_Area_Common_Property_Ani_Prop_AdeptiAbode_01":
+	{
+		"$type" : "ConfigGadget",
+		"hasModel": true,
+		"lowPriorityIntee": true, //交互低优先级
+		"keepModifierOutSight": false, //离开视野后modifier停摆
+		"combat" ://combat组件最小集合
+		{
+			"property":
+			{
+				"HP" : 99999,									
+				"isInvincible":true,
+				"isLockHP":true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},		
+		},
+		"uiInteract":
+		{
+			"gadgetUIBtnCfgPath": "UI/open_homeworld_page",
+			"uiName": "UI_HOMEWORLD_ADEPTIABODE_ENTERTITLE"
+		},
+		"intee":
+		{
+			"$type" : "ConfigIntee",
+			"triggerRadius": 2.0,
+			"triggerHeight": 4,
+			"useHeadControlTrigger": false,
+			"headCtrlRadius": 0,
+		},
+		"common":
+		{
+			"affectedByWorld": true,
+		},
+
+		"abilities":
+		[
+			{
+				"abilityID": "Ability_01",
+				"abilityName" : "SceneObj_Area_Common_Property_Ani_Prop_AdeptiAbode_01_Ability",
+			},
+			{
+				"abilityID": "Ability_02",
+				"abilityName": "Scene_RockGadget_Summon_Detect",
+			},
+		],
+	},	
 }

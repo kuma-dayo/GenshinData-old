@@ -966,6 +966,10 @@
 						"$type": "ReTriggerAISkillInitialCD",
 						"skillIDs": [501],
 					},
+					{
+						"$type":"AttachBulletAimPoint",
+						"bulletAimPoint":"Core",
+					},
 				],
 				"onRemoved": 
 				[
@@ -1013,12 +1017,7 @@
 						"pushColliderNames" : 
 						[
 							"PushCollider_Faint01",
-							"PushCollider_Faint02",
-							"PushCollider_Faint03",
-							"PushCollider_Faint04",
-							"PushCollider_Faint05",
-							"PushCollider_Faint06",
-							"PushCollider_Faint07"
+							"PushCollider_Faint01_Extra",
 						],
 						"setEnable" : false,
 					},
@@ -1101,6 +1100,10 @@
 						"$type": "ReTriggerAISkillInitialCD",
 						"skillIDs": [501],
 					},
+					{
+						"$type":"AttachBulletAimPoint",
+						"bulletAimPoint":"Core",
+					},
 				],
 				"onRemoved": 
 				[
@@ -1132,12 +1135,7 @@
 						"pushColliderNames" : 
 						[
 							"PushCollider_Faint01",
-							"PushCollider_Faint02",
-							"PushCollider_Faint03",
-							"PushCollider_Faint04",
-							"PushCollider_Faint05",
-							"PushCollider_Faint06",
-							"PushCollider_Faint07"
+							"PushCollider_Faint01_Extra",
 						],
 						"setEnable" : false,
 					},

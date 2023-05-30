@@ -1249,36 +1249,36 @@
 							"duration":1.5,
 						},
 					],
-					"onAdded":
-					[
-						{
-							"$type": "DungeonFogEffects",
-							"enable": true,
-							"cameraFogEffectName": "Eff_SceneObj_GroundDirty_ScreenEff",
-							"playerFogEffectName": "",
-							"localOffset" :
-							{
-								"x" : 0,
-								"y" : 0,
-								"z" : 0,
-							},
-						},
-					],
-					"onRemoved":
-					[
-						{
-							"$type": "DungeonFogEffects",
-							"enable": false,
-							"cameraFogEffectName": "Eff_SceneObj_GroundDirty_ScreenEff",
-							"playerFogEffectName": "",
-							"localOffset" :
-							{
-								"x" : 0,
-								"y" : 0,
-								"z" : 0,
-							},
-						},
-					],
+					// "onAdded":
+					// [
+					// 	{
+					// 		"$type": "DungeonFogEffects",
+					// 		"enable": true,
+					// 		"cameraFogEffectName": "Eff_ScreenEffect_Dust",
+					// 		"playerFogEffectName": "",
+					// 		"localOffset" :
+					// 		{
+					// 			"x" : 0,
+					// 			"y" : 0,
+					// 			"z" : 0,
+					// 		},
+					// 	},
+					// ],
+					// "onRemoved":
+					// [
+					// 	{
+					// 		"$type": "DungeonFogEffects",
+					// 		"enable": false,
+					// 		"cameraFogEffectName": "Eff_ScreenEffect_Dust",
+					// 		"playerFogEffectName": "",
+					// 		"localOffset" :
+					// 		{
+					// 			"x" : 0,
+					// 			"y" : 0,
+					// 			"z" : 0,
+					// 		},
+					// 	},
+					// ],
 				},
 			},
 		},

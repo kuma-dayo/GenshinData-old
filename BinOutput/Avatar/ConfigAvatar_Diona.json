@@ -2288,6 +2288,18 @@
 					"usage": "Any"
 				},
 				{
+					"currentStateName": "FastAimLoop",
+					"audioEvent":
+					{
+						"text": "Play_sfx_weapon_bow_girl_aimNormal"
+					},
+					"otherStateNames":
+					[
+						"FastAimShoot"
+					],
+					"usage": "Except"
+				},
+				{
 					"currentStateName": "StandbyShow01",
 					"audioEvent":
 					{
@@ -2327,7 +2339,7 @@
 					"currentStateName": "StandbyPutaway",
 					"audioEvent":
 					{
-						"text": "Stop_sfx_weapon_1HSword_lady_putAwayStandby"
+						"text": "Stop_sfx_weapon_bow_girl_putAway"
 					},
 					"otherStateNames": [],
 					"usage": "Any"
@@ -2336,7 +2348,7 @@
 					"currentStateName": "WalkPutaway",
 					"audioEvent":
 					{
-						"text": "Stop_sfx_weapon_1HSword_lady_putAwayStandby"
+						"text": "Stop_sfx_weapon_bow_girl_putAway"
 					},
 					"otherStateNames": [],
 					"usage": "Any"
@@ -2345,7 +2357,7 @@
 					"currentStateName": "RunPutaway",
 					"audioEvent":
 					{
-						"text": "Stop_sfx_weapon_1HSword_lady_putAwayStandby"
+						"text": "Stop_sfx_weapon_bow_girl_putAway"
 					},
 					"otherStateNames": [],
 					"usage": "Any"
@@ -2612,19 +2624,10 @@
 					"usage": "Any"
 				},
 				{
-					"currentStateName": "AimLoop",
-					"audioEvent":
-					{
-						"text": "Play_sfx_char_ambor_arrow_fire_aim_start"
-					},
-					"otherStateNames": [],
-					"usage": "Any"
-				},
-				{
 					"currentStateName": "FastAimLoop",
 					"audioEvent":
 					{
-						"text": "Play_sfx_char_ambor_arrow_fire_aim_start"
+						"text": "Play_sfx_weapon_bow_aimFocus"
 					},
 					"otherStateNames": [],
 					"usage": "Any"

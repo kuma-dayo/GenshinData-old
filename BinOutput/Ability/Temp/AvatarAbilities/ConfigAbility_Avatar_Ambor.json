@@ -161,8 +161,13 @@
 							"assistance": {
 								"ps4": {
 									"useFocusSticky": true,
-									"useGyro": true,
+									"useGyro": false,
 								},
+								"ps5":
+								{
+									"useFocusSticky": true,
+									"useGyro": false,
+								},									
 								"other": {
 									"useFocusSticky": true,
 									"useGyro": true,
@@ -321,8 +326,13 @@
 							"assistance": {
 								"ps4": {
 									"useFocusSticky": true,
-									"useGyro": true,
+									"useGyro": false,
 								},
+								"ps5":
+								{
+									"useFocusSticky": true,
+									"useGyro": false,
+								},									
 								"other": {
 									"useFocusSticky": true,
 									"useGyro": true,
@@ -2577,17 +2587,6 @@
 		"Default": {
 			"$type": "ConfigAbility",
 			"abilityName": "Avatar_Ambor_DummyMaterial",
-			"abilityMixins":
-			[
-				{
-					"$type": "ServerCreateGadgetOnKillMixin",	//被打死时服务器先知道，所以本地onkill时创建会无法读取属性，必须服务器创建
-					"gadgetIDList": [41021008],
-					"campID": 1001,
-					"campTargetType": "Enemy",
-					"randomCreate": false,
-					"useOriginOwnerAsGadgetOwner": true,	//防止被打死的时候导致爆炸gadget丢失和Avatar的关系，所以指派甘雨作为其Owner
-				},
-			],
 			"onAdded": [
 				{
 					"$type": "ApplyModifier",
@@ -2610,6 +2609,35 @@
 					"target": "Self",
 				},
 			],
+			"onKill": [
+				{
+					"$type": "CreateGadget",
+					"gadgetID": 41021008,
+					"campID": 1001,
+					"campTargetType": "Enemy",
+					"born": {
+						"$type": "ConfigBornByTarget",
+						//"attachPointName" : "RootNode",
+						"offset": {
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.0,
+						},
+					},
+				},
+				{
+					"$type" : "TriggerAudio",
+					"responder" : "Caster",
+					"operation" :
+					{
+						"$type" : "ConfigAudioEventOp",
+						"operation" :
+						{
+							"text" : "Play_sfx_char_ambor_dummy_explode"
+						}
+					}
+				},
+			],
 			"modifiers": {
 				"UNIQUE_Ambor_Dummy_Timer": {
 					"duration": 8,
@@ -2617,33 +2645,6 @@
 					"stacking": "Refresh",
 					// "onAdded": [ ],
 					"onRemoved": [
-						{
-							"$type": "CreateGadget",
-							"gadgetID": 41021008,
-							"campID": 1001,
-							"campTargetType": "Enemy",
-							"born": {
-								"$type": "ConfigBornByTarget",
-								//"attachPointName" : "RootNode",
-								"offset": {
-									"x": 0.0,
-									"y": 0.0,
-									"z": 0.0,
-								},
-							},
-						},
-						{
-							"$type" : "TriggerAudio",
-							"responder" : "Caster",
-							"operation" :
-							{
-								"$type" : "ConfigAudioEventOp",
-								"operation" :
-								{
-									"text" : "Play_sfx_char_ambor_dummy_explode"
-								}
-							}
-						},
 						{
 						 "$type": "KillSelf",
 						},	
@@ -3719,9 +3720,14 @@
 							},
 							"cameraFastFocusMode": true,
 							"assistance": {
-								"ps4": {
-									"useGyro": true,
+								"ps4": 
+								{
+									"useGyro": false,
 								},
+								"ps5": 
+								{
+									"useGyro": false,
+								},								
 								"other": {
 									"useGyro": true,
 								},

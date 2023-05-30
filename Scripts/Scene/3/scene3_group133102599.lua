@@ -19,7 +19,7 @@ monsters = {
 	{ config_id = 599009, monster_id = 20010801, pos = { x = 1882.957, y = 216.030, z = 654.875 }, rot = { x = 0.000, y = 152.356, z = 0.000 }, level = 18, drop_id = 1000100, area_id = 5 },
 	{ config_id = 599010, monster_id = 20010801, pos = { x = 1879.500, y = 216.036, z = 651.222 }, rot = { x = 0.138, y = 100.066, z = 358.702 }, level = 18, drop_id = 1000100, area_id = 5 },
 	{ config_id = 599011, monster_id = 20010801, pos = { x = 1880.816, y = 216.030, z = 646.777 }, rot = { x = 0.000, y = 41.076, z = 0.000 }, level = 18, drop_id = 1000100, area_id = 5 },
-	{ config_id = 599012, monster_id = 20010801, pos = { x = 1884.653, y = 219.512, z = 645.920 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 18, drop_id = 1000100, area_id = 5 }
+	{ config_id = 599012, monster_id = 20010801, pos = { x = 1884.653, y = 216.030, z = 645.920 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 18, drop_id = 1000100, area_id = 5 }
 }
 
 -- NPC

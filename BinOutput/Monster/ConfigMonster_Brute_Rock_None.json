@@ -36,6 +36,8 @@
 		"useGrassDisplacement" : true,
 		"affectedByWorld" : true,
 		"checkInSurface" : true,
+		"clearAnimatorOnSetLightDeactive":true,
+		"clearAIOnSetLightDeactive":true
 	},
 	"move":
 	{
@@ -1200,6 +1202,10 @@
 				"skillGroupCDTime":30
 			}
 		],
+		"network":
+		{
+			"syncSkill": true,
+		},
 		"skills":
 		{
 			"1":
@@ -1662,8 +1668,8 @@
 			"1001":
 			{
 				"name":"ExitPower",
-				"cd":999999,
-				"initialCD":999999,
+				"cd":0,
+				"initialCD":0,
 				"ignoreGCD":true,
 				"priority":1,
 				"stateIDs":["PowerDown"],
@@ -1673,7 +1679,7 @@
 				{
 					"pickRangeMin": 0,
 					"pickRangeMax": 50,
-					"pose": [111,114],
+					"pose": [115],
 				}
 			}
 		},

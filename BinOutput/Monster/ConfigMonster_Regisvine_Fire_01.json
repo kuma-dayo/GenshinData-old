@@ -12,6 +12,15 @@
 		"affectedByWorld" : true,
 		"checkInSurface" : true,
 	},
+	"specialPoint":
+	{
+		"bulletAim": "Fruit",
+		"selectedPoints":
+		[
+			"Fruit",
+			"Core",
+		],
+	},
 	"partControl":
 	{
 		"parts":
@@ -67,6 +76,7 @@
 			"muteAll": true,
 		},
 		"moveOnWater": false,
+		"destroyRockWhenInit": true,
 	},
 	"billboard":
 	{

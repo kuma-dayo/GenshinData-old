@@ -763,13 +763,13 @@
 					{
 						"$type":"RemoveModifier",
 						"modifierName":"Monster_Skirmisher_Standard_Staff_Rock_ExitWeakDelay"
-					},
-
+					}
 				],
 				"properties":
 				{
 					"Actor_EndureDelta":0,
-					"Entity_MassRatio":100	
+					"Entity_MassRatio":100,
+					"Entity_WeightRatio":5
 				},
 				"onRemoved":
 				[
@@ -1413,8 +1413,12 @@
 						"effectPattern":"Eff_Monster_Skirmisher_Male_Standard_Staff_Rock_RockWall"
 					},
 					{
-						"$type":"KillGadget",
-						"gadgetInfo":
+						"$type":"AddGlobalValue",
+						"key":"_MONSTER_SKIRMISHER_STAFF_ROCK_KILLSHIELD",
+						"value":1,
+						"useLimitRange":true,
+						"maxValue":1,
+						"otherTargets":
 						{
 							"$type":"SelectTargetsByChildren",
 							"configID":42301001
@@ -1433,8 +1437,12 @@
 						"effectPattern":"Eff_Monster_Skirmisher_Male_Standard_Staff_Rock_RockWall"
 					},
 					{
-						"$type":"KillGadget",
-						"gadgetInfo":
+						"$type":"AddGlobalValue",
+						"key":"_MONSTER_SKIRMISHER_STAFF_ROCK_KILLSHIELD",
+						"value":1,
+						"useLimitRange":true,
+						"maxValue":1,
+						"otherTargets":
 						{
 							"$type":"SelectTargetsByChildren",
 							"configID":42301001
@@ -1564,6 +1572,20 @@
 				"$type":"EnableHitBoxByName",
 				"hitBoxNames":["HitBox"],
 				"setEnable":true
+			},
+			{
+				"$type":"SetGlobalValue",
+				"key":"_MONSTER_SKIRMISHER_STAFF_ROCK_KILLSHIELD",
+				"value":0
+			}
+		],
+		"abilityMixins":
+		[
+			{
+				"$type":"AttachModifierToSelfGlobalValueMixin",
+				"globalValueKey":"_MONSTER_SKIRMISHER_STAFF_ROCK_KILLSHIELD",
+				"valueSteps":[-0.5,0.5,1.5],
+				"modifierNameSteps":["Skirmisher_Shield_Empty","Skirmisher_Shield_Die"]
 			}
 		],
 		"modifiers":
@@ -1590,7 +1612,20 @@
 						"setEnable":false
 					}
 				]
-			}
+			},
+			"Skirmisher_Shield_Empty":
+			{
+
+			},
+			"Skirmisher_Shield_Die":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"KillSelf"
+					}
+				]
+			},
 		}
 	}
 },

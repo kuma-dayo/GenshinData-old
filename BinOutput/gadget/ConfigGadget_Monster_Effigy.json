@@ -2689,7 +2689,6 @@
 		},
 		"hasConnectTrigger": true,
 		"moveRefreshGroundForceUp": true,
-		"canRemoveByClient": true,
 		"abilities":
 		[
 			{
@@ -2802,7 +2801,6 @@
 		},
 		"hasConnectTrigger": true,
 		"moveRefreshGroundForceUp": true,
-		"canRemoveByClient": true,
 		"abilities":
 		[
 			{
@@ -4845,6 +4843,14 @@
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : false,
 			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+				"lockType": "Gadget_Lv1",
+				"overrideRange": -1,
+				"overrideNormalPri": -1,
+				"overrideCombatPri": -1,
+			},
 		},
 		"abilities":
 		[
@@ -5568,6 +5574,1027 @@
 				"abilityID": "Effigy_Tornado_State",
 				
 				"abilityName" : "Effigy_Tornado_State",
+			},
+		],
+	},
+////////////////////////////////////////////////////////////////
+//
+//  Bullet_Effigy_Ice_RangeAtk_Bullet
+//	42004401
+//
+////////////////////////////////////////////////////////////////
+	"Bullet_Effigy_Ice_RangeAtk_Bullet" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			"scale":1,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true, // 是否继承创造者的数值
+				"HP" : 999999,
+				"attack" : 10.0,
+				"defense" : 999999,
+				"isInvincible": true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		"move" :
+		{
+			"$type" : "ConfigItanoCircusBulletMove",
+			"speed" : 30.0,
+			"acceleration": -40,
+			"maxSpeed" : 60,
+			"minSpeed" : 10.0,
+			"guidanceSpeedChange": false,
+			"itanoCircusStartAngler": 90,
+			"guidanceDelay": 0.3,
+			"anglerVelocity": 120.0,
+			"guidanceDuration": 1.5,
+			"guidanceMinAnglerVelocity": 120.0,
+			"canBornInWater": true,
+			"updateAngle" : 
+			{
+				"$type": "ConfigBulletMoveAngleByVelocity",
+				// "traceLerpCoef": 0,
+			},
+		},
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 10.0,			//存在时间
+		},
+		// 子弹参数
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerOnce",
+				"ignoreScene" : false,
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Monster_Effigy_Ice_RangeAtk_Bullet_Hit",
+				},
+			],
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Monster_Effigy_Ice_RangeAtk_Bullet_Hit",
+				"abilityName":"Monster_Effigy_Ice_RangeAtk_Bullet_Hit",
+			},
+		],
+	},
+////////////////////////////////////////////////////////////////
+//
+//  Bullet_Effigy_Ice_RangeAtk_Shield
+//	42004402
+//
+////////////////////////////////////////////////////////////////
+	"Bullet_Effigy_Ice_RangeAtk_Shield" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			"scale":1,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true, // 是否继承创造者的数值
+				"HP" : 999999,
+				"attack" : 10.0,
+				"defense" : 999999,
+				"isInvincible": true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		// "move" :
+		// {
+		// 	"$type" : "ConfigLinerBulletMove",
+		// 	"speed" : 30,
+		// 	"acceleration" : 10,
+		// 	"updateAngle" : 
+		// 	{
+		// 		"$type": "ConfigBulletMoveAngleByVelocity",
+		// 	},
+		// 	"delay":0.5,
+		// 	"canBornInWater": true,
+		// },
+		"move" :
+		{
+			"$type" : "ConfigItanoCircusBulletMove",
+			"delay": 0.0,
+			"speed" : 3.0,
+			"acceleration": 32,
+			"maxSpeed" : 24,
+			"minSpeed" : 3.0,
+			"guidanceSpeedChange": false,
+			"itanoCircusStartAngler": 0,
+			"guidanceDelay": 0.2,
+			"anglerVelocity": 150.0,
+			"guidanceDuration": 1.0,
+			"guidanceMinAnglerVelocity": 150.0,
+			"canBornInWater": true,
+			"updateAngle" : 
+			{
+				"$type": "ConfigBulletMoveAngleByVelocity",
+				// "traceLerpCoef": 0,
+			},
+		},
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 10.0,			//存在时间
+		},
+		// 子弹参数
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerOnce",
+				"ignoreScene" : false,
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Effigy_Ice_RangeAtk_Shield",
+				},
+			],
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Effigy_Ice_RangeAtk_Shield",
+				"abilityName":"Effigy_Ice_RangeAtk_Shield",
+			},
+		],
+	},
+////////////////////////////////////////////////////////////////
+//
+//  Bullet_Effigy_Ice_NeedleSpinningShoot_Bullet
+//	42004403
+//
+////////////////////////////////////////////////////////////////
+	"Bullet_Effigy_Ice_NeedleSpinningShoot_Bullet" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1.0,
+				"scaleY" : 1.0,
+				"scaleZ" : 0.4,
+			},
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true, // 是否继承创造者的数?
+				"HP" : 999999,
+				"attack" : 10.0,
+				"defense" : 999999,
+				"weight" : 10,
+				"isInvincible": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+		},
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存?
+			"lifeTime" : 3.5,			//存在时间
+		},
+
+		"abilities":
+		[
+			{
+				"abilityID": "IceFog",
+				"abilityName" : "Effigy_Ice_NeedleSpinningShoot_IceFog"
+			},
+		],
+	},
+////////////////////////////////////////////////////////////////
+//
+//  Bullet_Effigy_Ice_Revive_IceBarrage_Bullet
+//	42004404
+//
+////////////////////////////////////////////////////////////////
+	"Bullet_Effigy_Ice_Revive_IceBarrage_Bullet" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			"scale":1,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true, // 是否继承创造者的数值
+				"HP" : 999999,
+				"attack" : 10.0,
+				"defense" : 999999,
+				"isInvincible": true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// "move" :
+		// {
+		// 	"$type" : "ConfigLinerParabolaBulletMove",
+		// 	"speed" : 12.0,
+		// 	"straightRange" : 1.0,
+		// 	"gravityOfAcceleration" : 15.0,
+		// 	"airResistance" : 0.01,
+		// 	"updateAngle" : 
+		// 	{
+		// 		"$type": "ConfigBulletMoveAngleByVelocity",
+		// 	},
+		// 	"canBornInWater": true,
+		// },
+		"move" :
+		{
+			"$type" : "ConfigParabolaBulletMove",
+			"speed" : 20.0,
+			"angleOffHor": 45,
+			"gravityOfAcceleration" : 15,
+			"updateAngle" : 
+			{
+				"$type": "ConfigBulletMoveAngleByVelocity",
+			},
+			"correction" : 
+			{
+				"$type":"ConfigParabolaBulletMoveCorrection",
+				"deviation": 0.75,
+				"fixAngleOfVer": 2.0,
+				"minSpeed": 7.0,
+				"maxSpeed": 15.0,
+			},
+		},
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 5.0,			//存在时间
+		},
+		// 子弹参数
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerOnce",
+				"ignoreScene" : false,
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Monster_Effigy_Ice_Revive_IceBarrage_Bullet_Hit",
+				},
+			],
+			"triggerLifeOverActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Monster_Effigy_Ice_Revive_IceBarrage_Bullet_Hit",
+				},
+			],
+			"killByOther" : false,
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Monster_Effigy_Ice_Revive_IceBarrage_Bullet_Hit",
+				"abilityName":"Monster_Effigy_Ice_Revive_IceBarrage_Bullet_Hit",
+			},
+		],
+	},
+////////////////////////////////////////////////////////////////
+//
+//  Bullet_Effigy_Ice_Revive_NeedleAttack_Needle
+//	42004405
+//
+////////////////////////////////////////////////////////////////
+	"Bullet_Effigy_Ice_Revive_NeedleAttack_Needle" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			"scale":1,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true, // 是否继承创造者的数值
+				"HP" : 999999,
+				"attack" : 10.0,
+				"defense" : 999999,
+				"isInvincible": true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		"move" :
+		{
+			"$type" : "ConfigLinerBulletMove",
+			"speed" : 25,
+			"acceleration" : 10,
+			"updateAngle" : 
+			{
+				"$type": "ConfigBulletMoveAngleByVelocity",
+			},
+			//"delay":1.0,
+			"canBornInWater": true,
+		},
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 10.0,			//存在时间
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Bullet_Effigy_Ice_Revive_NeedleAttack_Needle",
+				"abilityName":"Bullet_Effigy_Ice_Revive_NeedleAttack_Needle",
+			},
+		],
+	},
+////////////////////////////////////////////////////////////////
+//
+//  Bullet_Effigy_Ice_Revive_IceBarrage_Bullet02
+//	42004406
+//
+////////////////////////////////////////////////////////////////
+	"Bullet_Effigy_Ice_Revive_IceBarrage_Bullet02" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			"scale":1,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true, // 是否继承创造者的数值
+				"HP" : 999999,
+				"attack" : 10.0,
+				"defense" : 999999,
+				"isInvincible": true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		// "move" :
+		// {
+		// 	"$type" : "ConfigSurroundBulletMove",
+		// 	"speed" : 15,
+		// 	"clockwise": true,
+		// 	"radius" : 15,
+		// 	"delay": 1,
+		// 	"anglerVelocity": 360.0,
+		// 	"traceOnYAxis" : false,
+		// 	"destroyWhenTargetDie": false,
+		// 	"updateAngle" : 
+		// 	{
+		// 		"$type": "ConfigBulletMoveAngleByVelocity",
+		// 	},
+		// 	"canBornInWater": true,
+		// },
+		// "move" :
+		// {
+		// 	"$type" : "ConfigLinerBulletMove",
+		// 	"speed" : 25,
+		// 	"acceleration" : 10,
+		// 	"updateAngle" : 
+		// 	{
+		// 		"$type": "ConfigBulletMoveAngleByVelocity",
+		// 	},
+		// 	"delay":1.0,
+		// 	"canBornInWater": true,
+		// },
+		"move" :
+		{
+			"$type" : "ConfigItanoCircusBulletMove",
+			"delay": 1.0,
+			"speed" : 5.0,
+			"acceleration": 20,
+			"maxSpeed" : 20,
+			"minSpeed" : 10,
+			"guidanceSpeedChange": false,
+			"itanoCircusStartAngler": 0,
+			"guidanceDelay": 0.0,
+			"anglerVelocity": 90.0,
+			"guidanceDuration": 1.0,
+			"guidanceMinAnglerVelocity": 90.0,
+			"canBornInWater": true,
+			"updateAngle" : 
+			{
+				"$type": "ConfigBulletMoveAngleByVelocity",
+				"traceLerpCoef": 3600,
+			},
+		},
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 10.0,			//存在时间
+		},
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerNoRepeat",
+				"ignoreScene" : false,
+			},
+			"enableCollisionDelay": 1.0,
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Bullet_Effigy_Ice_Revive_NeedleAttack_Needle",
+				},
+			],
+			"triggerLifeOverActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Bullet_Effigy_Ice_Revive_NeedleAttack_Needle",
+				},
+			],
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Bullet_Effigy_Ice_Revive_NeedleAttack_Needle",
+				"abilityName":"Bullet_Effigy_Ice_Revive_NeedleAttack_Needle",
+			},
+		],
+	},
+////////////////////////////////////////////////////////////////
+//
+//  Bullet_Effigy_Ice_SpikeStrike_Attack
+//	42004407
+//
+////////////////////////////////////////////////////////////////
+	"Bullet_Effigy_Ice_SpikeStrike_Attack" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			"scale":1,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true, // 是否继承创造者的数值
+				"HP" : 999999,
+				"attack" : 10.0,
+				"defense" : 999999,
+				"isInvincible": true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		"move" :
+		{
+			"$type" : "ConfigLinerBulletMove",
+			"speed" : 25,
+			"acceleration" : 10,
+			"updateAngle" : 
+			{
+				"$type": "ConfigBulletMoveAngleByVelocity",
+			},
+			"delay":0.5,
+			"canBornInWater": true,
+		},
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 10.0,			//存在时间
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Monster_Effigy_Ice_SpikeStrike_Attack",
+				"abilityName":"Monster_Effigy_Ice_SpikeStrike_Attack",
+			},
+		],
+	},
+////////////////////////////////////////////////////////////////
+//
+//  Bullet_Effigy_Ice_Revive_SpikeAttack_FanShaped_Launcher
+//	42004408
+//
+////////////////////////////////////////////////////////////////
+	"Bullet_Effigy_Ice_Revive_SpikeAttack_FanShaped_Launcher" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			"scale":1,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true, // 是否继承创造者的数值
+				"HP" : 999999,
+				"attack" : 10.0,
+				"defense" : 999999,
+				"isInvincible": true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+				"canTriggerBullet": false,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		"move" :
+		{
+			"$type" : "ConfigLinerBulletMove",
+			"speed" : 20,
+			"canBornInWater":true,
+		},
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 1.0,			//存在时间
+		},
+		// 子弹参数
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerNoRepeat",
+				"ignoreScene" : true,
+			},
+			"triggerActions" :
+			[
+			],
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Monster_Effigy_Ice_Revive_SpikeAttack_FanShaped_Launcher",
+				"abilityName":"Monster_Effigy_Ice_Revive_SpikeAttack_FanShaped_Launcher",
+			},
+		],
+	},
+////////////////////////////////////////////////////////////////
+//
+//  Bullet_Effigy_Ice_Revive_SpikeAttack_FanShaped_Attack
+//	42004409
+//
+////////////////////////////////////////////////////////////////
+	"Bullet_Effigy_Ice_Revive_SpikeAttack_FanShaped_Attack" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			"scale":1,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true, // 是否继承创造者的数值
+				"HP" : 999999,
+				"attack" : 10.0,
+				"defense" : 999999,
+				"isInvincible": true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+				"canTriggerBullet": false,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		"move" :
+		{
+			"$type" : "ConfigLinerBulletMove",
+			"speed" : 20,
+			"canBornInWater":true,
+		},
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 2.0,			//存在时间
+		},
+		// 子弹参数
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerNoRepeat",
+				"ignoreScene" : true,
+			},
+			"triggerActions" :
+			[
+			],
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Monster_Effigy_Ice_Revive_SpikeAttack_FanShaped_Attack",
+				"abilityName":"Monster_Effigy_Ice_Revive_SpikeAttack_FanShaped_Attack",
+			},
+		],
+	},
+////////////////////////////////////////////////////////////////
+//
+//  Bullet_Effigy_Ice_Revive_IceBarrage_BulletOnGround
+//	42004410
+//
+////////////////////////////////////////////////////////////////
+	"Bullet_Effigy_Ice_Revive_IceBarrage_BulletOnGround" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			"scale":1,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true, // 是否继承创造者的数值
+				"HP" : 999999,
+				"attack" : 10.0,
+				"defense" : 999999,
+				"endureType": "Monster_Boss_Other",
+				"isInvincible": false,
+				"isLockHP": true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : false,
+				"canTriggerBullet": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": false,
+				"lockType": "Gear_Lv3",
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : false,
+				"muteAllHitEffect" : false,
+				"muteAllHitText" : true,
+			},
+		},
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 7.5,			//存在时间
+		},
+		// 子弹参数
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "Enemy",
+				"triggerType" : "TriggerNoRepeat",
+				"ignoreScene" : true,
+			},
+			"triggerLifeOverActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Bullet_Effigy_Ice_Revive_IceBarrage_BulletOnGround",
+				},
+			],
+			"dieDelayTime": 0.5,
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Bullet_Effigy_Ice_Revive_IceBarrage_BulletOnGround",
+				"abilityName":"Bullet_Effigy_Ice_Revive_IceBarrage_BulletOnGround",
+			},
+		],
+	},
+////////////////////////////////////////////////////////////////
+//
+//  Bullet_Effigy_Ice_Revive_IceBarrage_BulletKicked
+//	42004411
+//
+////////////////////////////////////////////////////////////////
+	"Bullet_Effigy_Ice_Revive_IceBarrage_BulletKicked" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1,
+				"scaleY" : 1,
+				"scaleZ" : 1,
+			},
+			"scale":1,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true, // 是否继承创造者的数值
+				"HP" : 999999,
+				"attack" : 10.0,
+				"defense" : 999999,
+				"isInvincible": true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+				"canTriggerBullet": false,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"muteAllHit" : true,
+				"muteAllHitEffect" : true,
+				"muteAllHitText" : true,
+			},
+		},
+		// 子弹线性移动
+		"move" :
+		{
+			"$type" : "ConfigItanoCircusBulletMove",
+			"delay": 0.0,
+			"speed" : 20.0,
+			"acceleration": 0,
+			"maxSpeed" : 20,
+			"minSpeed" : 10,
+			"guidanceSpeedChange": false,
+			"itanoCircusStartAngler": 0,
+			"guidanceDelay": 0.0,
+			"anglerVelocity": 30.0,
+			"guidanceDuration": 1.0,
+			"guidanceMinAnglerVelocity": 30.0,
+			"canBornInWater": true,
+			"updateAngle" : 
+			{
+				"$type": "ConfigBulletMoveAngleByVelocity",
+				"traceLerpCoef": 360,
+			},
+			"stickToGround":
+			{
+				"$type" : "ConfigMoveStickToGround",
+				"heightToGround" : 0.6,
+				"flexibleRange" : 0.25,
+				"maxStepHeight" : 20,
+				"maxSlopeAngle" : 60,
+				"isStickToWater" : true,
+				"unstickWhenDownSlide": "Keep",
+				"unstickWhenUpSlide": "Keep",
+			},
+		},
+		// 生命周期管理
+		"timer" :
+		{
+			"lifeInfinite" : false,		//如果未触发是否一致存在
+			"lifeTime" : 2.0,			//存在时间
+		},
+		// 子弹参数
+		"gadget" :
+		{
+			"$type" : "ConfigBulletPattern",
+			"collision" :
+			{
+				"targetType" : "AllExceptSelf",
+				"triggerType" : "TriggerNoRepeat",
+				"ignoreScene" : false,
+			},
+			"triggerActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Bullet_Effigy_Ice_Revive_IceBarrage_BulletKicked",
+				},
+			],
+			"triggerLifeOverActions" :
+			[
+				{
+					"$type" : "ConfigGadgetTriggerAbility",
+					"abilityName" : "Bullet_Effigy_Ice_Revive_IceBarrage_BulletKicked_End",
+				},
+			],
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Bullet_Effigy_Ice_Revive_IceBarrage_BulletKicked",
+				"abilityName":"Bullet_Effigy_Ice_Revive_IceBarrage_BulletKicked",
+			},
+			{
+				"abilityID": "Bullet_Effigy_Ice_Revive_IceBarrage_BulletKicked_End",
+				"abilityName":"Bullet_Effigy_Ice_Revive_IceBarrage_BulletKicked_End",
 			},
 		],
 	},

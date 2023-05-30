@@ -969,11 +969,109 @@
 							"modifierName": "WindBlackHole_Gadget_WindZone",
 							"target": "Self",
 						},
+						// {
+						// 	"$type" : "TriggerAttackEvent",
+						// 	"target" : "OriginOwner",
+						// 	"targetType" : "Enemy",
+						// 	"attackEvent":
+						// 	{
+						// 		"attackPattern":
+						// 		{
+						// 			"$type": "ConfigAttackCircle",
+						// 			"triggerType": "TriggerNoRepeat",
+						// 			"fanAngle": 360.0,
+						// 			"height": 6,
+						// 			"radius": 6,
+						// 			"born":
+						// 			{
+						// 				"$type": "ConfigBornBySelf",
+						// 				"offset":
+						// 				{
+						// 					"x" : 0.0,
+						// 					"y" : -3.0,
+						// 					"z" : 0.0,
+						// 				},
+						// 			},
+						// 		},
+						// 		"attackInfo":
+						// 		{
+						// 			"attackTag" : "Elemental_Art",
+						// 			"attackProperty":
+						// 			{
+						// 				"damagePercentage": "%WindBlackHole_Gadget_Damage",
+						// 				"elementType": "Wind",
+						// 				"elementDurability": 25,
+						// 				"strikeType": "Default",
+						// 				"enBreak": 150,
+						// 			},
+						// 			"hitPattern":
+						// 			{
+						// 				"onHitEffectName": "default",
+						// 				"hitImpulseType":"LV7",
+						// 				"reboundRatio": 0,
+						// 				"retreatType": "ByHitDirectionInverse",
+						// 				"canBeDefenceHalt": false,
+						// 				"hitHaltTime": 0.0,
+						// 				"hitHaltTimeScale": 0.05,
+						// 				"muteHitText": false,
+						// 			},
+						// 		}
+						// 	},
+						// },
+						// {
+						// 	"$type" : "TriggerAttackEvent",
+						// 	"target" : "OriginOwner",
+						// 	"targetType" : "Alliance",
+						// 	"attackEvent":
+						// 	{
+						// 		"attackPattern":
+						// 		{
+						// 			"$type": "ConfigAttackCircle",
+						// 			"triggerType": "TriggerNoRepeat",
+						// 			"fanAngle": 360.0,
+						// 			"height": 6,
+						// 			"radius": 6,
+						// 			"born":
+						// 			{
+						// 				"$type": "ConfigBornBySelf",
+						// 				"offset":
+						// 				{
+						// 					"x" : 0.0,
+						// 					"y" : -3.0,
+						// 					"z" : 0.0,
+						// 				},
+						// 			},
+						// 		},
+						// 		"attackInfo":
+						// 		{
+						// 			"attackTag" : "Sucrose_WindBlackHole",
+						// 			"canBeModifiedBy": "OriginOwner",
+						// 			"attackProperty":
+						// 			{
+						// 				"damagePercentage": 0,
+						// 				"elementType": "Wind",
+						// 				"elementDurability": 50,
+						// 				"strikeType": "Default",
+						// 				"enBreak": 110,
+						// 			},
+						// 			"hitPattern":
+						// 			{
+						// 				"onHitEffectName": "default",
+						// 				"hitImpulseType":"LV7",
+						// 				"reboundRatio": 0,
+						// 				"retreatType": "ByHitDirectionInverse",
+						// 				"canBeDefenceHalt": false,
+						// 				"hitHaltTime": 0.0,
+						// 				"hitHaltTimeScale": 0.05,
+						// 				"muteHitText": false,
+						// 			},
+						// 		}
+						// 	},
+						// },
 						{
-							"$type" : "TriggerAttackEvent",
+							"$type" : "TriggerAttackTargetMapEvent",
 							"target" : "OriginOwner",
-							"targetType" : "Enemy",
-							"attackEvent":
+							"attackTargetMapEvent":
 							{
 								"attackPattern":
 								{
@@ -993,77 +1091,54 @@
 										},
 									},
 								},
-								"attackInfo":
+								"attackInfoMap":
 								{
-									"attackTag" : "Elemental_Art",
-									"attackProperty":
+									"Enemy":
 									{
-										"damagePercentage": "%WindBlackHole_Gadget_Damage",
-										"elementType": "Wind",
-										"elementDurability": 25,
-										"strikeType": "Default",
-										"enBreak": 150,
-									},
-									"hitPattern":
-									{
-										"onHitEffectName": "default",
-										"hitImpulseType":"LV7",
-										"reboundRatio": 0,
-										"retreatType": "ByHitDirectionInverse",
-										"canBeDefenceHalt": false,
-										"hitHaltTime": 0.0,
-										"hitHaltTimeScale": 0.05,
-										"muteHitText": false,
-									},
-								}
-							},
-						},
-						{
-							"$type" : "TriggerAttackEvent",
-							"target" : "OriginOwner",
-							"targetType" : "Alliance",
-							"attackEvent":
-							{
-								"attackPattern":
-								{
-									"$type": "ConfigAttackCircle",
-									"triggerType": "TriggerNoRepeat",
-									"fanAngle": 360.0,
-									"height": 6,
-									"radius": 6,
-									"born":
-									{
-										"$type": "ConfigBornBySelf",
-										"offset":
+										"attackTag" : "Elemental_Art",
+										"attackProperty":
 										{
-											"x" : 0.0,
-											"y" : -3.0,
-											"z" : 0.0,
+											"damagePercentage": "%WindBlackHole_Gadget_Damage",
+											"elementType": "Wind",
+											"elementDurability": 25,
+											"strikeType": "Default",
+											"enBreak": 150,
+										},
+										"hitPattern":
+										{
+											"onHitEffectName": "default",
+											"hitImpulseType":"LV7",
+											"reboundRatio": 0,
+											"retreatType": "ByHitDirectionInverse",
+											"canBeDefenceHalt": false,
+											"hitHaltTime": 0.0,
+											"hitHaltTimeScale": 0.05,
+											"muteHitText": false,
 										},
 									},
-								},
-								"attackInfo":
-								{
-									"attackTag" : "Sucrose_WindBlackHole",
-									"canBeModifiedBy": "OriginOwner",
-									"attackProperty":
+									"Alliance":
 									{
-										"damagePercentage": 0,
-										"elementType": "Wind",
-										"elementDurability": 50,
-										"strikeType": "Default",
-										"enBreak": 110,
-									},
-									"hitPattern":
-									{
-										"onHitEffectName": "default",
-										"hitImpulseType":"LV7",
-										"reboundRatio": 0,
-										"retreatType": "ByHitDirectionInverse",
-										"canBeDefenceHalt": false,
-										"hitHaltTime": 0.0,
-										"hitHaltTimeScale": 0.05,
-										"muteHitText": false,
+										"attackTag" : "Sucrose_WindBlackHole",
+										"canBeModifiedBy": "OriginOwner",
+										"attackProperty":
+										{
+											"damagePercentage": 0,
+											"elementType": "Wind",
+											"elementDurability": 50,
+											"strikeType": "Default",
+											"enBreak": 110,
+										},
+										"hitPattern":
+										{
+											"onHitEffectName": "default",
+											"hitImpulseType":"LV7",
+											"reboundRatio": 0,
+											"retreatType": "ByHitDirectionInverse",
+											"canBeDefenceHalt": false,
+											"hitHaltTime": 0.0,
+											"hitHaltTimeScale": 0.05,
+											"muteHitText": false,
+										},
 									},
 								}
 							},
@@ -3708,8 +3783,9 @@
 									"predicates":
 									[
 										{
-											"$type": "ByTargetIsSelf",
-											"isSelf": false,
+										    "$type": "ByTargetType",
+										    "targetType":"Self",
+										    "isTarget":false,
 										},
 										{
 											"$type": "ByTargetPositionToSelfPosition",

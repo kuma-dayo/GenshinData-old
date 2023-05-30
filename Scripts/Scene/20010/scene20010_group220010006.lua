@@ -60,14 +60,12 @@ gadgets = {
 
 -- 区域
 regions = {
-	{ config_id = 11, shape = RegionShape.CUBIC, size = { x = 5.000, y = 5.000, z = 5.000 }, pos = { x = 380.268, y = -33.883, z = 25.774 } }
 }
 
 -- 触发器
 triggers = {
 	{ config_id = 1000009, name = "GADGET_STATE_CHANGE_9", event = EventType.EVENT_GADGET_STATE_CHANGE, source = "", condition = "condition_EVENT_GADGET_STATE_CHANGE_9", action = "action_EVENT_GADGET_STATE_CHANGE_9" },
 	{ config_id = 1000010, name = "GADGET_STATE_CHANGE_10", event = EventType.EVENT_GADGET_STATE_CHANGE, source = "", condition = "condition_EVENT_GADGET_STATE_CHANGE_10", action = "action_EVENT_GADGET_STATE_CHANGE_10" },
-	{ config_id = 1000011, name = "ENTER_REGION_11", event = EventType.EVENT_ENTER_REGION, source = "", condition = "condition_EVENT_ENTER_REGION_11", action = "action_EVENT_ENTER_REGION_11", forbid_guest = false },
 	{ config_id = 1000049, name = "CLIENT_EXECUTE_49", event = EventType.EVENT_CLIENT_EXECUTE, source = "ElectricSwitch_Hit", condition = "condition_EVENT_CLIENT_EXECUTE_49", action = "action_EVENT_CLIENT_EXECUTE_49" }
 }
 
@@ -100,8 +98,8 @@ suites = {
 		-- description = ,
 		monsters = { },
 		gadgets = { 42, 43, 44, 46, 47, 48, 50, 51, 53, 54, 84, 85, 89, 92, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 6001, 6002, 6003, 6004, 6005, 6012 },
-		regions = { 11 },
-		triggers = { "GADGET_STATE_CHANGE_9", "GADGET_STATE_CHANGE_10", "ENTER_REGION_11", "CLIENT_EXECUTE_49" },
+		regions = { },
+		triggers = { "GADGET_STATE_CHANGE_9", "GADGET_STATE_CHANGE_10", "CLIENT_EXECUTE_49" },
 		rand_weight = 100
 	}
 }
@@ -182,29 +180,6 @@ function action_EVENT_GADGET_STATE_CHANGE_10(context, evt)
 	-- 创建id为0的gadget
 	if 0 ~= ScriptLib.CreateGadget(context, { config_id = 0 }) then
 	  ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : create_gadget")
-	  return -1
-	end
-	
-	return 0
-end
-
--- 触发条件
-function condition_EVENT_ENTER_REGION_11(context, evt)
-	if evt.param1 ~= 11 then return false end
-	
-	-- 判断角色数量不少于1
-	if ScriptLib.GetRegionEntityCount(context, { region_eid = evt.source_eid, entity_type = EntityType.AVATAR }) < 1 then
-		return false
-	end
-	
-	return true
-end
-
--- 触发操作
-function action_EVENT_ENTER_REGION_11(context, evt)
-	-- 启动移动平台
-	if 0 ~= ScriptLib.StartPlatform(context, 42) then
-	  ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : start_platform")
 	  return -1
 	end
 	

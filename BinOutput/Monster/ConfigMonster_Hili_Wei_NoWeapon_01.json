@@ -782,13 +782,14 @@
 		// },
 		"sensing":
 		{
-			"enable": false,
+			"enable": true,
 			"settings":
 			{
 				"DefaultSetting":
 				{
 					"hearAttractionRange": 0.0,
 					"hearFootstepRange": 0.0,
+					"sourcelessHitAttractionRange": 20.0,
 					"viewRange": 0.0,
 					"feelRange": 0.0,
 				},

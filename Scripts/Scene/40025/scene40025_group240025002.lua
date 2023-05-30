@@ -18,7 +18,7 @@ npcs = {
 -- 装置
 gadgets = {
 	{ config_id = 2001, gadget_id = 70900205, pos = { x = 0.160, y = -0.580, z = -0.005 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
-	{ config_id = 2010, gadget_id = 420000006, pos = { x = 0.000, y = 0.000, z = 21.000 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 }
+	{ config_id = 2010, gadget_id = 44000006, pos = { x = 0.000, y = 0.000, z = 21.000 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 }
 }
 
 -- 区域

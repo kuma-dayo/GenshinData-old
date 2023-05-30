@@ -788,6 +788,7 @@
 					[
 						{
 							"$type": "TriggerAttackEvent",
+							"target": "OriginOwner",
 							"targetType": "Enemy",
 							"attackEvent":
 							{
@@ -810,7 +811,7 @@
 					        	},
 								"attackInfo":
 								{
-									"canBeModifiedBy": "OriginOwner",
+/*									"canBeModifiedBy": "OriginOwner",*/
 									"attackTag": "Elemental_Art",
 									"attenuationTag": "Elemental_Art",
 									"attenuationGroup":"Xiao_DevilDash",

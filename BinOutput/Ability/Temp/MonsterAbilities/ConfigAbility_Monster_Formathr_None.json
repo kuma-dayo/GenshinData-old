@@ -171,8 +171,26 @@
 					"modifierName"  : "UNIQUE_Formathr_None_WeakState",
 				},
 			],
+			"abilityMixins":
+			[
+				{
+					"$type": "AttachToAIAlertnessMixin",
+					"alertness": [0],
+					"modifierName": "ResetMode",
+				},
+			],
 			"modifiers":
 			{
+				"ResetMode":
+				{
+					"onAdded":
+					[
+						{
+							"$type" : "RemoveUniqueModifier",
+							"modifierName"  : "UNIQUE_Formathr_None_AirState",
+						},
+					],
+				},
 				"UNIQUE_Formathr_None_AirState":
 				{
 					"isUnique": true,

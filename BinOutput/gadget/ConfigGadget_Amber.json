@@ -16,8 +16,8 @@
 				"defense" : 0,
 				"denyLockOn" : true,
 				"isLockHP" : true,
-				"isGhostToAllied" : false,
-				"isGhostToEnemy" : false,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
 				"canTriggerBullet" : false,
 			},
 		},
@@ -171,4 +171,4 @@
 		],
 	},
 
-},
+}

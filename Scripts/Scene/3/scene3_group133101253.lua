@@ -10,9 +10,9 @@ local regionsearch_region_id = 3101001
 -- 怪物
 monsters = {
 	{ config_id = 253001, monster_id = 20050701, pos = { x = 1452.230, y = 229.059, z = 1406.563 }, rot = { x = 0.000, y = 73.920, z = 5.420 }, level = 1, drop_tag = "魔法生物", affix = { 5010, 5011 }, pose_id = 3, area_id = 5 },
-	{ config_id = 253002, monster_id = 20050601, pos = { x = 1537.528, y = 227.200, z = 1398.793 }, rot = { x = 0.000, y = 119.311, z = 0.000 }, level = 1, drop_tag = "魔法生物", affix = { 5010, 5011 }, pose_id = 3, area_id = 5 },
-	{ config_id = 253003, monster_id = 20050601, pos = { x = 1532.815, y = 227.200, z = 1415.989 }, rot = { x = 0.000, y = 6.349, z = 0.000 }, level = 1, drop_tag = "魔法生物", affix = { 5010, 5011 }, pose_id = 3, area_id = 5 },
-	{ config_id = 253004, monster_id = 20050801, pos = { x = 1567.463, y = 227.321, z = 1391.290 }, rot = { x = 0.000, y = 236.421, z = 0.000 }, level = 1, drop_tag = "魔法生物", affix = { 5010, 5011 }, pose_id = 2, area_id = 5 }
+	{ config_id = 253002, monster_id = 20050601, pos = { x = 1468.330, y = 227.200, z = 1344.139 }, rot = { x = 0.000, y = 119.311, z = 0.000 }, level = 1, drop_tag = "魔法生物", affix = { 5010, 5011 }, pose_id = 3, area_id = 5 },
+	{ config_id = 253003, monster_id = 20050601, pos = { x = 1452.818, y = 227.200, z = 1346.750 }, rot = { x = 0.000, y = 6.349, z = 0.000 }, level = 1, drop_tag = "魔法生物", affix = { 5010, 5011 }, pose_id = 3, area_id = 5 },
+	{ config_id = 253004, monster_id = 20050801, pos = { x = 1440.321, y = 227.200, z = 1368.262 }, rot = { x = 0.000, y = 236.421, z = 0.000 }, level = 1, drop_tag = "魔法生物", affix = { 5010, 5011 }, pose_id = 2, area_id = 5 }
 }
 
 -- NPC

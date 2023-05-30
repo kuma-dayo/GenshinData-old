@@ -28,12 +28,13 @@
 	"move" :
 	{
 		"$type": "ConfigLinerBulletMove",
-		"speed": 20,
+		"speed": 30,
+		"acceleration": 10,
 	},
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 10,			//存在时间f
+		"lifeTime" : 5,			//存在时间f
 	},
 	"gadget" :
 	{
@@ -89,7 +90,8 @@
 	"move" :
 	{
 		"$type": "ConfigLinerBulletMove",
-		"speed": 20,
+		"speed": 30,
+		"acceleration": 10,
 	},
 	"gadget" :
 	{
@@ -112,7 +114,7 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 10,			//存在时间f
+		"lifeTime" : 5,			//存在时间f
 	},
 	"abilities":
 	[
@@ -150,7 +152,8 @@
 	"move" :
 	{
 		"$type": "ConfigLinerBulletMove",
-		"speed": 20,
+		"speed": 30,
+		"acceleration": 10,
 	},
 	"gadget" :
 	{
@@ -165,7 +168,7 @@
 		[
 			{
 				"$type" : "ConfigGadgetTriggerAbility",
-				"abilityName" : "Dahaka_Sting_Ice_Hit",
+				"abilityName" : "Dahaka_Sting_Electric_Hit",
 			},
 		],
 		"killByOther" : false,
@@ -173,7 +176,7 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 10,			//存在时间f
+		"lifeTime" : 5,			//存在时间f
 	},
 	"abilities":
 	[
@@ -211,7 +214,7 @@
 	"move" :
 	{
 		"$type": "ConfigLinerBulletMove",
-		"speed": 20,
+		"speed": 35,
 	},
 	"timer" :
 	{
@@ -250,7 +253,7 @@
 	"move" :
 	{
 		"$type": "ConfigLinerBulletMove",
-		"speed": 20,
+		"speed": 35,
 	},
 	"timer" :
 	{
@@ -289,7 +292,7 @@
 	"move" :
 	{
 		"$type": "ConfigLinerBulletMove",
-		"speed": 20,
+		"speed": 25,
 	},
 	"timer" :
 	{
@@ -325,15 +328,10 @@
 			"denyLockOn": true,
 		},
 	},
-	"move" :
-	{
-		"$type": "ConfigLinerBulletMove",
-		"speed": 20,
-	},
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 2,			//存在时间f
+		"lifeTime" : 5,			//存在时间f
 	},
 	"abilities":
 	[
@@ -443,7 +441,7 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 10,			//存在时间f
+		"lifeTime" : 5,			//存在时间f
 	},
 	"abilities":
 	[
@@ -486,10 +484,36 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 10,			//存在时间f
+		"lifeTime" : 0.55,			//存在时间f
+	},
+	"move" :
+	{
+		"$type": "ConfigLinerBulletMove",
+		"speed": 40,
+	},
+	"gadget" :
+	{
+		"$type" : "ConfigBulletPattern",
+		"collision" :
+		{
+			"targetType" : "Enemy",
+			"triggerType" : "TriggerNoRepeat",
+			"ignoreScene": true,
+		},
+		"triggerActions" :
+		[
+			{
+				"$type" : "ConfigGadgetTriggerAbility",
+				"abilityName" : "Dahaka_SlamGround_Rock_Hit",
+			},
+		],
 	},
 	"abilities":
 	[
+		{
+			"abilityID": "Dahaka_SlamGround_Rock_Hit",
+			"abilityName" : "Dahaka_SlamGround_Rock_Hit"
+		},
 	],
 },
 "Dahaka_SlamGround_Water_Fountain" :
@@ -550,10 +574,36 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 10,			//存在时间f
+		"lifeTime" : 0.55,			//存在时间f
+	},
+	"move" :
+	{
+		"$type": "ConfigLinerBulletMove",
+		"speed": 40,
+	},
+	"gadget" :
+	{
+		"$type" : "ConfigBulletPattern",
+		"collision" :
+		{
+			"targetType" : "Enemy",
+			"triggerType" : "TriggerNoRepeat",
+			"ignoreScene": true,
+		},
+		"triggerActions" :
+		[
+			{
+				"$type" : "ConfigGadgetTriggerAbility",
+				"abilityName" : "Dahaka_SlamGround_Fire_Hit",
+			},
+		],
 	},
 	"abilities":
 	[
+		{
+			"abilityID": "Dahaka_SlamGround_Fire_Hit",
+			"abilityName" : "Dahaka_SlamGround_Fire_Hit"
+		},
 	],
 },
 ////////////////////////////////////////////////////////////////
@@ -628,6 +678,10 @@
 			"abilityID": "Dahaka_Roar_Meteor_Pos",
 			"abilityName" : "Dahaka_Roar_Meteor_Pos"
 		},
+		{
+			"abilityID": "Dahaka_Meteor_Pos_CreateLava",
+			"abilityName" : "Dahaka_Meteor_Pos_CreateLava"
+		},
 	],
 },
 "Dahaka_Roar_Meteor" :
@@ -654,7 +708,7 @@
 	"move" :
 	{
 		"$type": "ConfigLinerBulletMove",
-		"speed": 20,
+		"speed": 30,
 	},
 	"gadget" :
 	{
@@ -676,7 +730,7 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 10,			//存在时间f
+		"lifeTime" : 5,			//存在时间f
 	},
 	"abilities":
 	[
@@ -710,10 +764,14 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 10,			//存在时间f
+		"lifeTime" : 40,			//存在时间f
 	},
 	"abilities":
 	[
+		{
+			"abilityID": "Dahaka_Roar_WaterBall_Pos_CreateWaterBall",
+			"abilityName" : "Dahaka_Roar_WaterBall_Pos_CreateWaterBall"
+		},
 	],
 },
 "Dahaka_Roar_WaterBall" :
@@ -742,22 +800,11 @@
 		"$type" : "ConfigSurroundBulletMove",
 		"speed" : 5,
 		"clockwise": false,
-		"radius" : 12.5,
-		"delay": 0.5,
-		"anglerVelocity": 720.0,
-		"traceOnYAxis" : true,
+		"radius" : 17.5,
+		"delay": 2,
+		"anglerVelocity": 360.0,
+		"traceOnYAxis" : false,
 		"destroyWhenTargetDie": true,
-		"stickToGround":
-		{
-			"$type" : "ConfigMoveStickToGround",
-			"heightToGround" : 1.2,
-			"flexibleRange" : 0.3,
-			"maxStepHeight" : 2,
-			"maxSlopeAngle" : 60,
-			"isStickToWater" : true,
-			"unstickWhenDownSlide": "Keep",
-			"unstickWhenUpSlide": "Keep",
-		},
 		"updateAngle" : 
 		{
 			"$type": "ConfigBulletMoveAngleByVelocity",
@@ -770,8 +817,7 @@
 		"collision" : 
 		{
 			"targetType" : "Enemy",
-			"triggerType": "TriggerAlways",
-			"triggerCD": 1.0,	
+			"triggerType": "TriggerNoRepeat",
 			"ignoreScene": true,
 		},
 		"triggerActions" :
@@ -786,7 +832,7 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 30,			//存在时间f
+		"lifeTime" : 27.5,			//存在时间f
 	},
 	"abilities":
 	[
@@ -820,24 +866,13 @@
 	"move" :
 	{
 		"$type" : "ConfigSurroundBulletMove",
-		"speed" : 5,
+		"speed" : 9,
 		"clockwise": false,
-		"radius" : 25,
-		"delay": 0.5,
-		"anglerVelocity": 720.0,
-		"traceOnYAxis" : true,
+		"radius" : 30,
+		"delay": 2,
+		"anglerVelocity": 360.0,
+		"traceOnYAxis" : false,
 		"destroyWhenTargetDie": true,
-		"stickToGround":
-		{
-			"$type" : "ConfigMoveStickToGround",
-			"heightToGround" : 1.2,
-			"flexibleRange" : 0.3,
-			"maxStepHeight" : 2,
-			"maxSlopeAngle" : 60,
-			"isStickToWater" : true,
-			"unstickWhenDownSlide": "Keep",
-			"unstickWhenUpSlide": "Keep",
-		},
 		"updateAngle" : 
 		{
 			"$type": "ConfigBulletMoveAngleByVelocity",
@@ -850,8 +885,7 @@
 		"collision" : 
 		{
 			"targetType" : "Enemy",
-			"triggerType": "TriggerAlways",
-			"triggerCD": 1.0,	
+			"triggerType": "TriggerNoRepeat",
 			"ignoreScene": true,
 		},
 		"triggerActions" :
@@ -866,7 +900,7 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 30,			//存在时间f
+		"lifeTime" : 22.5,			//存在时间f
 	},
 	"abilities":
 	[
@@ -900,24 +934,13 @@
 	"move" :
 	{
 		"$type" : "ConfigSurroundBulletMove",
-		"speed" : 5,
+		"speed" : 12.5,
 		"clockwise": false,
-		"radius" : 37.5,
-		"delay": 0.5,
-		"anglerVelocity": 720.0,
-		"traceOnYAxis" : true,
+		"radius" : 42.5,
+		"delay": 2,
+		"anglerVelocity": 360.0,
+		"traceOnYAxis" : false,
 		"destroyWhenTargetDie": true,
-		"stickToGround":
-		{
-			"$type" : "ConfigMoveStickToGround",
-			"heightToGround" : 1.2,
-			"flexibleRange" : 0.3,
-			"maxStepHeight" : 2,
-			"maxSlopeAngle" : 60,
-			"isStickToWater" : true,
-			"unstickWhenDownSlide": "Keep",
-			"unstickWhenUpSlide": "Keep",
-		},
 		"updateAngle" : 
 		{
 			"$type": "ConfigBulletMoveAngleByVelocity",
@@ -930,8 +953,7 @@
 		"collision" : 
 		{
 			"targetType" : "Enemy",
-			"triggerType": "TriggerAlways",
-			"triggerCD": 1.0,	
+			"triggerType": "TriggerNoRepeat",	
 			"ignoreScene": true,
 		},
 		"triggerActions" :
@@ -946,7 +968,7 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 30,			//存在时间f
+		"lifeTime" : 22.5,			//存在时间f
 	},
 	"abilities":
 	[
@@ -984,27 +1006,19 @@
 	},
 	"move" :
 	{
-		"$type" : "ConfigParabolaBulletMove",
-		"delay":0.1,
-		"speed" : 5,
-		"angleOffHor": 45,
-		"gravityOfAcceleration" : 20,
-		"correction" :
-		{
-			"$type":"ConfigParabolaBulletMoveCorrection",
-			"deviation": 1,
-			"fixAngleOfVer": 10.0,
-			"minSpeed": 5.0,
-			"maxSpeed": 7.5,
-		},
+		"$type" : "ConfigLinerParabolaBulletMove",
+		"speed" : 7.5,
+		"straightRange" : 3,
+		"gravityOfAcceleration" : 15,
+		"canBornInWater": true,
 	},
 	"gadget" :
 	{
 		"$type" : "ConfigBulletPattern",
 		"collision" :
 		{
-			"targetType" : "None",
-			"triggerType" : "TriggerOnce",
+			"targetType" : "Enemy",
+			"triggerType" : "TriggerNoRepeat",
 			"ignoreScene": false,
 			"delayEnableCollision": 0.5,
 		},
@@ -1019,7 +1033,7 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 10,			//存在时间f
+		"lifeTime" : 5,			//存在时间f
 	},
 	"abilities":
 	[
@@ -1053,7 +1067,7 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 20,			//存在时间
+		"lifeTime" : 35,			//存在时间
 	},
 	"abilities":
 	[
@@ -1092,11 +1106,16 @@
 	"move" :
 	{
 		"$type": "ConfigLinerBulletMove",
-		"speed": 25,
-		"acceleration": -5,
-		"updateAngle" : 
+		"speed": 30,
+		"stickToGround":
 		{
-			"$type": "ConfigBulletMoveAngleByVelocity",
+			"$type" : "ConfigMoveStickToGround",
+			"heightToGround" : 0.5,
+			"flexibleRange" : 0.2,
+			"maxStepHeight" : 2,
+			"maxSlopeAngle" : 45,
+			"unstickWhenDownSlide": "Keep",
+			"unstickWhenUpSlide": "Keep",
 		},
 	},
 	"gadget" :
@@ -1106,13 +1125,12 @@
 		{
 			"targetType" : "Enemy",
 			"triggerType" : "TriggerNoRepeat",
-			"ignoreScene": false,
 		},
 		"triggerActions" :
 		[
 			{
 				"$type" : "ConfigGadgetTriggerAbility",
-				"abilityName" : "Dahaka_Lava_Explode",
+				"abilityName" : "Dahaka_WaterWave",
 			},
 		],
 	},
@@ -1183,13 +1201,13 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 10,			//存在时间f
+		"lifeTime" : 30,			//存在时间f
 	},
 	"abilities":
 	[
 		{
-			"abilityID": "Dahaka_Icecone_Pos",
-			"abilityName" : "Dahaka_Icecone_Pos"
+			"abilityID": "Dahaka_CreateIceball",
+			"abilityName" : "Dahaka_CreateIceball"
 		},
 	],
 },
@@ -1214,13 +1232,99 @@
 			"denyLockOn": true,
 		},
 	},
+	"move" :
+	{
+		"$type" : "ConfigItanoCircusBulletMove",
+		"speed" : 10,
+		"acceleration": 15,
+		"maxSpeed" : 40,
+		"minSpeed" : 10,
+		"guidanceSpeedChange": true,
+		"guidanceDelay": 0.7,
+		"guidanceDuration": 0.6,
+		"itanoCircusStartAngler": 240,
+		"anglerVelocity": 720.0,
+		"canBornInWater": true,
+		"updateAngle" : 
+		{
+			"$type": "ConfigBulletMoveAngleByVelocity",
+		},
+	},
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 15,			//存在时间f
+		"lifeTime" : 5,			//存在时间f
+	},
+	"gadget" :
+	{
+		"$type" : "ConfigBulletPattern",
+		"collision" :
+		{
+			"targetType" : "Enemy",
+			"triggerType" : "TriggerOnce",
+			"ignoreScene" : false,
+		},
+		"triggerActions" :
+		[
+			{
+				"$type" : "ConfigGadgetTriggerAbility",
+				"abilityName" : "Dahaka_Icecone_Hit",
+			},
+		],
+		"killByOther" : false,
 	},
 	"abilities":
 	[
+		{
+			"abilityID": "Dahaka_Icecone_Hit",
+			"abilityName" : "Dahaka_Icecone_Hit"
+		},
+	],
+},
+"Dahaka_IceBall_Pos" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"move" :
+	{
+		"$type" : "ConfigPinballBulletMove",
+		"speed" : 4,
+		"radius" : 10,
+		"delay": 2.5,
+		"anglerVelocity": 720.0,
+		"traceOnYAxis" : false,
+		"randomBackAngleAdded": 45.0,
+		"reboundInterval": 0.2,
+		"outOfRangeFixCD": 0.5,
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 30,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_CreateIcecone",
+			"abilityName" : "Dahaka_CreateIcecone"
+		},
 	],
 },
 "Dahaka_ElectricBall_Pos" :
@@ -1281,7 +1385,13 @@
 	"move" :
 	{
 		"$type": "ConfigLinerBulletMove",
-		"speed": 20,
+		"speed" : 60.0,
+		"acceleration": 20,
+		"updateAngle" : 
+		{
+			"$type": "ConfigBulletMoveAngleByVelocity",
+		},
+		"canBornInWater": true,
 	},
 	"gadget" :
 	{
@@ -1304,7 +1414,7 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 10,			//存在时间f
+		"lifeTime" : 5,			//存在时间f
 	},
 	"abilities":
 	[
@@ -1351,6 +1461,10 @@
 			"abilityID": "Dahaka_IceBlock_Pos",
 			"abilityName" : "Dahaka_IceBlock_Pos"
 		},
+		{
+			"abilityID": "Dahaka_IceBlock_Explode",
+			"abilityName" : "Dahaka_IceBlock_Explode"
+		},
 	],
 },
 "Dahaka_IceBlock" :
@@ -1377,7 +1491,9 @@
 	"move" :
 	{
 		"$type": "ConfigLinerBulletMove",
-		"speed": 20,
+		"delay": 0.4,
+		"speed": 40,
+		"acceleration": 10,
 	},
 	"gadget" :
 	{
@@ -1385,14 +1501,14 @@
 		"collision" :
 		{
 			"targetType" : "Enemy",
-			"triggerType" : "TriggerOnce",
+			"triggerType" : "TriggerNoRepeat",
 			"ignoreScene" : false,
 		},
 		"triggerActions" :
 		[
 			{
 				"$type" : "ConfigGadgetTriggerAbility",
-				"abilityName" : "Dahaka_ElectricBall_Hit",
+				"abilityName" : "Dahaka_IceBlock_Hit",
 			},
 		],
 		"killByOther" : false,
@@ -1400,7 +1516,7 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
-		"lifeTime" : 10,			//存在时间f
+		"lifeTime" : 5,			//存在时间f
 	},
 	"abilities":
 	[
@@ -1434,10 +1550,150 @@
 	"timer" :
 	{
 		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 30,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_ElectricNet_Pos",
+			"abilityName" : "Dahaka_ElectricNet_Pos"
+		},
+	],
+},
+"Dahaka_ElectricNet_Wave1" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
 		"lifeTime" : 10,			//存在时间f
 	},
 	"abilities":
 	[
+		{
+			"abilityID": "Dahaka_ElectricNet_Wave1",
+			"abilityName" : "Dahaka_ElectricNet_Wave1",
+		},
+	],
+},
+"Dahaka_ElectricNet_Wave2" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 10,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_ElectricNet_Wave2",
+			"abilityName" : "Dahaka_ElectricNet_Wave2",
+		},
+	],
+},
+"Dahaka_ElectricNet_Wave3" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 10,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_ElectricNet_Wave3",
+			"abilityName" : "Dahaka_ElectricNet_Wave3",
+		},
+	],
+},
+"Dahaka_ElectricNet_Wave4" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 10,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_ElectricNet_Wave4",
+			"abilityName" : "Dahaka_ElectricNet_Wave4",
+		},
 	],
 },
 "Dahaka_ElectricNet" :
@@ -1471,6 +1727,631 @@
 		{
 			"abilityID": "Dahaka_ElectricNet",
 			"abilityName" : "Dahaka_ElectricNet"
+		},
+	],
+},
+"Dahaka_ElectricNet_Thunder" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 5,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_ElectricNet",
+			"abilityName" : "Dahaka_ElectricNet"
+		},
+	],
+},
+"Dahaka_Sealed_Circle" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : false, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 60,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_Sealed_CircleEffect",
+			"abilityName" : "Dahaka_Sealed_CircleEffect"
+		},
+	],
+},
+"Dahaka_Sealed_Circle_Quest" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : false, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 6,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_Sealed_CircleEffect",
+			"abilityName" : "Dahaka_Sealed_CircleEffect"
+		},
+	],
+},
+"Dahaka_BornAnchor" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : false, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 10,			//存在时间f
+	},
+	"abilities":
+	[
+	],
+},
+"Dahaka_Swim_RockArea" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 5,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_Swim_RockArea",
+			"abilityName" : "Dahaka_Swim_RockArea"
+		},
+	],
+},
+"Dahaka_Swim_RockFall" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"move" :
+	{
+		"$type": "ConfigLinerBulletMove",
+		"speed": 30,
+		"acceleration": 10,
+	},
+	"gadget" :
+	{
+		"$type" : "ConfigBulletPattern",
+		"collision" :
+		{
+			"targetType" : "Enemy",
+			"triggerType" : "TriggerNoRepeat",
+			"ignoreScene" : false,
+		},
+		"triggerActions" :
+		[
+			{
+				"$type" : "ConfigGadgetTriggerAbility",
+				"abilityName" : "Dahaka_Swim_RockFallHit",
+			},
+		],
+		"killByOther" : false,
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 5,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_Swim_RockFallHit",
+			"abilityName" : "Dahaka_Swim_RockFallHit"
+		},
+	],
+},
+"Dahaka_Crystal" :
+{
+	"$type" : "ConfigGadget",
+	"common":
+	{
+		"disableTickDistance": 100000,
+	},
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : true,		//如果未触发是否一致存在
+		"lifeTime" : 5,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_Crystal_ElementType",
+			"abilityName" : "Dahaka_Crystal_ElementType"
+		},
+	],
+},
+"Dahaka_Grub_Bullet" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 999999,
+			"attack" : 15.0,
+			"defense" : 999999,
+			"isLockHP":true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : false,
+			"canTriggerBullet" : true,
+		},
+		"combatLock":
+		{
+			"denyLockOn": false,
+			"lockType": "Boss_Lv5",
+		},
+		"beHit" :
+		{
+			"hitBloodEffect": "",
+			"muteAllHit": false,
+			"muteAllHitEffect": true,
+			"muteAllHitText": true,
+		},
+	},
+	"gadget" :
+	{
+		"$type" : "ConfigBulletPattern",
+		"collision" :
+		{
+			"triggerType": "TriggerNoRepeat",
+			"targetType": "Enemy",
+			"ignoreScene": true,
+		},
+		"triggerActions" :
+		[
+			{
+				"$type" : "ConfigGadgetTriggerAbility",
+				"abilityName" : "Dahaka_Grub_Hit",
+			},
+		],
+		"killByOther" : false,
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 5,			//存在时间f
+	},
+	"move" :
+	{
+		"$type" : "ConfigFollowMove",
+		"target": "TargetEntity",
+		"attachPoint": "RootNode",
+		"followRotation": true,
+		"offset":
+		{
+			"x":0,
+			"y":0,
+			"z":5,
+		},
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_Grub_Hit",
+			"abilityName" : "Dahaka_Grub_Hit"
+		},
+	],
+},
+"Dahaka_LockDummy" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 999999,
+			"attack" : 15.0,
+			"defense" : 999999,
+			"isLockHP":true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : false,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": false,
+			"lockType": "Boss_Lv5",
+		},
+		"beHit" :
+		{
+			"hitBloodEffect": "",
+			"muteAllHit": false,
+			"muteAllHitEffect": true,
+			"muteAllHitText": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,
+		"lifeTime" : 30.0,
+	},
+	"move" :
+	{
+		"$type" : "ConfigFollowMove",
+		"target": "TargetEntity",
+		"attachPoint": "LockDummyAttachPoint",
+		"followRotation": false,
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_LockDummy",
+			"abilityName" : "Dahaka_LockDummy"
+		},
+	],
+},
+"Dahaka_Swap_Bomb" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 10,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_IceBomb",
+			"abilityName" : "Dahaka_IceBomb"
+		},
+	],
+},
+"Dahaka_Swap_ChargePos" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 10,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_ChargePos",
+			"abilityName" : "Dahaka_ChargePos"
+		},
+	],
+},
+"Dahaka_Swap_Charge" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"move" :
+	{
+		"$type" : "ConfigPinballBulletMove",
+		"speed" : 4.5,
+		"radius" : 12.5,
+		"delay": 0.25,
+		"anglerVelocity": 3600.0,
+		"traceOnYAxis" : false,
+		"destroyWhenTargetDie": true,
+		"randomBackAngleAdded": 45.0,
+		"reboundInterval": 0.2,
+		"outOfRangeFixCD": 0.5,
+		"velocityForce":
+		{
+			//WindZone单位不吃风的力
+			"excludeForces": ["WindZoneType","AirflowType","RiseType","SpeedupType","AirflowAccType"],
+		},
+	},
+	"gadget" :
+	{
+		"$type" : "ConfigBulletPattern",
+		"collision" :
+		{
+			"targetType" : "Enemy",
+			"triggerType" : "TriggerAlways",
+			"triggerCD" : 0.75,
+			"ignoreScene" : true,
+		},
+		"triggerActions" :
+		[
+			{
+				"$type" : "ConfigGadgetTriggerAbility",
+				"abilityName" : "Dahaka_Charge_Hit",
+			},
+		],
+		"killByOther" : false,
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 10,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_Charge_Hit",
+			"abilityName" : "Dahaka_Charge_Hit"
+		},
+	],
+},
+"Dahaka_AirWall" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : true,		//如果未触发是否一致存在
+		"lifeTime" : 10,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_AirWall_Effect",
+			"abilityName" : "Dahaka_AirWall_Effect"
+		},
+	],
+},
+"Dahaka_Strike_ForwardCompare" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 3,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_Strike_ForwardCompare",
+			"abilityName" : "Dahaka_Strike_ForwardCompare"
+		},
+	],
+},
+"Dahaka_Swap_ForwardCompare" :
+{
+	"$type" : "ConfigGadget",
+	"combat" :
+	{
+		"property":
+		{
+			"useCreatorProperty" : true, // 是否继承创造者的数值
+			"HP" : 100,
+			"attack" : 10,
+			"defense" : 0,
+			"isInvincible": true,
+			"isGhostToAllied" : true,
+			"isGhostToEnemy" : true,
+			"canTriggerBullet" : false,
+		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		},
+	},
+	"timer" :
+	{
+		"lifeInfinite" : false,		//如果未触发是否一致存在
+		"lifeTime" : 3,			//存在时间f
+	},
+	"abilities":
+	[
+		{
+			"abilityID": "Dahaka_Swap_ForwardCompare",
+			"abilityName" : "Dahaka_Swap_ForwardCompare"
 		},
 	],
 },

@@ -2,7 +2,7 @@
 //////////////////////////////////////////////////////////////////	
 //
 // 旋转喷火
-// 关联ID：70320001，70320002
+// 关联ID：70320001,70320002
 //
 //////////////////////////////////////////////////////////////////
 	{
@@ -266,6 +266,13 @@
 		{
 			"$type": "ConfigAbility",
 			"abilityName": "SceneObj_Gear_Combat_Spray_Fire",
+			"onAdded":
+			[
+				{
+					"$type" : "AttachAbilityStateResistance",
+					"resistanceBuffDebuffs": ["ElementWet","ElementFrozen","ElementPetrifaction","ElementFreeze"],
+				},
+			],
 			"abilityMixins": 
 			[
 				{
@@ -1102,7 +1109,7 @@
 ///////////////////////////////////////////////////////////
 //
 //	电源
-//  关联ID：70360020，70900207，70900232，70900248
+//  关联ID：70360020,70900207,70900232,70900248
 //
 ///////////////////////////////////////////////////////////
 	{
@@ -1183,8 +1190,9 @@
 									"compareType" : "Equal",
 								},
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+									"$type":"ByTargetType",
+									"targetType":"Self",
+									"isTarget":false,
 								},
 							],
 						},
@@ -1215,8 +1223,9 @@
 									"compareType" : "Equal",
 								},
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+									"$type":"ByTargetType",
+									"targetType":"Self",
+									"isTarget":false,
 								},
 								{
 									"$type" : "ByTargetGlobalValue",
@@ -1249,8 +1258,9 @@
 									"compareType" : "Equal",
 								},
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+									"$type":"ByTargetType",
+									"targetType":"Self",
+									"isTarget":false,
 								},
 							],
 						},
@@ -1406,7 +1416,7 @@
 			],
 			"modifiers":
 			{
-				//当受到闪电攻击时，开启闪电链modifier，并且为电桩增加电元素含量
+				//当受到闪电攻击时,开启闪电链modifier,并且为电桩增加电元素含量
 				"Normal":
 				{
 					"stacking" : "Unique",
@@ -1468,8 +1478,9 @@
 									"compareType" : "Equal",
 								},
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+									"$type":"ByTargetType",
+									"targetType":"Self",
+									"isTarget":false,
 								},
 								{
 									"$type" : "ByTargetGlobalValue",
@@ -1513,8 +1524,9 @@
 									"compareType" : "Equal",
 								},
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+									"$type":"ByTargetType",
+									"targetType":"Self",
+									"isTarget":false,
 								},
 								{
 									"$type" : "ByTargetGlobalValue",
@@ -1798,7 +1810,7 @@
 			],
 			"modifiers":
 			{
-				//当受到闪电攻击时，开启闪电链modifier，并且为电桩增加电元素含量
+				//当受到闪电攻击时,开启闪电链modifier,并且为电桩增加电元素含量
 				"Normal":
 				{
 					"stacking" : "Unique",
@@ -1897,8 +1909,9 @@
 									"compareType" : "Equal",
 								},
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+									"$type":"ByTargetType",
+									"targetType":"Self",
+									"isTarget":false,
 								},
 								{
 									"$type" : "ByTargetGlobalValue",
@@ -1975,8 +1988,9 @@
 									"compareType" : "Equal",
 								},
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+									"$type":"ByTargetType",
+									"targetType":"Self",
+									"isTarget":false,
 								},
 								{
 									"$type" : "ByTargetGlobalValue",
@@ -3014,7 +3028,7 @@
 ////////////////////////////////////////////
 //
 //坠落冰柱bullet
-// 关联ID：70350021，70900218
+// 关联ID：70350021,70900218
 //
 /////////////////////////////////////////
 {
@@ -3254,7 +3268,7 @@
 ///////////////////////////////
 //
 //固定位置镭射机关 打人特供
-// 关联ID：70360022，70900281
+// 关联ID：70360022,70900281
 //
 ////////////////////////////////////
 	{
@@ -3360,7 +3374,7 @@
 ///////////////////////////////
 //
 //移动镭射机关
-// 关联ID：70360021，70900227，70900229
+// 关联ID：70360021,70900227,70900229
 //
 ////////////////////////////////////
 	{
@@ -4719,4 +4733,2556 @@
 			],
 		},
 	},
+
+///////////////////////////////////////////////////
+//
+// 	可破坏的怪物增幅器(这是一个可处理三层Buff的Aura)
+//
+///////////////////////////////////////////////////
+/*
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "SceneObj_Area_Common_Property_Ani_Prop_CampEnhancer_01_Ability",
+			"abilitySpecials":
+			{
+			    "RateLv1":1.0,
+			    "RateLv2":1.0,
+			    "RateLv3":1.0,
+			},
+			"onAdded":
+			[
+				// onAdd时移除教下Gadget
+				{
+					"$type" : "ApplyModifier",
+					"target": "Target",
+					"modifierName": "BaseDeathQuick",
+					"otherTargets":
+					{
+						"$type": "SelectTargetsByShape",
+						"shapeName": "CircleR2H4",
+						"centerBasedOn": "Self",
+						"campTargetType": "AllExceptSelf",
+						"campBasedOn": "Self",
+					},
+					"targetPredicates"  : 
+					[
+						{
+							"$type":"ByTargetGlobalValue",
+							"key":"_Is_CampEnhancer_Base",
+							"value":1,
+							"compareType":"Equal"
+						}
+					],
+				},
+				{
+					"$type": "CreateGadget",
+					"target":"Self",
+					"gadgetID": 70350202,
+					"campID": 4001,
+					"campTargetType": "Enemy",
+					"born":
+					{
+						"$type": "ConfigBornBySelf",										
+					},					
+					"canBeHandledOnRecover":true,					
+				},
+				{
+					//注意此处，若AttachModifier,会因为elementDurability的默认值，被设为100
+					"$type": "ApplyModifier",
+					"modifierName": "RockShield",
+					"target": "Self",
+				},
+			],		
+			"onFieldEnter"://为进入Field的怪上UNIQUE_HurtDelta_Manage并Count+1
+			[
+				{
+					"$type" : "Predicated",
+					"target": "Target",
+					"targetPredicates" :
+					[
+						{
+							"$type": "ByTargetGadgetState",
+							"target": "Self",
+							"gadgetState": 0,
+						},
+						{
+							"$type" : "ByEntityTypes",
+							"entityTypes" : ["Monster"],
+						},
+						{
+							"$type": "ByNot",
+							"predicates": 
+							[
+						        {
+						          "$type": "ByHasFeatureTag",
+						          "featureTagIDs": [9001],
+						        },
+							],
+						},													
+					],
+					"successActions" :
+					[
+						{
+                            "$type": "DebugLog",
+                            "content": "增幅器 => +1",
+                        },
+						{
+							"$type":"ApplyModifier",
+							"modifierName":"BuffCountIncrease",
+							"target":"Target"
+						},
+						{
+							"$type": "ApplyModifier",
+							"target": "Target",
+							"modifierName": "UNIQUE_CampEnhancer_AddHurt_Manage",
+						},
+					],
+				},
+			],
+			"onFieldExit"://为离开Field的怪Count-1
+			[
+				{
+					"$type" : "Predicated",
+					"target": "Target",
+					"targetPredicates" :
+					[
+						{
+							"$type" : "ByEntityTypes",
+							"entityTypes" : ["Monster"],
+						},
+						{
+							"$type": "ByNot",
+							"predicates": 
+							[
+						        {
+						          "$type": "ByHasFeatureTag",
+						          "featureTagIDs": [9001],
+						        },
+							],
+						},	
+					],
+					"successActions" :
+					[
+						{
+                            "$type": "DebugLog",
+                            "content": "增幅器 => -1",
+                        },
+						{
+							"$type":"ApplyModifier",
+							"modifierName":"BuffCountDecrease",
+							"target":"Target"
+						},
+					],
+				},
+			],
+			"onKill":
+			[
+				{
+					"$type": "FireEffect",
+					"target": "Self",
+					"effectPattern": "Eff_SceneObj_CampEnhancer_01_Destory",
+				},
+				{
+					"$type":"ApplyModifier",
+					"modifierName":"BuffCountDecrease",
+					"target":"Target",
+					"otherTargets": 
+					{
+						"$type": "SelectTargetsByLCTriggerAll",
+					},
+					"targetPredicates":
+					[
+						{
+							"$type": "ByEntityTypes",
+							"entityTypes": ["Monster"],
+						},
+						{
+							"$type": "ByNot",
+							"predicates": 
+							[
+						        {
+						          "$type": "ByHasFeatureTag",
+						          "featureTagIDs": [9001],
+						        },
+							],
+						},	
+					],
+				},
+				{
+					"$type" : "ApplyModifier",
+					"target": "Target",
+					"modifierName": "BaseDeath",
+					"otherTargets":
+					{
+						"$type": "SelectTargetsByShape",
+						"shapeName": "CircleR2H4",
+						"centerBasedOn": "Self",
+						"campTargetType": "AllExceptSelf",
+						"campBasedOn": "Self",
+					},
+					"targetPredicates"  : 
+					[
+						{
+							"$type":"ByTargetGlobalValue",
+							"key":"_Is_CampEnhancer_Base",
+							"value":1,
+							"compareType":"Equal"
+						}
+					],
+				},
+			],
+			"modifiers":
+			{
+				//RockShield
+				"RockShield": 
+				{
+					"elementType": "Rock",
+					"elementDurability": 300,
+					"state" : "Limbo",
+					"modifierMixins":
+					[
+						{
+							"$type": "ShieldBarMixin",
+						},
+					],
+					"onAdded":
+					[
+						{
+							"$type": "AttachEffect",
+							"target": "Self",
+							"effectPattern": "Eff_SceneObj_CampEnhancer_01",
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "KillSelf",
+						},
+					],
+				},
+				//怪物身上的唯一Modifier,用于分配对应等级的Modifier,以及自毁逻辑
+				"UNIQUE_CampEnhancer_AddHurt_Manage":
+				{
+					"isUnique": true,
+					"stacking":"Unique",
+					"modifierMixins":
+					[
+						{
+							"$type": "AttachModifierToSelfGlobalValueMixin", // 计数到0时,移除WindBlade这个modifier
+							"globalValueKey": "_Monster_CampEnhancer_AddHurt_Count",
+							"valueSteps" : [-0.5, 0.5, 1.5, 2.5, 3.5],
+							"modifierNameSteps" : [
+								"UNIQUE_CampEnhancer_AddHurt_Lv0",
+								"UNIQUE_CampEnhancer_AddHurt_Lv1",
+								"UNIQUE_CampEnhancer_AddHurt_Lv2",
+								"UNIQUE_CampEnhancer_AddHurt_Lv3",
+							],
+						},
+					],
+				},
+				//当怪物Count = 0时,会处理掉其modifier,延迟5秒生效
+				"UNIQUE_CampEnhancer_AddHurt_Lv0":
+				{
+					"isUnique": true,
+					"onAdded":
+					[
+						{
+							"$type": "RemoveUniqueModifier",
+							"modifierName": "UNIQUE_CampEnhancer_AddHurt_Manage",
+						},
+					],
+				},
+				"UNIQUE_CampEnhancer_AddHurt_Lv1":
+				{
+					"isUnique": true,
+					"onAdded":
+					[
+						//待处理特效
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_Monster_Common_CampEnhancer_01"
+						}
+					],
+					"properties":
+					{
+						"Actor_AttackRatio": "%RateLv1",
+						"Actor_EndureDelta": 0.01, //霸体
+						"Actor_PhysicalSubHurtDelta":"%RateLv1",
+						"Actor_FireSubHurtDelta" : "%RateLv1",
+						"Actor_ElecSubHurtDelta" : "%RateLv1",
+						"Actor_IceSubHurtDelta" : "%RateLv1",
+						"Actor_WaterSubHurtDelta" : "%RateLv1",
+						"Actor_GrassSubHurtDelta" : "%RateLv1",
+						"Actor_WindSubHurtDelta" : "%RateLv1",
+						"Actor_RockSubHurtDelta" : "%RateLv1",
+
+					},
+				},
+				"UNIQUE_CampEnhancer_AddHurt_Lv2":
+				{
+					"isUnique": true,
+					"onAdded":
+					[
+						//待处理特效
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_Monster_Common_CampEnhancer_02"
+						}
+					],
+					"properties":
+					{
+						"Actor_AttackRatio": "%RateLv2",
+						"Actor_EndureDelta": 0.01, //霸体
+						"Actor_PhysicalSubHurtDelta":"%RateLv2",
+						"Actor_FireSubHurtDelta" : "%RateLv2",
+						"Actor_ElecSubHurtDelta" : "%RateLv2",
+						"Actor_IceSubHurtDelta" : "%RateLv2",
+						"Actor_WaterSubHurtDelta" : "%RateLv2",
+						"Actor_GrassSubHurtDelta" : "%RateLv2",
+						"Actor_WindSubHurtDelta" : "%RateLv2",
+						"Actor_RockSubHurtDelta" : "%RateLv2",
+					},
+				},
+				"UNIQUE_CampEnhancer_AddHurt_Lv3":
+				{
+					"isUnique": true,
+					"onAdded":
+					[
+						//待处理特效
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_Monster_Common_CampEnhancer_03"
+						}
+					],
+					"properties":
+					{
+						"Actor_AttackRatio": "%RateLv3",
+						"Actor_EndureDelta": 0.01, //霸体
+						"Actor_PhysicalSubHurtDelta":"%RateLv3",
+						"Actor_FireSubHurtDelta" : "%RateLv3",
+						"Actor_ElecSubHurtDelta" : "%RateLv3",
+						"Actor_IceSubHurtDelta" : "%RateLv3",
+						"Actor_WaterSubHurtDelta" : "%RateLv3",
+						"Actor_GrassSubHurtDelta" : "%RateLv3",
+						"Actor_WindSubHurtDelta" : "%RateLv3",
+						"Actor_RockSubHurtDelta" : "%RateLv3",
+					},
+				},
+				//BuffCount+1
+				"BuffCountIncrease":
+				{
+					"duration":1,
+					"onAdded":
+					[
+						{
+                            "$type": "DebugLog",
+                            "content": "增幅器值 => +1",
+                        },
+						{
+							"$type": "AddGlobalValue",
+							"target": "Self",
+							"key": "_Monster_CampEnhancer_AddHurt_Count",
+							"value": 1,
+							"useLimitRange": true,
+							"maxValue": 3,
+							"minValue": 0,
+						},
+					],
+				},
+				//BuffCount-1
+				"BuffCountDecrease":
+				{
+					"duration":1,
+					"onAdded":
+					[
+						{
+                            "$type": "DebugLog",
+                            "content": "增幅器值 => -1",
+                        },
+						{
+							"$type": "AddGlobalValue",
+							"target": "Self",
+							"key": "_Monster_CampEnhancer_AddHurt_Count",
+							"value": -1,
+							"useLimitRange": true,
+							"maxValue": 3,
+							"minValue": 0,
+						},
+					],
+				},
+				//BaseCount=1
+				"BaseDeath":
+				{
+					"duration":1,
+					"onAdded":
+					[
+						{
+							"$type" : "SetGlobalValue",
+							"target": "Self",
+							"key": "_BaseSelfDisappear",
+							"value": 1,
+						},
+					],
+				},
+				"BaseDeathQuick":
+				{
+					"duration":1,
+					"onAdded":
+					[						
+						{
+							"$type" : "SetGlobalValue",
+							"target": "Self",
+							"key": "_BaseSelfDisappear",
+							"value": 2,
+						},
+					],
+				},
+			},
+
+		},
+	},
+*/
+///////////////////////////////////////////////////
+//
+// 	可破坏的怪物增幅器(这是一个可处理三层Buff的Aura)
+//
+///////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "SceneObj_Area_Common_Property_Ani_Prop_CampEnhancer_01_Ability",
+			"abilitySpecials":
+			{
+			    "RateLv1":1.0,
+			    "RateLv2":1.0,
+			    "RateLv3":1.0,
+			},
+			"onAdded":
+			[				
+				{// onAdd时移除脚下Base
+					"$type" : "ApplyModifier",
+					"target": "Target",
+					"modifierName": "BaseDeathQuick",
+					"otherTargets":
+					{
+						"$type": "SelectTargetsByShape",
+						"shapeName": "CircleR2H4",
+						"centerBasedOn": "Self",
+						"campTargetType": "AllExceptSelf",
+						"campBasedOn": "Self",
+					},
+					"targetPredicates"  : 
+					[
+						{
+							"$type":"ByTargetGlobalValue",
+							"key":"_Is_CampEnhancer_Base",
+							"value":1,
+							"compareType":"Equal"
+						}
+					],
+				},
+				{//在脚下创建Base
+					"$type": "CreateGadget",
+					"target":"Self",
+					"gadgetID": 70350202,
+					"campID": 4001,
+					"campTargetType": "Enemy",
+					"born":
+					{
+						"$type": "ConfigBornBySelf",										
+					},					
+					"canBeHandledOnRecover":true,					
+				},
+				{//注意此处，若AttachModifier,会因为elementDurability的默认值，被设为100
+					"$type": "ApplyModifier",
+					"modifierName": "RockShield",
+					"target": "Self",
+				},
+				{//光环Buff
+					"$type": "ApplyModifier",
+					"modifierName": "EnhancerHalo",
+					"target": "Self",
+				},
+			],		
+			"onKill":
+			[
+				{
+					"$type": "FireEffect",
+					"target": "Self",
+					"effectPattern": "Eff_SceneObj_CampEnhancer_01_Destory",
+				},
+				{	//基座处理
+					"$type" : "ApplyModifier",
+					"target": "Target",
+					"modifierName": "BaseDeath",
+					"otherTargets":
+					{
+						"$type": "SelectTargetsByShape",
+						"shapeName": "CircleR2H4",
+						"centerBasedOn": "Self",
+						"campTargetType": "AllExceptSelf",
+						"campBasedOn": "Self",
+					},
+					"targetPredicates"  : 
+					[
+						{
+							"$type":"ByTargetGlobalValue",
+							"key":"_Is_CampEnhancer_Base",
+							"value":1,
+							"compareType":"Equal"
+						}
+					],
+				},
+			],
+			"modifiers":
+			{
+				//RockShield
+				"RockShield": 
+				{
+					"elementType": "Rock",
+					"elementDurability": 300,
+					"state" : "Limbo",
+					"modifierMixins":
+					[
+						{
+							"$type": "ShieldBarMixin",
+						},
+					],
+					"onAdded":
+					[
+						{
+							"$type": "AttachEffect",
+							"target": "Self",
+							"effectPattern": "Eff_SceneObj_CampEnhancer_01",
+						},
+					],
+					"onRemoved":
+					[
+						{
+							"$type": "KillSelf",
+						},
+					],
+				},
+				//光环判定，每秒给周围怪上Buff
+				"EnhancerHalo":
+				{
+					"thinkInterval":1,
+					"onThinkInterval":
+					[
+						{
+							"$type" : "Predicated",
+							"otherTargets": 
+							{
+								"$type": "SelectTargetsByLCTriggerAll",
+							},
+							"targetPredicates" :
+							[
+								{
+									"$type" : "ByEntityTypes",
+									"entityTypes" : ["Monster"],
+								},
+								{
+									"$type": "ByNot",
+									"predicates": 
+									[
+								        {
+								          "$type": "ByHasFeatureTag",
+								          "featureTagIDs": [9001],
+								        },
+									],
+								},													
+							],
+							"successActions" :
+							[
+								{
+									"$type":"ApplyModifier",
+									"target":"Target",
+									"modifierName":"AddHurtCount",									
+								},
+								{
+									"$type": "ApplyModifier",
+									"target": "Target",
+									"modifierName": "UNIQUE_CampEnhancer_AddHurt_Manage",
+								},
+							],
+						},
+					],
+
+				},
+				"AddHurtCount":
+				{
+					"duration":1.5,
+					"onAdded":
+					[	
+						{
+	                        "$type": "DebugLog",
+	                        "content": "增幅器Target => +1",
+		                },					
+						{
+							"$type": "AddGlobalValue",
+							"target": "Self",
+							"key": "_Monster_CampEnhancer_AddHurt_Count",
+							"value": 1,
+						},
+					],
+					"onRemoved":
+					[	
+						{
+	                        "$type": "DebugLog",
+	                        "content": "增幅器Target => -1",
+		                },					
+						{
+							"$type": "AddGlobalValue",
+							"target": "Self",
+							"key": "_Monster_CampEnhancer_AddHurt_Count",
+							"value": -1,
+						},
+					],
+				},
+				//怪物身上的唯一Modifier,用于分配对应等级的Modifier,以及自毁逻辑
+				"UNIQUE_CampEnhancer_AddHurt_Manage":
+				{
+					"isUnique": true,
+					"stacking":"Unique",
+					"modifierMixins":
+					[
+						{
+							"$type": "AttachModifierToSelfGlobalValueMixin", // 计数到0时,移除WindBlade这个modifier
+							"globalValueKey": "_Monster_CampEnhancer_AddHurt_Count",
+							"valueSteps" : [-10, 0.5, 1.5, 2.5, 10],
+							"modifierNameSteps" : [
+								"UNIQUE_CampEnhancer_AddHurt_Lv0",
+								"UNIQUE_CampEnhancer_AddHurt_Lv1",
+								"UNIQUE_CampEnhancer_AddHurt_Lv2",
+								"UNIQUE_CampEnhancer_AddHurt_Lv3",
+							],
+						},
+					],
+				},
+				//当怪物Count = 0时,会处理掉其modifier,延迟5秒生效
+				"UNIQUE_CampEnhancer_AddHurt_Lv0":
+				{
+					"isUnique": true,
+					"properties":
+					{
+						"Actor_AttackRatio": 0,
+						"Actor_PhysicalSubHurtDelta":0,
+						"Actor_FireSubHurtDelta" : 0,
+						"Actor_ElecSubHurtDelta" : 0,
+						"Actor_IceSubHurtDelta" : 0,
+						"Actor_WaterSubHurtDelta" : 0,
+						"Actor_GrassSubHurtDelta" : 0,
+						"Actor_WindSubHurtDelta" : 0,
+						"Actor_RockSubHurtDelta" : 0,
+
+					},
+				},
+				"UNIQUE_CampEnhancer_AddHurt_Lv1":
+				{
+					"isUnique": true,
+					"onAdded":
+					[
+						//待处理特效
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_Monster_Common_CampEnhancer_01"
+						}
+					],
+					"properties":
+					{
+						"Actor_AttackRatio": "%RateLv1",
+						"Actor_EndureDelta": 0.01, //霸体
+						"Actor_PhysicalSubHurtDelta":"%RateLv1",
+						"Actor_FireSubHurtDelta" : "%RateLv1",
+						"Actor_ElecSubHurtDelta" : "%RateLv1",
+						"Actor_IceSubHurtDelta" : "%RateLv1",
+						"Actor_WaterSubHurtDelta" : "%RateLv1",
+						"Actor_GrassSubHurtDelta" : "%RateLv1",
+						"Actor_WindSubHurtDelta" : "%RateLv1",
+						"Actor_RockSubHurtDelta" : "%RateLv1",
+
+					},
+				},
+				"UNIQUE_CampEnhancer_AddHurt_Lv2":
+				{
+					"isUnique": true,
+					"onAdded":
+					[
+						//待处理特效
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_Monster_Common_CampEnhancer_02"
+						}
+					],
+					"properties":
+					{
+						"Actor_AttackRatio": "%RateLv2",
+						"Actor_EndureDelta": 0.01, //霸体
+						"Actor_PhysicalSubHurtDelta":"%RateLv2",
+						"Actor_FireSubHurtDelta" : "%RateLv2",
+						"Actor_ElecSubHurtDelta" : "%RateLv2",
+						"Actor_IceSubHurtDelta" : "%RateLv2",
+						"Actor_WaterSubHurtDelta" : "%RateLv2",
+						"Actor_GrassSubHurtDelta" : "%RateLv2",
+						"Actor_WindSubHurtDelta" : "%RateLv2",
+						"Actor_RockSubHurtDelta" : "%RateLv2",
+					},
+				},
+				"UNIQUE_CampEnhancer_AddHurt_Lv3":
+				{
+					"isUnique": true,
+					"onAdded":
+					[
+						//待处理特效
+						{
+							"$type":"AttachEffect",
+							"effectPattern":"Eff_Monster_Common_CampEnhancer_03"
+						}
+					],
+					"properties":
+					{
+						"Actor_AttackRatio": "%RateLv3",
+						"Actor_EndureDelta": 0.01, //霸体
+						"Actor_PhysicalSubHurtDelta":"%RateLv3",
+						"Actor_FireSubHurtDelta" : "%RateLv3",
+						"Actor_ElecSubHurtDelta" : "%RateLv3",
+						"Actor_IceSubHurtDelta" : "%RateLv3",
+						"Actor_WaterSubHurtDelta" : "%RateLv3",
+						"Actor_GrassSubHurtDelta" : "%RateLv3",
+						"Actor_WindSubHurtDelta" : "%RateLv3",
+						"Actor_RockSubHurtDelta" : "%RateLv3",
+					},
+				},
+				//BaseCount=1
+				"BaseDeath":
+				{
+					"duration":1,
+					"onAdded":
+					[
+						{
+							"$type" : "SetGlobalValue",
+							"target": "Self",
+							"key": "_BaseSelfDisappear",
+							"value": 1,
+						},
+					],
+				},
+				"BaseDeathQuick":
+				{
+					"duration":1,
+					"onAdded":
+					[						
+						{
+							"$type" : "SetGlobalValue",
+							"target": "Self",
+							"key": "_BaseSelfDisappear",
+							"value": 2,
+						},
+					],
+				},
+			},
+
+		},
+	},
+///////////////////////////////////////////////////
+//
+// 	可破坏的怪物增幅器底座 （会在自己周围没有增幅器约30秒后干掉自己)
+//
+///////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "SceneObj_Area_Common_Property_Ani_Prop_CampEnhancerBase_01_Ability",
+			"onAdded":
+			[
+				{
+					"$type":"ApplyModifier",
+					"modifierName":"DetectSelf"
+				},
+			],			
+			"modifiers":
+			{
+				"DetectSelf"://开启
+				{
+					"thinkInterval":5,
+					"onAdded":
+					[
+						{
+							"$type" : "SetGlobalValue",
+							"target": "Self",
+							"key": "_Is_CampEnhancer_Base",
+							"value": 1,
+						},
+					],
+					"onThinkInterval":
+					[
+						{
+							"$type" : "Predicated",
+							"target": "Self",
+							"targetPredicates" :
+							[
+								{
+									"$type": "ByTargetGlobalValue",
+									"target": "Self",
+									"key": "_BaseSelfDisappear",
+									"value": 1,
+									"compareType": "Equal",
+								},
+							],
+							"successActions" :
+							[
+								{
+									"$type":"ApplyModifier",
+									"modifierName":"UNIQUE_DisappearTimer",
+									"target":"Self"
+								},
+							],
+						},
+						{
+							"$type" : "Predicated",
+							"target": "Self",
+							"targetPredicates" :
+							[
+								{
+									"$type": "ByTargetGlobalValue",
+									"target": "Self",
+									"key": "_BaseSelfDisappear",
+									"value": 2,
+									"compareType": "Equal",
+								},
+							],
+							"successActions" :
+							[
+								{
+									"$type":"ApplyModifier",
+									"modifierName":"UNIQUE_DisappearTimerQuick",
+									"target":"Self"
+								},
+							],
+						},
+					],
+				},
+				"UNIQUE_DisappearTimer":
+				{
+					"duration":30,
+					"stacking":"Unique",
+					"onRemoved":
+					[
+						{
+							"$type":"KillSelf",
+							"killSelfType": "Disappear",
+						}
+					]
+				},
+				"UNIQUE_DisappearTimerQuick":
+				{
+					"duration":2,
+					"stacking":"Unique",
+					"onRemoved":
+					[
+						{
+							"$type":"KillSelf",
+							"killSelfType": "Disappear",
+						}
+					]
+				},
+			},
+
+		},
+	},
+////////////////////////////////////////////
+//
+// 追踪能量球创建逻辑gadget
+// 关联ID：70330054
+//
+/////////////////////////////////////////
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "SceneObj_Gear_Combat_TracingEnergyBall_CreatorGadget",
+		// "onAdded":
+		// [
+		// 	{
+		// 		"$type" : "ApplyModifier",
+		// 		"modifierName"  : "Create_Latency",
+		// 	},
+		// ],
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToGadgetStateMixin",
+				"gadgetState": 0,
+				"modifierName": "Reset",
+			},
+			{
+				"$type": "AttachToGadgetStateMixin",
+				"gadgetState": 201,
+				"modifierName": "NormalType",
+			},
+			{
+				"$type": "AttachToGadgetStateMixin",
+				"gadgetState": 901,
+				"modifierName": "PowerUp",
+			},
+			{
+				"$type": "AttachToGadgetStateMixin",
+				"gadgetState": 902,
+				"modifierName": "ExtraDamage",
+			},
+			{
+				"$type": "AttachToGadgetStateMixin",
+				"gadgetState": 903,
+				"modifierName": "Both",
+			},
+			{
+				"$type" : "AttachModifierToSelfGlobalValueMixin",
+				"globalValueKey"  : "_SCENEOBJ_Gear_Combat_TracingEnergyBall_Active",
+				"defaultGlobalValueOnCreate"  : 0,
+				"valueSteps"  : [-1,0.5,1.5],
+				"modifierNameSteps"  : ["Blank", "ActiveState"],
+			},
+		],
+		"modifiers":
+		{
+			"Reset":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -1,
+						"key"  : "_SCENEOBJ_Gear_Combat_TracingEnergyBall_Active",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+			"NormalType":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_SCENEOBJ_Gear_Combat_TracingEnergyBall_Active",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -1,
+						"key"  : "_SCENEOBJ_TracingEnergyBall_PowerUp",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -1,
+						"key"  : "_SCENEOBJ_TracingEnergyBall_ExtraDamage",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+			"PowerUp":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_SCENEOBJ_Gear_Combat_TracingEnergyBall_Active",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_SCENEOBJ_TracingEnergyBall_PowerUp",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -1,
+						"key"  : "_SCENEOBJ_TracingEnergyBall_ExtraDamage",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+			"ExtraDamage":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_SCENEOBJ_Gear_Combat_TracingEnergyBall_Active",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -1,
+						"key"  : "_SCENEOBJ_TracingEnergyBall_PowerUp",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_SCENEOBJ_TracingEnergyBall_ExtraDamage",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+			"Both":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_SCENEOBJ_Gear_Combat_TracingEnergyBall_Active",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_SCENEOBJ_TracingEnergyBall_PowerUp",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_SCENEOBJ_TracingEnergyBall_ExtraDamage",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+			"Blank":
+			{},
+			"ActiveState":
+			{
+				"thinkInterval": 20,
+				"onThinkInterval":
+				[
+					{
+						"$type": "ShowReminder",
+						"id": 400029,
+					},
+					{
+						"$type" : "SetSelfAttackTarget",
+						"turnToTargetImmediately" : true,
+						"otherTargets":
+						{
+							"$type": "SelectTargetsByShape",
+							"shapeName": "CircleR60",
+							"centerBasedOn": "Self",
+							"campTargetType": "Enemy",
+							"campBasedOn": "Self",
+							"entityTypePriority":["Avatar"],
+							"topLimit": 1,
+							"sortType": "Random",
+						},
+					},
+					{
+						"$type" : "TriggerBullet",
+						"bulletID"  : 70330055,
+						"campID": 5001,
+						"target": "CurLocalAvatar",
+						"born":
+						{
+							"$type": "ConfigBornBySelf",
+							"bornRandom":
+							{
+								"$type":"BornRandomFromCenter",
+								"minRandomRange":0,
+								"maxRandomRange":20,
+							},
+							"onGround": true,
+							"alongGround": true,
+						},
+						"trackTarget"  : "SelfAttackTarget",
+						// "trackTarget"  : "CurLocalAvatar",
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_TracingEnergyBall_PowerUp",
+								"value"  : 0,
+								"forceByCaster"  : true,
+								"compareType"  : "NoneOrEqual",
+							},
+						],
+					},
+					{
+						"$type" : "TriggerBullet",
+						"bulletID"  : 70330056,
+						"campID": 5001,
+						"target": "CurLocalAvatar",
+						"born":
+						{
+							"$type": "ConfigBornBySelf",
+							"bornRandom":
+							{
+								"$type":"BornRandomFromCenter",
+								"minRandomRange":0,
+								"maxRandomRange":20,
+							},
+							"onGround": true,
+							"alongGround": true,
+						},
+						"trackTarget"  : "SelfAttackTarget",
+						// "trackTarget"  : "CurLocalAvatar",
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_TracingEnergyBall_PowerUp",
+								"value"  : 1,
+								"forceByCaster"  : true,
+								"compareType"  : "Equal",
+							},
+						],
+					},
+				],
+			},
+		},
+	},
+},
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "SceneObj_Gear_Combat_TracingEnergyBall",
+		"onAdded":
+		[
+			{
+				"$type": "SetSystemValueToOverrideMap",
+				"key": "ElementLevelCo",
+				"type": "ElementLevelCo",
+			},
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "Gear_Combat_TracingEnergyBall_Latency",
+			},
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "Gear_Combat_TracingEnergyBall_LineEffect_Latency",
+			},
+		],
+		"onKill":
+		[
+			{
+				"$type" : "RemoveModifier",
+				"modifierName"  : "Gear_Combat_TracingEnergyBall",
+			},
+		],
+		"onAbilityStart":
+		[
+			{
+				"$type": "DamageByAttackValue",
+				"target": "Target",
+				"attackInfo":
+				{
+					"attackTag":"Gear_Combat_TracingEnergyBall",
+					"attackProperty":
+					{
+						"damagePercentage": 0,
+						"damageExtra": "%ElementLevelCo*%TracingEnergyBall_Ratio",
+						"strikeType": "Default",
+						"attackType": "Range",
+						"ignoreAttackerProperty": true,
+						"enBreak": 100,
+					},
+					"hitPattern":
+					{
+						"onHitEffectName": "none",
+						"hitImpulseType": "LV3",
+						"reboundRatio": 0,
+						"canBeDefenceHalt": true,
+						"muteHitText": false,
+						"retreatType": "ByAttacker",
+					},
+		        },
+			},
+			{
+				"$type" : "Predicated",
+				"target"  : "Target",
+				"targetPredicates"  : 
+				[
+					{
+						"$type" : "ByEntityTypes",
+						"entityTypes"  : ["Avatar"],
+					},
+				],
+				"successActions"  : 
+				[
+					{
+						"$type": "EnableBulletCollisionPluginTrigger",
+						"setEnable": false,
+					},
+					{
+						"$type" : "SendEffectTrigger",
+						"effectPattern"  : "Eff_SceneObj_TracingEnergyBall",
+						"parameter"  : "Explode",
+					},
+					{
+						"$type" : "SendEffectTrigger",
+						"effectPattern"  : "Eff_SceneObj_TracingEnergyBall_PowerUp",
+						"parameter"  : "Explode",
+					},
+				],
+			},
+			{
+				"$type": "FireHitEffect",
+				"hitEntity": "Eff_SceneObj_TracingEnergyBall_Hit",
+			},
+		],
+		"modifiers":
+		{
+			"Gear_Combat_TracingEnergyBall_LineEffect_Latency":
+			{
+				"duration": 0.1,
+				"onRemoved": 
+				[
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "Gear_Combat_TracingEnergyBall_LineEffect",
+						"target"  : "Owner",
+					},
+				],
+			},
+			"Gear_Combat_TracingEnergyBall_LineEffect":
+			{
+				"onAdded":
+				[
+					{
+						"$type": "FireEffect",
+						"effectPattern": "Eff_SceneObj_TracingEnergyBall_DirectionLine",
+						"target": "SelfAttackTarget",
+						"born":
+						{
+							"$type": "ConfigBornByAttachPoint",
+							"attachPointName": "RootNode",
+							"attachPointTargetType": "Applier",
+						},
+					},
+				],
+			},
+			"Gear_Combat_TracingEnergyBall_Latency":
+			{
+				"duration": 2,
+				"onAdded":
+				[
+					{
+						"$type" : "FireEffect",
+						"effectPattern"  : "Eff_SceneObj_TracingEnergyBall_Alert",
+					},
+					{
+						"$type":"EnableBulletCollisionPluginTrigger",
+						"target":"Self",
+						"setEnable": false,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "SetAnimatorTrigger",
+						"triggerID"  : "ActiveTrigger",
+					},
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "Gear_Combat_TracingEnergyBall",
+					},
+					{
+						"$type":"EnableBulletCollisionPluginTrigger",
+						"target":"Self",
+						"setEnable":true
+					},
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "Gear_Combat_TracingEnergyBall_Ratio",
+					},
+				],
+			},
+			"Gear_Combat_TracingEnergyBall":
+			{
+				"modifierMixins":
+				[
+					{
+						"$type" : "ModifyDamageMixin",
+						"attackTags": ["Gear_Combat_TracingEnergyBall"],
+						"damageExtra": "%ElementLevelCo*%TracingEnergyBall_Ratio",
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_TracingEnergyBall_ExtraDamage",
+								"value"  : 1,
+							},
+						],
+					},
+				],
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_SceneObj_TracingEnergyBall",
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_TracingEnergyBall_PowerUp",
+								"target": "Owner",
+								"value"  : 0,
+								"compareType"  : "NoneOrEqual",
+							},
+						],
+					},
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_SceneObj_TracingEnergyBall_PowerUp",
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_TracingEnergyBall_PowerUp",
+								"target": "Owner",
+								"value"  : 1,
+								"compareType"  : "Equal",
+							},
+						],
+					},
+				],
+				"onAttackLanded":
+				[
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "Gear_Combat_TracingEnergyBall_TeamSearcher",
+						"target"  : "Target",
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"target": "Owner",
+								"key"  : "_SCENEOBJ_TracingEnergyBall_ExtraDamage",
+								"value"  : 1,
+								"compareType"  : "Equal",
+							},
+							{
+								"$type" : "ByEntityTypes",
+								"entityTypes"  : ["Avatar"],
+							},
+						],
+					},
+					{
+						"$type" : "KillSelf",
+						"duration": 0.8,
+						"predicates":
+						[
+							{
+								"$type" : "ByEntityTypes",
+								"entityTypes"  : ["Avatar"],
+							},
+						],
+					},
+				],
+			},
+			"Gear_Combat_TracingEnergyBall_TeamSearcher":
+			{
+				"duration": 0.1,
+				"onAdded":
+				[
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "UNIQUE_Gear_Combat_TracingEnergyBall_Team",
+						"target": "Team",
+					},
+				],
+			},
+			"UNIQUE_Gear_Combat_TracingEnergyBall_Team":
+			{
+				"isUnique": true,
+				"stacking":"MultipleAllRefresh",
+				"duration": 40,
+				"stackingOption":
+				{
+					"maxModifierNumForMultipleType": 1,
+					"enableMixedUnique":true,
+				}, 
+				"modifierMixins":
+				[
+					{
+						"$type":"CurLocalAvatarMixin",
+						"modifierName": "UNIQUE_Gear_Combat_TracingEnergyBall_ExtraDamage",
+					},
+				],
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_SceneObj_TracingEnergyBall_AvatarExtraDamage",
+					},
+				],
+			},
+			"UNIQUE_Gear_Combat_TracingEnergyBall_ExtraDamage":
+			{
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_SCENEOBJ_TracingEnergyBall_ExtraDamage",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -1,
+						"key"  : "_SCENEOBJ_TracingEnergyBall_ExtraDamage",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+			"Gear_Combat_TracingEnergyBall_Ratio":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 3,
+						"key"  : "_SCENEOBJ_TracingEnergyBall_Ratio",
+						"useLimitRange"  : true,
+						"maxValue"  : 4,
+						"minValue"  : 1,
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_TracingEnergyBall_PowerUp",
+								"target": "Owner",
+								"value"  : 0,
+								"compareType"  : "NoneOrEqual",
+							},
+						],
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 4,
+						"key"  : "_SCENEOBJ_TracingEnergyBall_Ratio",
+						"useLimitRange"  : true,
+						"maxValue"  : 4,
+						"minValue"  : 1,
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_TracingEnergyBall_PowerUp",
+								"target": "Owner",
+								"value"  : 1,
+								"compareType"  : "Equal",
+							},
+						],
+					},
+					{
+						"$type" : "SetGlobalValueToOverrideMap",
+						"globalValueKey"  : "_SCENEOBJ_TracingEnergyBall_Ratio",
+						"overrideMapKey"  : "TracingEnergyBall_Ratio",
+					},
+				],
+				"thinkInterval": 4,
+				"onThinkInterval":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -0.5,
+						"key"  : "_SCENEOBJ_TracingEnergyBall_Ratio",
+						"useLimitRange"  : true,
+						"maxValue"  : 4,
+						"minValue"  : 1,
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_TracingEnergyBall_PowerUp",
+								"value"  : 0,
+								"compareType"  : "NoneOrEqual",
+							},
+						],
+					},
+					// {
+					// 	"$type" : "AddGlobalValue",
+					// 	"value"  : -0.3,
+					// 	"key"  : "_SCENEOBJ_TracingEnergyBall_Ratio",
+					// 	"useLimitRange"  : true,
+					// 	"maxValue"  : 4,
+					// 	"minValue"  : 1,
+					// 	"predicates":
+					// 	[
+					// 		{
+					// 			"$type" : "ByTargetGlobalValue",
+					// 			"key"  : "_SCENEOBJ_TracingEnergyBall_PowerUp",
+					// 			"value"  : 1,
+					// 			"compareType"  : "Equal",
+					// 		},
+					// 	],
+					// },
+					{
+						"$type" : "SetGlobalValueToOverrideMap",
+						"globalValueKey"  : "_SCENEOBJ_TracingEnergyBall_Ratio",
+						"overrideMapKey"  : "TracingEnergyBall_Ratio",
+					},
+				],
+			},
+		},
+		"abilitySpecials":
+		{
+			"ElementLevelCo": 0,
+			"TracingEnergyBall_Ratio": 1,
+		},
+	},
+},
+////////////////////////////////////////////
+//
+// 毒圈gadget
+// 关联ID：70330054
+//
+/////////////////////////////////////////
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "SceneObj_Gear_Combat_ThunderStorm_Manager",
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToGadgetStateMixin",
+				"gadgetState": 201,
+				"modifierName": "ThunderStorm_InitialStage1",
+			},
+			{
+				"$type": "AttachToGadgetStateMixin",
+				"gadgetState": 202,
+				"modifierName": "ThunderStorm_InitialStage2",
+			},
+			{
+				"$type": "AttachToGadgetStateMixin",
+				"gadgetState": 203,
+				"modifierName": "ThunderStorm_InitialStage1_EnergyLoss",
+			},
+			{
+				"$type": "AttachToGadgetStateMixin",
+				"gadgetState": 204,
+				"modifierName": "ThunderStorm_InitialStage2_EnergyLoss",
+			},
+			{
+				"$type": "AttachToGadgetStateMixin",
+				"gadgetState": 901,
+				"modifierName": "ThunderStorm_Stage2",
+			},
+			{
+				"$type": "AttachToGadgetStateMixin",
+				"gadgetState": 902,
+				"modifierName": "ThunderStorm_Stage3",
+			},
+			{
+				"$type": "AttachToGadgetStateMixin",
+				"gadgetState": 0,
+				"modifierName": "ThunderStorm_End",
+			},
+		],
+		"onAdded":
+		[
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "Gear_Combat_ThunderStorm_State",
+			},
+			{
+				"$type" : "AddGlobalValue",
+				"value"  : 1,
+				"key"  : "_SCENEOBJ_ThunderStorm_OwnerTag",
+				"useLimitRange"  : true,
+				"maxValue"  : 1,
+				"minValue"  : 0,
+			},
+		],
+		"onKill":
+		[
+			{
+				"$type" : "RemoveModifier",
+				"modifierName"  : "Gear_Combat_ThunderStorm_State",
+			},
+		],
+		"modifiers":
+		{
+			"ThunderStorm_TeamRemover":
+			{
+				"duration": 0.1,
+				"stacking": "Multiple",
+				"onAdded":
+				[
+					{
+						"$type" : "RemoveUniqueModifier",
+						"modifierName"  : "UNIQUE_Gear_Combat_ThunderStorm_Team",
+						"target"  : "Team",
+					},
+				],
+			},
+			"Gear_Combat_ThunderStorm_State":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_SceneObj_ThunderStorm_SafeArea",
+					},
+				],
+				"onRemoved":
+				[
+					// {
+					// 	"$type" : "ApplyModifier",
+					// 	"modifierName"  : "ThunderStorm_TeamRemover",
+					// 	"target"  : "AllPlayerAvatars",
+					// },
+					{
+						"$type" : "RemoveUniqueModifier",
+						"modifierName"  : "UNIQUE_Gear_Combat_ThunderStorm_Team",
+						"target"  : "AllTeams",
+					},
+				],
+			},
+			"EffectTrigger_InitialStage1":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SendEffectTrigger",
+						"effectPattern":"Eff_SceneObj_ThunderStorm_SafeArea",
+						"parameter":"InitialStage1",
+					},
+				],
+			},
+			"EffectTrigger_InitialStage2":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SendEffectTrigger",
+						"effectPattern":"Eff_SceneObj_ThunderStorm_SafeArea",
+						"parameter":"InitialStage2",
+					},
+				],
+			},
+			"EffectTrigger_ToStage2":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SendEffectTrigger",
+						"effectPattern":"Eff_SceneObj_ThunderStorm_SafeArea",
+						"parameter":"ToStage2",
+					},
+				],
+			},
+			"EffectTrigger_ToStage3":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SendEffectTrigger",
+						"effectPattern":"Eff_SceneObj_ThunderStorm_SafeArea",
+						"parameter":"ToStage3",
+					},
+				],
+			},
+			"ThunderStorm_InitialStage1":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "SetGlobalValue",
+						"key" : "_SCENEOBJ_ThunderStorm_Stage",	
+						"value" : 1,
+					},
+					{
+						"$type" : "CreateGadget",
+						"gadgetID"  : 70330059,
+						"campID"  : 5001,
+						"lifeByOwnerIsAlive"  : true,
+						"byServer": true,
+					},
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "EffectTrigger_InitialStage1",
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 15,
+						"key"  : "_SCENEOBJ_ThunderStorm_InitialRange",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -15,
+						"key"  : "_SCENEOBJ_ThunderStorm_InitialRange",
+					},
+				],
+			},
+			"ThunderStorm_InitialStage2":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "SetGlobalValue",
+						"key" : "_SCENEOBJ_ThunderStorm_Stage",	
+						"value" : 2,
+					},
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "Kill_Self",
+						"otherTargets"  : 
+						{
+							"$type": "SelectTargetsByChildren",
+							"configID": 70330059,
+							"sortType": "Reversed",
+						},
+					},
+					{
+						"$type" : "CreateGadget",
+						"gadgetID"  : 70330060,
+						"campID"  : 5001,
+						"lifeByOwnerIsAlive"  : true,
+						"byServer": true,
+					},
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "EffectTrigger_InitialStage2",
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 10,
+						"key"  : "_SCENEOBJ_ThunderStorm_InitialRange",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -10,
+						"key"  : "_SCENEOBJ_ThunderStorm_InitialRange",
+					},
+				],
+			},
+			"ThunderStorm_InitialStage1_EnergyLoss":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "SetGlobalValue",
+						"key" : "_SCENEOBJ_ThunderStorm_Stage",	
+						"value" : 1,
+					},
+					{
+						"$type" : "CreateGadget",
+						"gadgetID"  : 70330059,
+						"campID"  : 5001,
+						"lifeByOwnerIsAlive"  : true,
+						"byServer": true,
+					},
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "EffectTrigger_InitialStage1",
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_SCENEOBJ_ThunderStorm_EnergyLoss",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 15,
+						"key"  : "_SCENEOBJ_ThunderStorm_InitialRange",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -15,
+						"key"  : "_SCENEOBJ_ThunderStorm_InitialRange",
+					},
+				],
+			},
+			"ThunderStorm_InitialStage2_EnergyLoss":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "SetGlobalValue",
+						"key" : "_SCENEOBJ_ThunderStorm_Stage",	
+						"value" : 2,
+					},
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "Kill_Self",
+						"otherTargets"  : 
+						{
+							"$type": "SelectTargetsByChildren",
+							"configID": 70330059,
+							"sortType": "Reversed",
+						},
+					},
+					{
+						"$type" : "CreateGadget",
+						"gadgetID"  : 70330060,
+						"campID"  : 5001,
+						"lifeByOwnerIsAlive"  : true,
+						"byServer": true,
+					},
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "EffectTrigger_InitialStage2",
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_SCENEOBJ_ThunderStorm_EnergyLoss",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 10,
+						"key"  : "_SCENEOBJ_ThunderStorm_InitialRange",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -10,
+						"key"  : "_SCENEOBJ_ThunderStorm_InitialRange",
+					},
+				],
+			},
+			"ThunderStorm_Stage2":
+			{
+				"duration": 5,
+				"onAdded":
+				[
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "EffectTrigger_ToStage2",
+					},
+					{
+						"$type" : "RemoveModifier",
+						"modifierName"  : "EffectTrigger_InitialStage1",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "SetGlobalValue",
+						"key" : "_SCENEOBJ_ThunderStorm_Stage",	
+						"value" : 2,
+					},
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "Kill_Self",
+						"otherTargets"  : 
+						{
+							"$type": "SelectTargetsByChildren",
+							"configID": 70330059,
+							"sortType": "Reversed",
+						},
+					},
+					{
+						"$type" : "CreateGadget",
+						"gadgetID"  : 70330060,
+						"campID"  : 5001,
+						"lifeByOwnerIsAlive"  : true,
+						"byServer": true,
+					},
+				],
+			},
+			"ThunderStorm_Stage3":
+			{
+				"duration": 5,
+				"onAdded":
+				[
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "EffectTrigger_ToStage3",
+					},
+					{
+						"$type" : "RemoveModifier",
+						"modifierName"  : "EffectTrigger_ToStage2",
+					},
+					{
+						"$type" : "RemoveModifier",
+						"modifierName"  : "EffectTrigger_InitialStage1",
+					},
+					{
+						"$type" : "RemoveModifier",
+						"modifierName"  : "EffectTrigger_InitialStage2",
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "SetGlobalValue",
+						"key" : "_SCENEOBJ_ThunderStorm_Stage",	
+						"value" : 3,
+					},
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "Kill_Self",
+						"otherTargets"  : 
+						{
+							"$type": "SelectTargetsByChildren",
+							"configID": 70330060,
+							"sortType": "Reversed",
+						},
+					},
+					{
+						"$type" : "CreateGadget",
+						"gadgetID"  : 70330061,
+						"campID"  : 5001,
+						"lifeByOwnerIsAlive"  : true,
+						"byServer": true,
+					},
+				],
+			},
+			"ThunderStorm_End":
+			{
+				"onAdded":
+				[
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "Kill_Self",
+						"otherTargets"  : 
+						{
+							"$type": "SelectTargetsByChildren",
+							"configID": 70330059,
+							"sortType": "Reversed",
+						},
+					},
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "Kill_Self",
+						"otherTargets"  : 
+						{
+							"$type": "SelectTargetsByChildren",
+							"configID": 70330060,
+							"sortType": "Reversed",
+						},
+					},
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "Kill_Self",
+						"otherTargets"  : 
+						{
+							"$type": "SelectTargetsByChildren",
+							"configID": 70330061,
+							"sortType": "Reversed",
+						},
+					},
+					{
+						"$type":"SendEffectTrigger",
+						"effectPattern":"Eff_SceneObj_ThunderStorm_SafeArea",
+						"parameter":"StageChange",
+					},
+					{
+						"$type" : "RemoveModifier",
+						"modifierName"  : "Gear_Combat_ThunderStorm_State",
+					},				
+				],
+			},
+			"Kill_Self":
+			{
+				"duration": 0.1,
+				"onAdded":
+				[
+					{
+						"$type": "KillSelf",
+						"banDrop": true,
+						"banExp": true,
+						"killSelfType": "Disappear",
+					},
+				],
+			},
+		},
+	},
+},
+{
+	"Default": 
+	{
+		"$type": "ConfigAbility",
+		"abilityName": "SceneObj_Gear_Combat_ThunderStorm",
+		"onFieldEnter":
+		[
+			{
+				"$type" : "ApplyModifier",
+				"target": "Target",
+				"modifierName"  : "ThunderStorm_TeamRemover",
+			},
+		],
+		"onFieldExit":
+		[
+			{
+				"$type" : "ApplyModifier",
+				"target": "Target",
+				"modifierName"  : "UNIQUE_ThunderStorm_TeamSearcher",
+				"predicates":
+				[
+					{
+						"$type":"ByEntityIsAlive",
+						"target":"Caster",
+					},
+				],
+			},
+		],
+		"onAdded":
+		[
+			{
+				"$type": "SetSystemValueToOverrideMap",
+				"key": "ElementLevelCo",
+				"type": "ElementLevelCo",
+			},
+			{
+				"$type" : "ApplyModifier",
+				"modifierName"  : "ThunderStorm_ThinkInterval_DamageCheck",
+			},
+			{
+				"$type" : "ApplyModifier",
+				"target": "AllPlayerAvatars",
+				"modifierName"  : "UNIQUE_ThunderStorm_TeamSearcher",
+				"predicates":
+				[
+					{
+						"$type" : "ByTargetPositionToSelfPosition",
+						"compareType"  : "XZ",
+						"value"  : 15,
+						"logic"  : "Greater",
+					},
+					{
+						"$type" : "ByTargetGlobalValue",
+						"key"  : "_SCENEOBJ_ThunderStorm_InitialRange",
+						"value"  : 15,
+						"target": "Owner",
+						"compareType"  : "Equal",
+					},
+				],
+			},
+			{
+				"$type" : "ApplyModifier",
+				"target": "AllPlayerAvatars",
+				"modifierName"  : "UNIQUE_ThunderStorm_TeamSearcher",
+				"predicates":
+				[
+					{
+						"$type" : "ByTargetPositionToSelfPosition",
+						"compareType"  : "XZ",
+						"value"  : 10,
+						"logic"  : "Greater",
+					},
+					{
+						"$type" : "ByTargetGlobalValue",
+						"key"  : "_SCENEOBJ_ThunderStorm_InitialRange",
+						"value"  : 10,
+						"target": "Owner",
+						"compareType"  : "Equal",
+					},
+				],
+			},
+		],
+		"modifiers":
+		{
+			"ThunderStorm_ThinkInterval_DamageCheck":
+			{
+				"thinkInterval": 0.25,
+				"onThinkInterval":
+				[
+					{
+						"$type" : "ApplyModifier",
+						"target": "AllTeams",
+						"modifierName"  : "UNIQUE_ThunderStorm_DamageTrigger",
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_ThunderStorm_Stage",
+								"value"  : 1,
+								"target": "Owner",
+								"compareType"  : "Equal",
+							},
+							{
+								"$type" : "ByTargetPositionToSelfPosition",
+								"compareType"  : "XZ",
+								"value"  : 15,
+								"logic"  : "Greater",
+							},
+						],
+					},
+					{
+						"$type" : "ApplyModifier",
+						"target": "AllTeams",
+						"modifierName"  : "UNIQUE_ThunderStorm_DamageTrigger",
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_ThunderStorm_Stage",
+								"value"  : 2,
+								"target": "Owner",
+								"compareType"  : "Equal",
+							},
+							{
+								"$type" : "ByTargetPositionToSelfPosition",
+								"compareType"  : "XZ",
+								"value"  : 10,
+								"logic"  : "Greater",
+							},
+						],
+					},
+					{
+						"$type" : "ApplyModifier",
+						"target": "AllTeams",
+						"modifierName"  : "UNIQUE_ThunderStorm_DamageTrigger",
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_ThunderStorm_Stage",
+								"value"  : 3,
+								"target": "Owner",
+								"compareType"  : "Equal",
+							},
+							{
+								"$type" : "ByTargetPositionToSelfPosition",
+								"compareType"  : "XZ",
+								"value"  : 5,
+								"logic"  : "Greater",
+							},
+						],
+					},
+					{
+						"$type" : "RemoveUniqueModifier",
+						"modifierName"  : "UNIQUE_Gear_Combat_ThunderStorm_Team",
+						"target"  : "AllTeams",
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_ThunderStorm_Stage",
+								"value"  : 1,
+								"target": "Owner",
+								"compareType"  : "Equal",
+							},
+							{
+								"$type" : "ByTargetPositionToSelfPosition",
+								"compareType"  : "XZ",
+								"value"  : 15,
+								"logic"  : "LesserOrEqual",
+							},
+						],
+					},
+					{
+						"$type" : "RemoveUniqueModifier",
+						"modifierName"  : "UNIQUE_Gear_Combat_ThunderStorm_Team",
+						"target"  : "AllTeams",
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_ThunderStorm_Stage",
+								"value"  : 2,
+								"target": "Owner",
+								"compareType"  : "Equal",
+							},
+							{
+								"$type" : "ByTargetPositionToSelfPosition",
+								"compareType"  : "XZ",
+								"value"  : 10,
+								"logic"  : "LesserOrEqual",
+							},
+						],
+					},
+					{
+						"$type" : "RemoveUniqueModifier",
+						"modifierName"  : "UNIQUE_Gear_Combat_ThunderStorm_Team",
+						"target"  : "AllTeams",
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_ThunderStorm_Stage",
+								"value"  : 3,
+								"target": "Owner",
+								"compareType"  : "Equal",
+							},
+							{
+								"$type" : "ByTargetPositionToSelfPosition",
+								"compareType"  : "XZ",
+								"value"  : 5,
+								"logic"  : "LesserOrEqual",
+							},
+						],
+					},
+				],
+			},
+			"UNIQUE_ThunderStorm_TeamSearcher":
+			{
+				"duration": 0.1,
+				"isUnique": true,
+				"onAdded":
+				[
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "UNIQUE_Gear_Combat_ThunderStorm_Team",
+						"target": "Team",
+					},
+				],
+			},
+			"ThunderStorm_TeamRemover":
+			{
+				"duration": 0.1,
+				"stacking": "Multiple",
+				"onAdded":
+				[
+					{
+						"$type" : "RemoveUniqueModifier",
+						"modifierName"  : "UNIQUE_Gear_Combat_ThunderStorm_Team",
+						"target"  : "Team",
+					},
+				],
+			},
+			"UNIQUE_Gear_Combat_ThunderStorm_Team":
+			{
+				"isUnique": true,
+				"stacking": "Unique",
+				"onAdded":
+				[
+					{
+						"$type" : "AttachEffect",
+						"effectPattern"  : "Eff_SceneObj_ThunderStorm_Gathering",
+					},
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "UNIQUE_ThunderStorm_DamageMask",
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_SCENEOBJ_ThunderStorm_HasEffect",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+				"thinkInterval": 1,
+				"onThinkInterval":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -1,
+						"key"  : "_SCENEOBJ_ThunderStorm_HasOwner",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type": "Predicated",
+						"otherTargets":
+						{
+							"$type":"SelectTargetsByShape",
+							"shapeName": "CircleR50",
+							"centerBasedOn": "CurLocalAvatar",
+							"campTargetType": "Alliance",
+							"campBasedOn": "Caster",
+						},
+						"targetPredicates":
+						[
+							{
+								"$type":"ByTargetGlobalValue",
+								"target": "Target",
+								"key": "_SCENEOBJ_ThunderStorm_OwnerTag",
+								"value": 1,
+								"compareType": "Equal",
+							},					
+						],
+						"successActions":
+						[
+							{
+								"$type" : "AddGlobalValue",
+								"value"  : 1,
+								"key"  : "_SCENEOBJ_ThunderStorm_HasOwner",
+								"useLimitRange"  : true,
+								"maxValue"  : 1,
+								"minValue"  : 0,
+							},				
+						],
+					},
+					{
+						"$type" : "RemoveUniqueModifier",
+						"modifierName"  : "UNIQUE_Gear_Combat_ThunderStorm_Team",
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_ThunderStorm_HasOwner",
+								"target": "Self",
+								"value"  : 0,
+								"compareType"  : "NoneOrEqual",
+							},
+						],
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "RemoveUniqueModifier",
+						"modifierName"  : "UNIQUE_ThunderStorm_DamageMask",
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -1,
+						"key"  : "_SCENEOBJ_ThunderStorm_HasEffect",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+			"UNIQUE_ThunderStorm_DamageMask":
+			{
+				"duration": 2,
+				"isUnique": true,
+				"stacking": "Unique",
+				"onAdded":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : 1,
+						"key"  : "_SCENEOBJ_ThunderStorm_DamageMask",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+				"onRemoved":
+				[
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -1,
+						"key"  : "_SCENEOBJ_ThunderStorm_DamageMask",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+				],
+			},
+			"UNIQUE_ThunderStorm_DamageTrigger":
+			{
+				"duration": 2,
+				"isUnique": true,
+				"stacking": "Unique",
+				"onAdded":
+				[
+					{
+						"$type" : "ApplyModifier",
+						"modifierName"  : "UNIQUE_Gear_Combat_ThunderStorm_Team",
+						"predicates":
+						[							
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_ThunderStorm_HasEffect",
+								"target": "Self",
+								"value"  : 0,
+								"compareType"  : "NoneOrEqual",
+							},
+						],
+					},
+					{
+						"$type" : "AddGlobalValue",
+						"value"  : -1,
+						"key"  : "_SCENEOBJ_ThunderStorm_HasOwner",
+						"useLimitRange"  : true,
+						"maxValue"  : 1,
+						"minValue"  : 0,
+					},
+					{
+						"$type": "Predicated",
+						"otherTargets":
+						{
+							"$type":"SelectTargetsByShape",
+							"shapeName": "CircleR50",
+							"centerBasedOn": "CurLocalAvatar",
+							"campTargetType": "Alliance",
+							"campBasedOn": "Caster",
+						},
+						"targetPredicates":
+						[
+							{
+								"$type":"ByTargetGlobalValue",
+								"target": "Target",
+								"key": "_SCENEOBJ_ThunderStorm_OwnerTag",
+								"value": 1,
+								"compareType": "Equal",
+							},					
+						],
+						"successActions":
+						[
+							{
+								"$type": "DamageByAttackValue",
+								"attacker": "Caster",
+								"target": "CurLocalAvatar",
+								"attackInfo": 
+								{
+									"attackProperty": 
+									{
+										"ignoreAttackerProperty": true,
+										"damageExtra": "%ThunderStorm_Ratio*%ElementLevelCo",
+										"strikeType": "None",
+										"elementType": "Electric",
+										"elementDurability": 25,
+										"enBreak": 0,
+									},
+									"hitPattern": 
+									{
+										"onHitEffectName": "",
+										"hitImpulseType": "LV0",
+										"retreatType": "ByHitDirection",
+										"reboundRatio": 0,
+										"hitHaltTime": 0.0,
+										"hitHaltTimeScale": 0.0,
+										"muteHitText": false,
+									},
+									"forceCameraShake": false,
+								},
+							},
+							{
+								"$type" : "FireEffect",
+								"effectPattern"  : "Eff_SceneObj_ThunderStorm_Blast",
+								"target": "CurLocalAvatar",
+							},
+							{
+								"$type": "ReviveElemEnergy",	
+								"value": "%ThunderStorm_EnergyLoss",
+								"target": "CurTeamAvatars",
+								"predicates":
+								[
+									{
+										"$type" : "ByTargetGlobalValue",
+										"key"  : "_SCENEOBJ_ThunderStorm_EnergyLoss",
+										"target": "CasterOwner",
+										"value"  : 1,
+										"compareType"  : "Equal",
+									},
+								],
+							},
+							{
+								"$type" : "AddGlobalValue",
+								"value"  : 1,
+								"key"  : "_SCENEOBJ_ThunderStorm_HasOwner",
+								"useLimitRange"  : true,
+								"maxValue"  : 1,
+								"minValue"  : 0,
+							},				
+						],
+						"predicates":
+						[
+							{
+								"$type":"ByTargetGlobalValue",
+								"target": "Self",
+								"key": "_SCENEOBJ_ThunderStorm_DamageMask",
+								"value": 0,
+								"compareType": "NoneOrEqual",
+							},
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_ThunderStorm_HasEffect",
+								"target": "Self",
+								"value"  : 1,
+								"compareType"  : "Equal",
+							},
+						],
+					},
+					{
+						"$type" : "RemoveUniqueModifier",
+						"modifierName"  : "UNIQUE_Gear_Combat_ThunderStorm_Team",
+						"predicates":
+						[
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_ThunderStorm_HasOwner",
+								"target": "Self",
+								"value"  : 0,
+								"compareType"  : "NoneOrEqual",
+							},
+							{
+								"$type":"ByTargetGlobalValue",
+								"target": "Self",
+								"key": "_SCENEOBJ_ThunderStorm_DamageMask",
+								"value": 0,
+								"compareType": "NoneOrEqual",
+							},
+							{
+								"$type" : "ByTargetGlobalValue",
+								"key"  : "_SCENEOBJ_ThunderStorm_HasEffect",
+								"target": "Self",
+								"value"  : 0,
+								"compareType"  : "NoneOrEqual",
+							},
+						],
+					},
+				],
+			},
+		},
+		"abilitySpecials":
+		{
+			"ElementLevelCo": 0,
+			"ThunderStorm_Ratio": 2,
+			"ThunderStorm_EnergyLoss": -15,
+		},
+	},
+},
 ]

@@ -1220,8 +1220,9 @@
                                     "logic": "LesserOrEqual",
                                 },
                                 {
-                                    "$type":"ByTargetIsSelf",
-                                    "isSelf":false,
+                                    "$type": "ByTargetType",
+                                    "targetType":"Self",
+                                    "isTarget":false,
                                 },
                             ],
                         },
@@ -1238,8 +1239,9 @@
                                     "logic": "LesserOrEqual",
                                 },
                                 {
-                                    "$type":"ByTargetIsSelf",
-                                    "isSelf":false,
+                                    "$type": "ByTargetType",
+                                    "targetType":"Self",
+                                    "isTarget":false,
                                 },
                             ],
                         },

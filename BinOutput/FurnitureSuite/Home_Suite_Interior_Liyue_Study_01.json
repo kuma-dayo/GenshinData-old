@@ -1,0 +1,118 @@
+{
+  "radius": 5.0,
+  "height": 5.0,
+  "furnitureUnits": [
+    {
+      "furnitureID": 362304,
+      "position": {
+        "x": 0.477996826,
+        "y": 0.0,
+        "z": -0.153015137
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "parentIndex": -1
+    },
+    {
+      "furnitureID": 362105,
+      "position": {
+        "x": 0.47277832,
+        "y": 0.051,
+        "z": -0.501
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "parentIndex": -1
+    },
+    {
+      "furnitureID": 361208,
+      "position": {
+        "x": -1.945,
+        "y": 0.0,
+        "z": 2.186
+      },
+      "rotation": {
+        "x": 2.50447988E-06,
+        "y": 270.000854,
+        "z": 6.106665E-13
+      },
+      "parentIndex": -1
+    },
+    {
+      "furnitureID": 361207,
+      "position": {
+        "x": -2.094,
+        "y": 0.0,
+        "z": -0.189
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 89.99983,
+        "z": 0.0
+      },
+      "parentIndex": -1
+    },
+    {
+      "furnitureID": 361206,
+      "position": {
+        "x": 0.495,
+        "y": 0.0,
+        "z": -1.687
+      },
+      "rotation": {
+        "x": 2.504478E-06,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "parentIndex": -1
+    },
+    {
+      "furnitureID": 363102,
+      "position": {
+        "x": 2.021,
+        "y": 0.0,
+        "z": 1.87854
+      },
+      "rotation": {
+        "x": 2.504478E-06,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "parentIndex": -1
+    },
+    {
+      "furnitureID": 361308,
+      "position": {
+        "x": 0.473,
+        "y": 0.059,
+        "z": 1.359
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "parentIndex": -1
+    },
+    {
+      "furnitureID": 363308,
+      "position": {
+        "x": 0.07088429,
+        "y": 0.7029934,
+        "z": 0.109994173
+      },
+      "rotation": {
+        "x": 9.334668E-06,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "parentIndex": 6
+    }
+  ]
+}

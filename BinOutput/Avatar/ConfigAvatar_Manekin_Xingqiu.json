@@ -73,7 +73,7 @@
 					"$type": "ConfigAvatarStateIDInfo",
 					"animatorStates":
 					{
-						"ShowWeapon": [],
+						"ShowWeapon": ["Emo_Avatar_Common_Boy_Sword_UI_ShowWeaponLoop"],
 						"ShowWeapon_AS": ["Boy_Sword_ShowWeapon_AS","Emo_Avatar_Common_Boy_Sword_UI_ShowWeaponAS"],
 					},
 					"battouOnStart" : true,

@@ -9,7 +9,7 @@
 			"mesh": "EffectMesh",
 			"normalOffset": 0.02
 		},
-		"height": 1.727,
+		"height": 1.74534,
 		"modelHeight": 1.73,
 		"mass": 10.0,
 		"affectedByWorld": true,
@@ -73,8 +73,16 @@
 			"endure": 0,
 			"weight": 75,
 			"lockShape": "CircleLockEnemy",
-			"endureType": "Avatar_Sword",
+			"endureType": "Avatar_Claymore",
 			"endureShake": 0
+		},
+		"combatLock":
+		{
+			"denyLockOn": false,
+			"lockShape": "CircleLockEnemyClose",
+			"lockWeightYaxisParam": 0.2,
+			"lockWeightYaxisThreshold": 2,
+			"lockType": "Avatar&Monster_Lv4"
 		},
 		"beHit":
 		{
@@ -106,7 +114,7 @@
 					"fanAngle": 270.0,
 					"radius": 2,
 					"radiusRatio": 0.0,
-					"detectDirection": "Counterclockwise",
+					"detectDirection": "Clockwise",
 					"born":
 					{
 						"$type": "ConfigBornBySelf",
@@ -129,7 +137,7 @@
 						"elementDurability": 25,
 						"overrideByWeapon": true,
 						"attackType": "Melee",
-						"enBreak": 85.67
+						"enBreak": 101.2
 					},
 					"hitPattern":
 					{
@@ -150,8 +158,8 @@
 						"shakeDistance": 30,
 						"shakeDir":
 						{
-							"x": 0.3,
-							"y": -1,
+							"x": 1.0,
+							"y": -0.3,
 							"z": 0
 						}
 					}
@@ -161,22 +169,21 @@
 			{
 				"attackPattern":
 				{
-					"$type": "ConfigAttackBox",
+					"$type": "ConfigAttackCircle",
 					"triggerType": "TriggerNoRepeat",
-					"size":
-					{
-						"x": 2,
-						"y": 2,
-						"z": 2.5
-					},
+					"height": 1.8,
+					"fanAngle": 270.0,
+					"radius": 2,
+					"radiusRatio": 0.0,
+					"detectDirection": "Clockwise",
 					"born":
 					{
-						"$type": "ConfigBornByTarget",
+						"$type": "ConfigBornBySelf",
 						"offset":
 						{
-							"x": 0,
-							"y": 1,
-							"z": 0
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.5
 						}
 					}
 				},
@@ -191,7 +198,7 @@
 						"elementDurability": 25,
 						"overrideByWeapon": true,
 						"attackType": "Melee",
-						"enBreak": 85.33
+						"enBreak": 105.8
 					},
 					"hitPattern":
 					{
@@ -212,14 +219,14 @@
 						"shakeDistance": 30,
 						"shakeDir":
 						{
-							"x": 0,
-							"y": 1,
+							"x": 1.0,
+							"y": 0,
 							"z": 0
 						}
 					}
 				}
 			},
-			"ATK03":
+			"ATK03_1":
 			{
 				"attackPattern":
 				{
@@ -237,7 +244,7 @@
 						{
 							"x": 0.0,
 							"y": 0.0,
-							"z": 1.0
+							"z": 0.5
 						}
 					}
 				},
@@ -252,7 +259,68 @@
 						"elementDurability": 25,
 						"overrideByWeapon": true,
 						"attackType": "Melee",
-						"enBreak": 106.37
+						"enBreak": 65.55
+					},
+					"hitPattern":
+					{
+						"onHitEffectName": "default",
+						"hitImpulseType": "LV3",
+						"reboundRatio": 0,
+						"canBeDefenceHalt": false,
+						"hitHaltTime": 0.0,
+						"hitHaltTimeScale": 0.01,
+						"muteHitText": false
+					},
+					"forceCameraShake": false,
+					"cameraShake":
+					{
+						"shakeType": "CustomVector",
+						"shakeRange": 0.24,
+						"shakeTime": 0.12,
+						"shakeDistance": 30,
+						"shakeDir":
+						{
+							"x": 0.2,
+							"y": 1.0,
+							"z": 0
+						}
+					}
+				}
+			},
+			"ATK03_2":
+			{
+				"attackPattern":
+				{
+					"$type": "ConfigAttackCircle",
+					"triggerType": "TriggerNoRepeat",
+					"height": 1.5,
+					"fanAngle": 360.0,
+					"radius": 2,
+					"radiusRatio": 0.0,
+					"detectDirection": "Counterclockwise",
+					"born":
+					{
+						"$type": "ConfigBornBySelf",
+						"offset":
+						{
+							"x": 0.0,
+							"y": 0.0,
+							"z": 0.5
+						}
+					}
+				},
+				"attackInfo":
+				{
+					"attackTag": "NormalAttack_03",
+					"attenuationTag": "NormalAttack",
+					"attackProperty":
+					{
+						"damagePercentage": 0.73,
+						"strikeType": "Blunt",
+						"elementDurability": 25,
+						"overrideByWeapon": true,
+						"attackType": "Melee",
+						"enBreak": 65.55
 					},
 					"hitPattern":
 					{
@@ -298,17 +366,7 @@
 						{
 							"x": 0.0,
 							"y": 0.0,
-							"z": 1.0
-						},
-						"direction":
-						{
-							"$type": "ConfigDirectionByEntity",
-							"angleOffset":
-							{
-								"x": 0.0,
-								"y": 30.0,
-								"z": 0.0
-							}
+							"z": 0.0
 						}
 					}
 				},
@@ -323,7 +381,7 @@
 						"elementDurability": 25,
 						"overrideByWeapon": true,
 						"attackType": "Melee",
-						"enBreak": 104.19
+						"enBreak": 129.95
 					},
 					"hitPattern":
 					{
@@ -344,14 +402,14 @@
 						"shakeDistance": 30,
 						"shakeDir":
 						{
-							"x": -1,
-							"y": 0.2,
+							"x": 0.2,
+							"y": -1,
 							"z": 0
 						}
 					}
 				}
 			},
-			"ATK05":
+			"ATK05_1":
 			{
 				"attackPattern":
 				{
@@ -370,7 +428,7 @@
 						{
 							"x": 0,
 							"y": 1,
-							"z": -0.5
+							"z": 0
 						}
 					}
 				},
@@ -385,7 +443,69 @@
 						"elementDurability": 25,
 						"overrideByWeapon": true,
 						"attackType": "Melee",
-						"enBreak": 135.12
+						"enBreak": 68.21
+					},
+					"hitPattern":
+					{
+						"onHitEffectName": "default",
+						"hitImpulseType": "LV3",
+						"reboundRatio": 0,
+						"canBeDefenceHalt": false,
+						"hitHaltTime": 0.0,
+						"hitHaltTimeScale": 0.01,
+						"muteHitText": false
+					},
+					"forceCameraShake": false,
+					"cameraShake":
+					{
+						"shakeType": "CustomVector",
+						"shakeRange": 0.48,
+						"shakeTime": 0.12,
+						"shakeDistance": 30,
+						"shakeDir":
+						{
+							"x": 0,
+							"y": 1,
+							"z": 0
+						}
+					}
+				}
+			},
+			"ATK05_2":
+			{
+				"attackPattern":
+				{
+					"$type": "ConfigAttackBox",
+					"triggerType": "TriggerNoRepeat",
+					"size":
+					{
+						"x": 2,
+						"y": 2,
+						"z": 3
+					},
+					"born":
+					{
+						"$type": "ConfigBornByTarget",
+						"offset":
+						{
+							"x": 0,
+							"y": 1,
+							"z": 0
+						}
+					}
+				},
+				"attackInfo":
+				{
+					"attackTag": "NormalAttack_05",
+					"attenuationTag": "NormalAttack",
+					"attackProperty":
+					{
+						"damagePercentage": 0.93,
+						"strikeType": "Blunt",
+						"elementDurability": 25,
+						"overrideByWeapon": true,
+						"attackType": "Melee",
+						"enBreak": 68.21
 					},
 					"hitPattern":
 					{
@@ -549,6 +669,15 @@
 		},
 		{
 			"abilityName": "Avatar_Eula_ElementalBurst_Attack"
+		},
+		{
+			"abilityName": "Avatar_Eula_FallingAnthem"
+		},
+		{
+			"abilityName": "Avatar_Eula_ElementalBurst_PostEffect"
+		},
+		{
+			"abilityName": "Avatar_Eula_NormalAttackDamage_Handler"
 		}
 	],
 	"stateLayers":
@@ -599,26 +728,31 @@
 						],
 						"WalkToRun":
 						[
-							"Audio_Lady_WalkToRun"
+							"Audio_Lady_WalkToRun",
+							"Audio_Lady_Eula_Foley_Twice"
 						],
 						"Walk":
 						[
 							"Ani_WalkSprint01",
 							"Audio_Lady_Walk",
-							"WalkStepOnWater"
+							"WalkStepOnWater",
+							"Audio_Lady_Eula_Foley_Walk"
 						],
 						"RunToWalk":
 						[
-							"Audio_Lady_RunToWalk"
+							"Audio_Lady_RunToWalk",
+							"Audio_Lady_Eula_Foley_Twice"
 						],
 						"Run":
 						[
 							"Ani_Run01",
-							"Audio_Lady_Run"
+							"Audio_Lady_Run",
+							"Audio_Lady_Eula_Foley_Run"
 						],
 						"RunToIdle":
 						[
-							"Audio_Lady_RunToIdle"
+							"Audio_Lady_RunToIdle",
+							"Audio_Lady_Eula_Foley_RunToIdle"
 						],
 						"WalkToIdle":
 						[
@@ -627,32 +761,39 @@
 						"RunningTurn": [],
 						"SprintToRun":
 						[
-							"Audio_Lady_SprintToRun"
+							"Audio_Lady_SprintToRun",
+							"Audio_Lady_Eula_Foley_Once"
 						],
 						"SprintToIdle":
 						[
 							"Audio_Lady_SprintToIdle",
-							"Emo_Lady_Sprint_AS"
+							"Emo_Lady_Sprint_AS",
+							"Audio_Lady_Eula_Foley_SprintToIdle"
 						],
 						"FallOnGround":
 						[
-							"Audio_Lady_FallOnGround"
+							"Audio_Lady_FallOnGround",
+							"Audio_Lady_Eula_Foley_Twice"
 						],
 						"FallOnGroundLit":
 						[
-							"Audio_Lady_FallOnGroundLit"
+							"Audio_Lady_FallOnGroundLit",
+							"Audio_Lady_Eula_Foley_Once"
 						],
 						"FallToGroundRun":
 						[
-							"Audio_Lady_FallToGroundRun"
+							"Audio_Lady_FallToGroundRun",
+							"Audio_Lady_Eula_Foley_Twice"
 						],
 						"FallToGroundRunHard":
 						[
-							"Audio_Lady_FallToGroundRunHard"
+							"Audio_Lady_FallToGroundRunHard",
+							"Audio_Lady_Eula_Foley_Twice"
 						],
 						"FallToGroundSprint":
 						[
-							"Audio_Lady_FallToGroundSprint"
+							"Audio_Lady_FallToGroundSprint",
+							"Audio_Lady_Eula_Foley_Twice"
 						]
 					},
 					"moveType": "normalMove",
@@ -687,13 +828,15 @@
 						[
 							"Audio_Lady_RunToSprint",
 							"SprintBS_Invincible",
-							"Emo_Lady_Sprint_BS"
+							"Emo_Lady_Sprint_BS",
+							"Audio_Lady_Eula_Foley_SprintBS"
 						]
 					},
 					"moveType": "normalMove",
 					"resetAnimatorTriggerOnEnter":
 					[
-						"DoSkill"
+						"DoSkill",
+						"AimEnd"
 					],
 					"resetAnimatorTriggerOnExit": [],
 					"canDoSkill": true,
@@ -724,7 +867,8 @@
 						[
 							"Ani_WalkSprint01",
 							"Audio_Lady_Sprint",
-							"Emo_Lady_Sprint_Loop"
+							"Emo_Lady_Sprint_Loop",
+							"Audio_Lady_Eula_Foley_Twice"
 						]
 					},
 					"moveType": "normalMove",
@@ -758,25 +902,30 @@
 						"ClimbMove0":
 						[
 							"ClimbStep",
-							"Audio_Lady_Climb"
+							"Audio_Lady_Climb",
+							"Audio_Lady_Foley_ClimbMove_Eula"
 						],
 						"ClimbMove1":
 						[
 							"ClimbStep",
-							"Audio_Lady_Climb"
+							"Audio_Lady_Climb",
+							"Audio_Lady_Eula_Foley_Twice"
 						],
 						"ClimbIdle": [],
 						"ClimbJump":
 						[
-							"Audio_Lady_ClimbDash"
+							"Audio_Lady_ClimbDash",
+							"Audio_Lady_Eula_Foley_Once"
 						],
 						"JumpUpWallForStandby":
 						[
-							"Audio_Lady_JumpUpWallStandby"
+							"Audio_Lady_JumpUpWallStandby",
+							"Audio_Lady_Eula_Foley_Once"
 						],
 						"Standby2ClimbB":
 						[
-							"Audio_Lady_Standby2ClimbB"
+							"Audio_Lady_Standby2ClimbB",
+							"Audio_Lady_Eula_Foley_Once"
 						]
 					},
 					"moveType": "normalMove",
@@ -800,7 +949,8 @@
 						],
 						"Standby2ClimbA":
 						[
-							"Audio_Lady_Standby2ClimbA"
+							"Audio_Lady_Standby2ClimbA",
+							"Audio_Lady_Eula_Foley_Once"
 						]
 					},
 					"moveType": "normalMove",
@@ -820,7 +970,8 @@
 					{
 						"Upstairs":
 						[
-							"Audio_Lady_Upstairs"
+							"Audio_Lady_Upstairs",
+							"Audio_Lady_Eula_Foley_Once"
 						]
 					},
 					"moveType": "normalMove",
@@ -845,8 +996,14 @@
 					"$type": "ConfigAvatarStateIDInfo",
 					"animatorStates":
 					{
-						"SlipFaceWall": [],
-						"SlipBackWall": []
+						"SlipFaceWall":
+						[
+							"Audio_Lady_Eula_Foley_SlipFaceWall"
+						],
+						"SlipBackWall":
+						[
+							"Audio_Lady_Eula_Foley_SlipFaceWall"
+						]
 					},
 					"moveType": "normalMove",
 					"resetAnimatorTriggerOnEnter":
@@ -897,11 +1054,15 @@
 					"$type": "ConfigAvatarStateIDInfo",
 					"animatorStates":
 					{
-						"Fly": [],
+						"Fly":
+						[
+							"Audio_Lady_Eula_Foley_Once"
+						],
 						"FlyStart":
 						[
 							"Audio_Lady_FlyStart",
-							"FlyStart_Weapon"
+							"FlyStart_Weapon",
+							"Audio_Lady_Eula_Foley_FlyStart"
 						]
 					},
 					"moveType": "normalMove",
@@ -929,26 +1090,31 @@
 					{
 						"Jump":
 						[
-							"Audio_Lady_Jump"
+							"Audio_Lady_Jump",
+							"Audio_Lady_Eula_Foley_Once"
 						],
 						"JumpForRun":
 						[
-							"Audio_Lady_Jump"
+							"Audio_Lady_Jump",
+							"Audio_Lady_Eula_Foley_Once"
 						],
 						"JumpForWalk":
 						[
-							"Audio_Lady_Jump"
+							"Audio_Lady_Jump",
+							"Audio_Lady_Eula_Foley_Once"
 						],
 						"JumpForSprint":
 						[
-							"Audio_Lady_Jump"
+							"Audio_Lady_Jump",
+							"Audio_Lady_Eula_Foley_Once"
 						]
 					},
 					"moveType": "normalMove",
 					"canDoSkill": true,
 					"resetAnimatorTriggerOnEnter":
 					[
-						"DoSkill"
+						"DoSkill",
+						"AimEnd"
 					],
 					"resetAnimatorTriggerOnExit": [],
 					"setAnimatorBoolean":
@@ -969,16 +1135,22 @@
 					{
 						"JumpOffWall":
 						[
-							"Audio_Lady_Jump"
+							"Audio_Lady_Jump",
+							"Audio_Lady_Eula_Foley_Once"
 						],
 						"SwimJump":
 						[
-							"Audio_Lady_SwimJump"
+							"Audio_Lady_SwimJump",
+							"Audio_Lady_Eula_Foley_Once"
 						],
-						"SwimJumpDrop": [],
+						"SwimJumpDrop":
+						[
+							"Audio_Lady_Eula_Foley_ThreeTimes"
+						],
 						"DropDown":
 						[
-							"Audio_Lady_DropDown"
+							"Audio_Lady_DropDown",
+							"Audio_Lady_Eula_Foley_ThreeTimes"
 						],
 						"DropDownLit": [],
 						"WalkDropDownLit": []
@@ -1042,7 +1214,8 @@
 						],
 						"WalkWeapon":
 						[
-							"Audio_Lady_Walk"
+							"Audio_Lady_Walk",
+							"Audio_Lady_Eula_Foley_Twice"
 						],
 						"RunToWalkWeapon":
 						[
@@ -1050,15 +1223,18 @@
 						],
 						"RunWeapon":
 						[
-							"Audio_Lady_Run"
+							"Audio_Lady_Run",
+							"Audio_Lady_Eula_Foley_Twice"
 						],
 						"RunToIdleWeapon":
 						[
-							"Audio_Lady_RunToIdle"
+							"Audio_Lady_RunToIdle",
+							"Audio_Lady_Eula_Foley_Twice"
 						],
 						"WalkToIdleWeapon":
 						[
-							"Audio_Lady_WalkToIdle"
+							"Audio_Lady_WalkToIdle",
+							"Audio_Lady_Eula_Foley_Twice"
 						],
 						"RunningTurnWeapon": [],
 						"FallOnGroundWeapon":
@@ -1113,12 +1289,14 @@
 						"WalkPutaway":
 						[
 							"Lady_Claymore_Putaway_Walk",
-							"Audio_Lady_Sword_WalkPutAway"
+							"Audio_Lady_Sword_WalkPutAway",
+							"Audio_Lady_Eula_Foley_Twice"
 						],
 						"RunPutaway":
 						[
 							"Lady_Claymore_Putaway_Run",
-							"Audio_Lady_Sword_RunPutAway"
+							"Audio_Lady_Sword_RunPutAway",
+							"Audio_Lady_Eula_Foley_Twice"
 						],
 						"RunToSprintWeapon":
 						[
@@ -1157,7 +1335,8 @@
 						"StandbyPutaway":
 						[
 							"Lady_Claymore_Putaway_Standby",
-							"Audio_Lady_Claymore_StandbyPutAway"
+							"Audio_Lady_Claymore_StandbyPutAway",
+							"Audio_Lady_Eula_Foley_Once"
 						]
 					},
 					"moveType": "normalMove",
@@ -1241,15 +1420,18 @@
 					{
 						"JumpWeapon":
 						[
-							"Audio_Lady_Jump"
+							"Audio_Lady_Jump",
+							"Audio_Lady_Eula_Foley_Once"
 						],
 						"JumpForRunWeapon":
 						[
-							"Audio_Lady_Jump"
+							"Audio_Lady_Jump",
+							"Audio_Lady_Eula_Foley_Once"
 						],
 						"JumpForWalkWeapon":
 						[
-							"Audio_Lady_Jump"
+							"Audio_Lady_Jump",
+							"Audio_Lady_Eula_Foley_Once"
 						]
 					},
 					"moveType": "normalMove",
@@ -1284,7 +1466,8 @@
 					{
 						"DropDownWeapon":
 						[
-							"Audio_Lady_DropDown"
+							"Audio_Lady_DropDown",
+							"Audio_Lady_Eula_Foley_ThreeTimes"
 						],
 						"DropDownLitWeapon": [],
 						"WalkDropDownLitWeapon": []
@@ -1314,11 +1497,13 @@
 					{
 						"Hit_L":
 						[
-							"Audio_Lady_Hit_L"
+							"Audio_Lady_Hit_L",
+							"Audio_Lady_Eula_Foley_Once"
 						],
 						"Hit_H":
 						[
-							"Audio_Lady_Hit_H"
+							"Audio_Lady_Hit_H",
+							"Audio_Lady_Eula_Foley_Once"
 						]
 					},
 					"moveType": "combatMove",
@@ -1336,6 +1521,70 @@
 					"setAnimatorBoolean": [],
 					"battouOnStart": true
 				},
+				"HitThrow":
+				{
+					"$type": "ConfigAvatarStateIDInfo",
+					"animatorStates":
+					{
+						"Hit_Throw_Ground":
+						[
+							"BeHitAir_Weapon",
+							"Audio_Lady_HitThrowGround",
+							"Audio_Lady_Eula_Foley_Twice"
+						]
+					},
+					"moveType": "combatMove",
+					"cameraType": "combatBeHit",
+					"jumpCancelEnd": 0.0,
+					"resetAnimatorTriggerOnEnter":
+					[
+						"BeHit",
+						"HitAir2HitDrop"
+					],
+					"resetAnimatorTriggerOnExit":
+					[
+						"DoSkill"
+					],
+					"setAnimatorBoolean": [],
+					"sheatheOnStart": true
+				},
+				"BeHitAir":
+				{
+					"$type": "ConfigAvatarStateIDInfo",
+					"animatorStates":
+					{
+						"Hit_Throw":
+						[
+							"Audio_Lady_Hit_Throw",
+							"BeHitAir_Weapon",
+							"Audio_Lady_Eula_Foley_HitThrowGround"
+						],
+						"Hit_ThrowAir":
+						[
+							"Audio_Lady_DropDown",
+							"BeHitAir_Weapon"
+						],
+						"Struggle":
+						[
+							"BeHitAir_Weapon",
+							"Audio_Lady_Eula_Foley_ThreeTimes"
+						]
+					},
+					"moveType": "combatAir",
+					"cameraType": "combatBeHit",
+					"actionPanelState": "CombatAir",
+					"jumpCancelEnd": 0.0,
+					"resetAnimatorTriggerOnEnter":
+					[
+						"BeHit"
+					],
+					"resetAnimatorTriggerOnExit":
+					[
+						"DoSkill"
+					],
+					"setAnimatorBoolean": [],
+					"sheatheOnStart": true
+				},
 				"Die":
 				{
 					"$type": "ConfigAvatarStateIDInfo",
@@ -1348,7 +1597,8 @@
 						"NormalDie":
 						[
 							"Die",
-							"Audio_Lady_NormalDie"
+							"Audio_Lady_NormalDie",
+							"Audio_Lady_Eula_Foley_Once"
 						],
 						"SwimDie":
 						[
@@ -1380,7 +1630,9 @@
 						[
 							"Eula_Attack01",
 							"SetComboCount1",
-							"Interaction_Bad"
+							"Interaction_Bad",
+							"Audio_Lady_Claymore_Eula_Attack01",
+							"Emo_Lady_Claymore_Eula_NormalAttack01"
 						]
 					},
 					"moveType": "combatMove",
@@ -1417,7 +1669,9 @@
 						[
 							"Eula_Attack02",
 							"SetComboCount2",
-							"Interaction_Bad"
+							"Interaction_Bad",
+							"Audio_Lady_Claymore_Eula_Attack02",
+							"Emo_Lady_Claymore_Eula_NormalAttack02"
 						]
 					},
 					"moveType": "combatMove",
@@ -1454,7 +1708,9 @@
 						[
 							"Eula_Attack03",
 							"SetComboCount3",
-							"Interaction_Bad"
+							"Interaction_Bad",
+							"Audio_Lady_Claymore_Eula_Attack03",
+							"Emo_Lady_Claymore_Eula_NormalAttack03"
 						]
 					},
 					"moveType": "combatMove",
@@ -1487,7 +1743,7 @@
 							"equip": "equip01",
 							"targetPoint": "WeaponL",
 							"normalizeStart": 0.175,
-							"normalizeEnd": 0.716
+							"normalizeEnd": 0.607
 						}
 					]
 				},
@@ -1500,7 +1756,9 @@
 						[
 							"Eula_Attack04",
 							"SetComboCount4",
-							"Interaction_Bad"
+							"Interaction_Bad",
+							"Audio_Lady_Claymore_Eula_Attack04",
+							"Emo_Lady_Claymore_Eula_NormalAttack04"
 						]
 					},
 					"moveType": "combatMove",
@@ -1533,7 +1791,7 @@
 							"equip": "equip01",
 							"targetPoint": "WeaponL",
 							"normalizeStart": 0.0,
-							"normalizeEnd": 0.567
+							"normalizeEnd": 0.458
 						}
 					]
 				},
@@ -1546,7 +1804,9 @@
 						[
 							"Eula_Attack05",
 							"SetComboCount5",
-							"Interaction_Bad"
+							"Interaction_Bad",
+							"Audio_Lady_Claymore_Eula_Attack05",
+							"Emo_Lady_Claymore_Eula_NormalAttack05"
 						]
 					},
 					"moveType": "combatMove",
@@ -1592,7 +1852,9 @@
 						"Attack01_BS":
 						[
 							"Eula_Attack01_BS",
-							"Interaction_Bad"
+							"Interaction_Bad",
+							"Audio_Lady_Claymore_Eula_Attack01_BS",
+							"Emo_Lady_Claymore_Eula_NormalAttack01_BS"
 						]
 					},
 					"moveType": "combatMove",
@@ -1626,11 +1888,14 @@
 					{
 						"ExtraAttack":
 						[
-							"Interaction_Bad"
+							"Interaction_Bad",
+							"Eula_ExtraAttack",
+							"Audio_Lady_Claymore_Eula_ExtraAttack",
+							"Emo_Lady_Claymore_Eula_ExtraAttack_BS"
 						]
 					},
 					"moveType": "combatMove",
-					"canDoSkill": true,
+					"canDoSkill": false,
 					"canChangeAvatar":
 					[
 						{
@@ -1654,7 +1919,8 @@
 						"ExtraAttack1":
 						[
 							"Eula_ExtraAttack1",
-							"Interaction_Bad"
+							"Interaction_Bad",
+							"Emo_Lady_Claymore_Eula_ExtraAttack_01"
 						]
 					},
 					"moveType": "combatMove",
@@ -1691,7 +1957,9 @@
 						"ExtraAttack2":
 						[
 							"Eula_ExtraAttack2",
-							"Interaction_Bad"
+							"Interaction_Bad",
+							"Audio_Lady_Claymore_Eula_ExtraAttack2",
+							"Emo_Lady_Claymore_Eula_ExtraAttack_02"
 						]
 					},
 					"moveType": "combatMove",
@@ -1716,7 +1984,12 @@
 					"$type": "ConfigAvatarStateIDInfo",
 					"animatorStates":
 					{
-						"ExtraAttack3": []
+						"ExtraAttack3":
+						[
+							"Audio_Lady_Claymore_Eula_ExtraAttack3",
+							"Interaction_Bad",
+							"Emo_Lady_Claymore_Eula_ExtraAttack_03"
+						]
 					},
 					"moveType": "combatMove",
 					"canDoSkill": true,
@@ -1749,7 +2022,10 @@
 					{
 						"Eula_ElementalArt_BS":
 						[
-							"Eula_ElementalArt_BS"
+							"Eula_ElementalArt_BS",
+							"Audio_Lady_Claymore_Eula_ElementalArt_BS",
+							"Emo_Avatar_Eula_ElementalArt_BS",
+							"Interaction_Bad"
 						]
 					},
 					"moveType": "combatMove",
@@ -1776,7 +2052,9 @@
 						"Eula_ElementalArt_Click":
 						[
 							"Eula_ElementalArt_Click",
-							"Interaction_Bad"
+							"Interaction_Bad",
+							"Audio_Lady_Claymore_Eula_ElementalArt_Click",
+							"Emo_Avatar_Eula_ElementalArt_Click"
 						]
 					},
 					"moveType": "combatMove",
@@ -1798,7 +2076,12 @@
 					"$type": "ConfigAvatarStateIDInfo",
 					"animatorStates":
 					{
-						"Eula_ElementalArt_Click_AS": []
+						"Eula_ElementalArt_Click_AS":
+						[
+							"Audio_Lady_Claymore_Eula_ElementalArt_Click_AS",
+							"Interaction_Bad",
+							"Emo_Avatar_Eula_ElementalArt_Click_AS"
+						]
 					},
 					"moveType": "combatMove",
 					"canDoSkill": true,
@@ -1830,7 +2113,7 @@
 						}
 					],
 					"battouOnStart": true,
-					"sheatheOnEnd": true
+					"sheatheOnEnd": false
 				},
 				"Eula_ElementalArt_Charge":
 				{
@@ -1839,7 +2122,8 @@
 					{
 						"Eula_ElementalArt_Charge":
 						[
-							"Eula_ElementalArt_Charge"
+							"Eula_ElementalArt_Charge",
+							"Interaction_Bad"
 						]
 					},
 					"moveType": "combatMove",
@@ -1864,11 +2148,15 @@
 						"Eula_ElementalArt_Burst":
 						[
 							"Eula_ElementalArt_Burst",
-							"Interaction_Bad"
+							"Interaction_Bad",
+							"Audio_Lady_Claymore_Eula_ElementalArt_Burst",
+							"Emo_Avatar_Eula_ElementalArt_Charge"
 						]
 					},
 					"moveType": "combatMove",
-					"canDoSkill": false,
+					"canDoSkill": true,
+					"canDoSkillStart": 0.9,
+					"canDoSkillEnd": 1.0,
 					"addEndure": 0.6,
 					"resetAnimatorTriggerOnEnter": [],
 					"resetAnimatorTriggerOnExit":
@@ -1876,9 +2164,9 @@
 						"BeHit"
 					],
 					"setAnimatorBoolean": [],
-					"sheatheOnStart": true,
-					"jumpCancelStart": 0.14,
-					"sprintCancelStart": 0.14,
+					"sheatheOnStart": false,
+					"jumpCancelEnd": -1,
+					"sprintCancelEnd": -1,
 					"battouOnStart": true
 				},
 				"Eula_ElementalArt_Burst_AS":
@@ -1886,7 +2174,12 @@
 					"$type": "ConfigAvatarStateIDInfo",
 					"animatorStates":
 					{
-						"Eula_ElementalArt_Burst_AS": []
+						"Eula_ElementalArt_Burst_AS":
+						[
+							"Audio_Lady_Claymore_Eula_ElementalArt_Burst_AS",
+							"Interaction_Bad",
+							"Emo_Avatar_Eula_ElementalArt_Charge_AS"
+						]
 					},
 					"moveType": "combatMove",
 					"cameraType": "combatNormal",
@@ -1909,12 +2202,12 @@
 					[
 						{
 							"name": "&CanUseSkill",
-							"normalizeStart": 0.25,
+							"normalizeStart": 0.0,
 							"normalizeEnd": 1.0
 						}
 					],
 					"battouOnStart": true,
-					"sheatheOnEnd": true
+					"sheatheOnEnd": false
 				},
 				"Eula_ElementalBurst":
 				{
@@ -1923,7 +2216,8 @@
 					{
 						"Eula_ElementalBurst":
 						[
-							"Eula_ElementalBurst"
+							"Eula_ElementalBurst",
+							"Audio_Lady_Claymore_Eula_ElementalBurst"
 						]
 					},
 					"moveType": "combatMove",
@@ -1936,8 +2230,7 @@
 						"BeHit"
 					],
 					"setAnimatorBoolean": [],
-					"battouOnStart": false,
-					"sheatheOnStart": true,
+					"battouOnStart": true,
 					"jumpCancelEnd": -1,
 					"sprintCancelEnd": -1
 				},
@@ -1946,7 +2239,10 @@
 					"$type": "ConfigAvatarStateIDInfo",
 					"animatorStates":
 					{
-						"Eula_ElementalBurst_AS": []
+						"Eula_ElementalBurst_AS":
+						[
+							"Audio_Lady_Claymore_Eula_ElementalBurst_AS"
+						]
 					},
 					"moveType": "combatMove",
 					"canDoSkill": true,
@@ -1977,8 +2273,167 @@
 							"normalizeEnd": 1.0
 						}
 					],
-					"battouOnStart": false,
-					"sheatheOnStart": true
+					"sheatheOnEnd": true
+				},
+				"FallingAnthem_BS":
+				{
+					"$type": "ConfigAvatarStateIDInfo",
+					"addEndure": 0,
+					"animatorStates":
+					{
+						"FallingAnthem_BS_1":
+						[
+							"Audio_Lady_Claymore_Eula_FallingAnthem_BS_1",
+							"Emo_Lady_Claymore_FallingAttack_BS_01"
+						],
+						"FallingAnthem_BS_2":
+						[
+							"Emo_Lady_Claymore_FallingAttack_BS_02"
+						]
+					},
+					"moveType": "combatAir",
+					"cameraType": "combatNormal",
+					"equipReattach":
+					[
+						{
+							"equip": "equip01",
+							"targetPoint": "WeaponR",
+							"normalizeStart": 0.0,
+							"normalizeEnd": 1.0
+						}
+					],
+					"resetAnimatorTriggerOnEnter": [],
+					"resetAnimatorTriggerOnExit":
+					[
+						"BeHit",
+						"DoSkill",
+						"Jump"
+					],
+					"setAnimatorBoolean": [],
+					"jumpCancelEnd": -1,
+					"actionPanelState": "Fly",
+					"animatorTriggerOnLanded": "HitAir2HitDrop",
+					"battouOnStart": true
+				},
+				"FallingAnthem_Loop":
+				{
+					"$type": "ConfigAvatarStateIDInfo",
+					"addEndure": 0,
+					"animatorStates":
+					{
+						"FallingAnthem_Loop": [],
+						"FallingAnthem_Loop_Low": []
+					},
+					"moveType": "combatAir",
+					"equipReattach":
+					[
+						{
+							"equip": "equip01",
+							"targetPoint": "WeaponR",
+							"normalizeStart": 0.0,
+							"normalizeEnd": 1.0
+						}
+					],
+					"resetAnimatorTriggerOnEnter": [],
+					"resetAnimatorTriggerOnExit":
+					[
+						"BeHit",
+						"DoSkill",
+						"Jump"
+					],
+					"setAnimatorBoolean": [],
+					"actionPanelState": "Fly",
+					"animatorTriggerOnLanded": "HitAir2HitDrop",
+					"battouOnStart": true
+				},
+				"FallingAnthem_AS_1":
+				{
+					"$type": "ConfigAvatarStateIDInfo",
+					"animatorStates":
+					{
+						"FallingAnthem_AS_1":
+						[
+							"Eula_FallingAnthem_Strike",
+							"Interaction_Bad",
+							"Audio_Lady_Claymore_Eula_FallingAnthem_AS_1",
+							"Emo_Lady_Claymore_FallingAttack_AS_01"
+						]
+					},
+					"moveType": "combatMove",
+					"canDoSkill": true,
+					"equipReattach":
+					[
+						{
+							"equip": "equip01",
+							"targetPoint": "WeaponR",
+							"normalizeStart": 0.0,
+							"normalizeEnd": 1.0
+						}
+					],
+					"resetAnimatorTriggerOnEnter": [],
+					"resetAnimatorTriggerOnExit":
+					[
+						"BeHit",
+						"DoSkill",
+						"Jump"
+					],
+					"setAnimatorBoolean":
+					[
+						{
+							"name": "&CanUseSkill",
+							"normalizeStart": 0.55,
+							"normalizeEnd": 1.0
+						}
+					],
+					"jumpCancelEnd": -1,
+					"battouOnStart": true
+				},
+				"FallingAnthem_AS_2":
+				{
+					"$type": "ConfigAvatarStateIDInfo",
+					"animatorStates":
+					{
+						"FallingAnthem_AS_2":
+						[
+							"Audio_Lady_Claymore_Eula_FallingAnthem_AS_2",
+							"Emo_Lady_Claymore_FallingAttack_AS_02"
+						]
+					},
+					"moveType": "combatMove",
+					"canDoSkill": true,
+					"equipReattach":
+					[
+						{
+							"equip": "equip01",
+							"targetPoint": "WeaponR",
+							"normalizeStart": 0.0,
+							"normalizeEnd": 1.0
+						}
+					],
+					"resetAnimatorTriggerOnEnter": [],
+					"resetAnimatorTriggerOnExit":
+					[
+						"BeHit",
+						"DoSkill",
+						"Jump"
+					],
+					"setAnimatorBoolean":
+					[
+						{
+							"name": "&CanUseSkill",
+							"normalizeStart": 0.0,
+							"normalizeEnd": 1.0
+						}
+					],
+					"canChangeAvatar":
+					[
+						{
+							"normalizeStart": 0.0,
+							"normalizeEnd": 1.0
+						}
+					],
+					"jumpCancelStart": 0.1,
+					"battouOnStart": true
 				},
 				"Sit":
 				{
@@ -1987,12 +2442,14 @@
 					{
 						"SitDown":
 						[
-							"Audio_Girl_SitDown"
+							"Audio_Girl_SitDown",
+							"Audio_Lady_Eula_Sit"
 						],
 						"SitLoop": [],
 						"SitUp":
 						[
-							"Audio_Girl_SitDown"
+							"Audio_Girl_SitDown",
+							"Audio_Lady_Eula_Sit"
 						]
 					},
 					"moveType": "performMove",
@@ -2011,12 +2468,14 @@
 					{
 						"SitBDown":
 						[
-							"Audio_Girl_SitDown"
+							"Audio_Girl_SitDown",
+							"Audio_Lady_Eula_Sit"
 						],
 						"SitBLoop": [],
 						"SitBUp":
 						[
-							"Audio_Girl_SitDown"
+							"Audio_Girl_SitDown",
+							"Audio_Lady_Eula_Sit"
 						]
 					},
 					"moveType": "performMove",
@@ -2025,6 +2484,49 @@
 					"resetAnimatorTriggerOnExit": [],
 					"setAnimatorBoolean": [],
 					"actionPanelState": "Perform",
+					"massRatio": 100.0,
+					"sheatheOnStart": true
+				},
+				"StandbyShow":
+				{
+					"$type": "ConfigAvatarStateIDInfo",
+					"animatorStates":
+					{
+						"StandbyVoice":
+						[
+							"Audio_Lady_StandbyVoice"
+						],
+						"StandbyShow_01":
+						[
+							"Manekin_Eula_Show01",
+							"Audio_Lady_Claymore_Eula_StandbyShow01_SFX"
+						],
+						"StandbyShow_02":
+						[
+							"Manekin_Eula_Show02",
+							"Audio_Lady_Claymore_Eula_StandbyShow02_SFX"
+						]
+					},
+					"moveType": "performMove",
+					"canChangeAvatar":
+					[
+						{
+							"normalizeStart": 0.0,
+							"normalizeEnd": 1.0
+						}
+					],
+					"canDoSkill": true,
+					"resetAnimatorTriggerOnEnter": [],
+					"resetAnimatorTriggerOnExit": [],
+					"setAnimatorBoolean":
+					[
+						{
+							"name": "&CanUseSkill",
+							"normalizeStart": 0.0,
+							"normalizeEnd": 1.0
+						}
+					],
+					"actionPanelState": "Normal",
 					"massRatio": 100.0,
 					"sheatheOnStart": true
 				},
@@ -2148,6 +2650,72 @@
 					"actionPanelState": "Normal",
 					"massRatio": 100.0,
 					"sheatheOnStart": true
+				},
+				"PlayMusic_Lyre":
+				{
+					"$type": "ConfigAvatarStateIDInfo",
+					"animatorStates":
+					{
+						"PlayMusic_Lyre_BS":
+						[
+							"PlayMusic_Lyre_Lady",
+							"Audio_Char_Common_PlayMusic_Lyrc_BS"
+						],
+						"PlayMusic_Lyre_Loop": []
+					},
+					"moveType": "combatMove",
+					"canChangeAvatar": [],
+					"canDoSkill": false,
+					"resetAnimatorTriggerOnEnter": [],
+					"resetAnimatorTriggerOnExit":
+					[
+						"BeHit",
+						"DoSkill",
+						"Jump"
+					],
+					"setAnimatorBoolean": [],
+					"actionPanelState": "Normal",
+					"massRatio": 100.0,
+					"sheatheOnStart": true
+				},
+				"PlayMusic_Lyre_AS":
+				{
+					"$type": "ConfigAvatarStateIDInfo",
+					"animatorStates":
+					{
+						"PlayMusic_Lyre_AS":
+						[
+							"PlayMusic_Lyre_Lady_AS",
+							"Audio_Char_Common_PlayMusic_Lyrc_AS"
+						]
+					},
+					"moveType": "combatMove",
+					"canChangeAvatar":
+					[
+						{
+							"normalizeStart": 0.0,
+							"normalizeEnd": 1.0
+						}
+					],
+					"canDoSkill": true,
+					"resetAnimatorTriggerOnEnter": [],
+					"resetAnimatorTriggerOnExit":
+					[
+						"BeHit",
+						"DoSkill",
+						"Jump"
+					],
+					"setAnimatorBoolean":
+					[
+						{
+							"name": "&CanUseSkill",
+							"normalizeStart": 0.0,
+							"normalizeEnd": 1.0
+						}
+					],
+					"actionPanelState": "Normal",
+					"massRatio": 100.0,
+					"sheatheOnStart": true
 				}
 			}
 		}
@@ -2160,10 +2728,109 @@
 			"onTransitionOut":
 			[
 				{
+					"currentStateName": "Attack1",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_char_eula_claymore_attack"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "Attack2",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_char_eula_claymore_attack"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "Attack3",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_char_eula_claymore_attack"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "Attack4",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_char_eula_claymore_attack"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "Attack5",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_char_eula_claymore_attack"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "ExtraAttack",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_char_eula_claymore_extraAttack"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "ExtraAttack1",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_char_eula_claymore_extraAttack1"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "ExtraAttack2",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_char_eula_claymore_extraAttack2"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "ExtraAttack3",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_char_eula_claymore_extraAttack3"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "FallingAnthem_AS_2",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_char_claymore_fallingAnthem_AS"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "StandbyShow_02",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_standbyShow_eula_crystal"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
 					"currentStateName": "StandbyPutaway",
 					"audioEvent":
 					{
-						"text": "Stop_sfx_weapon_1HSword_lady_putAwayStandby"
+						"text": "Stop_sfx_char_beidou_claymore_Putaway"
 					},
 					"otherStateNames": [],
 					"usage": "Any"
@@ -2425,9 +3092,122 @@
 					},
 					"otherStateNames": [],
 					"usage": "Any"
+				},
+				{
+					"currentStateName": "SlipFaceWall",
+					"audioEvent":
+					{
+						"text": "Play_sfx_char_land"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "SlipBackWall",
+					"audioEvent":
+					{
+						"text": "Play_sfx_char_land"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "SlipFaceWall",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_char_drop"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "SlipBackWall",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_char_drop"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "Fly",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_char_fly"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
 				}
 			],
-			"onTransitionIn": [],
+			"onTransitionIn":
+			[
+				{
+					"currentStateName": "ExtraAttack1",
+					"audioEvent":
+					{
+						"text": "Play_sfx_char_eula_claymore_extraAttack1"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "NormalDie",
+					"audioEvent":
+					{
+						"text": "Play_sfx_char_land"
+					},
+					"otherStateNames":
+					[
+						"FallOnGround"
+					],
+					"usage": "InSet"
+				},
+				{
+					"currentStateName": "SwimJumpToWater",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_char_swim_dive"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "SwimDash",
+					"audioEvent":
+					{
+						"text": "Play_sfx_char_swim_dash"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "Standby",
+					"audioEvent":
+					{
+						"text": "Stop_sfx_char_fly"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "SprintBS",
+					"audioEvent":
+					{
+						"text": "Play_sfx_char_foley_flutter_heavy"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				},
+				{
+					"currentStateName": "CrouchIdle",
+					"audioEvent":
+					{
+						"text": "Play_sfx_char_foley_cloth_middle"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
+				}
+			],
 			"recurrentSpeeches":
 			{
 				"Standby":
@@ -2512,6 +3292,18 @@
 					},
 					"otherStateNames": [],
 					"usage": "Any"
+				},
+				{
+					"currentStateName": "Air",
+					"audioEvent":
+					{
+						"text": "Play_sfx_char_drop"
+					},
+					"otherStateNames":
+					[
+						"Fly"
+					],
+					"usage": "InSet"
 				}
 			],
 			"onStateEnd":
@@ -2522,23 +3314,17 @@
 					{
 						"text": "Stop_sfx_char_fly"
 					},
-					"otherStateNames":
-					[
-						"Air"
-					],
-					"usage": "Except"
+					"otherStateNames": [],
+					"usage": "Any"
 				},
 				{
 					"currentStateName": "Air",
 					"audioEvent":
 					{
-						"text": "Stop_sfx_char_fly"
+						"text": "Stop_sfx_char_drop"
 					},
-					"otherStateNames":
-					[
-						"Fly"
-					],
-					"usage": "Except"
+					"otherStateNames": [],
+					"usage": "Any"
 				}
 			]
 		},
@@ -2570,7 +3356,7 @@
 					"PCNoTessellation":
 					{
 						"effect": "Eff_Character_Snow_Footprint",
-						"deformation": "",
+						"deformation": ""
 					},
 					"pc":
 					{
@@ -2593,7 +3379,7 @@
 					"PCNoTessellation":
 					{
 						"effect": "Eff_Character_Snow_Footprint",
-						"deformation": "",
+						"deformation": ""
 					},
 					"pc":
 					{
@@ -2631,6 +3417,21 @@
 					}
 				}
 			}
+		}
+	},
+	"perform":
+	{
+		"standby":
+		{
+			"minTime": 10,
+			"maxTime": 20,
+			"performIDs":
+			[
+				201,
+				202,
+				200,
+				200
+			]
 		}
 	}
 }

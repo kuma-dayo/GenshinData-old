@@ -190,6 +190,10 @@
 					},
 					"abilityName":"Keqing_SkillGadget_ExplodeAbility",
 				},
+				{//1.3修复新增
+					"$type":"RemoveUniqueModifier",
+					"modifierName":"UNIQUE_Keqing_SkillChange",
+				},
 			],
 		},
 	},
@@ -796,6 +800,10 @@
 								{
 									"useGyro": false,
 								},
+								"ps5":
+								{
+									"useGyro": false,
+								},								
 								"other":
 								{
 									"useGyro": true,
@@ -1038,10 +1046,6 @@
 						},
 					],
 				},
-				{
-					"$type":"AttachModifier",
-					"modifierName":"Keqing_2SwitchTo1",
-				},
 			],
 			"abilityMixins":
 			[
@@ -1109,19 +1113,6 @@
 			],
 			"modifiers":
 			{
-				"Keqing_2SwitchTo1":
-				{
-					"duration":0.1,
-					"modifierMixins":
-					[
-						{
-							"$type": "SwitchSkillIDMixin",//替换一次自己，保证生效。
-							"priority":"AvatarSpecial",
-							"skillIndex": 1,
-							"skillID": 10423,
-						},
-					],
-				},
 				"KillGadget":
 				{
 					"duration":0.33,

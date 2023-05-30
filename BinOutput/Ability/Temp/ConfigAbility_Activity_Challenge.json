@@ -47,7 +47,7 @@
                 {
                   "$type": "CreateGadget",
                   "target": "CurLocalAvatar",
-                  "gadgetID": 420000007,
+                  "gadgetID": 44000007,
                   "campID": 1001,
                   "campTargetType": "Enemy",
                   "campBasedOn": "Self",

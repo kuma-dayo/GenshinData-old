@@ -3781,6 +3781,10 @@
 				"onAdded":
 				[
 					{
+						"$type":"RemoveModifier",
+						"modifierName":"Monster_Oceanid_02_PlatformDamage"
+					},
+					{
 						"$type":"KillSelf"
 					}
 				]

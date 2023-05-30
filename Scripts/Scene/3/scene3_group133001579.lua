@@ -11,8 +11,8 @@ local defs = {
 
 -- 怪物
 monsters = {
-	[579001] = { config_id = 579001, monster_id = 21020501, pos = { x = 1559.754, y = 252.086, z = -1647.623 }, rot = { x = 0.000, y = 35.000, z = 0.000 }, level = 1, drop_id = 1000100, disableWander = true, title_id = 3111, special_name_id = 64, area_id = 2 },
-	[579014] = { config_id = 579014, monster_id = 21020501, pos = { x = 1559.235, y = 252.087, z = -1647.184 }, rot = { x = 0.000, y = 35.000, z = 0.000 }, level = 1, drop_id = 1000100, disableWander = true, affix = { 1008, 1034 }, title_id = 3111, special_name_id = 64, area_id = 2 }
+	[579001] = { config_id = 579001, monster_id = 21020501, pos = { x = 1559.754, y = 252.086, z = -1647.623 }, rot = { x = 0.000, y = 35.000, z = 0.000 }, level = 1, drop_id = 1000100, disableWander = true, area_id = 2 },
+	[579014] = { config_id = 579014, monster_id = 21020501, pos = { x = 1559.235, y = 252.087, z = -1647.184 }, rot = { x = 0.000, y = 35.000, z = 0.000 }, level = 1, drop_id = 1000100, disableWander = true, affix = { 1008, 1034 }, area_id = 2 }
 }
 
 -- NPC

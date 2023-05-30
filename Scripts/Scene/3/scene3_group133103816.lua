@@ -130,7 +130,7 @@ gadgets = {
 	{ config_id = 816121, gadget_id = 70500000, pos = { x = 205.316, y = 185.859, z = 1284.797 }, rot = { x = 0.000, y = 142.944, z = 0.000 }, level = 24, point_type = 3010, owner = 816120, area_id = 6 },
 	{ config_id = 816128, gadget_id = 70500000, pos = { x = 375.643, y = 246.387, z = 1638.081 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 24, point_type = 1001, area_id = 6 },
 	{ config_id = 816129, gadget_id = 70500000, pos = { x = 357.813, y = 253.688, z = 1638.067 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 24, point_type = 1001, area_id = 6 },
-	{ config_id = 816130, gadget_id = 70500000, pos = { x = 344.711, y = 251.266, z = 1632.966 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 24, point_type = 1001, area_id = 6 },
+	{ config_id = 816130, gadget_id = 70500000, pos = { x = 346.235, y = 254.532, z = 1637.931 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 24, point_type = 1001, area_id = 6 },
 	{ config_id = 816131, gadget_id = 70500000, pos = { x = 253.396, y = 240.602, z = 1697.264 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 24, point_type = 1001, area_id = 6 },
 	{ config_id = 816132, gadget_id = 70500000, pos = { x = 254.955, y = 242.242, z = 1704.639 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 24, point_type = 1001, area_id = 6 },
 	{ config_id = 816133, gadget_id = 70500000, pos = { x = 358.618, y = 266.822, z = 1630.115 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 24, point_type = 1003, area_id = 6 },

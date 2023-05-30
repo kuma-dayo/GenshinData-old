@@ -136,6 +136,11 @@
 									"useFocusSticky": true,
 									"useGyro": false,
 								},
+								"ps5":
+								{
+									"useFocusSticky": true,
+									"useGyro": false,
+								},								
 								"other":
 								{
 									"useFocusSticky": true,
@@ -308,6 +313,11 @@
 									"useFocusSticky": true,
 									"useGyro": false,
 								},
+								"ps5":
+								{
+									"useFocusSticky": true,
+									"useGyro": false,
+								},								
 								"other":
 								{
 									"useFocusSticky": true,
@@ -1813,6 +1823,10 @@
 								{
 									"useGyro": false,
 								},
+								"ps5":
+								{
+									"useGyro": false,
+								},								
 								"other":
 								{
 									"useGyro": true,
@@ -3180,7 +3194,7 @@
 								{
 									"x": 0.0, // + means up, - means down
 									"y": 0.0, // + means left, - means right
-									"z": -1, // + means forward, - means backward
+									"z": -0.5, // + means forward, - means backward
 								},
 							},
 							"checkHitLayerType": "Both",
@@ -4537,56 +4551,97 @@
 					[
 						{
 							"$type": "Predicated",
-							"target": "Target",
+							"target": "Other",
 							"targetPredicates":
 							[
+								{
+									"$type": "ByAttackTags",
+									"attackTags":
+									[
+										"Elemental_Art"
+									],
+								},
 								{
 									"$type": "ByEntityTypes",
 									"entityTypes":
 									[
 										"Monster"
 									],
-								}
+								},
+								{
+									"$type": "ByTargetGlobalValue",
+									"key": "_ANIMAL_ENTITY_TYPE",
+									"value": 0,
+									"compareType": "NoneOrEqual",
+								},
+								{
+									"$type": "ByTargetGlobalValue",
+									"key": "_Ability_Fischl_ElementalArt_ElementBall_CD",
+									"target": "CasterOriginOwner",
+									"value": 0,
+									"compareType": "NoneOrEqual",
+								},
 							],
 							"successActions":
 							[
 								{
-									"$type": "AttachModifier",
-									"modifierName": "Ball_01",
-									"target": "Target",
+									"$type": "SetGlobalPos",
+									"target": "Other",
+									"key": "_Ability_Fischl_ElementalArt_ElementBall_Pos",
+									"setTarget": false,
+									"born":
+									{
+										"$type": "ConfigBornByTarget",
+									},
+								},
+								{
+									"$type": "Randomed",
+									"target": "Caster",
+									"chance": 0.67,
+									"successActions":
+									[
+
+										{
+											"$type": "GenerateElemBall",
+											"configID": 2020,
+											"baseEnergy": 3,
+											"ratio": 1,
+											"born":
+											{
+				                        		"$type": "ConfigBornByGlobalValue",
+				                        		"target":"Caster",
+				                        		"positionKey": "_Ability_Fischl_ElementalArt_ElementBall_Pos",
+											},
+										},
+										{
+											"$type": "ApplyModifier",
+											"target": "CasterOriginOwner",
+											"modifierName": "UNIQUE_ElemBall_CD",
+										},
+									],
 								},
 							],
 						},
 					],
 				},
-				"Ball_01":
+				"UNIQUE_ElemBall_CD":
 				{
+					"isUnique": true,
 					"duration": 0.1,
 					"stacking": "Unique",
-					"onAdded":
+					"onAdded": 
 					[
 						{
-							"$type": "Randomed",
-							"chance": 0.67,
-							"successActions":
-							[
-								{
-									"$type": "GenerateElemBall",
-									"configID": 2020,
-									"baseEnergy": 3,
-									"ratio": 1,
-									"born":
-									{
-										"$type": "ConfigBornByTarget",
-										"offset":
-										{
-											"x": 0.0,
-											"y": 0.0,
-											"z": 0.0,
-										},
-									},
-								},
-							],
+							"$type": "SetGlobalValue",
+							"key": "_Ability_Fischl_ElementalArt_ElementBall_CD",
+							"value": 1,
+						},
+					],
+					"onRemoved": 
+					[
+						{
+							"$type": "ClearGlobalValue",
+							"key": "_Ability_Fischl_ElementalArt_ElementBall_CD",
 						},
 					],
 				},
@@ -4840,13 +4895,15 @@
 							"modifierName": "Effect_CrowHandler",
 						}, //AM:Effect_CrowHandler
 						{
-							"$type": "EnablePushColliderName",
-							"pushColliderNames":
-							[
-								"PushCollider"
-							],
+							"$type": "EnablePushColliderName",		//关闭碰撞，穿小怪
+							"pushColliderNames": ["PushCollider"],
 							"setEnable": false,
-						}, //关闭碰撞，穿小怪
+						},
+						{
+							"$type": "EnablePushColliderName",		//打开高级碰撞，防止穿越巨盾怪
+							"pushColliderNames": ["PushColliderExtra"],
+							"setEnable": true,
+						},
 						{
 							"$type": "ApplyModifier",
 							"modifierName": "CrowQueen_DoAttackEventThinkInterval_01",
@@ -4881,13 +4938,16 @@
 						}, //设置角色可见
 						{
 							"$type": "EnablePushColliderName",
-							"pushColliderNames":
-							[
-								"PushCollider"
-							],
-							"doOffStage": true,
+							"pushColliderNames": ["PushCollider"],
 							"setEnable": true,
-						}, //关闭碰撞，穿小怪
+							"doOffStage": true,
+						},
+						{
+							"$type": "EnablePushColliderName",
+							"pushColliderNames": ["PushColliderExtra"],
+							"setEnable": false,
+							"doOffStage": true,
+						},
 						{
 							"$type": "FireEffect",
 							"doOffStage": true,

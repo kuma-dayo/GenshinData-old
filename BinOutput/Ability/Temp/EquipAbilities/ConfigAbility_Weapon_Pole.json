@@ -830,7 +830,7 @@
 				"UNIQUE_Pole_Dual_Handler":
 				{
 					"isUnique":true,
-					"thinkInterval":2,//1秒实测反应挺快的。可以慢一些不影响效果。
+					"thinkInterval":1, //1秒实测反应挺快的。可以慢一些不影响效果。
 					"onThinkInterval":
 					[
 						{
@@ -853,7 +853,7 @@
 								{
 									//程序优化一下，用一个aciton获取targets数量。然后compare就行了
 									"$type":"ApplyModifier",
-									"modifierName":"UNIQUE_Pole_Dual_Add",
+									"modifierName":"Pole_Dual_Add",
 									"otherTargets":
 									{
 										"$type":"SelectTargetsByShape",
@@ -885,24 +885,37 @@
 						},
 					],
 				},
-				"UNIQUE_Pole_Dual_Add": //通过给周围的怪加，然后给角色获得count。 类lisa逻辑。
+				"Pole_Dual_Add": //通过给周围的怪加，然后给角色获得count。 类lisa逻辑。
 				{
-					"duration":0.1,
-					"isUnique":true,
+					"duration": 0.1,
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
-							"$type":"AddGlobalValue",
-							"target":"Caster",
-							"key":"_ABILITY_Weapon_Pole_Dual_Enemy_Count",
-							"value":1,
+							"$type": "ApplyModifier",
+							"modifierName": "Pole_Dual_AddOnAvatar",
+							"target": "Caster",
+						},
+					],
+				},
+				"Pole_Dual_AddOnAvatar":  //跨remote只能通过ApplyModifier进行通信
+				{
+					"duration": 0.1,
+					"stacking": "Multiple",
+					"onAdded":
+					[
+						{
+							"$type": "AddGlobalValue",
+							"target": "Caster",
+							"key": "_ABILITY_Weapon_Pole_Dual_Enemy_Count",
+							"value": 1,
 						},
 					],
 				},
 				"UNIQUE_Pole_Dual_Timer":
 				{
-					"duration":0.05,
-					"isUnique":true,
+					"duration": 0.8,
+					"isUnique": true,
 					"onRemoved":
 					[
 						{

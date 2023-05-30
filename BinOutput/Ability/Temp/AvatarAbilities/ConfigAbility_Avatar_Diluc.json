@@ -741,10 +741,6 @@
 					},
 				],
 			},
-			{
-				"$type":"AttachModifier",
-				"modifierName":"Diluc_3SwitchTo1",
-			},
 		],
 		"abilityMixins":
 		[
@@ -757,19 +753,6 @@
 		],
 		"modifiers":
 		{
-			"Diluc_3SwitchTo1":
-			{
-				"duration":0.1,
-				"modifierMixins":
-				[
-					{
-						"$type": "SwitchSkillIDMixin",
-						"priority":"AvatarSpecial",
-						"skillIndex": 1,
-						"skillID": 10163,
-					},
-				],
-			},
 			"Eff_Diluc_FireBlade_Weapon_03":
 			{
 				"onAdded":
@@ -809,8 +792,8 @@
 				},
 			},
 			{
-				"$type":"ApplyModifier",
-				"modifierName":"Eff_Weapon_01",
+				"$type":"FireEffect",
+				"effectPattern":"Eff_Diluc_FireCross_Weapon_01",
 				"otherTargets":
 				{
 					"$type":"SelectTargetsByEquipParts",
@@ -913,10 +896,6 @@
 				[
 					{
 						"$type":"RemoveModifier",
-						"modifierName":"Eff_Weapon_01",
-					},
-					{
-						"$type":"RemoveModifier",
 						"modifierName":"Fire_Enhancement_Weapon",
 						"doOffStage":true,
 					},
@@ -925,26 +904,9 @@
 				[
 					{
 						"$type":"RemoveModifier",
-						"modifierName":"Eff_Weapon_01",
-						"doOffStage":true,
-
-					},
-					{
-						"$type":"RemoveModifier",
 						"modifierName":"Fire_Enhancement_Weapon",
 						"doOffStage":true,
 					},
-				],
-			},
-			"Eff_Weapon_01":
-			{
-				"duration":4,
-				"onAdded":
-				[
-					{
-						"$type":"AttachEffect",
-						"effectPattern":"Eff_Diluc_FireCross_Weapon_01",
-					}
 				],
 			},
 			"Fire_Enhancement_Weapon":   //附加在武器上，播放特效

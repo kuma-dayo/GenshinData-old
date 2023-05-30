@@ -47,10 +47,6 @@
 		},
 		"abilities":
 		[
-			{
-				"abilityID": "IceWave",
-				"abilityName":"Avatar_Eula_ElementalArt_IceWave",
-			},
 		],
 	},
 
@@ -117,12 +113,110 @@
 		"timer" :
 		{
 			"lifeInfinite" : false,		//如果未触发是否一致存在
-			"lifeTime" : 10.5,			//存在时间
+			"lifeTime" : 10,			//存在时间
 		},
 		"abilities":
 		[
 			{
 				"abilityName":"Avatar_Eula_ElementalBurst_Judgment",
+			},
+		],
+	},
+
+////////////////////////////////////////////////////////////////
+//
+//  Eula_ElementalArt_ExtraAttack_1
+//
+////////////////////////////////////////////////////////////////	
+	"Eula_ElementalArt_ExtraAttack_1" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1.0,
+				"scaleY" : 1.0,
+				"scaleZ" : 0.4,
+			},
+		},
+		"timer" :
+		{
+			"lifeTime": 1.2,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true, // 是否继承创造者的数值
+				"HP" : 999999,
+				"attack" : 10.0,
+				"defense" : 999999,
+				"weight" : 10,
+				"isInvincible": true,
+				"isLockHP": true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+		},
+		"abilities":
+		[
+			{				
+				"abilityName" : "Avatar_Eula_ElementalArt_ExtraAttack_1"
+			},
+		],
+	},
+
+////////////////////////////////////////////////////////////////
+//
+//  Eula_ElementalArt_ExtraAttack_2
+//
+////////////////////////////////////////////////////////////////	
+	"Eula_ElementalArt_ExtraAttack_2" :
+	{
+		"$type" : "ConfigGadget",
+		"common" :
+		{
+			"effectAttachShape" :
+			{
+				"$type" : "ConfigEffectAttachBox",
+				"emitFrom" : "Volume",
+				"scaleX" : 1.0,
+				"scaleY" : 1.0,
+				"scaleZ" : 0.4,
+			},
+		},
+		"timer" :
+		{
+			"lifeTime": 2.0,
+		},
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : true, // 是否继承创造者的数值
+				"HP" : 999999,
+				"attack" : 10.0,
+				"defense" : 999999,
+				"weight" : 10,
+				"isInvincible": true,
+				"isLockHP": true,
+				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+			},
+		},
+		"abilities":
+		[
+			{
+				"abilityName" : "Avatar_Eula_ElementalArt_ExtraAttack_2"
 			},
 		],
 	},

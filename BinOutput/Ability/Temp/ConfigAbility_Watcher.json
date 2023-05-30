@@ -1651,6 +1651,54 @@
 						},
 					],
 				},
+				//在无相冰处于眩晕时，击败它
+				"Watcher_Achievement_82089":
+				{
+					"modifierMixins":
+					[
+						{
+							"$type":"WatcherSystemMixin",
+							"mixinType":"ListenAbilityAction",
+							"watcherId":82089,
+						},
+					],
+				},
+				//让无相冰重生3次以上，再击败它
+				"Watcher_Achievement_82090":
+				{
+					"modifierMixins":
+					[
+						{
+							"$type":"WatcherSystemMixin",
+							"mixinType":"ListenAbilityAction",
+							"watcherId":82090,
+						},
+					],
+				},
+			},
+		},
+	},
+
+
+	{
+		"Default":
+		{
+			"$type":"ConfigAbility",
+			"abilityName":"LevelAbility_Combat_Activity_Watcher_1",
+			"modifiers":
+			{
+				//用弓箭射中在空中飞行的鹰。
+				"Watcher_Achievement_1502220":
+				{
+					"modifierMixins":
+					[
+						{
+							"$type":"WatcherSystemMixin",
+							"mixinType":"ListenAbilityAction",
+							"watcherId":1502220,
+						},
+					],
+				},
 			},
 		},
 	},

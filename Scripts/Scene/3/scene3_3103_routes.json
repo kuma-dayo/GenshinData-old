@@ -14855,6 +14855,117 @@
           "speedLevel": 1
         }
       ]
+    },
+    {
+      "localId": 310300222,
+      "name": "Route_310300222",
+      "type": "Loop",
+      "rotType": "ROT_NONE",
+      "rotAngleType": "ROT_ANGLE_Y",
+      "arriveRange": 2.0,
+      "points": [
+        {
+          "pos": {
+            "x": 319.85965,
+            "y": 234.829468,
+            "z": 1724.8269
+          },
+          "waitTime": 0.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 322.278534,
+            "y": 233.2705,
+            "z": 1708.2782
+          },
+          "waitTime": 7.0,
+          "speedLevel": 1
+        }
+      ]
+    },
+    {
+      "localId": 310300223,
+      "name": "Route_310300223",
+      "type": "Loop",
+      "rotType": "ROT_NONE",
+      "rotAngleType": "ROT_ANGLE_Y",
+      "arriveRange": 2.0,
+      "points": [
+        {
+          "pos": {
+            "x": 351.853882,
+            "y": 233.8308,
+            "z": 1718.34351
+          },
+          "waitTime": 0.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 344.3265,
+            "y": 232.72554,
+            "z": 1704.85852
+          },
+          "waitTime": 7.0,
+          "speedLevel": 1
+        }
+      ]
+    },
+    {
+      "localId": 310300224,
+      "name": "Route_310300224",
+      "type": "Loop",
+      "rotType": "ROT_NONE",
+      "rotAngleType": "ROT_ANGLE_Y",
+      "arriveRange": 2.0,
+      "points": [
+        {
+          "pos": {
+            "x": 524.3987,
+            "y": 289.5539,
+            "z": 1485.93774
+          },
+          "waitTime": 5.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 515.2154,
+            "y": 291.102875,
+            "z": 1483.10376
+          },
+          "waitTime": 0.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 506.002167,
+            "y": 290.56015,
+            "z": 1489.52588
+          },
+          "waitTime": 0.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 509.688263,
+            "y": 289.310669,
+            "z": 1499.55762
+          },
+          "waitTime": 0.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 522.8966,
+            "y": 288.7784,
+            "z": 1498.18335
+          },
+          "waitTime": 5.0,
+          "speedLevel": 1
+        }
+      ]
     }
   ]
 }

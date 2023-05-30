@@ -158,7 +158,7 @@
 					[
 						{
 							"$type" : "TriggerAttackEvent",
-							"targetType" : "All",
+							"targetType" : "AllExceptSelf",
 							"attackEvent": 
 							{
 								"attackPattern" : 
@@ -372,7 +372,7 @@
 						},
 						{
 							"$type" : "TriggerAttackEvent",
-							"targetType" : "All",
+							"targetType" : "AllExceptSelf",
 							"attackEvent": 
 							{
 								"attackPattern" : 
@@ -730,7 +730,7 @@
 						},
 						{
 							"$type" : "TriggerAttackEvent",
-							"targetType" : "All",
+							"targetType" : "AllExceptSelf",
 							"attackEvent": 
 							{
 								"attackPattern" : 

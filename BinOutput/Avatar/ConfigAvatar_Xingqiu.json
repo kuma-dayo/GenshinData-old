@@ -10,16 +10,6 @@
 		"mass": 10.0,
 		"affectedByWorld": true,
 		"checkInSurface": true,
-		"effectGroups":
-		[
-			"AvatarSkill_UziExplode_Effects",
-			"AvatarSkill_WindBreathe_Effects"
-		],
-		"consoleEffectGroups":
-		[
-			"AvatarSkill_UziExplode_Effects",
-			"AvatarSkill_WindBreathe_Effects"
-		],
 		"avatarHeight": 1.6165,
 		"avatarModelHeight": 1.61,
 		"height": 1.6386,

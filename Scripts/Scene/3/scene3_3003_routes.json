@@ -18355,6 +18355,219 @@
           "targetVelocity": 1.0
         }
       ]
+    },
+    {
+      "localId": 300300329,
+      "name": "Route_300300329",
+      "type": "Loop",
+      "rotType": "ROT_NONE",
+      "rotAngleType": "ROT_ANGLE_Y",
+      "arriveRange": 2.0,
+      "points": [
+        {
+          "pos": {
+            "x": 2182.791,
+            "y": 212.6895,
+            "z": -1463.16443
+          },
+          "waitTime": 5.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 2173.22974,
+            "y": 213.0878,
+            "z": -1461.32458
+          },
+          "waitTime": 0.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 2166.31958,
+            "y": 213.359756,
+            "z": -1457.25513
+          },
+          "waitTime": 5.0,
+          "speedLevel": 1
+        }
+      ]
+    },
+    {
+      "localId": 300300330,
+      "name": "Route_300300330",
+      "type": "OneWay",
+      "rotType": "ROT_NONE",
+      "rotAngleType": "ROT_ANGLE_Y",
+      "arriveRange": 2.0,
+      "points": [
+        {
+          "pos": {
+            "x": 2219.63135,
+            "y": 217.364349,
+            "z": -1524.60327
+          },
+          "waitTime": 5.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 2204.80176,
+            "y": 216.874542,
+            "z": -1516.88525
+          },
+          "waitTime": 5.0,
+          "speedLevel": 1
+        }
+      ]
+    },
+    {
+      "localId": 300300331,
+      "name": "Route_300300331",
+      "type": "Loop",
+      "rotType": "ROT_NONE",
+      "rotAngleType": "ROT_ANGLE_Y",
+      "arriveRange": 2.0,
+      "points": [
+        {
+          "pos": {
+            "x": 2428.86963,
+            "y": 208.5675,
+            "z": -1294.34888
+          },
+          "waitTime": 10.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 2426.43262,
+            "y": 206.825119,
+            "z": -1277.30432
+          },
+          "waitTime": 0.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 2411.3562,
+            "y": 205.64,
+            "z": -1263.975
+          },
+          "waitTime": 10.0,
+          "speedLevel": 1
+        }
+      ]
+    },
+    {
+      "localId": 300300332,
+      "name": "Route_300300332",
+      "type": "Loop",
+      "rotType": "ROT_NONE",
+      "rotAngleType": "ROT_ANGLE_Y",
+      "arriveRange": 2.0,
+      "points": [
+        {
+          "pos": {
+            "x": 2529.60181,
+            "y": 204.858887,
+            "z": -1127.02026
+          },
+          "waitTime": 5.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 2517.38867,
+            "y": 202.634552,
+            "z": -1133.21912
+          },
+          "waitTime": 0.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 2507.82446,
+            "y": 202.4527,
+            "z": -1130.001
+          },
+          "waitTime": 5.0,
+          "speedLevel": 1
+        }
+      ]
+    },
+    {
+      "localId": 300300333,
+      "name": "Route_300300333",
+      "type": "Loop",
+      "rotType": "ROT_NONE",
+      "rotAngleType": "ROT_ANGLE_Y",
+      "arriveRange": 2.0,
+      "points": [
+        {
+          "pos": {
+            "x": 2511.01147,
+            "y": 202.711411,
+            "z": -1107.71033
+          },
+          "waitTime": 5.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 2520.43774,
+            "y": 202.903244,
+            "z": -1117.1709
+          },
+          "waitTime": 0.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 2509.80469,
+            "y": 202.5421,
+            "z": -1128.45837
+          },
+          "waitTime": 5.0,
+          "speedLevel": 1
+        }
+      ]
+    },
+    {
+      "localId": 300300334,
+      "name": "Route_300300334",
+      "type": "OneWay",
+      "rotType": "ROT_NONE",
+      "rotAngleType": "ROT_ANGLE_Y",
+      "arriveRange": 2.0,
+      "points": [
+        {
+          "pos": {
+            "x": 2763.21973,
+            "y": 264.52002,
+            "z": -1192.29211
+          },
+          "waitTime": 0.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 2758.5542,
+            "y": 264.811768,
+            "z": -1189.81824
+          },
+          "waitTime": 0.0,
+          "speedLevel": 1
+        },
+        {
+          "pos": {
+            "x": 2752.67725,
+            "y": 265.495941,
+            "z": -1187.27588
+          },
+          "waitTime": 0.0,
+          "speedLevel": 1
+        }
+      ]
     }
   ]
 }

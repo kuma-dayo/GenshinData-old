@@ -40,6 +40,18 @@ rewind_data["48603"] =
 
 rewind_data["48604"] = 
 {
+	npcs = 
+	{
+		{
+			alias = "CatNpc",
+			script = "Actor/Npc/TempNPC",
+			id = 10031,
+			pos = "Q48605NPC",
+			scene_id = 3,
+			room_id = 0,
+			data_index = 0,
+		} 
+    }
 }
 
 rewind_data["48605"] = 
@@ -57,7 +69,16 @@ rewind_data["48606"] =
 			pos = "Q48607Qin",
 			scene_id = 1004,
 			room_id = 100402,
-			data_index = 0,
+			data_index = 1,
+		} ,
+		{
+			alias = "CatNpc",
+			script = "Actor/Npc/TempNPC",
+			id = 10031,
+			pos = "Q48605NPC",
+			scene_id = 3,
+			room_id = 0,
+			data_index = 2,
 		} 
     }
 }

@@ -19,8 +19,8 @@ npcs = {
 gadgets = {
 	{ config_id = 528004, gadget_id = 70310006, pos = { x = 2080.266, y = 230.916, z = -1527.661 }, rot = { x = 0.000, y = 224.147, z = 0.000 }, level = 5, state = GadgetState.GearStart, area_id = 1 },
 	{ config_id = 528005, gadget_id = 70211012, pos = { x = 2089.737, y = 232.784, z = -1530.249 }, rot = { x = 359.938, y = 343.997, z = 19.377 }, level = 1, drop_tag = "战斗中级蒙德", state = GadgetState.ChestLocked, isOneoff = true, persistent = true, explore = { name = "chest", exp = 1 }, area_id = 1 },
-	{ config_id = 528006, gadget_id = 70220014, pos = { x = 2088.490, y = 232.542, z = -1524.845 }, rot = { x = 0.000, y = 19.714, z = 0.000 }, level = 5, area_id = 1 },
-	{ config_id = 528007, gadget_id = 70220013, pos = { x = 2086.907, y = 232.279, z = -1523.609 }, rot = { x = 0.000, y = 196.439, z = 0.000 }, level = 5, area_id = 1 }
+	{ config_id = 528006, gadget_id = 70220014, pos = { x = 2089.070, y = 232.542, z = -1525.585 }, rot = { x = 0.000, y = 19.714, z = 0.000 }, level = 5, area_id = 1 },
+	{ config_id = 528007, gadget_id = 70220013, pos = { x = 2088.964, y = 232.695, z = -1524.064 }, rot = { x = 0.000, y = 196.439, z = 0.000 }, level = 5, area_id = 1 }
 }
 
 -- 区域

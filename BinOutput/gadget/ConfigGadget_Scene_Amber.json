@@ -70,25 +70,25 @@
 				},
 			],
 		},
-		"stateLayers":
-		{
-			"defaultLayer":
-			{
-				"$type" : "ConfigNormalStateLayer",
-				"stateIDs" :
-				{
-					"All" :
-					{
-						"$type": "ConfigNormalStateIDInfo",
-						"animatorStates":
-						{
-							"ShowCollider": ["ShowCollider"],
-							"HideCollider": ["HideCollider"],
-						},
-					},
-				},
-			},
-		},
+		// "stateLayers":
+		// {
+		// 	"defaultLayer":
+		// 	{
+		// 		"$type" : "ConfigNormalStateLayer",
+		// 		"stateIDs" :
+		// 		{
+		// 			"All" :
+		// 			{
+		// 				"$type": "ConfigNormalStateIDInfo",
+		// 				"animatorStates":
+		// 				{
+		// 					"ShowCollider": ["ShowCollider"],
+		// 					"HideCollider": ["HideCollider"],
+		// 				},
+		// 			},
+		// 		},
+		// 	},
+		// },
 		"abilities":
 		[
 			{

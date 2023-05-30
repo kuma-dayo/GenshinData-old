@@ -297,8 +297,18 @@
 				"exitActions":
 				[
 					{
+						"$type": "SetPoseInt",
+						"intID": "ElementState",
+						"value": 2,
+					},
+					{
 						"$type": "TriggerAbility",
 						"abilityName": "Abyss_Fire_ElementShield",
+						"target": "Self",
+					},
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Abyss_Fire_ElementShield_Effect",
 						"target": "Self",
 					},
 				],
@@ -342,8 +352,18 @@
 		"onAbilityStart":
 		[
 			{
+				"$type": "SetPoseInt",
+				"intID": "ElementState",
+				"value": 2,
+			},
+			{
 				"$type": "TriggerAbility",
 				"abilityName": "Abyss_Fire_ElementShield",
+				"target": "Self",
+			},
+			{
+				"$type": "TriggerAbility",
+				"abilityName": "Abyss_Fire_ElementShield_Effect",
 				"target": "Self",
 			},	
 		],
@@ -399,6 +419,14 @@
 	{
 		"$type": "ConfigAbility",
 		"abilityName": "Abyss_Fire_ElementShield",
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToPoseIDMixin",
+				"poseIDs": [300, 301, 302],
+				"modifierName": "Abyss_Fire_ElementShield_RecoverHandler",
+			},
+		],
 		"onAdded":
 		[
 			{
@@ -420,17 +448,40 @@
 					},
 				],
 			},
+			{
+				"$type": "SetPoseInt",
+				"intID": "ElementState",
+				"value": 2,
+			},
+			{
+				"$type": "ApplyModifier",
+				"modifierName": "UNIQUE_Abyss_Fire_ElementShield",
+			},
 		],
 		"onAbilityStart":
 		[
 			{
-				"$type": "AttachModifier",
+				"$type": "SetPoseInt",
+				"intID": "ElementState",
+				"value": 2,
+			},
+			{
+				"$type": "ApplyModifier",
 				"modifierName": "UNIQUE_Abyss_Fire_ElementShield",
-				"target": "Self",
 			},
 		],
 		"modifiers":
 		{
+			"Abyss_Fire_ElementShield_RecoverHandler":
+			{
+				"onReconnect":
+				[
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "UNIQUE_Abyss_Fire_ElementShield",
+					},
+				],
+			},
 			"UNIQUE_MonsterEliteAffix_DefaultState":
 			{
 				"isUnique": true,
@@ -547,7 +598,6 @@
 						],
 					},
 				],
-				//"state": "LockHP",
 				"modifierMixins":
 				[
 					{
@@ -709,22 +759,12 @@
 				"onAdded":
 				[
 					{
-						"$type": "SetPoseInt",
-						"intID": "ElementState",
-						"value": 2,
-					},
-					{
 						"$type": "AddGlobalValue",
 						"key" : "_ABILITY_ABYSS_FIRE_ELEMENTSHIELD",
 						"value" : 1,
 						"useLimitRange" : true,
 						"maxValue" : 1,
 						"minValue" : 0,
-					},
-					{
-						"$type": "TriggerAbility",
-						"abilityName": "Abyss_Fire_ElementShield_Effect",
-						"target": "Self",
 					},
 					{
 						"$type": "EnableMonsterMoveOnWater",
@@ -763,11 +803,6 @@
 						"minValue" : 0,
 					},
 					{
-						"$type": "TriggerAbility",
-						"abilityName": "Abyss_Fire_DizzyTimer",
-						"target": "Self",
-					},
-					{
 						"$type": "EnableMonsterMoveOnWater",
 						"enable": false,
 					},	
@@ -789,16 +824,43 @@
 	{
 		"$type": "ConfigAbility",
 		"abilityName": "Abyss_Fire_ElementShield_Effect",
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToPoseIDMixin",
+				"poseIDs": [300, 301, 302],
+				"modifierName": "Abyss_Fire_ElementShield_Effect_RecoverHandler",
+			},
+		],
 		"onAbilityStart":
 		[
 			{
-				"$type": "AttachModifier",
+				"$type": "ApplyModifier",
 				"modifierName": "UNIQUE_Abyss_Fire_ElementShield_Effect",
 				"target": "Self",
+				"predicates":
+				[
+					{
+						"$type": "ByTargetGlobalValue",
+						"key": "_ABILITY_ABYSS_FIRE_ELEMENTSHIELD",
+						"value": 1.0,
+						"compareType": "Equal",
+					},
+				],
 			},
 		],
 		"modifiers":
 		{
+			"Abyss_Fire_ElementShield_Effect_RecoverHandler":
+			{
+				"onReconnect":
+				[
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "UNIQUE_Abyss_Fire_ElementShield_Effect",
+					},
+				],
+			},
 			"UNIQUE_Abyss_Fire_ElementShield_Effect":
 			{
 				"stacking": "Unique",
@@ -872,6 +934,14 @@
 	{
 		"$type": "ConfigAbility",
 		"abilityName": "Abyss_Fire_DizzyTimer",
+		"abilityMixins":
+		[
+			{
+				"$type": "AttachToPoseIDMixin",
+				"poseIDs": [100, 101],
+				"modifierName": "Abyss_Fire_DizzyTimer_Handler",
+			},
+		],
 		"onAdded":
 		[
 			{
@@ -881,23 +951,33 @@
 				"overrideMapKey": "ElementShield_GapReduce",
 			},
 		],
-		"onAbilityStart":
-		[
-			{
-				"$type": "AttachModifier",
-				"modifierName": "UNIQUE_DizzyTimer",
-				"target": "Self",
-			},
-		],
 		"modifiers":
 		{
-			"UNIQUE_DizzyTimer" :
+			"Abyss_Fire_DizzyTimer_Handler":
+			{
+				"onAdded":
+				[
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "UNIQUE_Abyss_Fire_DizzyTimer",
+					},
+				],
+				"onReconnect":
+				[
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "UNIQUE_Abyss_Fire_DizzyTimer",
+					},
+				],
+			},
+			"UNIQUE_Abyss_Fire_DizzyTimer" :
 			{
 				"properties":
 				{
 					"Actor_EndureDelta": 3,
 				},
 				"isUnique": true,
+				"stacking": "Unique",
 				"duration": "12*%ElementShield_GapReduce+12",
 				"onRemoved": 
 				[
@@ -905,6 +985,15 @@
 						"$type": "SetPoseInt",
 						"intID": "ElementState",
 						"value": 1,
+						"predicates":
+						[
+							{
+								"$type": "ByTargetGlobalValue",
+								"key": "_ABILITY_ABYSS_FIRE_ELEMENTSHIELD",
+								"value": 0.0,
+								"compareType": "NoneOrEqual",
+							},
+						],
 					},
 				],
 			},
@@ -962,11 +1051,15 @@
 						"$type": "SetPoseInt",
 						"intID": "ElementState",
 						"value": 0,
-					},
-					{
-						"$type": "TriggerAbility",
-						"abilityName": "Abyss_Fire_DizzyTimer",
-						"target": "Self",
+						"predicates":
+						[
+							{
+								"$type": "ByTargetGlobalValue",
+								"key": "_ABILITY_ABYSS_FIRE_ELEMENTSHIELD",
+								"value": 0.0,
+								"compareType": "NoneOrEqual",
+							},
+						],
 					},
 				],
 			},
@@ -1147,7 +1240,7 @@
 		[
 			{
 				"$type": "RemoveUniqueModifier",
-				"modifierName": "UNIQUE_DizzyTimer",
+				"modifierName": "UNIQUE_Abyss_Fire_DizzyTimer",
 				"target": "Self",
 			},
 			{
@@ -1925,7 +2018,7 @@
 		[
 			{
 				"$type": "RemoveUniqueModifier",
-				"modifierName": "UNIQUE_DizzyTimer",
+				"modifierName": "UNIQUE_Abyss_Fire_DizzyTimer",
 				"target": "Self",
 			},
 			{
@@ -2144,11 +2237,6 @@
 						"triggerID": "ShiledBrokenTrigger",
 					},
 					{
-						"$type": "RemoveUniqueModifier",
-						"modifierName": "UNIQUE_DizzyTimer",
-						"target": "Self",
-					},
-					{
 						"$type": "AttachModifier",
 						"modifierName": "ReturnToBorn_Invincible",
 						"target": "Self",
@@ -2162,8 +2250,13 @@
 				"onRemoved":
 				[
 					{
+						"$type": "SetPoseInt",
+						"intID": "ElementState",
+						"value": 2,
+					},
+					{
 						"$type": "TriggerAbility",
-						"abilityName": "Abyss_Fire_ElementShield",
+						"abilityName": "Abyss_Fire_ElementShield_Effect",
 						"target": "Self",
 					},
 				],
@@ -2175,7 +2268,22 @@
 				[
 					{
 						"$type": "RemoveUniqueModifier",
-						"modifierName": "UNIQUE_DizzyTimer",
+						"modifierName": "UNIQUE_Abyss_Fire_DizzyTimer",
+						"target": "Self",
+					},
+					{
+						"$type": "SetPoseInt",
+						"intID": "ElementState",
+						"value": 2,
+					},
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Abyss_Fire_ElementShield",
+						"target": "Self",
+					},
+					{
+						"$type": "TriggerAbility",
+						"abilityName": "Abyss_Fire_ElementShield_Effect",
 						"target": "Self",
 					},
 				],

@@ -463,6 +463,10 @@
 								{
 									"useGyro": false,
 								},
+                                "ps5":
+                                {
+                                    "useGyro": false,
+                                },                                
 								"other":
 								{
 									"useGyro": true,
@@ -717,6 +721,7 @@
                                             "y": -0.5,
                                             "z": 0.0,
                                         },
+                                        "useRotation": true,
                                     },
                                 },
                                 "attackInfo":
@@ -926,17 +931,6 @@
                 },
 				"Hogyoku_Barrier_Explode":
 				{
-                    "modifierMixins":
-                    [
-                        {
-                            "$type": "ServerCreateGadgetOnKillMixin",   //崩玉被打死时服务器先知道，所以本地onkill时创建会无法读取属性，必须服务器创建
-                            "gadgetIDList": [41005009],
-                            "campID": 1001,
-                            "campTargetType": "Enemy",
-                            "randomCreate": false,
-                            "useOriginOwnerAsGadgetOwner": true,    //防止崩玉被打死的时候导致爆炸gadget丢失和Avatar的关系，所以指派角色作为其Owner
-                        },
-                    ],
 					"onKill":
 					[
 						{
@@ -962,6 +956,7 @@
 											"y": 0.0,
 											"z": 0.0,
 										},
+                                        "useRotation": true,
 									},
 								},
 								"attackInfo":
@@ -1061,6 +1056,7 @@
                                     "y": 0.0,
                                     "z": 0.0,
                                 },
+                                "useRotation": true,
                             },
                         },
                         "attackInfo":
@@ -1496,32 +1492,6 @@
 				},
 				"RockTide_AttackWave_StarDustReturn":
 				{
-					"onAdded":
-					[
-						{
-							"$type": "AddGlobalValue",
-							"key" : "_ABILITY_ROCKTIDE_STARDUSTRETURN_MARK",
-							"value" : 0,
-							"useLimitRange" : true,
-							"maxValue" : 1,
-							"minValue" : 0,
-							"otherTargets":
-							{
-								"$type": "SelectTargetsByShape",
-								"shapeName": "CircleR13",
-								"centerBasedOn": "Self",
-								"campTargetType": "Enemy",
-								"campBasedOn": "Self",
-								"Predicates":
-								[
-									{
-										"$type": "ByEntityTypes",
-										"entityTypes": ["Monster",],
-									},
-								],
-							},
-						},
-					],
 					"onAttackLanded":
 					[
 						{
@@ -1537,28 +1507,10 @@
 									"$type" : "ByEntityTypes",
 									"entityTypes" : ["Monster"],
 								},
-								{
-									"$type": "ByTargetGlobalValue",
-									"key": "_ABILITY_ROCKTIDE_STARDUSTRETURN_MARK",
-									"value": 0,
-									"compareType": "Equal",
-								},
+                                //这里漏判了小动物，但已经上线了且影响不大，故不再处理。
 							],
 							"successActions":
 							[
-								{
-									"$type": "ApplyModifier",
-									"modifierName": "StarDustReturn_Restore",
-									"target" : "Owner",
-									"predicates" :
-									[
-										{
-											"$type":"ByAvatarElementType",
-											"target": "Owner",
-											"elementType":"Rock",
-										},
-									],
-								},
 								{
 									"$type": "ApplyModifier",
 									"modifierName": "StarDustReturn_Mark",
@@ -1573,6 +1525,18 @@
 									],
 								},
 							],
+						},
+					],
+				},
+				"StarDustReturn_Mark":
+				{
+					"duration": 2.0,
+					"onAdded":
+					[
+						{
+							"$type": "ApplyModifier",
+							"modifierName": "StarDustReturn_Restore",
+							"target" : "CasterOriginOwner",
 						},
 					],
 				},
@@ -1593,32 +1557,6 @@
                             "doOffStage":true,
                         },
                     ],
-				},
-				"StarDustReturn_Mark":
-				{
-					"duration": 5.0,
-					"onAdded":
-					[
-						{
-							"$type": "AddGlobalValue",
-							"key" : "_ABILITY_ROCKTIDE_STARDUSTRETURN_MARK",
-							"value" : 1,
-							"useLimitRange" : true,
-							"maxValue" : 1,
-							"minValue" : 0,
-						},
-					],
-					"onRemoved":
-					[
-						{
-							"$type": "AddGlobalValue",
-							"key" : "_ABILITY_ROCKTIDE_STARDUSTRETURN_MARK",
-							"value" : -5,
-							"useLimitRange" : true,
-							"maxValue" : 1,
-							"minValue" : 0,
-						},
-					],
 				},
 				"UNIQUE_RockTide_GaeaAnthem":
 				{

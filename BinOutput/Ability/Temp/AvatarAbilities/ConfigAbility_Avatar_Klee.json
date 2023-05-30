@@ -318,9 +318,13 @@
 					"minValue" : 10,
 				},
 				{
-					"$type": "AttachEffect",
-					"effectPattern": "Eff_Avatar_ExtraAttack_Line",
+					"$type":"AttachModifier",
+					"modifierName":"AlertCircle",
 				},
+				// {
+				// 	"$type": "AttachEffect",
+				// 	"effectPattern": "Eff_Avatar_ExtraAttack_Line",
+				// },
 				{
 					"$type": "ApplyModifier",
 					"target":"Owner",
@@ -358,6 +362,10 @@
 						},
 					},
 				},
+				{
+					"$type":"RemoveModifier",
+					"modifierName":"AlertCircle",
+				},
 				// {
 				// 	"$type":"RemoveUniqueModifier",
 				// 	"target":"Owner",
@@ -376,6 +384,16 @@
 							"$type":"SendEffectTrigger",
 							"effectPattern":"Eff_Klee_PermanentSkill_1",
 							"parameter":"Disappear",
+						},
+					],
+				},
+				"AlertCircle":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "AttachEffect",
+							"effectPattern": "Eff_Avatar_ExtraAttack_Line",
 						},
 					],
 				},
@@ -4485,8 +4503,9 @@
 							"predicates":
 							[
 								{
-									"$type": "ByTargetIsSelf",
-									"isSelf": false,
+								    "$type": "ByTargetType",
+								    "targetType":"Self",
+								    "isTarget":false,
 								},
 							],
 						}

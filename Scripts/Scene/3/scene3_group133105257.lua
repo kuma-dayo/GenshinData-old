@@ -44,8 +44,8 @@ gadgets = {
 	{ config_id = 257030, gadget_id = 70220016, pos = { x = 548.777, y = 203.357, z = -632.800 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, area_id = 9 },
 	{ config_id = 257031, gadget_id = 70220025, pos = { x = 552.874, y = 202.901, z = -620.243 }, rot = { x = 270.000, y = 0.000, z = 0.000 }, level = 1, area_id = 9 },
 	{ config_id = 257032, gadget_id = 70220025, pos = { x = 551.725, y = 202.790, z = -621.354 }, rot = { x = 270.000, y = 0.000, z = 0.000 }, level = 1, area_id = 9 },
-	{ config_id = 257033, gadget_id = 70220025, pos = { x = 558.158, y = 202.828, z = -618.562 }, rot = { x = 270.346, y = 79.009, z = 283.327 }, level = 1, area_id = 9 },
-	{ config_id = 257034, gadget_id = 70220025, pos = { x = 556.830, y = 202.789, z = -616.972 }, rot = { x = 270.346, y = 79.009, z = 283.327 }, level = 1, area_id = 9 },
+	{ config_id = 257033, gadget_id = 70220025, pos = { x = 558.158, y = 202.828, z = -618.562 }, rot = { x = 270.345, y = 79.009, z = 283.327 }, level = 1, area_id = 9 },
+	{ config_id = 257034, gadget_id = 70220025, pos = { x = 556.830, y = 202.789, z = -616.972 }, rot = { x = 270.345, y = 79.009, z = 283.327 }, level = 1, area_id = 9 },
 	{ config_id = 257037, gadget_id = 70300081, pos = { x = 559.180, y = 202.666, z = -628.999 }, rot = { x = 0.000, y = 63.980, z = 0.000 }, level = 1, area_id = 9 },
 	{ config_id = 257038, gadget_id = 70300081, pos = { x = 553.284, y = 202.687, z = -632.401 }, rot = { x = 0.000, y = 60.451, z = 0.000 }, level = 1, area_id = 9 }
 }

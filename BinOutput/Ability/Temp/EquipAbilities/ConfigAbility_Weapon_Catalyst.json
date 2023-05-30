@@ -121,8 +121,9 @@
 							"predicates":
 							[
 								{
-									"$type":"ByTargetIsSelf",
-									"isSelf":false,
+								    "$type": "ByTargetType",
+								    "targetType":"Self",
+								    "isTarget":false,
 								},
 							],
 						},
@@ -137,8 +138,9 @@
 							"predicates":
 							[
 								{
-									"$type":"ByTargetIsSelf",
-									"isSelf":false,
+								    "$type": "ByTargetType",
+								    "targetType":"Self",
+								    "isTarget":false,
 								},
 							],
 						},
@@ -1411,6 +1413,7 @@
 							//自身回能
 							"$type": "ApplyModifier",
 							"modifierName": "UNIQUE_Weapon_Catalyst_TeamHealAfterElementalBurst_Energy",
+							"doOffStage":true,
 						},
 						{
 							//由于不同Caster之间UniqueModifier无法挂上，只有先下掉之前的modifier后挂新的
@@ -1451,7 +1454,7 @@
 			{
 				"UNIQUE_Weapon_Catalyst_TeamHealAfterElementalBurst_Energy":
 				{
-					"duration":"%Time+0.1",
+					"duration":"%Time+1", //由于切换后台tick偏少，需要补偿更多时间保证不丢效果。从0.1增加至1秒。
 					"isUnique":true,
 					"modifierMixins":
 					[
@@ -1466,7 +1469,7 @@
 				"UNIQUE_Weapon_Catalyst_TeamHealAfterElementalBurst_Heal" : //这个也没法unique
 				{
 					"isUnique":true,
-					"duration" : "%Time+0.1",//改成充能技触发之后就不需要add的时候触发一次了。因为表演有时间，不再需要即时表现。
+					"duration" : "%Time+1",//改成充能技触发之后就不需要add的时候触发一次了。因为表演有时间，不再需要即时表现。
 					"thinkInterval":"%Interval",
 					"onThinkInterval" :
 					[
@@ -2026,10 +2029,6 @@
 		                	"value": 0,
 		                	"compareType": "NoneOrEqual",
 		                },
-						// {
-						// 	"$type":"ByTargetIsSelf",
-						// 	"isSelf":false,
-						// },
 						{
 							"$type" :"ByTargetGlobalValue",
 							"target":"Target",

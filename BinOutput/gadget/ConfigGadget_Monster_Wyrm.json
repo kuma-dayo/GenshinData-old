@@ -357,6 +357,14 @@
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : false,
 			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+				"lockType": "Gadget_Lv1",
+				"overrideRange": -1,
+				"overrideNormalPri": -1,
+				"overrideCombatPri": -1,
+			},
 		},
 		"abilities":
 		[

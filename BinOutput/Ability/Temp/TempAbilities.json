@@ -3386,12 +3386,12 @@
 			"onAdded": 
 			[
 				{
-					"$type": "FireEffect",
+					"$type": "AttachEffect",
 					//"effectPattern": "Eff_ElementFootprint_Wind01",
 					"effectPattern": "Eff_ElementFootprint_Cat",					
 				},
 				{
-					"$type": "FireEffect",
+					"$type": "AttachEffect",
 					"effectPattern": "Eff_ElementFootprint_Wind02",
 				},
 				{

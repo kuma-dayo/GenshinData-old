@@ -318,8 +318,9 @@
 							"targetPredicates":
 							[
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+								    "$type": "ByTargetType",
+								    "targetType":"Self",
+								    "isTarget":false,
 								},
 								{
 									"$type":"ByAny",
@@ -2123,6 +2124,69 @@
 					],
 				},
 			},
+		},
+	},
+
+
+////////////////////////////////////////////////////////////////
+//
+//  超级试玩远程击杀监听
+//
+////////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "Avatar_Watcher_SuperTrial_RangeKillEnemy",
+			"isDynamicAbility":true,
+			"abilityMixins": 
+			[
+				{
+					"$type": "DoActionByKillingMixin",
+					"detectWindow": 0.6, //这段时间之后击杀都算，但是无论是modifiermixin还是abilitymixin都需要角色在场。
+					"onKill": 
+					[
+						{
+							"$type": "Predicated", //务必要用这个写法，不然other无法传递给predicate
+							"target": "Other",
+							"targetPredicates": 
+							[
+								{
+									"$type": "ByTargetPositionToSelfPosition",
+									"compareType": "XZ",
+									"forceByCaster": true,
+									"value": 3,
+									"logic": "GreaterOrEqual",
+								},
+								{
+									"$type": "ByCurrentSceneId",
+									"forceByCaster": true,
+									"sceneIds": [ 43006 ],
+								},
+				                {
+									"$type": "ByEntityTypes",
+									"entityTypes": ["Monster"],
+				                },
+								{
+									"$type":"ByIsTargetCamp",
+									"campBaseOn":"Caster",
+									"campTargetType":"Enemy",
+								},
+							],
+							"successActions": 
+							[
+								//计数到了，完成watcher
+								{
+									"$type":"DoWatcherSystemAction",
+									"target": "Caster",
+									"watcherId":1502220,
+									"authorityOnly":true,
+								},
+							],
+						},
+					]
+				},
+			],
 		},
 	},
 ]

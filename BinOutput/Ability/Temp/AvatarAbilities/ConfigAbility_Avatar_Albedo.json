@@ -210,6 +210,10 @@
 								{
 									"useGyro": false,
 								},
+								"ps5":
+								{
+									"useGyro": false,
+								},								
 								"other":
 								{
 									"useGyro": true,
@@ -303,8 +307,8 @@
 						"alongGround": false,
 						"onGroundIgnoreWater": true,
 						"onGroundRaycastUpDist": 3,
-						"byServer": true,	//底座需要服务器创建
 					},
+					// "byServer": true,	//底座需要服务器创建
 					// "lifeByOwnerIsAlive": true,	//需要一个死亡不带走离队和重连带走的字段
 				},
 			],
@@ -371,8 +375,8 @@
 						"alongGround": false,
 						"onGroundIgnoreWater": true,
 						"onGroundRaycastUpDist": 3,
-						"byServer": true,	//底座需要服务器创建
 					},
+					// "byServer": true,	//底座需要服务器创建
 					// "lifeByOwnerIsAlive": true,	//需要一个死亡不带走离队和重连带走的字段
 				},
 			],

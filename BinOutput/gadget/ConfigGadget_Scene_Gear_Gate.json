@@ -789,6 +789,7 @@
 							"Gate_Lock": [],
 							"Gate_Unlock": [],
 						},
+						"cullingModelAlwaysAnimate":true,
 					},
 					"Gate_Open" :
 					{
@@ -797,6 +798,7 @@
 						{
 							"Gate_Open": ["Audio_SceneObj_Gear_DungeonGate02_Open"],
 						},
+						"cullingModelAlwaysAnimate":true,
 					},
 				},
 			},
@@ -896,6 +898,7 @@
 						{
 							"Gate_Open": ["Audio_SceneObj_Gear_DungeonGate03_Open"],
 						},
+						"cullingModelAlwaysAnimate":true,
 
 					},
 				},
@@ -975,6 +978,7 @@
 							"Opened": [],
 							"Closing": ["Audio_SceneObj_Gear_Gate_DungeonGate04_Close"],
 						},
+						"cullingModelAlwaysAnimate":true,
 					},
 				},
 			},
@@ -1061,6 +1065,7 @@
 							"Gate_Close": ["Eff_IronFence_Down","Audio_SceneObj_IronFence_Close"],
 							"Gate_Open": ["Eff_IronFence_Up","Audio_SceneObj_IronFence_Open"],
 						},
+						"cullingModelAlwaysAnimate":true,
 					},
 				},
 			},
@@ -1228,6 +1233,7 @@
 							"Gate_Close": ["Eff_IronFence_Down","Audio_SceneObj_IronFence_Close"],
 							"Gate_Open": ["Eff_IronFence_Up","Audio_SceneObj_IronFence_Open"],
 						},
+						"cullingModelAlwaysAnimate":true,
 					},
 				},
 			},
@@ -1367,6 +1373,63 @@
 			{
 				"abilityID": "SceneObj_Level_Common_Property_Ani_Prop_HiddenDoor_01",
 				"abilityName": "SceneObj_Level_Common_Property_Ani_Prop_HiddenDoor_01",
+			},
+		],
+	},
+/////////////////////////////////////////////////////////////////
+//
+// 家园测试用门
+//
+/////////////////////////////////////////////////////////////////	
+	"SceneObj_Homeworld_Ani_Interior_Common_Room_Door_01_WhiteBox" :
+	{
+		"$type" : "ConfigGadget",
+		"hasModel": true,
+		"combat" ://该注释用于探索元素视野的最小集合设置
+		{
+			"property":
+			{
+				"HP" : 99999,									
+				"isInvincible":true,
+				"isLockHP":true,
+				"isGhostToAllied" : true,
+				"isGhostToEnemy" : true,
+			},		
+		},
+		"misc": 
+		{
+	    	"autoDoor": 
+	    	{
+		        "triggerDistance": 3,  //角色人物与门的距离 (默认3.0)
+		        "checkInterval": 0.05, //触发间隔(0.05s)
+	    	},
+	    },
+		"abilities":
+		[
+			{
+				"abilityID": "Ability_01",
+				"abilityName": "SceneObj_Homeworld_Ani_Interior_Common_Room_Door_01_WhiteBox_Ability",
+			},
+		],
+	},
+/////////////////////////////////////////////////////////////////
+//
+// 若陀龙王地城入口特效物件
+//
+/////////////////////////////////////////////////////////////////	
+	"SceneObj_Area_Ly_Property_Build_DahakaEntry_01" :
+	{
+		"$type" : "ConfigGadget",
+		"hasModel": true,
+		"model":
+		{
+			"attachEffect": "Eff_SceneObj_DahakaEntry_01",
+		},	
+		"abilities":
+		[
+			{
+				"abilityID": "Ability_01",
+				"abilityName": "SceneObj_Area_Ly_Property_Build_DahakaEntry_01_Ability",
 			},
 		],
 	},

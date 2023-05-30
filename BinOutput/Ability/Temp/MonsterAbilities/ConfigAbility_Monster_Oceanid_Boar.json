@@ -593,7 +593,7 @@
 					{
 						"x": 0.0,
 						"y": 0.2,
-						"z": 1.6,
+						"z": 1.3,
 					}
 				}
 			}
@@ -632,7 +632,7 @@
 					{
 						"$type" : "ConfigAttackSphere",
 						"triggerType" : "TriggerNoRepeat",
-						"radius": 2,
+						"radius": 2.5,
 						"born":
 						{
 							"$type": "ConfigBornByCollisionPoint",

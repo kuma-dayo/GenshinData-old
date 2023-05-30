@@ -486,24 +486,7 @@
 					"onAdded":
 					[
 
-						{
-							"$type": "FireEffect",
-							"effectPattern": "Eff_Gear_Operator_Close",
-							"born":
-							{
-								"$type": "ConfigBornByAttachPoint",
-								"attachPointName" : "EffectAttach",
-							},
-						},
-						{
-							"$type": "FireEffect",
-							"effectPattern": "Eff_Gear_Operator_Open",
-							"born":
-							{
-								"$type": "ConfigBornByAttachPoint",
-								"attachPointName" : "RootNode",
-							},
-						},
+						
 					],
 				},
 			},
@@ -652,25 +635,6 @@
 				{
 					"onAdded":
 					[
-
-						{
-							"$type": "FireEffect",
-							"effectPattern": "Eff_Gear_Operator_Close",
-							"born":
-							{
-								"$type": "ConfigBornByAttachPoint",
-								"attachPointName" : "EffectAttach",
-							},
-						},
-						{
-							"$type": "FireEffect",
-							"effectPattern": "Eff_Gear_Operator_Open",
-							"born":
-							{
-								"$type": "ConfigBornByAttachPoint",
-								"attachPointName" : "RootNode",
-							},
-						},
 						{
 							"$type": "AttachEffect",
 							"effectPattern": "Eff_SceneObj_Mamolu_ThunderySky_Stage_01",
@@ -4686,6 +4650,247 @@
 					[
 						{
 							"$type":"KillSelf",
+						},
+					],
+				},
+			},
+		},
+	},
+///////////////////////////////////////////////////////////////
+//
+// 1.5 试玩地城挑战机关 减时间
+//
+///////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "SceneObj_Gear_Operator_MistTrial_Time_Operator",
+			"abilityMixins": 
+			[
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 0,
+					"modifierName": "DefaultState",
+				},
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 202,
+					"modifierName": "ActiveState",
+				},
+			],
+			"modifiers":
+			{
+				"DefaultState":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "AttachEffect",
+							"effectPattern": "Eff_SceneObj_MistChallengeStarter_01",
+							"effectTempleteID": 102,
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName": "EffectPoint",
+							},
+						},
+					],
+				},
+				"ActiveState":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "FireEffect",
+							"effectPattern": "Eff_SceneObj_MistChallengeStarter_01_Disappear",
+							"effectTempleteID": 102,
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName": "EffectPoint",
+							},
+						},
+					],
+				},
+			},
+		},
+	},
+///////////////////////////////////////////////////////////////
+//
+// 1.5 试玩地城挑战机关 复活
+//
+///////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "SceneObj_Gear_Operator_MistTrial_Revive_Operator",
+			"abilityMixins": 
+			[
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 0,
+					"modifierName": "DefaultState",
+				},
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 202,
+					"modifierName": "ActiveState",
+				},
+			],
+			"modifiers":
+			{
+				"DefaultState":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "AttachEffect",
+							"effectPattern": "Eff_SceneObj_MistChallengeStarter_01",
+							"effectTempleteID": 100,
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName": "EffectPoint",
+							},
+						},
+					],
+				},
+				"ActiveState":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "FireEffect",
+							"effectPattern": "Eff_SceneObj_MistChallengeStarter_01_Disappear",
+							"effectTempleteID": 100,
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName": "EffectPoint",
+							},
+						},
+
+					],
+				},
+			},
+		},
+	},
+///////////////////////////////////////////////////////////////
+//
+// 1.5 试玩地城挑战机关 攻击加成
+//
+///////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "SceneObj_Gear_Operator_MistTrial_Attack_Operator",
+			"abilityMixins": 
+			[
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 0,
+					"modifierName": "DefaultState",
+				},
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 202,
+					"modifierName": "ActiveState",
+				},
+			],
+			"modifiers":
+			{
+				"DefaultState":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "AttachEffect",
+							"effectPattern": "Eff_SceneObj_MistChallengeStarter_01",
+							"effectTempleteID": 101,
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName": "EffectPoint",
+							},
+						},
+					],
+				},
+				"ActiveState":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "FireEffect",
+							"effectPattern": "Eff_SceneObj_MistChallengeStarter_01_Disappear",
+							"effectTempleteID": 101,
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName": "EffectPoint",
+							},
+						},
+					],
+				},
+			},
+		},
+	},
+///////////////////////////////////////////////////////////////
+//
+// 1.5 试玩地城挑战机关 加速
+//
+///////////////////////////////////////////////////////////////
+	{
+		"Default":
+		{
+			"$type": "ConfigAbility",
+			"abilityName": "SceneObj_Gear_Operator_MistTrial_Turbo_Operator",
+			"abilityMixins": 
+			[
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 0,
+					"modifierName": "DefaultState",
+				},
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 202,
+					"modifierName": "ActiveState",
+				},
+			],
+			"modifiers":
+			{
+				"DefaultState":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "AttachEffect",
+							"effectPattern": "Eff_SceneObj_MistChallengeStarter_01",
+							"effectTempleteID": 103,
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName": "EffectPoint",
+							},
+						},
+					],
+				},
+				"ActiveState":
+				{
+					"onAdded":
+					[
+						{
+							"$type": "FireEffect",
+							"effectPattern": "Eff_SceneObj_MistChallengeStarter_01_Disappear",
+							"effectTempleteID": 103,
+							"born":
+							{
+								"$type": "ConfigBornByAttachPoint",
+								"attachPointName": "EffectPoint",
+							},
 						},
 					],
 				},

@@ -37,10 +37,12 @@
 					{
 						"$type": "AttachEffect",
 						"effectPattern": "Eff_Monster_Tartaglia_Harbinger_CloakEffect_Lightning",
+						"doOffStage": true,
 					},
 					{
 						"$type" : "AttachAbilityStateResistance",
 						"resistanceListID": 13002,
+						"doOffStage": true,
 					},
 				],
 			},

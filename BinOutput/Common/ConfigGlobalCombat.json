@@ -119,6 +119,11 @@
         "name": "Brute_RangeAtk",
         "minInterval": 15,
       },
+      "Shaman_Electric_ActivateTotem": {
+        "$type": "ConfigPublicAISkillCD",
+        "name": "Shaman_Electric_ActivateTotem",
+        "minInterval": 10.0,
+      },
     },
     "defaultWeatherNeuronMapping": {
       "Rain": [ "WEATHER_BAD" ],
@@ -198,6 +203,17 @@
         "gyroHorMoveSpeed": 12,
         "gyroVerMoveSpeed": 0.4,
       },
+      "ps5": {
+        "cameraHorMoveSpeed": 1.8,
+        "cameraVerMoveSpeed": 4.5,
+        "cameraHorStickyRatio": 0.5,
+        "cameraVerStickyRatio": 0.4,
+        "autoFocusHorSpeed": 30,
+        "autoFocusVerSpeed": 30,
+        "autoFocusRangeCoef": 2.5,
+        "gyroHorMoveSpeed": 12,
+        "gyroVerMoveSpeed": 0.4,
+      },      
       "other": {
         "cameraHorMoveSpeed": 1.6,
         "cameraVerMoveSpeed": 4,
@@ -392,6 +408,24 @@
       "enbreakSequence": [ 1, 0, 1, 0, 1, 0 ],
       "damageSequence": [ 1, 0.5, 0.25, 0.25, 0.25, 0.25 ],
     },
+    "Effigy_Ice_Attenuation_1": {
+      "resetCycle": 0.5,
+      "durabilitySequence": [ 1, 0, 0, 0, 0, 0 ],
+      "enbreakSequence": [ 1, 1, 1, 1, 1, 1 ],
+      "damageSequence": [ 1, 0, 0, 0, 0, 0 ],
+    },
+    "Effigy_Ice_Attenuation_2": {
+      "resetCycle": 1.0,
+      "durabilitySequence": [ 1, 1, 1, 0, 0, 0 ],
+      "enbreakSequence": [ 1, 1, 1, 1, 1, 1 ],
+      "damageSequence": [ 1, 1, 1, 0, 0, 0 ],
+    },
+    "Monster_Dahaka_Breath": {
+      "resetCycle": 1,
+      "durabilitySequence": [ 1, 1, 1, 1, 1],
+      "enbreakSequence": [ 1, 1, 1, 1, 1],
+      "damageSequence": [ 1, 0.5, 0.25, 0.1, 0.1 ],
+    },
   },
   "defaultAbilities": {
     "monterEliteAbilityName": "MonsterEliteAbility",
@@ -402,6 +436,7 @@
       "AI_LeaveCombat_Reset",
       "LevelAbility_Combat_Watcher",
       "LevelAbility_Combat_Achievement_Watcher_1",
+      "LevelAbility_Combat_Activity_Watcher_1",
     ],
     "levelElementAbilities": [
       "SceneAbility_WaterArea",
@@ -432,7 +467,8 @@
       "ElementAbility_Crystallize_Ice",
       "ElementAbility_Crystallize_Fire",
       "ElementAbility_Crystallize_Electric",
-      "ElementAbility_Petrifaction"
+      "ElementAbility_Petrifaction",
+      "ElementAbility_Frozen_Broken"
     ],
     "levelItemAbilities": [
       "Item_Food_RecoverHP",
@@ -806,6 +842,13 @@
       ],
       "maxValue": 3,
     },
+    {
+      "tag": "HideSeek_GuideGadget",
+      "gadgetIDs": [
+        44000106, //捉迷藏引导
+      ],
+      "maxValue": 9,
+    },
     // {
     //   "tag": "Ningguang_ExtraAttack_GemBullet",
     //   "gadgetIDs": [
@@ -888,49 +931,49 @@
 	"61455" : 1.20,//MoleMole.VCPlatformMove,0x0000F00F
 	"81920" : 0.80,//MoleMole.VCCameraCharacterAmbientSensors,0x00014000
 	"8192" : 0.70,//MoleMole.VCAnimatorEvent,0x00002000
-	"268578820" : 0.70,//MoleMole.LevelSceneWaterPlugin,0x10023004
+	"268574724" : 0.70,//MoleMole.LevelSceneWaterPlugin,0x10022004
 	"268537856" : 0.60,//MoleMole.LevelSceneColliderChangePlugin,0x10019000
 	"268509184" : 0.60,//MoleMole.LevelChangeAvatarPlugin,0x10012000
-	"16809984" : 0.60,//MoleMole.LCAvatarAutoPickup,0x01008000
+	"16814080" : 0.60,//MoleMole.LCAvatarAutoPickup,0x01009000
 	"16805888" : 0.60,//MoleMole.LCAIManager,0x01007000
 	"61443" : 0.50,//MoleMole.VCFollowMove,0x0000F003
-	"16900096" : 0.50,//MoleMole.LCSelectPickup,0x0101E000
+	"16904192" : 0.50,//MoleMole.LCSelectPickup,0x0101F000
 	"94208" : 0.40,//MoleMole.VCCharacterRendering,0x00017000
 	"268439553" : 0.30,//MoleMole.MPActorAbilityPlugin,0x10001001
 	"40961" : 0.30,//MoleMole.VCAvatarEquipController,0x0000A001
 	"65537" : 0.30,//MoleMole.VCAvatarPerform,0x00010001
 	"57350" : 0.30,//MoleMole.VCAvatarModel,0x0000E006
-	"268578818" : 0.30,//MoleMole.LevelSceneGrassPlugin,0x10023002
+	"268574722" : 0.30,//MoleMole.LevelSceneGrassPlugin,0x10022002
 	"12288" : 0.30,//MoleMole.VCAvatarFocus,0x00003000
 	"45060" : 0.30,//MoleMole.VCAvatarHeadController,0x0000B004
-	"268566528" : 0.30,//MoleMole.LevelSceneIcePlugin,0x10020000
-	"16818182" : 0.20,//MoleMole.LCMonsterCombat,0x0100A006
-	"16818178" : 0.20,//MoleMole.LCGadgetCombat,0x0100A002
+	"268562432" : 0.30,//MoleMole.LevelSceneIcePlugin,0x1001F000
+	"16822278" : 0.20,//MoleMole.LCMonsterCombat,0x0100B006
+	"16822274" : 0.20,//MoleMole.LCGadgetCombat,0x0100B002
 	"268451854" : 0.20,//MoleMole.AudioAvatarMovePlugin,0x1000400E
 	"268451852" : 0.20,//MoleMole.AudioWeatherPlugin,0x1000400C
-	"16826369" : 0.20,//MoleMole.LCBaseInter,0x0100C001
+	"16830465" : 0.20,//MoleMole.LCBaseInter,0x0100D001
 	"268533760" : 0.20,//MoleMole.LevelSceneAirflowFieldPlugin,0x10018000
 	"57345" : 0.20,//MoleMole.VCEquipModel,0x0000E001
 	"45063" : 0.20,//MoleMole.VCMonsterHeadController,0x0000B007
 	"77824" : 0.20,//MoleMole.VCBillboard,0x00013000
-	"268673025" : 0.20,//MoleMole.VCCombatBillboardPlugin,0x1003A001
-	"16818179" : 0.20,//MoleMole.LCAvatarCombat,0x0100A003
-	"268595200" : 0.20,//MoleMole.LevelSceneSurfacePlugin,0x10027000
+	"268668929" : 0.20,//MoleMole.VCCombatBillboardPlugin,0x10039001
+	"16822275" : 0.20,//MoleMole.LCAvatarCombat,0x0100B003
+	"268591104" : 0.20,//MoleMole.LevelSceneSurfacePlugin,0x10026000
 	"268464129" : 0.20,//MoleMole.HumanoidMoveEffectPlugin,0x10007001
-	"268652544" : 0.10,//MoleMole.ShaderLerpPlugin,0x10035000
+	"268648448" : 0.10,//MoleMole.ShaderLerpPlugin,0x10034000
 	"268451860" : 0.10,//MoleMole.AudioMonsterMovePlugin,0x10004014
-	"69636" : 0.10,//MoleMole.VCGroupAutoPickable,0x00011004
+	"69637" : 0.10,//MoleMole.VCGroupAutoPickable,0x00011005
 	"268451848" : 0.10,//MoleMole.AudioPatrollerPlugin,0x10004008
 	"16785408" : 0.10,//MoleMole.LCAbilityElement,0x01002000
 	"40962" : 0.10,//MoleMole.VCMonsterEquipController,0x0000A002
 	"268468226" : 0.10,//MoleMole.HumanoidMoveSyncPlugin,0x10008002
 	"73730" : 0.10,//MoleMole.VCEquipSetDitherValue,0x00012002
 	"73732" : 0.10,//MoleMole.VCMonsterSetDitherValue,0x00012004
-	"16818183" : 0.10,//MoleMole.LCScenePropCombat,0x0100A007
+	"16822279" : 0.10,//MoleMole.LCScenePropCombat,0x0100B007
 	"268468225" : 0.10,//MoleMole.AnimatorMoveSyncPlugin,0x10008001
-	"188416" : 0.10,//MoleMole.VCSyncAnimator,0x0002E000
+	"192512" : 0.10,//MoleMole.VCSyncAnimator,0x0002F000
 	"268451847" : 0.10,//MoleMole.AudioMusicStatePlugin,0x10004007
-	"268648448" : 0.10,//MoleMole.PushColliderPlugin,0x10034000
+	"268644352" : 0.10,//MoleMole.PushColliderPlugin,0x10033000
 	"268476416" : 0.10,//MoleMole.CollisionPlugin,0x1000A000
 	"16928768" : 0.10,//MoleMole.LCTimer,0x01025000
 	"61461" : 0.10,//MoleMole.VCWindmillMove,0x0000F015
@@ -940,23 +983,23 @@
 	"114688" : 0.10,//MoleMole.VCFaceAnimation,0x0001C000
 	"69634" : 0.10,//MoleMole.VCAutoPickable,0x00011002
 	"61442" : 0.10,//MoleMole.VCBulletMove,0x0000F002
-	"16830465" : 0.10,//MoleMole.LCRadarHint,0x0100D001
-	"16855041" : 0.10,//MoleMole.LCEquip,0x01013001
+	"16834561" : 0.10,//MoleMole.LCRadarHint,0x0100E001
+	"16859137" : 0.10,//MoleMole.LCEquip,0x01014001
 	"268447744" : 0.10,//MoleMole.AimWalkPlugin,0x10003000
-	"16842753" : 0.10,//MoleMole.LCAirflowField,0x01010001
+	"16846849" : 0.10,//MoleMole.LCAirflowField,0x01011001
 	"32774" : 0.10,//MoleMole.VCMonsterCombat,0x00008006
-	"16822274" : 0.10,//MoleMole.LCMonsterEquipController,0x0100B002
+	"16826370" : 0.10,//MoleMole.LCMonsterEquipController,0x0100C002
 	"268546048" : 0.10,//MoleMole.LevelSceneDebugPlugin,0x1001B000
 	"16797697" : 0.10,//MoleMole.LCActorTrigger,0x01005001
 	"268451864" : 0.10,//MoleMole.AudioTeamVoiceStreamPlugin,0x10004018
 	"45064" : 0.10,//MoleMole.VCNpcHeadController,0x0000B008
 	"49155" : 0.10,//MoleMole.VCMonsterAIController,0x0000C003
-	"16859136" : 0.10,//MoleMole.LCLevel,0x01014000
-	"16842755" : 0.10,//MoleMole.LCRiseField,0x01010003
-	"16875520" : 0.10,//MoleMole.LCPose,0x01018000
-	"163840" : 0.10,//MoleMole.VCPartController,0x00028000
+	"16863232" : 0.10,//MoleMole.LCLevel,0x01015000
+	"16846851" : 0.10,//MoleMole.LCRiseField,0x01011003
+	"16879616" : 0.10,//MoleMole.LCPose,0x01019000
+	"167936" : 0.10,//MoleMole.VCPartController,0x00029000
 	"49154" : 0.10,//MoleMole.VCLocalInputController,0x0000C002
-	"268578817" : 0.10,//MoleMole.LevelSceneBushPlugin,0x10023001
+	"268574721" : 0.10,//MoleMole.LevelSceneBushPlugin,0x10022001
 	"36864" : 0.10,//MoleMole.VCBaseEmotion,0x00009000
 	"69635" : 0.10,//MoleMole.VCNormalPickable,0x00011003
 	"16916480" : 0.10,//MoleMole.LCTalent,0x01022000

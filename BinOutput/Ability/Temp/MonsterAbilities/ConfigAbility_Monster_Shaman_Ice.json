@@ -375,7 +375,7 @@
 				"onAdded":
 				[
 					{
-						"$type":"SetAnimatorBool",
+						"$type":"SetPoseBool",
 						"boolID":"EscapeState",
 						"value":true,
 					}
@@ -383,7 +383,7 @@
 				"onRemoved":
 				[
 					{
-						"$type":"SetAnimatorBool",
+						"$type":"SetPoseBool",
 						"boolID":"EscapeState",
 						"value":false,
 					}

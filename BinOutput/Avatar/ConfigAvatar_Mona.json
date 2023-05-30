@@ -147,11 +147,17 @@
 	{
 		"property":
 		{
-			"endure": 0,
 			"weight": 75,
-			"lockShape": "CircleLockEnemy",
 			"endureType": "Avatar_Catalyst",
 			"endureShake": 0
+		},
+		"combatLock":
+		{
+			"denyLockOn": false,
+			"lockShape": "CircleLockEnemyClose",
+			"lockWeightYaxisParam": 0.2,
+			"lockWeightYaxisThreshold": 4,
+			"lockType": "Avatar&Monster_Lv4"
 		},
 		"beHit":
 		{

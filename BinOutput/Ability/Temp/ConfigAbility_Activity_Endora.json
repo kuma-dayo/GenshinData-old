@@ -394,14 +394,14 @@
               "target": "CurTeamAvatars",
               "gadgetInfo": {
                 "$type": "SelectTargetsByChildren",
-                "configID": 420001003,
+                "configID": 44000103,
                 "sortType": "Default",
               },
               "doOffStage": true,
             },
             {
               "$type": "TriggerBullet",
-              "bulletID": 420001002,
+              "bulletID": 44000102,
               "born": {
                 "$type": "ConfigBornByGlobalValue",
                 "positionKey": "_ActivityAbility_Endora_Shoot_POS",
@@ -458,14 +458,14 @@
               "target": "CurTeamAvatars",
               "gadgetInfo": {
                 "$type": "SelectTargetsByChildren",
-                "configID": 420001003,
+                "configID": 44000103,
                 "sortType": "Default",
               },
               "doOffStage": true,
             },
             {
               "$type": "TriggerBullet",
-              "bulletID": 420001001,
+              "bulletID": 44000101,
               "born": {
                 "$type": "ConfigBornByGlobalValue",
                 "positionKey": "_ActivityAbility_Endora_Shoot_POS",
@@ -638,7 +638,7 @@
             {
               "$type": "CreateGadget",
               "target": "Self",
-              "gadgetID": 420001003,
+              "gadgetID": 44000103,
               "campID": 1001,
               "campTargetType": "Enemy",
               "born": {
@@ -655,7 +655,7 @@
             {
               "$type": "CreateGadget",
               "target": "Self",
-              "gadgetID": 420001003,
+              "gadgetID": 44000103,
               "campID": 1001,
               "campTargetType": "All",
               "born": {
@@ -871,7 +871,7 @@
             {
               "$type": "CreateGadget",
               "target": "Caster",
-              "gadgetID": 420001010,
+              "gadgetID": 44000104,
               "campID": 1001,
               "campTargetType": "Enemy",
               "born": {

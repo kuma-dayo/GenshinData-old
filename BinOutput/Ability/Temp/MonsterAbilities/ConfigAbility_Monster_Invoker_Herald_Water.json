@@ -355,20 +355,20 @@
 						"$type": "TriggerSetVisible",
 						"visible": false,
 					},
-					{
-						"$type": "HideUIBillBoard",
-						"hide": true,
-					},
-					{
-						"$type": "EnableHitBoxByName",
-						"hitBoxNames": ["HitBox", "HeadBox"],
-						"setEnable": false,
-					},
-					{
-						"$type": "EnablePushColliderName",
-						"pushColliderNames": ["PushCollider"],
-						"setEnable": false,
-					},
+					// {
+					// 	"$type": "HideUIBillBoard",
+					// 	"hide": true,
+					// },
+					// {
+					// 	"$type": "EnableHitBoxByName",
+					// 	"hitBoxNames": ["HitBox", "HeadBox"],
+					// 	"setEnable": false,
+					// },
+					// {
+					// 	"$type": "EnablePushColliderName",
+					// 	"pushColliderNames": ["PushCollider"],
+					// 	"setEnable": false,
+					// },
 				],
 				"onRemoved":
 				[
@@ -385,20 +385,20 @@
 						"$type": "TriggerSetVisible",
 						"visible": true,
 					},
-					{
-						"$type": "HideUIBillBoard",
-						"hide": false,
-					},
-					{
-						"$type": "EnableHitBoxByName",
-						"hitBoxNames": ["HitBox", "HeadBox"],
-						"setEnable": true,
-					},
-					{
-						"$type": "EnablePushColliderName",
-						"pushColliderNames": ["PushCollider"],
-						"setEnable": true,
-					},
+					// {
+					// 	"$type": "HideUIBillBoard",
+					// 	"hide": false,
+					// },
+					// {
+					// 	"$type": "EnableHitBoxByName",
+					// 	"hitBoxNames": ["HitBox", "HeadBox"],
+					// 	"setEnable": true,
+					// },
+					// {
+					// 	"$type": "EnablePushColliderName",
+					// 	"pushColliderNames": ["PushCollider"],
+					// 	"setEnable": true,
+					// },
 				],
 			},
 		},
@@ -643,7 +643,7 @@
 					{
 						"$type": "FireEffect",
 						"effectPattern": "Eff_Monster_Invoker_Debuff_Hit_Water",
-						"target": "CurTeamAvatars",
+						"target": "CurLocalAvatar",
 					},
 					{
 						"$type": "ModifyAvatarSkillCD",
@@ -1074,6 +1074,18 @@
 		{
 			"Invoker_Herald_Water_WhirlWind":
 			{
+				"modifierMixins":
+				[
+					{
+						"$type": "AttachToAbilityStateMixin",
+						"abilityStates": ["ElementFrozen", "ElementPetrifaction"],
+						"reject": true,
+						"modifierName": "Invoker_Herald_Water_WhirlWind_Effect",
+					},
+				],
+			},
+			"Invoker_Herald_Water_WhirlWind_Effect":
+			{
 				"onAdded": 
 				[
 					{
@@ -1170,7 +1182,7 @@
 				"state" : "Limbo",
 				"properties" :
 				{
-					"Actor_HpThresholdRatio": 0.0,
+					"Actor_HpThresholdRatio": 0.15,
 				},
 			},
 			"Invoker_Empty":
@@ -1253,6 +1265,24 @@
 		{
 			"Invoker_Herald_Water_Transform":
 			{
+				"state": "LockHPNoHeal",
+				"thinkInterval": 5.0,
+				"onThinkInterval":
+				[
+					{
+						"$type": "ApplyModifier",
+						"modifierName": "UNIQUE_Invoker_Herald_Water_ElementShield",
+						"predicates":
+						[
+							{
+								"$type": "ByTargetGlobalValue",
+								"key": "_MONSTER_INVOKER_HERALD_WATER_ELEMENTSTATE",
+								"value": 0,
+								"compareType": "NoneOrEqual",
+							},
+						],
+					},
+				],
 				"onAdded":
 				[
 					{
@@ -1303,6 +1333,11 @@
 				[
 					{
 						"$type": "SetGlobalValue",
+						"key": "_MONSTER_INVOKER_HERALD_WATER_ELEMENTSTATE",
+						"value": 1,
+					},
+					{
+						"$type": "SetGlobalValue",
 						"key": "_MONSTER_INVOKER_HERALD_WATER_DISAPPEAR",
 						"value": 0,
 					},
@@ -1318,6 +1353,11 @@
 				],
 				"onRemoved":
 				[
+					{
+						"$type": "SetGlobalValue",
+						"key": "_MONSTER_INVOKER_HERALD_WATER_ELEMENTSTATE",
+						"value": 0,
+					},
 					{
 						"$type": "SetPoseBool",
 						"boolID": "ElementState",

@@ -148,6 +148,11 @@
 						"maxValue" : 0,
 						"minValue" : 0,
 					},
+					{
+						"$type": "SetGlobalValue",
+						"key" : "_STONEPILLARCOUNT_",
+						"value" : 0,
+					},
 				],
 				"onRemoved": 
 				[
@@ -4230,7 +4235,7 @@
 					{
 						"$type": "ApplyModifier",
 						"modifierName": "Effigy_Spike_TrackEffectHandler",
-						"target": "Team",
+						"target": "SelfAttackTarget",
 					},
 				],
 			},

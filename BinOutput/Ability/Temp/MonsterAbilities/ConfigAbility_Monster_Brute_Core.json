@@ -646,7 +646,7 @@
 			
 			{
 				"$type" : "AttachToPoseIDMixin",
-				"poseIDs"  : [111, 113,114],
+				"poseIDs"  : [111, 113,114,115],
 				"modifierName"  : "NoWeapon_Steer",
 				"isUnique"  : false,
 			},
@@ -963,30 +963,19 @@
 				"$type":"AttachToPoseIDMixin",
 				"poseIDs":[901,902,903],
 				"modifierName":"Monster_Brute_Rock_ExitBattle"
+			},
+			{
+				"$type":"AttachModifierToSelfGlobalValueMixin",
+				"globalValueKey":"_MONSTER_BRUTE_ROCK_POWER_STATE",
+				"valueSteps":[-0.5,0.5,1.5],
+				"modifierNameSteps":["Monster_Brute_Rock_PowerStateOff","Monster_Brute_Rock_PowerStateOn"]
 			}
 		],
 		"onAbilityStart":
 		[
 			{
 				"$type":"ApplyModifier",
-				"modifierName":"UNIQUE_Brute_Rock_CoreOn"
-			},
-			{
-				"$type":"ActCameraShake",
-				"cameraShake":
-				{
-					"shakeRange":8,
-					"shakeTime":0.4,
-					"shakeDistance":40,
-					"extension":
-					{
-						"baseOnCamera":false
-					}
-				},
-				"born":
-				{
-					"$type":"ConfigBornBySelf"
-				}
+				"modifierName":"Monster_Brute_Rock_CoreOn_Handler"
 			}
 		],
 		"modifiers":
@@ -1023,9 +1012,14 @@
 						"target":"Self"
 					},
 					{
-						"$type":"SetAnimatorBool",
-						"boolID":"PowerState",
+						"$type":"SetPoseBool",
+						"boolID":"ExitPower",
 						"value":false
+					},
+					{
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_BRUTE_ROCK_POWER_STATE",
+						"value":0
 					}
 				]
 			},
@@ -1065,9 +1059,9 @@
 						"modifierName":"UNIQUE_Monster_Brute_Rock_SoundEffect"
 					},					
 					{
-						"$type":"SetAnimatorBool",
-						"boolID":"PowerState",
-						"value":true
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_BRUTE_ROCK_POWER_STATE",
+						"value":1
 					}
 				],
 				"modifierMixins":
@@ -1096,13 +1090,10 @@
 				"onRemoved":
 				[
 					{
-						"$type":"ReTriggerAISkillInitialCD",
-						"skillIDs":[1001]
-					},
-					{
-						"$type":"SetAISkillCDAvailableNow",
-						"skillIDs":[1001]
-					}					
+						"$type":"SetPoseBool",
+						"boolID":"ExitPower",
+						"value":true
+					}				
 				],
 				"onKill":
 				[
@@ -1128,6 +1119,158 @@
 						}
 					}
 				]
+			},
+			"Monster_Brute_Rock_CoreOn_Handler":
+			{
+				"duration":1.28,
+				"onRemoved":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"UNIQUE_Brute_Rock_CoreOn",
+						"predicates":
+						[
+							{
+								"$type":"ByNot",
+								"predicates":
+								[
+									{
+										"$type":"ByTargetGlobalValue",
+										"key":"_MONSTER_BRUTE_ROCK_POWER_STATE",
+										"value":1,
+										"compareType":"Equal"
+									}
+								]
+							}
+						]
+					},
+					{
+						"$type":"ActCameraShake",
+						"cameraShake":
+						{
+							"shakeRange":8,
+							"shakeTime":0.4,
+							"shakeDistance":40,
+							"extension":
+							{
+								"baseOnCamera":false
+							}
+						},
+						"born":
+						{
+							"$type":"ConfigBornBySelf"
+						}
+					}
+				],
+				"onAdded":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Brute_Rock_CoreOn_ForSure"
+					}
+				]
+			},
+			"Monster_Brute_Rock_CoreOn_ForSure":
+			{
+				"duration":5,
+				"onChangeAuthority":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"UNIQUE_Brute_Rock_CoreOn",
+						"predicates":
+						[
+							{
+								"$type":"ByNot",
+								"predicates":
+								[
+									{
+										"$type":"ByTargetGlobalValue",
+										"key":"_MONSTER_BRUTE_ROCK_POWER_STATE",
+										"value":1,
+										"compareType":"Equal"
+									}
+								]
+							}
+						]
+					}
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"UNIQUE_Brute_Rock_CoreOn",
+						"predicates":
+						[
+							{
+								"$type":"ByNot",
+								"predicates":
+								[
+									{
+										"$type":"ByTargetGlobalValue",
+										"key":"_MONSTER_BRUTE_ROCK_POWER_STATE",
+										"value":1,
+										"compareType":"Equal"
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"Monster_Brute_Rock_PowerStateOff":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetAnimatorBool",
+						"boolID":"PowerState",
+						"value":false
+					}
+				],
+				"onChangeAuthority":
+				[
+					{
+						"$type":"SetAnimatorBool",
+						"boolID":"PowerState",
+						"value":false
+					}
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"SetAnimatorBool",
+						"boolID":"PowerState",
+						"value":false
+					}
+				]
+			},
+			"Monster_Brute_Rock_PowerStateOn":
+			{
+				"onAdded":
+				[
+					{
+						"$type":"SetAnimatorBool",
+						"boolID":"PowerState",
+						"value":true
+					}
+				],
+				"onChangeAuthority":
+				[
+					{
+						"$type":"SetAnimatorBool",
+						"boolID":"PowerState",
+						"value":true
+					}
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"SetAnimatorBool",
+						"boolID":"PowerState",
+						"value":true
+					}
+				]
 			}
 		}
 	}
@@ -1140,30 +1283,85 @@
 		"onAbilityStart":
 		[
 			{
-				"$type":"SetPoseInt",
-				"intID":"CoreState",
-				"value":0,
-				"target":"Caster"
-			},
-			{
-				"$type":"AddGlobalValue",
-				"key":"_MONSTER_BRUTE_ROCK_POSE",
-				"value":-3,
-				"useLimitRange":true,
-				"maxValue":2,
-				"minValue":0,
-			},	
-			{
-				"$type":"SetAISkillGCD",
-				"value":7,
-				"target":"Self"
-			},
-			{
-				"$type":"SetAnimatorBool",
-				"boolID":"PowerState",
-				"value":false
-			}
+				"$type":"ApplyModifier",
+				"modifierName":"Monster_Brute_Rock_ExitPower_Handler"
+			}		
 		],
+		"modifiers":
+		{
+			"Monster_Brute_Rock_ExitPower_Handler":
+			{
+				"duration":0.8,
+				"onRemoved":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Brute_Rock_ExitPower"
+					}
+				],
+				"onAdded":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Brute_Rock_ExitPower_ForSure"
+					}
+				]
+			},
+			"Monster_Brute_Rock_ExitPower_ForSure":
+			{
+				"duration":5,
+				"onChangeAuthority":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Brute_Rock_ExitPower"
+					}
+				],
+				"onReconnect":
+				[
+					{
+						"$type":"ApplyModifier",
+						"modifierName":"Monster_Brute_Rock_ExitPower"
+					}
+				]
+			},
+			"Monster_Brute_Rock_ExitPower":
+			{
+				"duration":1,
+				"onAdded":
+				[
+					{
+						"$type":"SetPoseInt",
+						"intID":"CoreState",
+						"value":0,
+						"target":"Caster"
+					},
+					{
+						"$type":"AddGlobalValue",
+						"key":"_MONSTER_BRUTE_ROCK_POSE",
+						"value":-3,
+						"useLimitRange":true,
+						"maxValue":2,
+						"minValue":0,
+					},	
+					{
+						"$type":"SetAISkillGCD",
+						"value":7,
+						"target":"Self"
+					},
+					{
+						"$type":"SetPoseBool",
+						"boolID":"ExitPower",
+						"value":false
+					},
+					{
+						"$type":"SetGlobalValue",
+						"key":"_MONSTER_BRUTE_ROCK_POWER_STATE",
+						"value":0
+					}
+				]
+			}
+		}
 	}
 },
 ////////////////////////////////////////////////////////////////

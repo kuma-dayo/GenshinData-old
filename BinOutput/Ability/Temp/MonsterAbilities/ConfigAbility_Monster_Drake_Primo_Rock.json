@@ -873,6 +873,39 @@
 				},
 			},
 			{
+				"$type" : "TriggerAttackEvent",
+				"targetType" : "Enemy",
+				"attackEvent": 
+				{
+					"attackPattern" :
+					{
+						"$type": "ConfigAttackCircle",
+						"triggerType": "TriggerNoRepeat",
+						"height": 3.0,
+		    		    "fanAngle": 360.0,
+		   			    "radius": 1.5,
+						"born":
+						{
+							"$type": "ConfigBornByTeleportToPoint",
+						},
+					},
+					"attackInfo":
+					{
+						"attackProperty":
+						{
+							"damagePercentage": 0,
+							"strikeType": "Blunt",
+							"enBreak": 5000,
+						},
+						"hitPattern":
+						{
+							"onHitEffectName": "",
+							"hitImpulseType": "LV0",
+						},
+					},
+				},
+			},
+			{
 				"$type": "DoBlink",
 			},
 			{

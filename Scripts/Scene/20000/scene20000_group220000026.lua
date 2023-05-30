@@ -14,7 +14,7 @@ npcs = {
 
 -- 装置
 gadgets = {
-	{ config_id = 66, gadget_id = 70500001, pos = { x = 70.450, y = 30.519, z = 116.557 }, rot = { x = 0.000, y = 25.547, z = 0.000 }, level = 1, point_type = 1000001, isOneoff = true },
+	{ config_id = 66, gadget_id = 70500001, pos = { x = 70.450, y = 30.519, z = 116.557 }, rot = { x = 0.000, y = 25.548, z = 0.000 }, level = 1, point_type = 2019, isOneoff = true },
 	{ config_id = 67, gadget_id = 70211011, pos = { x = 66.081, y = 9.423, z = 121.093 }, rot = { x = 0.000, y = 172.247, z = 0.000 }, level = 1, drop_tag = "战斗中级蒙德", showcutscene = true, isOneoff = true }
 }
 

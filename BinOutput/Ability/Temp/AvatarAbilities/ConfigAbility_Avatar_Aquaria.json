@@ -165,13 +165,19 @@
 								"ps4":
 								{
 									"useFocusSticky": true,
-									"useAutoFocus": true,
+									// "useAutoFocus": true,
 									"useGyro": false,
 								},
+								"ps5":
+								{
+									"useFocusSticky": true,
+									// "useAutoFocus": true,
+									"useGyro": false,
+								},									
 								"other":
 								{
 									"useFocusSticky": true,
-									"useAutoFocus": false,
+									// "useAutoFocus": false,
 									"useGyro": true,
 								},
 							},
@@ -251,13 +257,19 @@
 								"ps4":
 								{
 									"useFocusSticky": true,
-									"useAutoFocus": true,
+									// "useAutoFocus": true,
 									"useGyro": false,
 								},
+								"ps5":
+								{
+									"useFocusSticky": true,
+									// "useAutoFocus": true,
+									"useGyro": false,
+								},								
 								"other":
 								{
 									"useFocusSticky": true,
-									"useAutoFocus": false,
+									// "useAutoFocus": false,
 									"useGyro": true,
 								},
 							},
@@ -2039,8 +2051,9 @@
 							"predicates" :
 							[
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+								    "$type": "ByTargetType",
+								    "targetType":"Self",
+								    "isTarget":false,
 								},
 								{
 									"$type" : "ByAttackTags",
@@ -2059,8 +2072,9 @@
 							"predicates" :
 							[
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+								    "$type": "ByTargetType",
+								    "targetType":"Self",
+								    "isTarget":false,
 								},
 								{
 									"$type" : "ByAttackTags",
@@ -2152,8 +2166,9 @@
 							"predicates" :
 							[
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+								    "$type": "ByTargetType",
+								    "targetType":"Self",
+								    "isTarget":false,
 								},
 								{
 									"$type" : "ByAttackTags",

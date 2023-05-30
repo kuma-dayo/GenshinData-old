@@ -12,10 +12,6 @@
 			"onAdded":
 			[
 				{
-					"$type": "ApplyModifier",
-					"modifierName": "GoldenAmber",
-				},
-				{
 	              "$type": "AttachAbilityStateResistance",
 	              "resistanceListID": 14005,
 	            },
@@ -24,8 +20,33 @@
 					"resistanceListID": 14002,
 				},
 			],
+			"abilityMixins":
+			[
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 0,
+					"modifierName": "GoldenAmber",
+				},
+				{
+					"$type": "AttachToGadgetStateMixin",
+					"gadgetState": 201,
+					"modifierName": "HideMesh",
+				},
+			],
 			"modifiers":
 			{
+				"HideMesh":
+				{
+					"onAdded":
+					[
+						{
+                            "$type":"EnableSceneTransformByName",
+                            "transformNames":["Collider"],
+                            "setEnable": false,
+                    	},
+					],
+				},
+
 				"GoldenAmber": 
 				{
 					"elementType": "Rock",
@@ -35,6 +56,14 @@
 						{
 							"$type": "ShieldBarMixin",
 						},
+					],
+					"onAdded":
+					[
+						{
+                            "$type":"EnableSceneTransformByName",
+                            "transformNames":["Collider"],
+                            "setEnable": true,
+                    	},
 					],
 					"onRemoved":
 					[	
@@ -52,6 +81,11 @@
 								},
 							},
 						},
+					 	{
+                            "$type":"EnableSceneTransformByName",
+                            "transformNames":["Collider"],
+                            "setEnable": false,
+                    	},
 						{
 							"$type": "ExecuteGadgetLua",
 							"param1": 201,
@@ -200,7 +234,7 @@
 						{
 							"$type": "CreateGadget",
 							"gadgetID": 70270002,
-							"campID": 1001,
+							"campID": 5001,
 							"campTargetType": "All",
 							"born":
 							{

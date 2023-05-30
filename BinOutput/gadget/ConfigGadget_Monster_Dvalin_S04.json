@@ -465,7 +465,7 @@
 		"hasModel" : true,
 		"model":
 		{
-			"bornEffect": "Eff_Item_WindSeed_WindField",
+			"attachEffect": "Eff_Item_WindSeed_WindField",
 		},
 		"misc" :
 		{
@@ -1400,7 +1400,7 @@
 		"hasModel" : true,
 		"model":
 		{
-			"bornEffect": "Eff_Item_WindSeed_WindField",
+			"attachEffect": "Eff_Item_WindSeed_WindField",
 		},
 		"misc" :
 		{

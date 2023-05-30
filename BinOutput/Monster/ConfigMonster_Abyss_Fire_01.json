@@ -13,6 +13,8 @@
 		"affectedByWorld" : true,
 		"checkInSurface" : true,
 		"shouldPauseAnimatorBeforeReady": true,
+		"clearAnimatorOnSetLightDeactive": true,
+		"clearAIOnSetLightDeactive": true,
 	},
 	"equipController":
 	{
@@ -624,7 +626,7 @@
 				"1": [301, 302, 401],
 				"2": [301, 302, 401, 402],
 				"3": [301, 302, 401],
-				"4": [303, 304, 305, 403, 502],
+				"4": [302, 303, 304, 305, 403, 502],
 			},
 		},
 		"neurons":

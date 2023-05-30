@@ -26,7 +26,7 @@ gadgets = {
 	{ config_id = 22010, gadget_id = 70211103, pos = { x = -238.762, y = 253.262, z = -43.497 }, rot = { x = 351.932, y = 83.425, z = 355.648 }, level = 16, drop_tag = "解谜低级璃月", state = GadgetState.ChestBramble, isOneoff = true, persistent = true, explore = { name = "chest", exp = 1 }, area_id = 7 },
 	{ config_id = 22011, gadget_id = 70211101, pos = { x = -95.406, y = 214.572, z = -189.465 }, rot = { x = 339.646, y = 60.296, z = 13.635 }, level = 16, drop_tag = "解谜低级璃月", isOneoff = true, persistent = true, explore = { name = "chest", exp = 1 }, area_id = 7 },
 	{ config_id = 22012, gadget_id = 70211101, pos = { x = -83.974, y = 230.771, z = -128.424 }, rot = { x = 358.445, y = 116.395, z = 4.718 }, level = 16, drop_tag = "解谜低级璃月", isOneoff = true, persistent = true, explore = { name = "chest", exp = 1 }, area_id = 7 },
-	{ config_id = 22013, gadget_id = 70211111, pos = { x = -291.872, y = 211.325, z = -947.229 }, rot = { x = 0.000, y = 102.602, z = 0.000 }, level = 26, drop_tag = "解谜中级璃月", isOneoff = true, persistent = true, explore = { name = "chest", exp = 1 }, area_id = 7 }
+	{ config_id = 22013, gadget_id = 70211111, pos = { x = -296.708, y = 212.355, z = -934.515 }, rot = { x = 5.416, y = 193.011, z = 12.046 }, level = 26, drop_tag = "解谜中级璃月", isOneoff = true, persistent = true, explore = { name = "chest", exp = 1 }, area_id = 7 }
 }
 
 -- 区域

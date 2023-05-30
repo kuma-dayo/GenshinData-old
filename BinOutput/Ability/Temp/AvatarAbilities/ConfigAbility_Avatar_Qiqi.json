@@ -620,7 +620,7 @@
 					[
 						{
 							"$type":"DoActionByElementReactionMixin",
-							"range":40,
+							"range":20,
 							"reactionTypes":["Explode","Stream","Burning","Melt","Freeze","Shock","Superconductor","SwirlFire","SwirlWater","SwirlElectric","SwirlIce","CrystallizeWater","CrystallizeElectric","CrystallizeIce","CrystallizeFire"],
 							"actions":
 							[
@@ -2739,7 +2739,7 @@
 							"key" : "_ABILITY_Radar_Collectables_Liyue",
 							"value" : 1,
 							"useLimitRange" : true,
-							"maxValue" : 1,
+							"maxValue" : 2,
 							"minValue" : 0,
 							"doOffStage": true,
 						},
@@ -2751,7 +2751,7 @@
 							"key" : "_ABILITY_Radar_Collectables_Liyue",
 							"value" : -1,
 							"useLimitRange" : true,
-							"maxValue" : 0,
+							"maxValue" : 2,
 							"minValue" : 0,
 							"doOffStage": true,
 						},

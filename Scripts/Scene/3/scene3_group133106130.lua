@@ -10,7 +10,7 @@ monsters = {
 	{ config_id = 130002, monster_id = 20010201, pos = { x = -774.134, y = 194.599, z = 1179.232 }, rot = { x = 0.000, y = 89.573, z = 0.000 }, level = 32, drop_tag = "大史莱姆", pose_id = 201, area_id = 8 },
 	{ config_id = 130003, monster_id = 20010201, pos = { x = -878.742, y = 191.415, z = 792.748 }, rot = { x = 0.000, y = 181.345, z = 0.000 }, level = 32, drop_tag = "大史莱姆", pose_id = 201, area_id = 8 },
 	{ config_id = 130007, monster_id = 20010201, pos = { x = -1010.780, y = 222.924, z = 930.289 }, rot = { x = 0.000, y = 233.686, z = 0.000 }, level = 32, drop_tag = "大史莱姆", pose_id = 201, area_id = 8 },
-	{ config_id = 130008, monster_id = 20010201, pos = { x = -546.185, y = 223.778, z = 1262.769 }, rot = { x = 0.000, y = 91.576, z = 0.000 }, level = 32, drop_tag = "大史莱姆", pose_id = 201, area_id = 8 },
+	{ config_id = 130008, monster_id = 20010201, pos = { x = -530.522, y = 224.784, z = 1287.882 }, rot = { x = 0.000, y = 91.576, z = 0.000 }, level = 32, drop_tag = "大史莱姆", pose_id = 101, area_id = 8 },
 	{ config_id = 130009, monster_id = 20010201, pos = { x = -658.972, y = 207.102, z = 1446.089 }, rot = { x = 0.000, y = 339.000, z = 0.000 }, level = 32, drop_tag = "大史莱姆", pose_id = 201, area_id = 8 },
 	{ config_id = 130010, monster_id = 20010201, pos = { x = -190.201, y = 328.023, z = 649.561 }, rot = { x = 0.000, y = 87.986, z = 0.000 }, level = 24, drop_tag = "大史莱姆", pose_id = 201, area_id = 7 },
 	{ config_id = 130011, monster_id = 20010201, pos = { x = -147.672, y = 313.828, z = 1571.073 }, rot = { x = 0.000, y = 68.401, z = 0.000 }, level = 24, drop_tag = "大史莱姆", pose_id = 201 },

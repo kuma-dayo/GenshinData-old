@@ -1,3 +1,10 @@
+-- Trigger变量
+local defs = {
+	duration = 30,
+	group_id = 111101031,
+	gadget_sum = 2
+}
+
 --================================================================
 -- 
 -- 配置
@@ -6,12 +13,6 @@
 
 -- 怪物
 monsters = {
-	{ config_id = 31001, monster_id = 20011001, pos = { x = 2629.044, y = 232.908, z = -1476.919 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, drop_id = 1000100, disableWander = true, affix = { 1030, 1901 }, isElite = true },
-	{ config_id = 31002, monster_id = 20011001, pos = { x = 2628.074, y = 232.315, z = -1474.157 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, drop_id = 1000100, disableWander = true, affix = { 1030, 1901 }, isElite = true },
-	{ config_id = 31003, monster_id = 20011001, pos = { x = 2631.209, y = 232.547, z = -1474.693 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, drop_id = 1000100, disableWander = true, affix = { 1030, 1901 }, isElite = true },
-	{ config_id = 31013, monster_id = 20011501, pos = { x = 2637.436, y = 230.671, z = -1457.910 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, drop_id = 1000100, disableWander = true, affix = { 1030, 1901 }, isElite = true },
-	{ config_id = 31015, monster_id = 20010501, pos = { x = 2642.791, y = 230.078, z = -1446.543 }, rot = { x = 0.000, y = 257.383, z = 0.000 }, level = 1, drop_id = 1000100, disableWander = true, affix = { 1030, 1901 }, isElite = true },
-	{ config_id = 31016, monster_id = 20010501, pos = { x = 2644.240, y = 230.451, z = -1447.846 }, rot = { x = 0.000, y = 257.383, z = 0.000 }, level = 1, drop_id = 1000100, disableWander = true, affix = { 1030, 1901 }, isElite = true }
 }
 
 -- NPC
@@ -20,40 +21,31 @@ npcs = {
 
 -- 装置
 gadgets = {
-	{ config_id = 31004, gadget_id = 70360005, pos = { x = 2626.521, y = 234.554, z = -1490.110 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
-	{ config_id = 31005, gadget_id = 70360025, pos = { x = 2644.402, y = 228.997, z = -1434.813 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
-	{ config_id = 31006, gadget_id = 70900201, pos = { x = 2644.400, y = 229.000, z = -1434.800 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
-	{ config_id = 31007, gadget_id = 70300118, pos = { x = 2626.500, y = 234.600, z = -1490.100 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
-	{ config_id = 31012, gadget_id = 70300118, pos = { x = 2629.000, y = 232.900, z = -1476.900 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
-	{ config_id = 31014, gadget_id = 70300118, pos = { x = 2642.800, y = 230.100, z = -1446.500 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
-	{ config_id = 31017, gadget_id = 70300118, pos = { x = 2644.200, y = 230.500, z = -1447.800 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
-	{ config_id = 31019, gadget_id = 70300118, pos = { x = 2628.100, y = 232.300, z = -1474.200 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
-	{ config_id = 31020, gadget_id = 70300118, pos = { x = 2631.200, y = 232.500, z = -1474.700 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 },
-	{ config_id = 31021, gadget_id = 70300118, pos = { x = 2637.400, y = 230.700, z = -1457.900 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1 }
+	{ config_id = 31001, gadget_id = 70220005, pos = { x = 2664.337, y = 249.493, z = -1268.747 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, persistent = true },
+	{ config_id = 31002, gadget_id = 70350084, pos = { x = 2664.415, y = 247.788, z = -1259.896 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, persistent = true },
+	{ config_id = 31003, gadget_id = 70211111, pos = { x = 2661.560, y = 247.563, z = -1260.265 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 26, drop_tag = "解谜中级蒙德", isOneoff = true, persistent = true },
+	{ config_id = 31004, gadget_id = 70220005, pos = { x = 2661.474, y = 249.493, z = -1268.747 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, persistent = true },
+	{ config_id = 31005, gadget_id = 70360001, pos = { x = 2664.424, y = 248.752, z = -1259.884 }, rot = { x = 0.000, y = 0.000, z = 0.000 }, level = 1, persistent = true }
 }
 
 -- 区域
 regions = {
-	{ config_id = 31008, shape = RegionShape.SPHERE, radius = 5, pos = { x = 2629.460, y = 232.587, z = -1475.200 } },
-	{ config_id = 31024, shape = RegionShape.SPHERE, radius = 5, pos = { x = 2637.400, y = 230.700, z = -1457.900 } },
-	{ config_id = 31025, shape = RegionShape.SPHERE, radius = 5, pos = { x = 2643.508, y = 230.209, z = -1447.143 } },
-	{ config_id = 31027, shape = RegionShape.SPHERE, radius = 3, pos = { x = 2644.400, y = 229.000, z = -1434.800 } }
 }
 
 -- 触发器
 triggers = {
-	{ name = "ENTER_REGION_31008", event = EventType.EVENT_ENTER_REGION, source = "", condition = "condition_EVENT_ENTER_REGION_31008", action = "action_EVENT_ENTER_REGION_31008" },
-	{ name = "CHALLENGE_SUCCESS_31009", event = EventType.EVENT_CHALLENGE_SUCCESS, source = "888", condition = "", action = "action_EVENT_CHALLENGE_SUCCESS_31009", trigger_count = 0 },
-	{ name = "CHALLENGE_FAIL_31010", event = EventType.EVENT_CHALLENGE_FAIL, source = "888", condition = "", action = "action_EVENT_CHALLENGE_FAIL_31010", trigger_count = 0 },
-	{ name = "GADGET_STATE_CHANGE_31011", event = EventType.EVENT_GADGET_STATE_CHANGE, source = "", condition = "condition_EVENT_GADGET_STATE_CHANGE_31011", action = "action_EVENT_GADGET_STATE_CHANGE_31011", trigger_count = 0 },
-	{ name = "ENTER_REGION_31024", event = EventType.EVENT_ENTER_REGION, source = "", condition = "condition_EVENT_ENTER_REGION_31024", action = "action_EVENT_ENTER_REGION_31024" },
-	{ name = "ENTER_REGION_31025", event = EventType.EVENT_ENTER_REGION, source = "", condition = "condition_EVENT_ENTER_REGION_31025", action = "action_EVENT_ENTER_REGION_31025" },
-	{ name = "ENTER_REGION_31027", event = EventType.EVENT_ENTER_REGION, source = "", condition = "condition_EVENT_ENTER_REGION_31027", action = "", tag = "666" }
+	{ config_id = 1031006, name = "CHALLENGE_SUCCESS_31006", event = EventType.EVENT_CHALLENGE_SUCCESS, source = "56", condition = "", action = "action_EVENT_CHALLENGE_SUCCESS_31006" },
+	{ config_id = 1031007, name = "CHALLENGE_FAIL_31007", event = EventType.EVENT_CHALLENGE_FAIL, source = "56", condition = "", action = "action_EVENT_CHALLENGE_FAIL_31007", trigger_count = 0 },
+	{ config_id = 1031008, name = "GADGET_STATE_CHANGE_31008", event = EventType.EVENT_GADGET_STATE_CHANGE, source = "", condition = "condition_EVENT_GADGET_STATE_CHANGE_31008", action = "action_EVENT_GADGET_STATE_CHANGE_31008", trigger_count = 0 },
+	{ config_id = 1031009, name = "ANY_GADGET_DIE_31009", event = EventType.EVENT_ANY_GADGET_DIE, source = "", condition = "", action = "", trigger_count = 0, tag = "201" },
+	{ config_id = 1031010, name = "GADGET_CREATE_31010", event = EventType.EVENT_GADGET_CREATE, source = "", condition = "condition_EVENT_GADGET_CREATE_31010", action = "action_EVENT_GADGET_CREATE_31010", trigger_count = 0 },
+	{ config_id = 1031011, name = "SELECT_OPTION_31011", event = EventType.EVENT_SELECT_OPTION, source = "", condition = "condition_EVENT_SELECT_OPTION_31011", action = "action_EVENT_SELECT_OPTION_31011", trigger_count = 0 },
+	{ config_id = 1031012, name = "ANY_GADGET_DIE_31012", event = EventType.EVENT_ANY_GADGET_DIE, source = "", condition = "condition_EVENT_ANY_GADGET_DIE_31012", action = "action_EVENT_ANY_GADGET_DIE_31012", trigger_count = 0 }
 }
 
 -- 变量
 variables = {
-	{ name = "hasFinished", value = 0, no_refresh = false }
+	{ name = "gadget_start", value = 0, no_refresh = true }
 }
 
 --================================================================
@@ -64,8 +56,9 @@ variables = {
 
 -- 初始化时创建
 init_config = {
+	io_type = 1,
 	suite = 1,
-	end_suite = 0,
+	end_suite = 3,
 	rand_suite = false
 }
 
@@ -75,60 +68,45 @@ init_config = {
 -- 
 --================================================================
 
-suites = {
-	{
-		-- suite_id = 1,
-		-- description = ,
-		monsters = { },
-		gadgets = { 31004, 31007 },
+suite_disk = {
+	[1] = {
+		gadgets = {
+			{ config_id = 31002, state = 0 },
+			{ config_id = 31005, state = 0 }
+		},
+		monsters = {
+		},
 		regions = { },
-		triggers = { "GADGET_STATE_CHANGE_31011" },
-		rand_weight = 100
+		triggers = { "CHALLENGE_SUCCESS_31006", "CHALLENGE_FAIL_31007", "GADGET_STATE_CHANGE_31008", "ANY_GADGET_DIE_31009", "GADGET_CREATE_31010", "SELECT_OPTION_31011", "ANY_GADGET_DIE_31012" },
+		variables = {
+			{ name = "gadget_start", value = 0, no_refresh = true }
+		}
 	},
-	{
-		-- suite_id = 2,
-		-- description = suite_2,
-		monsters = { 31001, 31002, 31003, 31013, 31015, 31016 },
-		gadgets = { 31005, 31006 },
-		regions = { 31027 },
-		triggers = { "CHALLENGE_SUCCESS_31009", "CHALLENGE_FAIL_31010", "ENTER_REGION_31027" },
-		rand_weight = 100
-	},
-	{
-		-- suite_id = 3,
-		-- description = suite_3,
-		monsters = { },
-		gadgets = { },
-		regions = { 31008 },
-		triggers = { "ENTER_REGION_31008" },
-		rand_weight = 100
-	},
-	{
-		-- suite_id = 4,
-		-- description = suite_4,
-		monsters = { },
-		gadgets = { },
-		regions = { 31024 },
-		triggers = { "ENTER_REGION_31024" },
-		rand_weight = 100
-	},
-	{
-		-- suite_id = 5,
-		-- description = suite_5,
-		monsters = { },
-		gadgets = { },
-		regions = { 31025 },
-		triggers = { "ENTER_REGION_31025" },
-		rand_weight = 100
-	},
-	{
-		-- suite_id = 6,
-		-- description = suite_6,
-		monsters = { },
-		gadgets = { },
+	[2] = {
+		gadgets = {
+			{ config_id = 31001, state = 0 },
+			{ config_id = 31004, state = 0 }
+		},
+		monsters = {
+		},
 		regions = { },
 		triggers = { },
-		rand_weight = 100
+		variables = {
+			{ name = "gadget_start", value = 0, no_refresh = true }
+		}
+	},
+	[3] = {
+		gadgets = {
+			{ config_id = 31002, state = 202 },
+			{ config_id = 31003, state = 0 }
+		},
+		monsters = {
+		},
+		regions = { },
+		triggers = { },
+		variables = {
+			{ name = "gadget_start", value = 0, no_refresh = true }
+		}
 	}
 }
 
@@ -138,131 +116,95 @@ suites = {
 -- 
 --================================================================
 
--- 触发条件
-function condition_EVENT_ENTER_REGION_31008(context, evt)
-	if evt.param1 ~= 31008 then return false end
-	
-	-- 判断角色数量不少于1
-	if ScriptLib.GetRegionEntityCount(context, { region_eid = evt.source_eid, entity_type = EntityType.AVATAR }) < 1 then
-		return false
-	end
-	
-	return true
-end
-
 -- 触发操作
-function action_EVENT_ENTER_REGION_31008(context, evt)
-	-- 删除suite3的所有内容
-	    ScriptLib.RemoveExtraGroupSuite(context, 111101031, 3)
-	
-	return 0
-end
-
--- 触发条件
-
--- 触发操作
-function action_EVENT_CHALLENGE_SUCCESS_31009(context, evt)
-	-- 将本组内变量名为 "hasFinished" 的变量设置为 1
-	if 0 ~= ScriptLib.SetGroupVariableValue(context, "hasFinished", 1) then
-	  return -1
-	end
-	
+function action_EVENT_CHALLENGE_SUCCESS_31006(context, evt)
 		-- 永久关闭CongfigId的Gadget，需要和Groups的RefreshWithBlock标签搭配
-		if 0 ~= ScriptLib.KillEntityByConfigId(context, { config_id = 31007 }) then
+		if 0 ~= ScriptLib.KillEntityByConfigId(context, { config_id = 31005 }) then
+	    ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : kill_entity_by_configId")
 		    return -1
 		end
 		
 	
-	-- 删除suite2的所有内容
-	    ScriptLib.RemoveExtraGroupSuite(context, 111101031, 2)
+		-- 将指定flowGroup的进度和要素属性都改为目标suite（缺的创建，多的移除）
+	  ScriptLib.GoToFlowSuite(context, 111101031, 3)
 	
-	-- 删除suite3的所有内容
-	    ScriptLib.RemoveExtraGroupSuite(context, 111101031, 3)
-	
-	-- 删除suite4的所有内容
-	    ScriptLib.RemoveExtraGroupSuite(context, 111101031, 4)
-	
-	-- 删除suite5的所有内容
-	    ScriptLib.RemoveExtraGroupSuite(context, 111101031, 5)
-	
-	-- 将configid为 31004 的物件更改为状态 GadgetState.Default
-	if 0 ~= ScriptLib.SetGadgetStateByConfigId(context, 31004, GadgetState.Default) then
-			return -1
-		end 
-	
-	-- group调整group进度,只对非randSuite有效
-	if 0 ~= ScriptLib.GoToGroupSuite(context, 111101031, 6) then
-		return -1
-	end
+	-- 运营数据埋点，匹配LD定义的规则使用
+	    if 0 ~= ScriptLib.MarkPlayerAction(context, 3003, 3, 1) then
+	      ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : mark_playerAction")
+	      return -1
+	    end
 	
 	return 0
 end
 
--- 触发条件
-
 -- 触发操作
-function action_EVENT_CHALLENGE_FAIL_31010(context, evt)
-	-- 创建id为31007的gadget
-	if 0 ~= ScriptLib.CreateGadget(context, { config_id = 31007 }) then
+function action_EVENT_CHALLENGE_FAIL_31007(context, evt)
+	-- 将configid为 31002 的物件更改为状态 GadgetState.Default
+	if 0 ~= ScriptLib.SetGadgetStateByConfigId(context, 31002, GadgetState.Default) then
+	  ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : set_gadget_state_by_configId")
+			return -1
+		end 
+	
+		-- 杀死flowGroup的某个flowSuite，会触发物件和怪物死亡
+	  ScriptLib.KillExtraFlowSuite(context, 111101031, 2, FlowSuiteOperatePolicy.DEFAULT)
+	
+	-- 创建id为31005的gadget
+	if 0 ~= ScriptLib.CreateGadget(context, { config_id = 31005 }) then
+	  ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : create_gadget")
 	  return -1
 	end
 	
-	-- 删除suite2的所有内容
-	    ScriptLib.RemoveExtraGroupSuite(context, 111101031, 2)
-	
-	-- 删除suite3的所有内容
-	    ScriptLib.RemoveExtraGroupSuite(context, 111101031, 3)
-	
-	-- 删除suite4的所有内容
-	    ScriptLib.RemoveExtraGroupSuite(context, 111101031, 4)
-	
-	-- 删除suite5的所有内容
-	    ScriptLib.RemoveExtraGroupSuite(context, 111101031, 5)
-	
-	-- 将configid为 31004 的物件更改为状态 GadgetState.Default
-	if 0 ~= ScriptLib.SetGadgetStateByConfigId(context, 31004, GadgetState.Default) then
-			return -1
-		end 
+	-- 运营数据埋点，匹配LD定义的规则使用
+	    if 0 ~= ScriptLib.MarkPlayerAction(context, 3003, 4, 1) then
+	      ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : mark_playerAction")
+	      return -1
+	    end
 	
 	return 0
 end
 
 -- 触发条件
-function condition_EVENT_GADGET_STATE_CHANGE_31011(context, evt)
-	if 31004 ~= evt.param2 or GadgetState.GearStart ~= evt.param1 then
+function condition_EVENT_GADGET_STATE_CHANGE_31008(context, evt)
+	if 31002 ~= evt.param2 or GadgetState.GearStart ~= evt.param1 then
 		return false
-	end
-	
-	-- 判断变量"hasFinished"为0
-	if ScriptLib.GetGroupVariableValue(context, "hasFinished") ~= 0 then
-			return false
 	end
 	
 	return true
 end
 
 -- 触发操作
-function action_EVENT_GADGET_STATE_CHANGE_31011(context, evt)
+function action_EVENT_GADGET_STATE_CHANGE_31008(context, evt)
+	-- 201号挑战,duration内破坏炸药桶
+	if 0 ~= ScriptLib.ActiveChallenge(context, 56, 201, defs.duration, 2, 201, defs.gadget_sum) then
+	return -1
+	end
+	
 	-- 添加suite2的新内容
-	    ScriptLib.AddExtraGroupSuite(context, 111101031, 2)
+	ScriptLib.AddExtraFlowSuite(context, defs.group_id, 2, FlowSuiteOperatePolicy.DEFAULT)
 	
-	-- 添加suite3的新内容
-	    ScriptLib.AddExtraGroupSuite(context, 111101031, 3)
+	-- 运营数据埋点，匹配LD定义的规则使用
+	if 0 ~= ScriptLib.MarkPlayerAction(context, 3003, 1, 1) then
+	return -1
+	end
 	
-	-- 添加suite4的新内容
-	    ScriptLib.AddExtraGroupSuite(context, 111101031, 4)
+	return 0
 	
-	-- 添加suite5的新内容
-	    ScriptLib.AddExtraGroupSuite(context, 111101031, 5)
+end
+
+-- 触发条件
+function condition_EVENT_GADGET_CREATE_31010(context, evt)
+	if 31005 ~= evt.param1 then
+		return false
+	end
 	
-		-- 永久关闭CongfigId的Gadget，需要和Groups的RefreshWithBlock标签搭配
-		if 0 ~= ScriptLib.KillEntityByConfigId(context, { config_id = 31007 }) then
-		    return -1
-		end
-		
-	
-	-- 创建编号为888（该挑战的识别id),挑战内容为189的区域挑战，具体参数填写方式，见DungeonChallengeData表中的注释，所有填写的值都必须是int类型
-	if 0 ~= ScriptLib.ActiveChallenge(context, 888, 189, 10, 4, 666, 5) then
+	return true
+end
+
+-- 触发操作
+function action_EVENT_GADGET_CREATE_31010(context, evt)
+	-- 设置操作台选项
+	if 0 ~= ScriptLib.SetWorktopOptionsByGroupId(context, 111101031, 31005, {177}) then
+	  ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : set_wok_options_by_configid")
 		return -1
 	end
 	
@@ -270,31 +212,41 @@ function action_EVENT_GADGET_STATE_CHANGE_31011(context, evt)
 end
 
 -- 触发条件
-function condition_EVENT_ENTER_REGION_31024(context, evt)
-	if evt.param1 ~= 31024 then return false end
+function condition_EVENT_SELECT_OPTION_31011(context, evt)
+	-- 判断是gadgetid 31005 option_id 177
+	if 31005 ~= evt.param1 then
+		return false	
+	end
 	
-	-- 判断角色数量不少于1
-	if ScriptLib.GetRegionEntityCount(context, { region_eid = evt.source_eid, entity_type = EntityType.AVATAR }) < 1 then
+	if 177 ~= evt.param2 then
 		return false
 	end
+	
 	
 	return true
 end
 
 -- 触发操作
-function action_EVENT_ENTER_REGION_31024(context, evt)
-	-- 删除suite4的所有内容
-	    ScriptLib.RemoveExtraGroupSuite(context, 111101031, 4)
+function action_EVENT_SELECT_OPTION_31011(context, evt)
+		-- 永久关闭CongfigId的Gadget，需要和Groups的RefreshWithBlock标签搭配
+		if 0 ~= ScriptLib.KillEntityByConfigId(context, { config_id = 31005 }) then
+	    ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : kill_entity_by_configId")
+		    return -1
+		end
+		
+	
+	-- 将configid为 31002 的物件更改为状态 GadgetState.GearStart
+	if 0 ~= ScriptLib.SetGadgetStateByConfigId(context, 31002, GadgetState.GearStart) then
+	  ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : set_gadget_state_by_configId")
+			return -1
+		end 
 	
 	return 0
 end
 
 -- 触发条件
-function condition_EVENT_ENTER_REGION_31025(context, evt)
-	if evt.param1 ~= 31025 then return false end
-	
-	-- 判断角色数量不少于1
-	if ScriptLib.GetRegionEntityCount(context, { region_eid = evt.source_eid, entity_type = EntityType.AVATAR }) < 1 then
+function condition_EVENT_ANY_GADGET_DIE_31012(context, evt)
+	if 31001 ~= evt.param1 then
 		return false
 	end
 	
@@ -302,23 +254,12 @@ function condition_EVENT_ENTER_REGION_31025(context, evt)
 end
 
 -- 触发操作
-function action_EVENT_ENTER_REGION_31025(context, evt)
-	-- 删除suite5的所有内容
-	    ScriptLib.RemoveExtraGroupSuite(context, 111101031, 5)
+function action_EVENT_ANY_GADGET_DIE_31012(context, evt)
+	-- 调用提示id为 1105002 的提示UI，会显示在屏幕中央偏下位置，id索引自 ReminderData表格
+	if 0 ~= ScriptLib.ShowReminder(context, 1105002) then
+	  ScriptLib.PrintContextLog(context, "@@ LUA_WARNING : active_reminder_ui")
+		return -1
+	end
 	
 	return 0
 end
-
--- 触发条件
-function condition_EVENT_ENTER_REGION_31027(context, evt)
-	if evt.param1 ~= 31027 then return false end
-	
-	-- 判断角色数量不少于1
-	if ScriptLib.GetRegionEntityCount(context, { region_eid = evt.source_eid, entity_type = EntityType.AVATAR }) < 1 then
-		return false
-	end
-	
-	return true
-end
-
--- 触发操作

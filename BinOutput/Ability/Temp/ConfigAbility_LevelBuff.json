@@ -3571,7 +3571,7 @@
             {
               "$type": "CreateGadget",
               "target": "CurLocalAvatar",
-              "gadgetID": 420000001,
+              "gadgetID": 44000001,
               "campID": 1001,
               "campTargetType": "Enemy",
               "campBasedOn": "Self",
@@ -9566,7 +9566,7 @@
             {
               "$type": "CreateGadget",
               "target": "Applier",
-              "gadgetID": 420000005,
+              "gadgetID": 44000005,
               "campID": 1001,
               "campTargetType": "Enemy",
               "campBasedOn": "Applier",
@@ -10297,7 +10297,7 @@
           "onAdded": [
             {
               "$type": "CreateGadget",
-              "gadgetID": 420000008,
+              "gadgetID": 44000008,
               "campID": 1001,
               "campTargetType": "Enemy",
               "doOffStage": true,
@@ -10316,7 +10316,7 @@
               "$type": "KillGadget",
               "gadgetInfo": {
                 "$type": "SelectTargetsByChildren",
-                "configID": 420000008,
+                "configID": 44000008,
                 "sortType": "Default",
               },
               "doOffStage": true,
@@ -10353,7 +10353,7 @@
                   "type": "Int",
                   "otherTargets": {
                     "$type": "SelectTargetsByChildren",
-                    "configID": 420000008,
+                    "configID": 44000008,
                     "sortType": "Default",
                   },
 
@@ -10381,7 +10381,7 @@
                       "type": "Int",
                       "otherTargets": {
                         "$type": "SelectTargetsByChildren",
-                        "configID": 420000008,
+                        "configID": 44000008,
                         "sortType": "Default",
                       },
 
@@ -10396,7 +10396,7 @@
                       "type": "Int",
                       "otherTargets": {
                         "$type": "SelectTargetsByChildren",
-                        "configID": 420000008,
+                        "configID": 44000008,
                         "sortType": "Default",
                       },
 
@@ -10425,7 +10425,7 @@
                   "$type": "FireEffect",
                   "otherTargets": {
                     "$type": "SelectTargetsByChildren",
-                    "configID": 420000008,
+                    "configID": 44000008,
                     "sortType": "Default",
                   },
                   "effectPattern": "Eff_Tower_Circle_ManualReduction_02_LvUp",
@@ -10436,7 +10436,7 @@
                   "$type": "FireEffect",
                   "otherTargets": {
                     "$type": "SelectTargetsByChildren",
-                    "configID": 420000008,
+                    "configID": 44000008,
                     "sortType": "Default",
                   },
                   "effectPattern": "Eff_Tower_Circle_ManualReduction_02_LvDown",
@@ -10603,4 +10603,929 @@
       },
     },
   }, //LevelEntity_TowerBuff_DropElementBallOnFallingAttack_Ver_1_14
+
+
+  {
+    "Default": {
+      "$type": "ConfigAbility",
+      "abilityName": "LevelEntity_Avatar_ShieldOnBeingHitDoDamage_Ver_1_15",
+      "isDynamicAbility": true,
+      "onAdded": [
+        {
+          "$type": "SetSystemValueToOverrideMap",
+          "key": "LevelEntity_SystemValue",
+          "type": "ElementLevelCo",
+        },
+        {
+          "$type": "AttachModifier",
+          "modifierName": "UNIQUE_ShieldOnBeingHitDoDamage_Ver_1_15",
+          "target": "Self",
+        },
+
+      ],
+      "modifiers": {
+        "UNIQUE_ShieldOnBeingHitDoDamage_Ver_1_15": {
+          "isUnique": true,
+          "onBeingHit": [
+            {
+              "$type": "Predicated",
+              "target": "Other",
+              "targetPredicates": [
+                {
+                  "$type": "ByEntityTypes",
+                  "entityTypes": [ "Monster", "Gadget" ],
+                },
+              ],
+              "successActions": [
+                {
+                  "$type": "ApplyModifier",
+                  "target": "Other",
+                  "modifierName": "TowerBuff_ShieldOnBeingHitDoDamage",
+                },
+                {
+                  "$type": "ApplyModifier",
+                  "modifierName": "UNIQUE_ShieldOnBeingHitDoDamage_Ver_1_15_CD",
+                  "target": "Team",
+                },
+              ],
+              "failActions": [
+                {
+                  "$type": "Predicated",
+                  "target": "Target",
+                  "targetPredicates": [
+                    {
+                      "$type": "ByEntityTypes",
+                      "entityTypes": [ "Bullet" ],
+                    },
+                  ],
+                  "successActions": [
+                    {
+                      "$type": "ApplyModifier",
+                      "target": "TargetOriginOwner",
+                      "modifierName": "TowerBuff_ShieldOnBeingHitDoDamage",
+                    },
+                    {
+                      "$type": "ApplyModifier",
+                      "modifierName": "UNIQUE_ShieldOnBeingHitDoDamage_Ver_1_15_CD",
+                      "target": "Team",
+                    },
+                  ],
+                },
+              ],
+              "predicates": [
+                {
+                  "$type": "ByTargetGlobalValue",
+                  "key": "_Is_ShieldOnBeingHitDoDamage_Ver_1_15_CD",
+                  "target": "Team",
+                  "value": 0,
+                  "compareType": "NoneOrEqual",
+                },
+                {
+                  "$type": "ByHasShield",
+                  "target": "Self",
+                  "type": "All",
+                },
+              ],
+            },
+          ],
+        },
+        "TowerBuff_ShieldOnBeingHitDoDamage": {
+          "duration": 0.1,
+          "onAdded": [
+            {
+              "$type": "FireEffect",
+              "effectPattern": "Eff_Stages_ShieldOnBeingHit",
+              "born": {
+                "$type": "ConfigBornByTarget",
+              },
+            },
+            {
+              "$type": "TriggerAttackEvent",
+              "target": "Applier",
+              "targetType": "Enemy",
+              "attackEvent": {
+                "attackPattern": {
+                  "$type": "ConfigAttackSphere",
+                  "triggerType": "TriggerNoRepeat",
+                  "radius": 10,
+                  "born": {
+                    "$type": "ConfigBornBySelf",
+                  },
+                },
+                "attackInfo": {
+                  "attackProperty": {
+                    "damageExtra": "%LevelEntity_TowerBuff_Damage*%LevelEntity_SystemValue",
+                    "ignoreAttackerProperty": true,
+                    "elementDurability": 0,
+                    "strikeType": "Default",
+                    "enBreak": 0,
+                  },
+                  "hitPattern": {
+                    "onHitEffectName": "",
+                    "hitImpulseType": "LV2", //Light x200 y0
+                    "reboundRatio": 0,
+                    "hitHaltTime": 0.0,
+                    "hitHaltTimeScale": 0.05,
+                    "muteHitText": false,
+                  },
+                  "forceCameraShake": false,
+                  "cameraShake": {
+                  },
+                },
+              },
+            },
+          ],
+        },
+        "UNIQUE_ShieldOnBeingHitDoDamage_Ver_1_15_CD": {
+          "isUnique": true,
+          "duration": "%LevelEntity_TowerBuff_Damage_CD",
+          "onAdded": [
+            {
+              "$type": "AddGlobalValue",
+              "key": "_Is_ShieldOnBeingHitDoDamage_Ver_1_15_CD",
+              "value": 1,
+              "useLimitRange": true,
+              "maxValue": 1,
+              "minValue": 1,
+            },
+          ],
+          "onRemoved": [
+            {
+              "$type": "ClearGlobalValue",
+              "key": "_Is_ShieldOnBeingHitDoDamage_Ver_1_15_CD",
+            },
+          ],
+        },
+
+      },
+      "abilitySpecials": {
+        "LevelEntity_TowerBuff_Damage": 10,
+        "LevelEntity_TowerBuff_Damage_CD": 2,
+        "LevelEntity_SystemValue": 0,
+      },
+    },
+  }, //LevelEntity_Avatar_ShieldOnBeingHitDoDamage_Ver_1_15------受到攻击时会对攻击者发动一次范围伤害 ，有内置CD
+
+
+  {
+    "Default": {
+      "$type": "ConfigAbility",
+      "abilityName": "LevelEntity_HpUp_100p",
+      "isDynamicAbility": true,
+      "onAdded": [
+        {
+          "$type": "AttachModifier",
+          "modifierName": "UNIQUE_LevelEntity_HpUp_100p",
+          "target": "Self",
+        },
+      ],
+      "modifiers": {
+        "UNIQUE_LevelEntity_HpUp_100p": {
+          "isLimitedProperties": true,
+          "stacking": "Unique",
+          "isUnique": true,
+          "properties": {
+            "Actor_MaxHPRatio": "%LevelEntity_HpDelta_P1",
+          },
+        },
+      },
+      "abilitySpecials": {
+        "LevelEntity_HpDelta_P1": 1,
+      },
+    },
+  }, //LevelEntity_HpUp_100p------血量提升（具体给怪还是给玩家在ConfigLevelEntity_LevelBuff配）
+
+
+  {
+    "Default": {
+      "$type": "ConfigAbility",
+      "abilityName": "LevelEntity_HpUp_20p",
+      "isDynamicAbility": true,
+      "onAdded": [
+        {
+          "$type": "AttachModifier",
+          "modifierName": "UNIQUE_LevelEntity_HpUp_20p",
+          "target": "Self",
+        },
+      ],
+      "modifiers": {
+        "UNIQUE_LevelEntity_HpUp_20p": {
+          "isLimitedProperties": true,
+          "stacking": "Unique",
+          "isUnique": true,
+          "properties": {
+            "Actor_MaxHPRatio": "%LevelEntity_HpDelta_P1",
+          },
+        },
+      },
+      "abilitySpecials": {
+        "LevelEntity_HpDelta_P1": 0.2,
+      },
+    },
+  }, //LevelEntity_HpUp_20p------血量提升（具体给怪还是给玩家在ConfigLevelEntity_LevelBuff配）
+  /**/
+  //=================================================================================================================
+  //=================================================================================================================
+  //====================================================================================1.5_2021/01/28日新增_导能圆盘
+  //=================================================================================================================
+  //=================================================================================================================
+  /**/
+  {
+    "Default": {
+      "$type": "ConfigAbility",
+      "abilityName": "LevelEntity_GeneralSkill_DeathRattleCrystal_ExtraLifeTime",
+      "isDynamicAbility": true,
+      "onAdded": [
+        {
+          "$type": "AddGlobalValue",
+          "value": 1,
+          "key": "_MONSTER_GeneralSkill_RockDamage_DeathRattleCrystal_LifeTimeRatio",
+        },
+      ],
+    },
+  }, //强化亡语结晶的持续时间
+  {
+    "Default": {
+      "$type": "ConfigAbility",
+      "abilityName": "LevelEntity_GeneralSkill_DeathRattleCrystal_ExtraTimes",
+      "isDynamicAbility": true,
+      "onAdded": [
+        {
+          "$type": "AddGlobalValue",
+          "value": 1,
+          "key": "_MONSTER_GeneralSkill_RockDamage_DeathRattleCrystal_ExtraTimes",
+        },
+      ],
+    },
+  }, //强化亡语结晶的爆炸次数
+  {
+    "Default": {
+      "$type": "ConfigAbility",
+      "abilityName": "LevelEntity_GeneralSkill_Sovereign_ExtraHeal",
+      "isDynamicAbility": true,
+      "onAdded": [
+        {
+          "$type": "AddGlobalValue",
+          "value": 1,
+          "key": "_MONSTER_GeneralSkill_Sovereign_ExtraHeal",
+        },
+      ],
+    },
+  }, //强化君王词缀的恢复效果
+  {
+    "Default": {
+      "$type": "ConfigAbility",
+      "abilityName": "LevelEntity_GeneralSkill_Sovereign_AtkUp",
+      "isDynamicAbility": true,
+      "onAdded": [
+        {
+          "$type": "AddGlobalValue",
+          "value": 1,
+          "key": "_MONSTER_GeneralSkill_Sovereign_AtkUp",
+        },
+      ],
+    },
+  }, //君王技能会额外强化大怪的攻击力。
+
+  /**/
+  //=================================================================================================================
+  //=================================================================================================================
+  //====================================================================================1.5_2021/02/08日新增
+  //【1.5 backlog内】1.5爬塔月度主题因子制作单（因子制作+数值+关卡配置）
+  //=================================================================================================================
+  //=================================================================================================================
+  /**/
+  {
+    "Default": {
+      "$type": "ConfigAbility",
+      "abilityName": "LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack",
+      "isDynamicAbility": true,
+      "onAdded": [
+        {
+          "$type": "AttachModifier",
+          "doOffStage": true,
+          "modifierName": "UNIQUE_LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack",
+          "target": "Self",
+        },
+        {
+          "$type": "SetSystemValueToOverrideMap",
+          "key": "LevelEntity_AvatarDot_SystemValue",
+          "type": "ElementLevelCo",
+        },
+      ],
+      "modifiers": {
+        "UNIQUE_LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack": {
+          "buffID": 35001,
+          "stacking": "Unique",
+          "isUnique": true,
+          "onAttackLanded": [
+            {
+              "$type": "Predicated",
+              "target": "Target",
+              "targetPredicates": [
+                {
+                  "$type": "ByEntityTypes",
+                  "entityTypes": [
+                    "Monster"
+                  ],
+                },
+                {
+                  "$type": "ByAttackTags",
+                  "attackTags": [ "NormalAttack_01", "NormalAttack_02", "NormalAttack_03", "NormalAttack_04", "NormalAttack_05", "NormalAttack_06" ],
+                },
+              ],
+              "successActions": [
+                {
+                  "$type": "ApplyModifier",
+                  "modifierName": "LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack_Sub",
+                  "target": "Caster",
+                },
+              ],
+            },
+            {
+              "$type": "Predicated",
+              "target": "Self",
+              "targetPredicates": [
+                {
+                  "$type": "ByTargetGlobalValue",
+                  "key": "_LevelEntity_TowerBuff_PhysicalHurtUpAreaAttackCount",
+                  "value": "%LevelEntity_TowerBuff_BuffMaxLevel_P2",
+                  "compareType": "MoreThanAndEqual",
+                },
+                {
+                  "$type": "ByTargetGlobalValue",
+                  "key": "_LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack_CD",
+                  "target": "Team",
+                  "value": 0,
+                  "compareType": "NoneOrEqual",
+                },
+              ],
+              "successActions": [
+                {
+                  "$type": "FireEffect",
+                  "effectPattern": "Eff_Stages_GainWave_01",
+                  "born": {
+                    "$type": "ConfigBornByTarget",
+                    "target": "Self",
+                  },
+                },
+                {
+                  "$type": "TriggerAttackEvent",
+                  "target": "Caster",
+                  "targetType": "Enemy",
+                  "attackEvent": {
+                    "attackPattern": {
+                      "$type": "ConfigAttackSphere",
+                      "triggerType": "TriggerNoRepeat",
+                      "radius": 4,
+                      "born": {
+                        "$type": "ConfigBornBySelf",
+                      },
+                    },
+                    "attackInfo": {
+                      "canBeModifiedBy": "OriginOwner",
+                      "attackProperty": {
+                        "damageExtra": "%LevelEntity_TowerBuff_AreaAttackDamage_P6*%LevelEntity_AvatarDot_SystemValue",
+                        "ignoreAttackerProperty": true,
+                        "elementDurability": 0,
+                        "enBreak": 0,
+                      },
+                      "hitPattern": {
+                        "onHitEffectName": "",
+                        "hitImpulseType": "LV2", //Light x200 y0
+                        "reboundRatio": 0,
+                        "hitHaltTime": 0.0,
+                        "hitHaltTimeScale": 0.05,
+                        "muteHitText": false,
+                      },
+                      "forceCameraShake": false,
+                      "cameraShake": {
+                      },
+                    },
+                  },
+                },
+                {
+                  "$type": "ApplyModifier",
+                  "modifierName": "UNIQUE_LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack_DoAttack_CD",
+                  "target": "Team",
+                },
+              ],
+            },
+
+          ],
+        },
+        "LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack_Sub": {
+          "duration": 0.1,
+          "onAdded": [
+            {
+              "$type": "Predicated",
+              "target": "Caster",
+              "targetPredicates": [
+                {
+                  "$type": "ByTargetGlobalValue",
+                  "key": "_LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack_NormalAttackDuration",
+                  "forceByCaster": true,
+                  "value": 1,
+                  "compareType": "Equal",
+                },
+              ],
+              "successActions": [
+                {
+                  "$type": "ApplyModifier",
+                  "modifierName": "LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack_Buff",
+                },
+              ],
+            },
+
+            {
+              "$type": "ApplyModifier",
+              "modifierName": "LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack_NormalAttackDuration",
+              "target": "Caster",
+            },
+          ],
+        },
+        "LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack_Buff": {
+          "duration": "%LevelEntity_TowerBuff_BuffTime_P1",
+          "stacking": "MultipleAllRefresh",
+          "onAdded": [
+            {
+              "$type": "AddGlobalValue",
+              "key": "_LevelEntity_TowerBuff_PhysicalHurtUpAreaAttackCount",
+              "doOffStage": true,
+              "value": 1,
+              "useLimitRange": true,
+              "minValue": 0,
+              "maxValue": "%LevelEntity_TowerBuff_BuffMaxLevel_P2",
+            },
+          ],
+          "onRemoved": [
+            {
+              "$type": "AddGlobalValue",
+              "key": "_LevelEntity_TowerBuff_PhysicalHurtUpAreaAttackCount",
+              "doOffStage": true,
+              "value": -1,
+              "useLimitRange": true,
+              "minValue": 0,
+              "maxValue": "%LevelEntity_TowerBuff_BuffMaxLevel_P2",
+            },
+          ],
+          "stackingOption": {
+            "maxModifierNumForMultipleType": "%LevelEntity_TowerBuff_BuffMaxLevel_P2",
+          },
+          "properties": {
+            "Actor_PhysicalAddHurtDelta": "%LevelEntity_TowerBuff_BufAttackUp_P3",
+          },
+          "state": "AttackUp",
+        },
+        "UNIQUE_LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack_DoAttack_CD": {
+          "stacking": "Unique",
+          "isUnique": true,
+          "duration": "%LevelEntity_TowerBuff_AreaAttackCD_P4",
+          "onAdded": [
+            {
+              "$type": "SetGlobalValue",
+              "key": "_LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack_CD",
+              "value": 1,
+            },
+          ],
+          "onRemoved": [
+            {
+              "$type": "ClearGlobalValue",
+              "key": "_LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack_CD",
+            },
+          ],
+        },
+        "LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack_NormalAttackDuration": {
+          "stacking": "Refresh",
+          "isUnique": true,
+          "duration": "%LevelEntity_TowerBuff_NormalAttackDuration_P7",
+          "onAdded": [
+            {
+              "$type": "SetGlobalValue",
+              "key": "_LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack_NormalAttackDuration",
+              "value": 1,
+            },
+          ],
+          "onRemoved": [
+            {
+              "$type": "ClearGlobalValue",
+              "key": "_LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack_NormalAttackDuration",
+            },
+          ],
+        },
+
+      },
+      "abilitySpecials": {
+        "LevelEntity_TowerBuff_BuffTime_P1": 10,
+        "LevelEntity_TowerBuff_BuffMaxLevel_P2": 5,
+        "LevelEntity_TowerBuff_BufAttackUp_P3": 0.05,
+        "LevelEntity_TowerBuff_AreaAttackCD_P4": 1,
+        //"LevelEntity_TowerBuff_AreaAttackRate_P5": 0.75,
+        "LevelEntity_TowerBuff_AreaAttackDamage_P6": 1.5,
+        "LevelEntity_TowerBuff_NormalAttackDuration_P7": 2,
+        "LevelEntity_AvatarDot_SystemValue": 0,
+      },
+    },
+  }, //LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack 角色的普通攻击在2秒内连续命中敌人时，会获得物理伤害增加的效果 (每层5%物理伤害增加)。该效果持续A秒 (10秒)，至多叠加（buff叠加时内置CD0.1秒）B层 (5层)，叠加到第X层 (5层)后，每次击中敌人都可触发一个冲击波，内置CD N秒 (CD 1秒; 系数 0.75)。（冲击波单次伤害可以低一点，但需保证触发频率较高）
+
+  {
+    "Default": {
+      "$type": "ConfigAbility",
+      "abilityName": "LevelEntity_TowerBuff_ShieldBeingHitDoAttack",
+      "isDynamicAbility": true,
+      "onAdded": [
+        {
+          "$type": "AttachModifier",
+          "doOffStage": true,
+          "modifierName": "UNIQUE_TowerBuff_ShieldBeingHitDoAttack_Handler",
+        },
+        {
+          "$type": "SetSystemValueToOverrideMap",
+          "key": "LevelEntity_SystemValue",
+          "type": "ElementLevelCo",
+        },
+      ],
+      "abilityMixins": [
+        {
+          "$type": "AttachModifierToSelfGlobalValueMixin",
+          "globalValueKey": "_Ability_TowerBuff_ShieldBeingHitDoAttack_Check",
+          "removeAppliedModifier": true,
+          "valueSteps": [
+            -0.5,
+            0.5,
+            1.5
+          ],
+          "modifierNameSteps": [
+            "UNIQUE_TowerBuff_ShieldBeingHitDoAttack_NoBuff",
+            "UNIQUE_TowerBuff_ShieldBeingHitDoAttack_HasBuff",
+          ],
+        },
+      ],
+      "modifiers": {
+        //通过Modifier上的Interval间隔检测自身是否有护盾进行属性增减
+        "UNIQUE_TowerBuff_ShieldBeingHitDoAttack_Handler": {
+          "isUnique": true,
+          "thinkInterval": 1,
+          "onThinkInterval": [
+            {
+              "$type": "Predicated",
+              "target": "Self",
+              "targetPredicates": [
+                {
+                  "$type": "ByHasShield",
+                  "type": "All",
+                },
+              ],
+              "successActions": [
+                {
+                  "$type": "AddGlobalValue",
+                  "key": "_Ability_TowerBuff_ShieldBeingHitDoAttack_Check",
+                  "useLimitRange": true,
+                  "maxValue": 1,
+                  "minValue": 1,
+                },
+              ],
+              "failActions": [
+                {
+                  "$type": "AddGlobalValue",
+                  "key": "_Ability_TowerBuff_ShieldBeingHitDoAttack_Check",
+                  "useLimitRange": true,
+                  "maxValue": 0,
+                  "minValue": 0,
+                },
+              ],
+            },
+          ],
+        },
+        "UNIQUE_TowerBuff_ShieldBeingHitDoAttack_NoBuff": {
+          "isUnique": true,
+          "onAdded": [
+            {
+              "$type": "RemoveUniqueModifier",
+              "modifierName": "UNIQUE_TowerBuff_ShieldBeingHitDoAttack_HasBuff",
+            },
+          ],
+        },
+        "UNIQUE_TowerBuff_ShieldBeingHitDoAttack_HasBuff": {
+          "isUnique": true,
+          "onBeingHit": [
+            {
+              "$type": "Predicated",
+              "target": "Other",
+              "targetPredicates": [
+                {
+                  "$type": "ByEntityTypes",
+                  "entityTypes": [ "Monster", "Gadget", "Bullet" ],
+                },
+                {
+                  "$type": "ByTargetGlobalValue",
+                  "key": "_TowerBuff_ShieldBeingHitDoAttack_CD",
+                  "target": "Team",
+                  "value": 0,
+                  "compareType": "NoneOrEqual",
+                },
+              ],
+              "successActions": [
+                {
+                  "$type": "FireEffect",
+                  "target": "Caster",
+                  "effectPattern": "Eff_Stages_GainWave_01",
+                  "born": {
+                    "$type": "ConfigBornByTarget",
+                  },
+                },
+                {
+                  "$type": "TriggerAttackEvent",
+                  "target": "Caster",
+                  "targetType": "Enemy",
+                  "attackEvent": {
+                    "attackPattern": {
+                      "$type": "ConfigAttackSphere",
+                      "triggerType": "TriggerNoRepeat",
+                      "radius": 4,
+                      "born": {
+                        "$type": "ConfigBornBySelf",
+                      },
+                    },
+                    "attackInfo": {
+                      "attackProperty": {
+                        "damageExtra": "%LevelEntity_TowerBuff_Damage*%LevelEntity_SystemValue",
+                        "ignoreAttackerProperty": true,
+                        "elementDurability": 0,
+                        "strikeType": "Default",
+                        "enBreak": 0,
+                      },
+                      "hitPattern": {
+                        "onHitEffectName": "",
+                        "hitImpulseType": "LV2", //Light x200 y0
+                        "reboundRatio": 0,
+                        "hitHaltTime": 0.0,
+                        "hitHaltTimeScale": 0.05,
+                        "muteHitText": false,
+                      },
+                      "forceCameraShake": false,
+                      "cameraShake": {
+                      },
+                    },
+                  },
+                },
+
+                {
+                  "$type": "ApplyModifier",
+                  "modifierName": "UNIQUE_TowerBuff_ShieldBeingHitDoAttack_CD",
+                  "target": "Team",
+                },
+              ],
+            },
+          ],
+
+        },
+        "UNIQUE_TowerBuff_ShieldBeingHitDoAttack_CD": {
+          "isUnique": true,
+          "duration": "%LevelEntity_TowerBuff_Damage_CD",
+          "onAdded": [
+            {
+              "$type": "AddGlobalValue",
+              "key": "_TowerBuff_ShieldBeingHitDoAttack_CD",
+              "value": 1,
+              "useLimitRange": true,
+              "maxValue": 1,
+              "minValue": 1,
+            },
+          ],
+          "onRemoved": [
+            {
+              "$type": "ClearGlobalValue",
+              "key": "_TowerBuff_ShieldBeingHitDoAttack_CD",
+            },
+          ],
+        },
+
+      },
+      "abilitySpecials": {
+        "LevelEntity_TowerBuff_Damage": 15,
+        "LevelEntity_TowerBuff_Damage_CD": 6,
+        "LevelEntity_SystemValue": 0,
+      },
+    },
+  }, //LevelEntity_TowerBuff_ShieldBeingHitDoAttack 角色处于护盾状态下时，每次被怪物攻击命中都会反弹触发一个冲击波，内置CD N秒 (CD 6秒; 系数 7.5)
+
+  {
+    "Default": {
+      "$type": "ConfigAbility",
+      "abilityName": "LevelEntity_TowerBuff_CriticalUpAreaAttack",
+      "isDynamicAbility": true,
+      "onAdded": [
+        {
+          "$type": "AttachModifier",
+          "doOffStage": true,
+          "modifierName": "UNIQUE_LevelEntity_TowerBuff_CriticalUpAreaAttack",
+          "target": "Self",
+        },
+        {
+          "$type": "SetSystemValueToOverrideMap",
+          "key": "LevelEntity_AvatarDot_SystemValue",
+          "type": "ElementLevelCo",
+        },
+      ],
+      "modifiers": {
+        "UNIQUE_LevelEntity_TowerBuff_CriticalUpAreaAttack": {
+          "buffID": 35001,
+          "stacking": "Unique",
+          "isUnique": true,
+          "onAttackLanded": [
+            {
+              "$type": "Predicated",
+              "target": "Target",
+              "targetPredicates": [
+                {
+                  "$type": "ByEntityTypes",
+                  "entityTypes": [
+                    "Monster"
+                  ],
+                },
+                {
+                  "$type": "ByAttackTags",
+                  "attackTags": [ "NormalAttack_01", "NormalAttack_02", "NormalAttack_03", "NormalAttack_04", "NormalAttack_05", "NormalAttack_06", "ExtraAttack", "FallingAttack", ],
+                },
+                {
+                  "$type": "ByHitElement",
+                  "element": "None",
+                },
+              ],
+              "successActions": [
+                {
+                  "$type": "ApplyModifier",
+                  "modifierName": "LevelEntity_TowerBuff_CriticalUpAreaAttack_BuffSub",
+                  "target": "Caster",
+                },
+              ],
+            },
+            {
+              "$type": "Predicated",
+              "target": "Target",
+              "targetPredicates": [
+                {
+                  "$type": "ByEntityTypes",
+                  "entityTypes": [
+                    "Monster"
+                  ],
+                },
+                {
+                  "$type": "ByHitCritical",
+                },
+                {
+                  "$type": "ByTargetGlobalValue",
+                  "key": "_LevelEntity_TowerBuff_CriticalUpAreaAttackCount",
+                  "value": "%LevelEntity_TowerBuff_BuffMaxLevel_P2",
+                  "forceByCaster": true,
+                  "compareType": "MoreThanAndEqual",
+                },
+                {
+                  "$type": "ByTargetGlobalValue",
+                  "key": "_LevelEntity_TowerBuff_CriticalUpAreaAttack_CD",
+                  "target": "Team",
+                  "value": 0,
+                  "compareType": "NoneOrEqual",
+                },
+              ],
+              "successActions": [
+                {
+                  "$type": "ApplyModifier",
+                  "modifierName": "LevelEntity_TowerBuff_CriticalUpAreaAttack_AreaAttackSub",
+                  "target": "Caster",
+                },
+              ],
+            },
+          ],
+        },
+        "LevelEntity_TowerBuff_CriticalUpAreaAttack_AreaAttackSub": {
+          "duration": 0.1,
+          "onAdded": [
+            {
+              "$type": "FireEffect",
+              "target": "Caster",
+              "effectPattern": "Eff_Stages_GainWave_01",
+              "born": {
+                "$type": "ConfigBornByTarget",
+                "target": "Self",
+              },
+            },
+            {
+              "$type": "TriggerAttackEvent",
+              "target": "Caster",
+              "targetType": "Enemy",
+              "attackEvent": {
+                "attackPattern": {
+                  "$type": "ConfigAttackSphere",
+                  "triggerType": "TriggerNoRepeat",
+                  "radius": 4,
+                  "born": {
+                    "$type": "ConfigBornBySelf",
+                  },
+                },
+                "attackInfo": {
+                  "canBeModifiedBy": "OriginOwner",
+                  "attackProperty": {
+                    "damageExtra": "%LevelEntity_TowerBuff_AreaAttackDamage_P6*%LevelEntity_AvatarDot_SystemValue",
+                    "ignoreAttackerProperty": true,
+                    "elementDurability": 0,
+                    "enBreak": 0,
+                  },
+                  "hitPattern": {
+                    "onHitEffectName": "",
+                    "hitImpulseType": "LV2", //Light x200 y0
+                    "reboundRatio": 0,
+                    "hitHaltTime": 0.0,
+                    "hitHaltTimeScale": 0.05,
+                    "muteHitText": false,
+                  },
+                  "forceCameraShake": false,
+                  "cameraShake": {
+                  },
+                },
+              },
+            },
+            {
+              "$type": "ApplyModifier",
+              "modifierName": "UNIQUE_LevelEntity_TowerBuff_CriticalUpAreaAttack_DoAttack_CD",
+              "target": "Team",
+            },
+          ],
+        },
+        "LevelEntity_TowerBuff_CriticalUpAreaAttack_BuffSub": {
+          "duration": 0.1,
+          "onAdded": [
+            {
+              "$type": "ApplyModifier",
+              "modifierName": "LevelEntity_TowerBuff_CriticalUpAreaAttack_Buff",
+            },
+          ],
+        },
+        "LevelEntity_TowerBuff_CriticalUpAreaAttack_Buff": {
+          "duration": "%LevelEntity_TowerBuff_BuffTime_P1",
+          "stacking": "MultipleAllRefresh",
+          "onAdded": [
+            {
+              "$type": "AddGlobalValue",
+              "key": "_LevelEntity_TowerBuff_CriticalUpAreaAttackCount",
+              "doOffStage": true,
+              "value": 1,
+              "useLimitRange": true,
+              "minValue": 0,
+              "maxValue": "%LevelEntity_TowerBuff_BuffMaxLevel_P2",
+            },
+          ],
+          "onRemoved": [
+            {
+              "$type": "AddGlobalValue",
+              "key": "_LevelEntity_TowerBuff_CriticalUpAreaAttackCount",
+              "doOffStage": true,
+              "value": -1,
+              "useLimitRange": true,
+              "minValue": 0,
+              "maxValue": "%LevelEntity_TowerBuff_BuffMaxLevel_P2",
+            },
+          ],
+          "stackingOption": {
+            "maxModifierNumForMultipleType": "%LevelEntity_TowerBuff_BuffMaxLevel_P2",
+          },
+          "properties": {
+            "Actor_CriticalDelta": "%LevelEntity_TowerBuff_BuffCriticalUp_P3",
+          },
+          "state": "AttackUp",
+        },
+        "UNIQUE_LevelEntity_TowerBuff_CriticalUpAreaAttack_DoAttack_CD": {
+          "stacking": "Unique",
+          "isUnique": true,
+          "duration": "%LevelEntity_TowerBuff_AreaAttackCD_P4",
+          "onAdded": [
+            {
+              "$type": "SetGlobalValue",
+              "key": "_LevelEntity_TowerBuff_CriticalUpAreaAttack_CD",
+              "value": 1,
+            },
+          ],
+          "onRemoved": [
+            {
+              "$type": "ClearGlobalValue",
+              "key": "_LevelEntity_TowerBuff_CriticalUpAreaAttack_CD",
+            },
+          ],
+        },
+
+      },
+      "abilitySpecials": {
+        "LevelEntity_TowerBuff_BuffTime_P1": 10,
+        "LevelEntity_TowerBuff_BuffMaxLevel_P2": 5,
+        "LevelEntity_TowerBuff_BuffCriticalUp_P3": 0.03,
+        "LevelEntity_TowerBuff_AreaAttackCD_P4": 1,
+        "LevelEntity_TowerBuff_AreaAttackDamage_P6": 2,
+        "LevelEntity_AvatarDot_SystemValue": 0,
+      },
+    },
+  }, //LevelEntity_TowerBuff_PhysicalHurtUpAreaAttack 角色的每次物理攻击（包括装备的被动技能所产生的物理攻击）命中敌人时，暴击率提升X% (3%)，该效果持续A秒 (10秒)，最多可叠加（buff叠加时内置CD0.1秒）N层 (5层)。同时角色每次触发暴击时，会附带一个冲击波，内置CD N秒 (CD 1秒; 系数 1)（冲击波单次伤害可以低一点，但需保证触发频率较高）
+
+
+
 ]

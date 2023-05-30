@@ -90,10 +90,13 @@
 				"useCreatorProperty" : true, // 是否继承创造者的数值
 				"HP" : 100,
 				"defense" : 0,
-				"denyLockOn" : true,
 				"canTriggerBullet" : false,
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn" : true,
 			},
 		},
 		"timer" :
@@ -1217,6 +1220,9 @@
 				"attack" : 30.0,
 				"defense" : 999999,
 				"weight" : 150,
+			},
+			"combatLock":
+			{
 				"denyLockOn" : true,
 			},
 			"beHit" :
@@ -4404,8 +4410,11 @@
 		  "HP": 500,
 		  "isInvincible" : true,
 		  "isGhostToEnemy" : true,
-		  "denyLockOn" : true,
 		},
+		"combatLock":
+		{
+			"denyLockOn": true,
+		}
 	  },
 	// 子弹线性移动
 	"move" :
@@ -4662,9 +4671,12 @@
 				"defense" : 0,
 				//"isInvincible":true,
 				"isLockHP": true,
-				"denyLockOn" : true,
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : false,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
 			},
 		},
 		"move" :
@@ -5011,10 +5023,13 @@
 				"HP" : 100,
 				"defense" : 0,
 				"isLockHP" : true,
-				"denyLockOn" : true,
 				"canTriggerBullet" : false,
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
 			},
 		},
 		// 生命周期管理
@@ -5150,13 +5165,16 @@
 			"property":
 			{
 				"useCreatorProperty" : false, // 是否继承创造者的数值
-				"denyLockOn" : false,
 				"HP" : 999999,
 				"isLockHP" : true,
 				"isInvincible" : true,
 				"canTriggerBullet" : false,
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": false,
 			},
 			"move" :
 			{
@@ -5346,7 +5364,7 @@
 			"abilityName": "LevelEntity_TowerBuff_AreaAttackLowHP_Gadget_Ver_1_13"
 		},
     ],
-  },//420000005	LevelEntity_TowerBuff_AreaAttackLowHP	触发器	1001	地城_HPx%以下，普攻1秒后爆炸的能量波
+  },//44000006	LevelEntity_TowerBuff_AreaAttackLowHP	触发器	1001	地城_HPx%以下，普攻1秒后爆炸的能量波
 
 	"Activity_Endora" :
 	{

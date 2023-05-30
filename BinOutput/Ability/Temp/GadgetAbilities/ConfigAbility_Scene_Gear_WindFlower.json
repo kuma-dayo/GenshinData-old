@@ -574,7 +574,7 @@
 									"target": "Self",
 									"key": "_HaveDisappear",
 									"value": 0,
-									"compareType": "Equal",
+									"compareType": "NoneOrEqual",
 								},
 							],
 							"successActions" :
@@ -3401,18 +3401,18 @@
 					},
 				],
 			},
-			{
-				"$type": "ApplyModifier",
-				"modifierName": "KillRockGadget",
-				"target": "Target",
-				"predicates":
-				[
-					{
-					   "$type" : "ByEntityTypes",
-					   "entityTypes" : ["Gadget","Field","Bullet"],
-					},
-				],
-			},
+			// {
+			// 	"$type": "ApplyModifier",
+			// 	"modifierName": "KillRockGadget",
+			// 	"target": "Target",
+			// 	"predicates":
+			// 	[
+			// 		{
+			// 		   "$type" : "ByEntityTypes",
+			// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+			// 		},
+			// 	],
+			// },
 			{
 				"$type": "DamageByAttackValue",
 				"target": "Target",
@@ -3420,7 +3420,7 @@
 				{
 		        	"attackProperty":
 					{
-		          		"damagePercentage": 0.0,
+		          		"damagePercentage": 1.0,
 		          		"elementType": "Fire",
 				  		"strikeType": "Default",
 				  		"elementDurability": 25,
@@ -3521,18 +3521,18 @@
 					},
 				],
 			},
-			{
-				"$type": "ApplyModifier",
-				"modifierName": "KillRockGadget",
-				"target": "Target",
-				"predicates":
-				[
-					{
-					   "$type" : "ByEntityTypes",
-					   "entityTypes" : ["Gadget","Field","Bullet"],
-					},
-				],
-			},
+			// {
+			// 	"$type": "ApplyModifier",
+			// 	"modifierName": "KillRockGadget",
+			// 	"target": "Target",
+			// 	"predicates":
+			// 	[
+			// 		{
+			// 		   "$type" : "ByEntityTypes",
+			// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+			// 		},
+			// 	],
+			// },
 			{
 				"$type": "DamageByAttackValue",
 				"target": "Target",
@@ -3540,7 +3540,7 @@
 				{
 		        	"attackProperty":
 					{
-		          		"damagePercentage": 0.0,
+		          		"damagePercentage": 1.0,
 		          		"elementType": "Electric",
 				  		"strikeType": "Default",
 				  		"elementDurability": 25,
@@ -3641,18 +3641,18 @@
 					},
 				],
 			},
-			{
-				"$type": "ApplyModifier",
-				"modifierName": "KillRockGadget",
-				"target": "Target",
-				"predicates":
-				[
-					{
-					   "$type" : "ByEntityTypes",
-					   "entityTypes" : ["Gadget","Field","Bullet"],
-					},
-				],
-			},
+			// {
+			// 	"$type": "ApplyModifier",
+			// 	"modifierName": "KillRockGadget",
+			// 	"target": "Target",
+			// 	"predicates":
+			// 	[
+			// 		{
+			// 		   "$type" : "ByEntityTypes",
+			// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+			// 		},
+			// 	],
+			// },
 			{
 				"$type": "DamageByAttackValue",
 				"target": "Target",
@@ -3660,7 +3660,7 @@
 				{
 		        	"attackProperty":
 					{
-		          		"damagePercentage": 0.0,
+		          		"damagePercentage": 1.0,
 		          		"elementType": "Ice",
 				  		"strikeType": "Default",
 				  		"elementDurability": 25,
@@ -3761,18 +3761,18 @@
 					},
 				],
 			},
-			{
-				"$type": "ApplyModifier",
-				"modifierName": "KillRockGadget",
-				"target": "Target",
-				"predicates":
-				[
-					{
-					   "$type" : "ByEntityTypes",
-					   "entityTypes" : ["Gadget","Field","Bullet"],
-					},
-				],
-			},
+			// {
+			// 	"$type": "ApplyModifier",
+			// 	"modifierName": "KillRockGadget",
+			// 	"target": "Target",
+			// 	"predicates":
+			// 	[
+			// 		{
+			// 		   "$type" : "ByEntityTypes",
+			// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+			// 		},
+			// 	],
+			// },
 			{
 				"$type": "DamageByAttackValue",
 				"target": "Target",
@@ -3780,7 +3780,7 @@
 				{
 		        	"attackProperty":
 					{
-		          		"damagePercentage": 0.0,
+		          		"damagePercentage": 1.0,
 		          		"elementType": "Fire",
 				  		"strikeType": "Default",
 				  		"elementDurability": 25,
@@ -3881,18 +3881,18 @@
 					},
 				],
 			},
-			{
-				"$type": "ApplyModifier",
-				"modifierName": "KillRockGadget",
-				"target": "Target",
-				"predicates":
-				[
-					{
-					   "$type" : "ByEntityTypes",
-					   "entityTypes" : ["Gadget","Field","Bullet"],
-					},
-				],
-			},
+			// {
+			// 	"$type": "ApplyModifier",
+			// 	"modifierName": "KillRockGadget",
+			// 	"target": "Target",
+			// 	"predicates":
+			// 	[
+			// 		{
+			// 		   "$type" : "ByEntityTypes",
+			// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+			// 		},
+			// 	],
+			// },
 			{
 				"$type": "DamageByAttackValue",
 				"target": "Target",
@@ -3900,7 +3900,7 @@
 				{
 		        	"attackProperty":
 					{
-		          		"damagePercentage": 0.0,
+		          		"damagePercentage": 1.0,
 		          		"elementType": "Water",
 				  		"strikeType": "Default",
 				  		"elementDurability": 25,
@@ -4009,18 +4009,18 @@
 					},
 				],
 			},
-			{
-				"$type": "ApplyModifier",
-				"modifierName": "KillRockGadget",
-				"target": "Target",
-				"predicates":
-				[
-					{
-					   "$type" : "ByEntityTypes",
-					   "entityTypes" : ["Gadget","Field","Bullet"],
-					},
-				],
-			},
+			// {
+			// 	"$type": "ApplyModifier",
+			// 	"modifierName": "KillRockGadget",
+			// 	"target": "Target",
+			// 	"predicates":
+			// 	[
+			// 		{
+			// 		   "$type" : "ByEntityTypes",
+			// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+			// 		},
+			// 	],
+			// },
 			{
 				"$type" : "TriggerAttackEvent",
 				"targetType" : "Enemy",
@@ -4037,7 +4037,7 @@
 					{
 						"attackProperty":
 						{
-							"damagePercentage": 0.0,
+							"damagePercentage": 0.3,
 							"strikeType": "Default",
 							"elementType": "Electric",
 							"elementDurability": 50,
@@ -4158,18 +4158,18 @@
 					},
 				],
 			},
-			{
-				"$type": "ApplyModifier",
-				"modifierName": "KillRockGadget",
-				"target": "Target",
-				"predicates":
-				[
-					{
-					   "$type" : "ByEntityTypes",
-					   "entityTypes" : ["Gadget","Field","Bullet"],
-					},
-				],
-			},
+			// {
+			// 	"$type": "ApplyModifier",
+			// 	"modifierName": "KillRockGadget",
+			// 	"target": "Target",
+			// 	"predicates":
+			// 	[
+			// 		{
+			// 		   "$type" : "ByEntityTypes",
+			// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+			// 		},
+			// 	],
+			// },
 			{
 				"$type" : "TriggerAttackEvent",
 				"targetType" : "Enemy",
@@ -4186,7 +4186,7 @@
 					{
 						"attackProperty":
 						{
-							"damagePercentage": 0.0,
+							"damagePercentage": 0.3,
 							"strikeType": "Default",
 							"elementType": "Fire",
 							"elementDurability": 50,
@@ -4307,18 +4307,18 @@
 					},
 				],
 			},
-			{
-				"$type": "ApplyModifier",
-				"modifierName": "KillRockGadget",
-				"target": "Target",
-				"predicates":
-				[
-					{
-					   "$type" : "ByEntityTypes",
-					   "entityTypes" : ["Gadget","Field","Bullet"],
-					},
-				],
-			},
+			// {
+			// 	"$type": "ApplyModifier",
+			// 	"modifierName": "KillRockGadget",
+			// 	"target": "Target",
+			// 	"predicates":
+			// 	[
+			// 		{
+			// 		   "$type" : "ByEntityTypes",
+			// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+			// 		},
+			// 	],
+			// },
 			{
 				"$type" : "TriggerAttackEvent",
 				"targetType" : "Enemy",
@@ -4335,7 +4335,7 @@
 					{
 						"attackProperty":
 						{
-							"damagePercentage": 0.0,
+							"damagePercentage": 0.3,
 							"strikeType": "Default",
 							"elementType": "Water",
 							"elementDurability": 50,
@@ -4456,18 +4456,18 @@
 					},
 				],
 			},
-			{
-				"$type": "ApplyModifier",
-				"modifierName": "KillRockGadget",
-				"target": "Target",
-				"predicates":
-				[
-					{
-					   "$type" : "ByEntityTypes",
-					   "entityTypes" : ["Gadget","Field","Bullet"],
-					},
-				],
-			},
+			// {
+			// 	"$type": "ApplyModifier",
+			// 	"modifierName": "KillRockGadget",
+			// 	"target": "Target",
+			// 	"predicates":
+			// 	[
+			// 		{
+			// 		   "$type" : "ByEntityTypes",
+			// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+			// 		},
+			// 	],
+			// },
 			{
 				"$type" : "TriggerAttackEvent",
 				"targetType" : "Enemy",
@@ -4484,7 +4484,7 @@
 					{
 						"attackProperty":
 						{
-							"damagePercentage": 0.0,
+							"damagePercentage": 0.3,
 							"strikeType": "Default",
 							"elementType": "Ice",
 							"elementDurability": 50,
@@ -4592,18 +4592,18 @@
 				"$type": "FireEffect",
 				"effectPattern": "Eff_SceneObj_Barrage_Bullet_01_Hit",
 			},
-			{
-				"$type": "ApplyModifier",
-				"modifierName": "KillRockGadget",
-				"target": "Target",
-				"predicates":
-				[
-					{
-					   "$type" : "ByEntityTypes",
-					   "entityTypes" : ["Gadget","Field","Bullet"],
-					},
-				],
-			},
+			// {
+			// 	"$type": "ApplyModifier",
+			// 	"modifierName": "KillRockGadget",
+			// 	"target": "Target",
+			// 	"predicates":
+			// 	[
+			// 		{
+			// 		   "$type" : "ByEntityTypes",
+			// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+			// 		},
+			// 	],
+			// },
 			{
 				"$type": "ApplyModifier",
 				"modifierName": "HitByBulletServerlua",
@@ -4632,7 +4632,7 @@
 					{
 						"attackProperty":
 						{
-							"damagePercentage": 0.0,
+							"damagePercentage": 0.3,
 							"strikeType": "Default",
 							"elementType": "Electric",
 							"elementDurability": 50,
@@ -4765,18 +4765,18 @@
 					},
 				],
 			},
-			{
-				"$type": "ApplyModifier",
-				"modifierName": "KillRockGadget",
-				"target": "Target",
-				"predicates":
-				[
-					{
-					   "$type" : "ByEntityTypes",
-					   "entityTypes" : ["Gadget","Field","Bullet"],
-					},
-				],
-			},
+			// {
+			// 	"$type": "ApplyModifier",
+			// 	"modifierName": "KillRockGadget",
+			// 	"target": "Target",
+			// 	"predicates":
+			// 	[
+			// 		{
+			// 		   "$type" : "ByEntityTypes",
+			// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+			// 		},
+			// 	],
+			// },
 			{
 				"$type" : "TriggerAttackEvent",
 				"targetType" : "Enemy",
@@ -4793,7 +4793,7 @@
 					{
 						"attackProperty":
 						{
-							"damagePercentage": 0.0,
+							"damagePercentage": 0.3,
 							"strikeType": "Default",
 							"elementType": "Electric",
 							"elementDurability": 50,
@@ -6647,25 +6647,25 @@
 					// 		},
 					// 	],
 					// },
-					{
-						"$type": "ApplyModifier",
-						"modifierName": "KillRockGadget",
-						"otherTargets":
-						{
-							"$type": "SelectTargetsByShape",
-							"shapeName": "CircleR4",
-							"centerBasedOn": "Self",
-							"campTargetType": "All",
-							"campBasedOn": "Self",
-						},
-						"predicates":
-						[
-							{
-							   "$type" : "ByEntityTypes",
-							   "entityTypes" : ["Gadget","Field","Bullet"],
-							},
-						],
-					},
+					// {
+					// 	"$type": "ApplyModifier",
+					// 	"modifierName": "KillRockGadget",
+					// 	"otherTargets":
+					// 	{
+					// 		"$type": "SelectTargetsByShape",
+					// 		"shapeName": "CircleR4",
+					// 		"centerBasedOn": "Self",
+					// 		"campTargetType": "All",
+					// 		"campBasedOn": "Self",
+					// 	},
+					// 	"predicates":
+					// 	[
+					// 		{
+					// 		   "$type" : "ByEntityTypes",
+					// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+					// 		},
+					// 	],
+					// },
 					{
 						"$type" : "TriggerAttackEvent",
 						"targetType" : "All",
@@ -6694,6 +6694,7 @@
 									"elementDurability": 50,
 									"enBreak": 500.0,
 									"ignoreAttackerProperty": true,
+									"damageExtra": 100000,
 								},
 								"hitPattern" :
 								{
@@ -6838,25 +6839,25 @@
 					// 		},
 					// 	],
 					// },
-					{
-						"$type": "ApplyModifier",
-						"modifierName": "KillRockGadget",
-						"otherTargets":
-						{
-							"$type": "SelectTargetsByShape",
-							"shapeName": "CircleR4",
-							"centerBasedOn": "Self",
-							"campTargetType": "All",
-							"campBasedOn": "Self",
-						},
-						"predicates":
-						[
-							{
-							   "$type" : "ByEntityTypes",
-							   "entityTypes" : ["Gadget","Field","Bullet"],
-							},
-						],
-					},
+					// {
+					// 	"$type": "ApplyModifier",
+					// 	"modifierName": "KillRockGadget",
+					// 	"otherTargets":
+					// 	{
+					// 		"$type": "SelectTargetsByShape",
+					// 		"shapeName": "CircleR4",
+					// 		"centerBasedOn": "Self",
+					// 		"campTargetType": "All",
+					// 		"campBasedOn": "Self",
+					// 	},
+					// 	"predicates":
+					// 	[
+					// 		{
+					// 		   "$type" : "ByEntityTypes",
+					// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+					// 		},
+					// 	],
+					// },
 					{
 						"$type" : "TriggerAttackEvent",
 						"targetType" : "All",
@@ -6885,6 +6886,7 @@
 									"elementDurability": 50,
 									"enBreak": 500.0,
 									"ignoreAttackerProperty": true,
+									"damageExtra": 100000,
 								},
 								"hitPattern" :
 								{
@@ -7029,25 +7031,25 @@
 					// 		},
 					// 	],
 					// },
-					{
-						"$type": "ApplyModifier",
-						"modifierName": "KillRockGadget",
-						"otherTargets":
-						{
-							"$type": "SelectTargetsByShape",
-							"shapeName": "CircleR4",
-							"centerBasedOn": "Self",
-							"campTargetType": "All",
-							"campBasedOn": "Self",
-						},
-						"predicates":
-						[
-							{
-							   "$type" : "ByEntityTypes",
-							   "entityTypes" : ["Gadget","Field","Bullet"],
-							},
-						],
-					},
+					// {
+					// 	"$type": "ApplyModifier",
+					// 	"modifierName": "KillRockGadget",
+					// 	"otherTargets":
+					// 	{
+					// 		"$type": "SelectTargetsByShape",
+					// 		"shapeName": "CircleR4",
+					// 		"centerBasedOn": "Self",
+					// 		"campTargetType": "All",
+					// 		"campBasedOn": "Self",
+					// 	},
+					// 	"predicates":
+					// 	[
+					// 		{
+					// 		   "$type" : "ByEntityTypes",
+					// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+					// 		},
+					// 	],
+					// },
 					{
 						"$type" : "TriggerAttackEvent",
 						"targetType" : "All",
@@ -7076,6 +7078,7 @@
 									"elementDurability": 50,
 									"enBreak": 500.0,
 									"ignoreAttackerProperty": true,
+									"damageExtra": 100000,
 								},
 								"hitPattern" :
 								{
@@ -7220,25 +7223,25 @@
 					// 		},
 					// 	],
 					// },
-					{
-						"$type": "ApplyModifier",
-						"modifierName": "KillRockGadget",
-						"otherTargets":
-						{
-							"$type": "SelectTargetsByShape",
-							"shapeName": "CircleR4",
-							"centerBasedOn": "Self",
-							"campTargetType": "All",
-							"campBasedOn": "Self",
-						},
-						"predicates":
-						[
-							{
-							   "$type" : "ByEntityTypes",
-							   "entityTypes" : ["Gadget","Field","Bullet"],
-							},
-						],
-					},
+					// {
+					// 	"$type": "ApplyModifier",
+					// 	"modifierName": "KillRockGadget",
+					// 	"otherTargets":
+					// 	{
+					// 		"$type": "SelectTargetsByShape",
+					// 		"shapeName": "CircleR4",
+					// 		"centerBasedOn": "Self",
+					// 		"campTargetType": "All",
+					// 		"campBasedOn": "Self",
+					// 	},
+					// 	"predicates":
+					// 	[
+					// 		{
+					// 		   "$type" : "ByEntityTypes",
+					// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+					// 		},
+					// 	],
+					// },
 					{
 						"$type" : "TriggerAttackEvent",
 						"targetType" : "All",
@@ -7267,6 +7270,7 @@
 									"elementDurability": 50,
 									"enBreak": 500.0,
 									"ignoreAttackerProperty": true,
+									"damageExtra": 100000,
 								},
 								"hitPattern" :
 								{
@@ -7359,23 +7363,18 @@
 					},
 				],
 			},
-			{
-				"$type":"ApplyModifier",
-				"target": "Target",
-				"modifierName":	"KillRockGadget",
-				"predicates":
-				[
-					{
-					   "$type" : "ByEntityTypes",
-					   "entityTypes" : ["Gadget","Field","Bullet"],
-					},
-				],
-			},		
-			{
-				"$type":"KillSelf",
-				"duration": 1,
-				"hideEntity": true,
-			},
+			// {
+			// 	"$type":"ApplyModifier",
+			// 	"target": "Target",
+			// 	"modifierName":	"KillRockGadget",
+			// 	"predicates":
+			// 	[
+			// 		{
+			// 		   "$type" : "ByEntityTypes",
+			// 		   "entityTypes" : ["Gadget","Field","Bullet"],
+			// 		},
+			// 	],
+			// },		
 			
 		],
 		"onAdded":
@@ -7414,6 +7413,16 @@
 				],
 			},
 
+			"KillBubble":
+			{
+				"onAdded":
+				[
+					{
+						"$type": "KillSelf",
+					},
+				],
+			},
+
 			"Bubble":
 			{
 				"duration": 3,
@@ -7432,6 +7441,11 @@
 						"luaCallType": "SpecificGroup",
 						"CallParamList":[235800001],
 						"funcName": "SubBubbleGameScore",
+					},
+					{
+						"$type":"ApplyModifier",
+						"target": "Caster",
+						"modifierName":	"KillBubble",
 					},
 		        	{
 		        		"$type": "AttachEffect",

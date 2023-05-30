@@ -1075,7 +1075,7 @@
 		"hasModel" : true,
 		"model":
 		{
-			"bornEffect": "Eff_Item_IceSeed_WindField",
+			"attachEffect": "Eff_Item_IceSeed_WindField",
 		},
 		"misc" :
 		{
@@ -1439,6 +1439,63 @@
 			{
 				"abilityID": "SceneObj_Stages_Property_Prop_IceStormR25",
 				"abilityName" : "SceneObj_Stages_Property_Prop_IceStormR25"
+			},
+		],
+	},
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//  无相冰低温区域
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	"Ice_Boss_Region":
+	{
+		"$type" : "ConfigGadget",
+		"hasModel" : true,
+		"combat" :
+		{
+			"property":
+			{
+				"useCreatorProperty" : false,
+				"HP" : 99999,
+				"attack" : 20,
+				"defense" : 0,
+				"weight" : 50,
+				"isInvincible":false,
+				"isLockHP":true,
+				"isGhostToAllied" : false,
+				"isGhostToEnemy" : false,
+				"canTriggerBullet" : true,
+				"ignoreDamageToSelf": true,
+			},
+			"combatLock":
+			{
+				"denyLockOn": true,
+				"lockType": "Gadget_Lv1"
+			},
+			"beHit" :
+			{
+				"hitBloodEffect" : "",
+				"hitAutoRedirect": false,
+				"muteAllHit" : false,
+				"muteAllHitEffect" : false,
+				"muteAllHitText" : true,
+			},
+		},
+		"field" :
+		{
+			"concernType" : "AllAvatars",
+			"shape" : "Ice_Boss_Region",		//形状，不填为collider
+			"checkInterval" : 0.5,		//触发间隔
+			"triggerInfinite" : true,	//是否永远触发
+			"lifeInfinite" : true,		//如果未触发是否一致存在
+			"overwriteCampType" : true,
+			"campType": "All",
+		},
+		"abilities":
+		[
+			{
+				"abilityID": "Ice_Boss_Region",
+				"abilityName" : "Ice_Boss_Region"
 			},
 		],
 	},

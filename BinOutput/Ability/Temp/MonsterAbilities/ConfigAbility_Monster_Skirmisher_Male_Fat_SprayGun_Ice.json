@@ -288,8 +288,9 @@
 						"predicates" :
 						[
 							{
-								"$type" : "ByTargetIsSelf",
-								"isSelf" : false,
+								"$type": "ByTargetType",
+								"targetType": "Self",
+								"isTarget": false,
 							},
 							{
 								"$type" : "ByAny",

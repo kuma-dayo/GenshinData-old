@@ -31,7 +31,7 @@ regions = {
 -- 触发器
 triggers = {
 	{ config_id = 1005001, name = "ENTER_REGION_5001", event = EventType.EVENT_ENTER_REGION, source = "", condition = "condition_EVENT_ENTER_REGION_5001", action = "action_EVENT_ENTER_REGION_5001" },
-	{ config_id = 1005002, name = "DUNGEON_SETTLE_5002", event = EventType.EVENT_DUNGEON_SETTLE, source = "", condition = "", action = "action_EVENT_DUNGEON_SETTLE_5002" },
+	{ config_id = 1005002, name = "DUNGEON_SETTLE_5002", event = EventType.EVENT_DUNGEON_SETTLE, source = "", condition = "condition_EVENT_DUNGEON_SETTLE_5002", action = "action_EVENT_DUNGEON_SETTLE_5002" },
 	{ config_id = 1005004, name = "ENTER_REGION_5004", event = EventType.EVENT_ENTER_REGION, source = "", condition = "condition_EVENT_ENTER_REGION_5004", action = "action_EVENT_ENTER_REGION_5004" },
 	{ config_id = 1005007, name = "ENTER_REGION_5007", event = EventType.EVENT_ENTER_REGION, source = "", condition = "condition_EVENT_ENTER_REGION_5007", action = "action_EVENT_ENTER_REGION_5007", trigger_count = 0 },
 	{ config_id = 1005008, name = "ENTER_REGION_5008", event = EventType.EVENT_ENTER_REGION, source = "", condition = "condition_EVENT_ENTER_REGION_5008", action = "action_EVENT_ENTER_REGION_5008", trigger_count = 0 }
@@ -122,6 +122,15 @@ function action_EVENT_ENTER_REGION_5001(context, evt)
 		
 	
 	return 0
+end
+
+-- 触发条件
+function condition_EVENT_DUNGEON_SETTLE_5002(context, evt)
+	if 1 ~= evt.param1 then
+		return false
+	end
+	
+	return true
 end
 
 -- 触发操作

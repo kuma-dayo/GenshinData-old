@@ -2289,8 +2289,9 @@
 							"predicates":
 							[
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+								    "$type": "ByTargetType",
+								    "targetType":"Self",
+								    "isTarget":false,
 								},
 								{
 									"$type":"ByEntityTypes",
@@ -2394,8 +2395,9 @@
 							"predicates":
 							[
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+								    "$type": "ByTargetType",
+								    "targetType":"Self",
+								    "isTarget":false,
 								},
 								{
 									"$type":"ByEntityTypes",
@@ -2499,8 +2501,9 @@
 							"predicates":
 							[
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+								    "$type": "ByTargetType",
+								    "targetType":"Self",
+								    "isTarget":false,
 								},
 								{
 									"$type":"ByEntityTypes",
@@ -2604,8 +2607,9 @@
 							"predicates":
 							[
 								{
-									"$type" : "ByTargetIsSelf",
-									"isSelf" : false,
+								    "$type": "ByTargetType",
+								    "targetType":"Self",
+								    "isTarget":false,
 								},
 								{
 									"$type":"ByEntityTypes",
@@ -2919,96 +2923,6 @@
 	},
 ////////////////////////////////////////////////////////////////
 //
-//  固有技：游泳体力消耗减?/  废弃
-////////////////////////////////////////////////////////////////
-	{
-		"Default":
-		{
-			"$type": "ConfigAbility",
-			"abilityName": "Avatar_Beidou_Swim",
-			"abilityMixins":
-			[
-				{
-					"$type":"AttachToStateIDMixin",
-					"stateIDs":["Swim",],
-					"modifierName":"Beidou_Talent_SwimLessStamina",
-				}
-			],
-			"modifiers":
-			{
-				"Beidou_Talent_SwimLessStamina":
-				{
-					"isLimitedProperties":true,
-					"properties":
-					{
-						"Actor_CostStaminaRatio": "%Stamina",
-					},
-				},
-			},
-			"abilitySpecials":
-			{
-				"Stamina":0,
-			},
-		},
-	},
-////////////////////////////////////////////////////////////////
-//
-//  天赋：潮湿或者充能技期间加?/ 废弃
-////////////////////////////////////////////////////////////////
-	{
-		"Default":
-		{
-			"$type": "ConfigAbility",
-			"abilityName": "Avatar_Beidou_Talent_Wet",
-			"abilityMixins":
-			[
-				{
-					"$type":"AttachModifierToPredicateMixin",
-					"modifierName":"UNIQUE_Beidou_Talent_SpeedUp",
-					"predicates":
-					[
-						{
-							"$type":"ByAny",
-							"predicates":
-							[
-								{
-									"$type" : "ByHasAbilityState",
-									"abilityState" : "ElementWet",
-								},
-								{
-									"$type" : "ByTargetGlobalValue",
-									"target":"Self",
-									"key":"_ABILITY_ThunderShield",
-									"value":1,
-									"compareType":"Equal",
-								},
-							],
-						}
-					],
-				}
-			],
-			"modifiers":
-			{
-				"UNIQUE_Beidou_Talent_SpeedUp_Handler":
-				{
-					"isUnique":true,
-					"state":"SpeedUp",
-					"isLimitedProperties":true,
-					"properties":
-					{
-						"Animator_AttackSpeedRatio" : "%Speed",
-					},
-
-				},
-			},
-			"abilitySpecials":
-			{
-				"Speed":0.07, //
-			},
-		},
-	},
-////////////////////////////////////////////////////////////////
-//
 //  命之座：受击附带雷伤害 （反正小技能会受击，所以能保证覆盖率
 //
 ////////////////////////////////////////////////////////////////
@@ -3179,40 +3093,6 @@
 				"Rate":0,
 				"Time":0,
 				"CDTime":0,
-			},
-		},
-	},
-////////////////////////////////////////////////////////////////
-//
-//  固有得意技：开宝箱回血
-//
-////////////////////////////////////////////////////////////////
-	{
-		"Default":
-		{
-			"$type": "ConfigAbility",
-			"abilityName": "Avatar_Beidou_ProudSkill_Tresure",
-			"abilityMixins":
-			[
-				{
-					"$type":"DoActionByEventMixin",
-					"type":"Both",
-					"onEvent":"ChestOpen",
-					"actions":
-					[
-						{
-							"$type":"HealHP",
-							"target":"Self",
-							"amount":"%HealHP",
-							"amountByCasterMaxHPRatio":"%HealHPRatio"
-						},
-					],
-				},
-			],
-			"abilitySpecials":
-			{
-				"HealHP":0,
-				"HealHPRatio":0,
 			},
 		},
 	},

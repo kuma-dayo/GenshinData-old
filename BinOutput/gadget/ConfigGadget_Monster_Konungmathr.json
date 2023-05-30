@@ -99,13 +99,14 @@
 		{
 			"property":
 			{
-				"useCreatorProperty" : true, // 是否继承创造者的数值
+				"useCreatorProperty" : false, // 是否继承创造者的数值
 				"HP" : 999999,
 				"attack" : 15.0,
 				"defense" : 999999,
-				"isInvincible": false,
+				"lockHP" : true,
+				"isInvincible": true,
 				"isGhostToAllied": false,
-				"isGhostToEnemy": true,
+				"isGhostToEnemy": false,
 				"canTriggerBullet" : true,
 			},
 			"combatLock":
@@ -123,15 +124,22 @@
 		},
 		"move" :
 		{
-			"$type": "ConfigTrackBulletMove",
-			"speed": 7,
-			"destroyWhenTargetDie": false,
-			"traceOnYAxis": false,
-			"updateAngle": 
+			"$type" : "ConfigFollowMove",
+			"target": "TargetEntity",
+			// "attachPoint": "RootNode",
+			"followRotation": false,
+			"offset":
 			{
-				"$type": "ConfigBulletMoveAngleByVelocity",
+				"x": 0.0,
+				"y": -1.0,
+				"z": 0.0,
 			},
-			"canBornInWater": true,
+			"forward":
+			{
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0,
+			},
 		},
 		"timer" :
 		{

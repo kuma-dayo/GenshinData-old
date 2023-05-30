@@ -44,7 +44,7 @@ regions = {
 	{ config_id = 297029, shape = RegionShape.SPHERE, radius = 5, pos = { x = 715.747, y = 388.821, z = 1912.156 }, area_id = 6 },
 	{ config_id = 297030, shape = RegionShape.SPHERE, radius = 5, pos = { x = 658.065, y = 369.053, z = 1924.091 }, area_id = 6 },
 	{ config_id = 297031, shape = RegionShape.SPHERE, radius = 5, pos = { x = 611.995, y = 359.624, z = 1825.370 }, area_id = 6 },
-	{ config_id = 297032, shape = RegionShape.SPHERE, radius = 5, pos = { x = 481.442, y = 230.700, z = 1710.635 }, area_id = 6 },
+	{ config_id = 297032, shape = RegionShape.SPHERE, radius = 5, pos = { x = 473.261, y = 230.700, z = 1705.258 }, area_id = 6 },
 	{ config_id = 297033, shape = RegionShape.SPHERE, radius = 5, pos = { x = 1014.186, y = 307.190, z = 1611.858 }, area_id = 6 },
 	{ config_id = 297034, shape = RegionShape.SPHERE, radius = 5, pos = { x = 1039.455, y = 340.899, z = 1548.787 }, area_id = 6 },
 	{ config_id = 297035, shape = RegionShape.SPHERE, radius = 5, pos = { x = 1102.637, y = 350.043, z = 1512.208 }, area_id = 6 },

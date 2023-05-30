@@ -30,10 +30,13 @@
 				"HP" : 9999999,
 				"attack" : 0,
 				"defense" : 999999,
-				"denyLockOn" : true,
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : true,
 				"isInvincible" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn" : true,
 			},
 			"beHit" :
 			{
@@ -83,10 +86,13 @@
 				"HP" : 9999999,
 				"attack" : 0,
 				"defense" : 999999,
-				"denyLockOn" : true,
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : true,
 				"isInvincible" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn" : true,
 			},
 			"beHit" :
 			{
@@ -195,10 +201,13 @@
 				"HP" : 9999999,
 				"attack" : 0,
 				"defense" : 999999,
-				"denyLockOn" : true,
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : true,
 				"isInvincible" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn" : true,
 			},
 			"beHit" :
 			{
@@ -327,10 +336,13 @@
 				"HP" : 9999999,
 				"attack" : 0,
 				"defense" : 999999,
-				"denyLockOn" : true,
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : true,
 				"isInvincible" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn" : true,
 			},
 			"beHit" :
 			{
@@ -379,10 +391,13 @@
 				"HP" : 10,
 				"attack" : 0,
 				"defense" : 0,
-				"denyLockOn" : true,
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : true,
 				"isInvincible" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn" : true,
 			},
 			"beHit" :
 			{
@@ -448,10 +463,13 @@
 				"HP" : 9999999,
 				"attack" : 0,
 				"defense" : 999999,
-				"denyLockOn" : true,
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : false,
 				"isInvincible" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn" : true,
 			},
 			"beHit" :
 			{
@@ -503,10 +521,13 @@
 				"HP" : 9999999,
 				"attack" : 0,
 				"defense" : 999999,
-				"denyLockOn" : true,
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : false,
 				"isInvincible" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn" : true,
 			},
 			"beHit" :
 			{
@@ -551,10 +572,13 @@
 				"HP" : 9999999,
 				"attack" : 0,
 				"defense" : 999999,
-				"denyLockOn" : true,
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : false,
 				"isInvincible" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn" : true,
 			},
 			"beHit" :
 			{
@@ -599,10 +623,13 @@
 				"HP" : 9999999,
 				"attack" : 0,
 				"defense" : 999999,
-				"denyLockOn" : true,
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : false,
 				"isInvincible" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn" : true,
 			},
 			"beHit" :
 			{
@@ -714,10 +741,13 @@
 				"HP" : 9999999,
 				"attack" : 0,
 				"defense" : 999999,
-				"denyLockOn" : true,
 				"isGhostToAllied" : true,
 				"isGhostToEnemy" : true,
 				"isInvincible" : true,
+			},
+			"combatLock":
+			{
+				"denyLockOn" : true,
 			},
 			"beHit" :
 			{

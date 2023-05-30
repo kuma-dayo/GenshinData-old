@@ -810,6 +810,12 @@
           "duration": 1.6,
           "state": "Invincible",
           "stacking": "Refresh",
+          "onAdded": [
+            {
+              "$type": "AttachAbilityStateResistance",
+              "resistanceListID": 11002,
+            },
+          ],
         },
         "Weather": {
           "duration": 2,
@@ -1301,7 +1307,7 @@
                       "abilityName": "Avatar_Noel_ProudSkill_21_Shield",
                       "predicates": [
                         {
-                          "$type":"ByEntityIsAlive",
+                          "$type": "ByEntityIsAlive",
                           "forceByCaster": true,
                         },
                         {

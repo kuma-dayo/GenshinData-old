@@ -94,15 +94,16 @@
 			[
 				{
 					"$type": "AttachModifier",
-					"modifierName": "AttackModifier",
+					"modifierName": "SERVER_AttackModifier",
 					"target": "Target",
 				},
 			],
 			"modifiers":
 			{
-				"AttackModifier":
+				"SERVER_AttackModifier":
 				{
 					"buffID":50001,
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -167,14 +168,15 @@
 			[
 				{
 					"$type": "AttachModifier",
-					"modifierName": "DefenceModifier",
+					"modifierName": "SERVER_DefenceModifier",
 					"target": "Target",
 				},
 			],
 			"modifiers":
 			{
-				"DefenceModifier":
+				"SERVER_DefenceModifier":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					//"isLimitedProperties" : true,
 					"reduceDurablityIgnoreTimeScale" : true,
@@ -203,14 +205,15 @@
 			[
 				{
 					"$type": "AttachModifier",
-					"modifierName": "MaxHPModifier",
+					"modifierName": "SERVER_MaxHPModifier",
 					"target": "Target",
 				},
 			],
 			"modifiers":
 			{
-				"MaxHPModifier":
+				"SERVER_MaxHPModifier":
 				{
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -240,11 +243,12 @@
 			"modifiers":
 			{
 				//当前角色立即恢复5%HP，每5秒恢复75HP，持续30秒
-				"ReHP_Ins&Con_Modifier_lv1_1":
+				"SERVER_ReHP_Ins&Con_Modifier_lv1_1":
 				{
+					"stacking": "Multiple",
 					//"reduceDurablityIgnoreTimeScale" : true,
 					//"thinkIntervalIgnoreTimeScale" : true,
-					"duration": 31,
+					//"duration": 31,
 					"thinkInterval" : 5,
 					"onThinkInterval" :
 					[
@@ -267,11 +271,12 @@
 					],
 				},
 				//当前角色立即恢复9%HP，每5秒恢复230HP，持续30秒
-				"ReHP_Ins&Con_Modifier_lv1_2":
+				"SERVER_ReHP_Ins&Con_Modifier_lv1_2":
 				{
+					"stacking": "Multiple",
 					//"reduceDurablityIgnoreTimeScale" : true,
 					//"thinkIntervalIgnoreTimeScale" : true,
-					"duration": 31,
+					//"duration": 31,
 					"thinkInterval" : 5,
 					"onThinkInterval" :
 					[
@@ -294,11 +299,12 @@
 					],
 				},
 				//当前角色立即恢复5%HP，每5秒恢复115HP，持续30秒
-				"ReHP_Ins&Con_Modifier_lv1_3":
+				"SERVER_ReHP_Ins&Con_Modifier_lv1_3":
 				{
+					"stacking": "Multiple",
 					//"reduceDurablityIgnoreTimeScale" : true,
 					//"thinkIntervalIgnoreTimeScale" : true,
-					"duration": 31,
+					//"duration": 31,
 					"thinkInterval" : 5,
 					"onThinkInterval" :
 					[
@@ -321,11 +327,12 @@
 					],
 				},
 				//当前角色立即恢复5%HP，每5秒恢复140HP，持续30秒
-				"ReHP_Ins&Con_Modifier_lv1_4":
+				"SERVER_ReHP_Ins&Con_Modifier_lv1_4":
 				{
+					"stacking": "Multiple",
 					//"reduceDurablityIgnoreTimeScale" : true,
 					//"thinkIntervalIgnoreTimeScale" : true,
-					"duration": 31,
+					//"duration": 31,
 					"thinkInterval" : 5,
 					"onThinkInterval" :
 					[
@@ -350,11 +357,12 @@
 
 
 				//当前角色立即恢复1HP，每1秒恢复1HP，持续20秒
-				"ReHP_Ins&Con_Modifier_lv1_99":
+				"SERVER_ReHP_Ins&Con_Modifier_lv1_99":
 				{
 					//"reduceDurablityIgnoreTimeScale" : true,
 					//"thinkIntervalIgnoreTimeScale" : true,
-					"duration": 20,
+					//"duration": 20,
+					"stacking": "Multiple",
 					"thinkInterval" : 1,
 					"onThinkInterval" :
 					[
@@ -378,11 +386,12 @@
 				},
 
 				//当前角色立即恢复10%HP，每5秒恢复110HP，持续30秒
-				"ReHP_Ins&Con_Modifier_lv2_1":
+				"SERVER_ReHP_Ins&Con_Modifier_lv2_1":
 				{
+					"stacking": "Multiple",
 					//"reduceDurablityIgnoreTimeScale" : true,
 					//"thinkIntervalIgnoreTimeScale" : true,
-					"duration": 31,
+					//"duration": 31,
 					"thinkInterval" : 5,
 					"onThinkInterval" :
 					[
@@ -405,11 +414,12 @@
 					],
 				},
 				//当前角色立即恢复10%HP，每5秒恢复145HP，持续30秒
-				"ReHP_Ins&Con_Modifier_lv2_2":
+				"SERVER_ReHP_Ins&Con_Modifier_lv2_2":
 				{
+					"stacking": "Multiple",
 					//"reduceDurablityIgnoreTimeScale" : true,
 					//"thinkIntervalIgnoreTimeScale" : true,
-					"duration": 31,
+					//"duration": 31,
 					"thinkInterval" : 5,
 					"onThinkInterval" :
 					[
@@ -432,11 +442,12 @@
 					],
 				},
 				//当前角色立即恢复10%HP，每5秒恢复205HP，持续30秒
-				"ReHP_Ins&Con_Modifier_lv2_3":
+				"SERVER_ReHP_Ins&Con_Modifier_lv2_3":
 				{
+					"stacking": "Multiple",
 					//"reduceDurablityIgnoreTimeScale" : true,
 					//"thinkIntervalIgnoreTimeScale" : true,
-					"duration": 31,
+					//"duration": 31,
 					"thinkInterval" : 5,
 					"onThinkInterval" :
 					[
@@ -459,11 +470,12 @@
 					],
 				},
 				//当前角色立即恢复10%HP，每5秒恢复265HP，持续30秒
-				"ReHP_Ins&Con_Modifier_lv2_4":
+				"SERVER_ReHP_Ins&Con_Modifier_lv2_4":
 				{
+					"stacking": "Multiple",
 					//"reduceDurablityIgnoreTimeScale" : true,
 					//"thinkIntervalIgnoreTimeScale" : true,
-					"duration": 31,
+					//"duration": 31,
 					"thinkInterval" : 5,
 					"onThinkInterval" :
 					[
@@ -487,11 +499,12 @@
 				},
 
 				//当前角色立即恢复15%HP，每5秒恢复155HP，持续30秒
-				"ReHP_Ins&Con_Modifier_lv3_1":
+				"SERVER_ReHP_Ins&Con_Modifier_lv3_1":
 				{
+					"stacking": "Multiple",
 					//"reduceDurablityIgnoreTimeScale" : true,
 					//"thinkIntervalIgnoreTimeScale" : true,
-					"duration": 31,
+					//"duration": 31,
 					"thinkInterval" : 5,
 					"onThinkInterval" :
 					[
@@ -514,11 +527,12 @@
 					],
 				},
 				//当前角色立即恢复15%HP，每5秒恢复230HP，持续30秒
-				"ReHP_Ins&Con_Modifier_lv3_2":
+				"SERVER_ReHP_Ins&Con_Modifier_lv3_2":
 				{
+					"stacking": "Multiple",
 					//"reduceDurablityIgnoreTimeScale" : true,
 					//"thinkIntervalIgnoreTimeScale" : true,
-					"duration": 31,
+					//"duration": 31,
 					"thinkInterval" : 5,
 					"onThinkInterval" :
 					[
@@ -541,11 +555,12 @@
 					],
 				},
 				//当前角色立即恢复15%HP，每5秒恢复385HP，持续30秒
-				"ReHP_Ins&Con_Modifier_lv3_3":
+				"SERVER_ReHP_Ins&Con_Modifier_lv3_3":
 				{
+					"stacking": "Multiple",
 					//"reduceDurablityIgnoreTimeScale" : true,
 					//"thinkIntervalIgnoreTimeScale" : true,
-					"duration": 31,
+					//"duration": 31,
 					"thinkInterval" : 5,
 					"onThinkInterval" :
 					[
@@ -568,11 +583,12 @@
 					],
 				},
 				//当前角色立即恢复15%HP，每5秒恢复540HP，持续30秒
-				"ReHP_Ins&Con_Modifier_lv3_4":
+				"SERVER_ReHP_Ins&Con_Modifier_lv3_4":
 				{
+					"stacking": "Multiple",
 					//"reduceDurablityIgnoreTimeScale" : true,
 					//"thinkIntervalIgnoreTimeScale" : true,
-					"duration": 31,
+					//"duration": 31,
 					"thinkInterval" : 5,
 					"onThinkInterval" :
 					[
@@ -596,10 +612,10 @@
 				},
 
 				//当前角色立即恢复8%HP与750点HP
-				"ReHP_Ins&Con_Modifier_lv51_1":
+				"SERVER_ReHP_Ins&Con_Modifier_lv51_1":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -617,10 +633,10 @@
 					],
 				},
 				//当前角色立即恢复9%HP与850点HP
-				"ReHP_Ins&Con_Modifier_lv51_2":
+				"SERVER_ReHP_Ins&Con_Modifier_lv51_2":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -638,10 +654,10 @@
 					],
 				},
 				//当前角色立即恢复10%HP与1100点HP
-				"ReHP_Ins&Con_Modifier_lv51_3":
+				"SERVER_ReHP_Ins&Con_Modifier_lv51_3":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -659,10 +675,10 @@
 					],
 				},
 				//当前角色立即恢复12%HP与1300点HP
-				"ReHP_Ins&Con_Modifier_lv51_4":
+				"SERVER_ReHP_Ins&Con_Modifier_lv51_4":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -681,10 +697,10 @@
 				},
 
 				//当前角色立即恢复20%HP与900点HP
-				"ReHP_Ins&Con_Modifier_lv52_1":
+				"SERVER_ReHP_Ins&Con_Modifier_lv52_1":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -702,10 +718,10 @@
 					],
 				},
 				//当前角色立即恢复22%HP与1100点HP
-				"ReHP_Ins&Con_Modifier_lv52_2":
+				"SERVER_ReHP_Ins&Con_Modifier_lv52_2":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -723,10 +739,10 @@
 					],
 				},
 				//当前角色立即恢复26%HP与1450点HP
-				"ReHP_Ins&Con_Modifier_lv52_3":
+				"SERVER_ReHP_Ins&Con_Modifier_lv52_3":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -744,10 +760,10 @@
 					],
 				},
 				//当前角色立即恢复30%HP与1850点HP
-				"ReHP_Ins&Con_Modifier_lv52_4":
+				"SERVER_ReHP_Ins&Con_Modifier_lv52_4":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -766,10 +782,10 @@
 				},
 
 				//当前角色立即恢复30%HP与750点HP
-				"ReHP_Ins&Con_Modifier_lv53_1":
+				"SERVER_ReHP_Ins&Con_Modifier_lv53_1":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -787,10 +803,10 @@
 					],
 				},
 				//当前角色立即恢复32%HP与1250点HP
-				"ReHP_Ins&Con_Modifier_lv53_2":
+				"SERVER_ReHP_Ins&Con_Modifier_lv53_2":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",		
 					"onAdded":
 					[
 						{
@@ -808,10 +824,10 @@
 					],
 				},
 				//当前角色立即恢复36%HP与2150点HP
-				"ReHP_Ins&Con_Modifier_lv53_3":
+				"SERVER_ReHP_Ins&Con_Modifier_lv53_3":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -829,10 +845,10 @@
 					],
 				},
 				//当前角色立即恢复40%HP与3100点HP
-				"ReHP_Ins&Con_Modifier_lv53_4":
+				"SERVER_ReHP_Ins&Con_Modifier_lv53_4":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -866,8 +882,9 @@
 			//队伍角色攻击增加13点，持续300秒
 			"modifiers":
 			{
-				"Atk_Team_Modifier_lv1_1":
+				"SERVER_Atk_Team_Modifier_lv1_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -886,8 +903,9 @@
 
 		//队伍角色攻击增加15点，持续300秒
 
-				"Atk_Team_Modifier_lv1_2":
+				"SERVER_Atk_Team_Modifier_lv1_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -906,8 +924,9 @@
 
 		//队伍角色攻击增加18点，持续300秒
 
-				"Atk_Team_Modifier_lv1_3":
+				"SERVER_Atk_Team_Modifier_lv1_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -926,8 +945,9 @@
 
 		//队伍角色攻击增加22点，持续300秒
 
-				"Atk_Team_Modifier_lv1_4":
+				"SERVER_Atk_Team_Modifier_lv1_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -946,8 +966,9 @@
 
 		//队伍角色攻击增加31点，持续300秒
 
-				"Atk_Team_Modifier_lv2_1":
+				"SERVER_Atk_Team_Modifier_lv2_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -966,8 +987,9 @@
 
 		//队伍角色攻击增加35点，持续300秒
 
-				"Atk_Team_Modifier_lv2_2":
+				"SERVER_Atk_Team_Modifier_lv2_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -986,8 +1008,9 @@
 
 		//队伍角色攻击增加44点，持续300秒
 
-				"Atk_Team_Modifier_lv2_3":
+				"SERVER_Atk_Team_Modifier_lv2_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1006,8 +1029,9 @@
 
 		//队伍角色攻击增加53点，持续300秒
 
-				"Atk_Team_Modifier_lv2_4":
+				"SERVER_Atk_Team_Modifier_lv2_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1026,8 +1050,9 @@
 
 		//队伍角色攻击增加66点，持续300秒
 
-				"Atk_Team_Modifier_lv3_1":
+				"SERVER_Atk_Team_Modifier_lv3_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1046,8 +1071,9 @@
 
 		//队伍角色攻击增加76点，持续300秒
 
-				"Atk_Team_Modifier_lv3_2":
+				"SERVER_Atk_Team_Modifier_lv3_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1066,8 +1092,9 @@
 
 		//队伍角色攻击增加95点，持续300秒
 
-				"Atk_Team_Modifier_lv3_3":
+				"SERVER_Atk_Team_Modifier_lv3_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1086,8 +1113,9 @@
 
 		//队伍角色攻击增加114点，持续300秒
 
-				"Atk_Team_Modifier_lv3_4":
+				"SERVER_Atk_Team_Modifier_lv3_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1106,8 +1134,9 @@
 
 				//队伍角色攻击增加114点，持续300秒
 
-				"Atk_Team_Modifier_lv4_1":
+				"SERVER_Atk_Team_Modifier_lv4_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1126,8 +1155,9 @@
 				},
 				//队伍角色攻击增加114点，持续300秒
 
-				"Atk_Team_Modifier_lv4_2":
+				"SERVER_Atk_Team_Modifier_lv4_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1146,8 +1176,9 @@
 				},
 				//队伍角色攻击增加114点，持续300秒
 
-				"Atk_Team_Modifier_lv4_3":
+				"SERVER_Atk_Team_Modifier_lv4_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1166,8 +1197,9 @@
 				},
 				//队伍角色攻击增加114点，持续300秒
 
-				"Atk_Team_Modifier_lv4_4":
+				"SERVER_Atk_Team_Modifier_lv4_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1187,8 +1219,9 @@
 
 				//队伍角色攻击增加114点，持续300秒
 
-				"Atk_Team_Modifier_lv5_1":
+				"SERVER_Atk_Team_Modifier_lv5_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1207,8 +1240,9 @@
 				},
 				//队伍角色攻击增加114点，持续300秒
 
-				"Atk_Team_Modifier_lv5_2":
+				"SERVER_Atk_Team_Modifier_lv5_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1227,8 +1261,9 @@
 				},
 				//队伍角色攻击增加114点，持续300秒
 
-				"Atk_Team_Modifier_lv5_3":
+				"SERVER_Atk_Team_Modifier_lv5_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1247,8 +1282,9 @@
 				},
 				//队伍角色攻击增加114点，持续300秒
 
-				"Atk_Team_Modifier_lv5_4":
+				"SERVER_Atk_Team_Modifier_lv5_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1281,8 +1317,9 @@
 			//队伍角色防御增加24点，持续300秒
 			"modifiers":
 			{
-				"Def_Team_Modifier_lv1_1":
+				"SERVER_Def_Team_Modifier_lv1_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1301,8 +1338,9 @@
 
 		//队伍角色防御增加27点，持续300秒
 
-				"Def_Team_Modifier_lv1_2":
+				"SERVER_Def_Team_Modifier_lv1_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1321,8 +1359,9 @@
 
 		//队伍角色防御增加34点，持续300秒
 
-				"Def_Team_Modifier_lv1_3":
+				"SERVER_Def_Team_Modifier_lv1_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1341,8 +1380,9 @@
 
 		//队伍角色防御增加40点，持续300秒
 
-				"Def_Team_Modifier_lv1_4":
+				"SERVER_Def_Team_Modifier_lv1_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1361,8 +1401,9 @@
 
 		//队伍角色防御增加57点，持续300秒
 
-				"Def_Team_Modifier_lv2_1":
+				"SERVER_Def_Team_Modifier_lv2_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1381,8 +1422,9 @@
 
 		//队伍角色防御增加65点，持续300秒
 
-				"Def_Team_Modifier_lv2_2":
+				"SERVER_Def_Team_Modifier_lv2_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1401,8 +1443,9 @@
 
 		//队伍角色防御增加81点，持续300秒
 
-				"Def_Team_Modifier_lv2_3":
+				"SERVER_Def_Team_Modifier_lv2_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1421,8 +1464,9 @@
 
 		//队伍角色防御增加97点，持续300秒
 
-				"Def_Team_Modifier_lv2_4":
+				"SERVER_Def_Team_Modifier_lv2_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1441,8 +1485,9 @@
 
 		//队伍角色防御增加107点，持续300秒
 
-				"Def_Team_Modifier_lv3_1":
+				"SERVER_Def_Team_Modifier_lv3_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1461,8 +1506,9 @@
 
 		//队伍角色防御增加122点，持续300秒
 
-				"Def_Team_Modifier_lv3_2":
+				"SERVER_Def_Team_Modifier_lv3_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1481,8 +1527,9 @@
 
 		//队伍角色防御增加152点，持续300秒
 
-				"Def_Team_Modifier_lv3_3":
+				"SERVER_Def_Team_Modifier_lv3_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1501,8 +1548,9 @@
 
 				//队伍角色防御增加183点，持续300秒
 
-				"Def_Team_Modifier_lv3_4":
+				"SERVER_Def_Team_Modifier_lv3_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1521,8 +1569,9 @@
 
 				//队伍角色防御增加183点，持续300秒
 
-				"Def_Team_Modifier_lv4_1":
+				"SERVER_Def_Team_Modifier_lv4_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1535,8 +1584,9 @@
 
 				//队伍角色防御增加183点，持续300秒
 
-				"Def_Team_Modifier_lv4_2":
+				"SERVER_Def_Team_Modifier_lv4_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1549,8 +1599,9 @@
 
 				//队伍角色防御增加183点，持续300秒
 
-				"Def_Team_Modifier_lv4_3":
+				"SERVER_Def_Team_Modifier_lv4_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1563,8 +1614,9 @@
 
 				//队伍角色防御增加183点，持续300秒
 
-				"Def_Team_Modifier_lv4_4":
+				"SERVER_Def_Team_Modifier_lv4_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1577,8 +1629,9 @@
 
 				//队伍角色防御增加183点，持续300秒
 
-				"Def_Team_Modifier_lv5_1":
+				"SERVER_Def_Team_Modifier_lv5_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1591,8 +1644,9 @@
 
 				//队伍角色防御增加183点，持续300秒
 
-				"Def_Team_Modifier_lv5_2":
+				"SERVER_Def_Team_Modifier_lv5_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1605,8 +1659,9 @@
 
 				//队伍角色防御增加183点，持续300秒
 
-				"Def_Team_Modifier_lv5_3":
+				"SERVER_Def_Team_Modifier_lv5_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1619,8 +1674,9 @@
 
 				//队伍角色防御增加183点，持续300秒
 
-				"Def_Team_Modifier_lv5_4":
+				"SERVER_Def_Team_Modifier_lv5_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1633,8 +1689,9 @@
 
 
 				//队伍角色护盾强效20%，持续300秒
-				"Shield_Team_Modifier_lv3_1":
+				"SERVER_Shield_Team_Modifier_lv3_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1645,8 +1702,9 @@
 				},
 
 				//队伍角色护盾强效25%，持续300秒
-				"Shield_Team_Modifier_lv3_2":
+				"SERVER_Shield_Team_Modifier_lv3_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1657,8 +1715,9 @@
 				},
 
 				//队伍角色护盾强效30%，持续300秒
-				"Shield_Team_Modifier_lv3_3":
+				"SERVER_Shield_Team_Modifier_lv3_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1669,8 +1728,9 @@
 				},
 
 				//队伍角色护盾强效35%，持续300秒
-				"Shield_Team_Modifier_lv3_4":
+				"SERVER_Shield_Team_Modifier_lv3_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1681,8 +1741,9 @@
 				},
 
 				//队伍角色护盾强效20%，持续300秒
-				"Shield_Team_Modifier_lv4_1":
+				"SERVER_Shield_Team_Modifier_lv4_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1694,8 +1755,9 @@
 				},
 
 				//队伍角色护盾强效25%，持续300秒
-				"Shield_Team_Modifier_lv4_2":
+				"SERVER_Shield_Team_Modifier_lv4_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1707,8 +1769,9 @@
 				},
 
 				//队伍角色护盾强效30%，持续300秒
-				"Shield_Team_Modifier_lv4_3":
+				"SERVER_Shield_Team_Modifier_lv4_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1720,8 +1783,9 @@
 				},
 
 				//队伍角色护盾强效35%，持续300秒
-				"Shield_Team_Modifier_lv4_4":
+				"SERVER_Shield_Team_Modifier_lv4_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50002,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -1747,8 +1811,9 @@
 			//队伍角色电系伤害提升12%，持续300秒
 			"modifiers":
 			{
-				"Elec_Team_Modifier_lv2_1":
+				"SERVER_Elec_Team_Modifier_lv2_1":
 				{
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -1765,8 +1830,9 @@
 
 		//队伍角色电系伤害提升18%，持续300秒
 
-				"Elec_Team_Modifier_lv2_2":
+				"SERVER_Elec_Team_Modifier_lv2_2":
 				{
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -1783,8 +1849,9 @@
 
 		//队伍角色电系伤害提升24%，持续300秒
 
-				"Elec_Team_Modifier_lv2_3":
+				"SERVER_Elec_Team_Modifier_lv2_3":
 				{
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -1812,8 +1879,9 @@
 			//队伍角色火系伤害提升12%，持续300秒
 			"modifiers":
 			{
-				"Fire_Team_Modifier_lv2_1":
+				"SERVER_Fire_Team_Modifier_lv2_1":
 				{
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -1830,8 +1898,9 @@
 
 		//队伍角色火系伤害提升18%，持续300秒
 
-				"Fire_Team_Modifier_lv2_2":
+				"SERVER_Fire_Team_Modifier_lv2_2":
 				{
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -1848,8 +1917,9 @@
 
 		//队伍角色火系伤害提升24%，持续300秒
 
-				"Fire_Team_Modifier_lv2_3":
+				"SERVER_Fire_Team_Modifier_lv2_3":
 				{
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -1877,8 +1947,9 @@
 			//队伍角色水系伤害提升12%，持续300秒
 			"modifiers":
 			{
-				"Water_Team_Modifier_lv2_1":
+				"SERVER_Water_Team_Modifier_lv2_1":
 				{
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -1895,8 +1966,9 @@
 
 		//队伍角色水系伤害提升18%，持续300秒
 
-				"Water_Team_Modifier_lv2_2":
+				"SERVER_Water_Team_Modifier_lv2_2":
 				{
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -1913,8 +1985,9 @@
 
 		//队伍角色水系伤害提升24%，持续300秒
 
-				"Water_Team_Modifier_lv2_3":
+				"SERVER_Water_Team_Modifier_lv2_3":
 				{
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -1942,10 +2015,10 @@
 			"modifiers":
 			{
 		//当前角色立即恢复50HP
-				"revive_buff_Modifier_lv1_1":
+				"SERVER_revive_buff_Modifier_lv1_1":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -1959,10 +2032,10 @@
 
 		//当前角色立即恢复100HP
 
-				"revive_buff_Modifier_lv1_2":
+				"SERVER_revive_buff_Modifier_lv1_2":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -1977,10 +2050,10 @@
 
 		//当前角色立即恢复150HP
 
-				"revive_buff_Modifier_lv1_3":
+				"SERVER_revive_buff_Modifier_lv1_3":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -1995,10 +2068,10 @@
 
 		//当前角色立即恢复10%+150HP
 
-				"revive_buff_Modifier_lv1_4":
+				"SERVER_revive_buff_Modifier_lv1_4":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 
 					"onAdded":
 					[
@@ -2019,10 +2092,10 @@
 				},
 
 		//当前角色立即恢复250HP
-				"revive_buff_Modifier_lv2_1":
+				"SERVER_revive_buff_Modifier_lv2_1":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -2037,10 +2110,10 @@
 
 		//当前角色立即恢复400HP
 
-				"revive_buff_Modifier_lv2_2":
+				"SERVER_revive_buff_Modifier_lv2_2":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -2055,10 +2128,10 @@
 
 		//当前角色立即恢复550HP
 
-				"revive_buff_Modifier_lv2_3":
+				"SERVER_revive_buff_Modifier_lv2_3":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -2073,10 +2146,10 @@
 
 		//当前角色立即恢复15%HP，防御增加15点
 
-				"revive_buff_Modifier_lv2_4":
+				"SERVER_revive_buff_Modifier_lv2_4":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					/*"properties":
 					{
 						"Actor_DefenceDelta": 50,
@@ -2102,10 +2175,10 @@
 
 		//当前角色立即恢复15%+400HP
 
-				"revive_buff_Modifier_lv3_1":
+				"SERVER_revive_buff_Modifier_lv3_1":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -2120,10 +2193,10 @@
 
 		//当前角色立即恢复25%+600HP
 
-				"revive_buff_Modifier_lv3_2":
+				"SERVER_revive_buff_Modifier_lv3_2":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -2138,10 +2211,10 @@
 
 		//当前角色立即恢复35%+800HP
 
-				"revive_buff_Modifier_lv3_3":
+				"SERVER_revive_buff_Modifier_lv3_3":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -2156,10 +2229,10 @@
 
 		//当前角色立即恢复40%HP
 
-				"revive_buff_Modifier_lv3_4":
+				"SERVER_revive_buff_Modifier_lv3_4":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						{
@@ -2191,8 +2264,9 @@
 			"modifiers":
 			{
 		//队伍角色暴击几率提升3%，持续300秒
-				"Critical_Team_Modifier_lv2_1":
+				"SERVER_Critical_Team_Modifier_lv2_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2210,8 +2284,9 @@
 
 		//队伍角色暴击几率提升5%，持续300秒
 
-				"Critical_Team_Modifier_lv2_2":
+				"SERVER_Critical_Team_Modifier_lv2_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2229,8 +2304,9 @@
 
 		//队伍角色暴击几率提升7%，持续300秒
 
-				"Critical_Team_Modifier_lv2_3":
+				"SERVER_Critical_Team_Modifier_lv2_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2248,8 +2324,9 @@
 
 		//队伍角色暴击几率提升7%，持续300秒
 
-				"Critical_Team_Modifier_lv2_4":
+				"SERVER_Critical_Team_Modifier_lv2_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2269,8 +2346,9 @@
 
 
 		//队伍角色暴击几率提升5%，持续300秒
-				"Critical_Team_Modifier_lv3_1":
+				"SERVER_Critical_Team_Modifier_lv3_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2288,8 +2366,9 @@
 
 		//队伍角色暴击几率提升8%，持续300秒
 
-				"Critical_Team_Modifier_lv3_2":
+				"SERVER_Critical_Team_Modifier_lv3_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2307,8 +2386,9 @@
 
 		//队伍角色暴击几率提升10%，持续300秒
 
-				"Critical_Team_Modifier_lv3_3":
+				"SERVER_Critical_Team_Modifier_lv3_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2326,8 +2406,9 @@
 
 		//队伍角色暴击几率提升10%，持续300秒，同时加暴击伤害10%
 
-				"Critical_Team_Modifier_lv3_4":
+				"SERVER_Critical_Team_Modifier_lv3_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2345,8 +2426,9 @@
 				},
 
 		//队伍角色物理增伤提升10%，持续300秒
-				"Physical_Team_Modifier_lv2_1":
+				"SERVER_Physical_Team_Modifier_lv2_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2359,8 +2441,9 @@
 
 		//队伍角色物理增伤提升15%，持续300秒
 
-				"Physical_Team_Modifier_lv2_2":
+				"SERVER_Physical_Team_Modifier_lv2_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2372,8 +2455,9 @@
 				},
 		//队伍角色物理增伤提升20%，持续300秒
 
-				"Physical_Team_Modifier_lv2_3":
+				"SERVER_Physical_Team_Modifier_lv2_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2386,8 +2470,9 @@
 
 		//队伍角色物理增伤提升20%，持续300秒
 
-				"Physical_Team_Modifier_lv2_4":
+				"SERVER_Physical_Team_Modifier_lv2_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2398,8 +2483,9 @@
 
 				},
 		//队伍角色物理增伤提升10%，持续300秒
-				"Physical_Team_Modifier_lv3_1":
+				"SERVER_Physical_Team_Modifier_lv3_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2412,8 +2498,9 @@
 
 		//队伍角色物理增伤提升15%，持续300秒
 
-				"Physical_Team_Modifier_lv3_2":
+				"SERVER_Physical_Team_Modifier_lv3_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2425,8 +2512,9 @@
 				},
 		//队伍角色物理增伤提升20%，持续300秒
 
-				"Physical_Team_Modifier_lv3_3":
+				"SERVER_Physical_Team_Modifier_lv3_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2439,8 +2527,9 @@
 
 		//队伍角色物理增伤提升20%，持续300秒
 
-				"Physical_Team_Modifier_lv3_4":
+				"SERVER_Physical_Team_Modifier_lv3_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2452,8 +2541,9 @@
 				},
 
 		//队伍角色物理增伤提升10%，持续300秒
-				"Physical_Team_Modifier_lv4_1":
+				"SERVER_Physical_Team_Modifier_lv4_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2467,8 +2557,9 @@
 
 		//队伍角色物理增伤提升15%，持续300秒
 
-				"Physical_Team_Modifier_lv4_2":
+				"SERVER_Physical_Team_Modifier_lv4_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2481,8 +2572,9 @@
 				},
 		//队伍角色物理增伤提升20%，持续300秒
 
-				"Physical_Team_Modifier_lv4_3":
+				"SERVER_Physical_Team_Modifier_lv4_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2496,8 +2588,9 @@
 
 		//队伍角色物理增伤提升20%，持续300秒
 
-				"Physical_Team_Modifier_lv4_4":
+				"SERVER_Physical_Team_Modifier_lv4_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50001,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -2523,8 +2616,9 @@
 			"isDynamicAbility":true,
 			"modifiers":
 			{
-				"Stamina_Fly_Team_Modifier_lv2_1":
+				"SERVER_Stamina_Fly_Team_Modifier_lv2_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2545,8 +2639,9 @@
 				},
 
 
-				"Stamina_Fly_Team_Modifier_lv2_2":
+				"SERVER_Stamina_Fly_Team_Modifier_lv2_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2567,8 +2662,9 @@
 				},
 
 
-				"Stamina_Fly_Team_Modifier_lv2_3":
+				"SERVER_Stamina_Fly_Team_Modifier_lv2_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2589,8 +2685,9 @@
 				},
 
 
-				"Stamina_Fly_Team_Modifier_lv2_4":
+				"SERVER_Stamina_Fly_Team_Modifier_lv2_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2611,8 +2708,9 @@
 				},
 
 
-				"Stamina_Fly_Team_Modifier_lv3_1":
+				"SERVER_Stamina_Fly_Team_Modifier_lv3_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2633,8 +2731,9 @@
 				},
 
 
-				"Stamina_Fly_Team_Modifier_lv3_2":
+				"SERVER_Stamina_Fly_Team_Modifier_lv3_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2655,8 +2754,9 @@
 				},
 
 
-				"Stamina_Fly_Team_Modifier_lv3_3":
+				"SERVER_Stamina_Fly_Team_Modifier_lv3_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2677,8 +2777,9 @@
 				},
 
 
-				"Stamina_Fly_Team_Modifier_lv3_4":
+				"SERVER_Stamina_Fly_Team_Modifier_lv3_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2710,8 +2811,9 @@
 			"isDynamicAbility":true,
 			"modifiers":
 			{
-				"Stamina_Climb_Team_Modifier_lv2_1":
+				"SERVER_Stamina_Climb_Team_Modifier_lv2_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2732,8 +2834,9 @@
 				},
 
 
-				"Stamina_Climb_Team_Modifier_lv2_2":
+				"SERVER_Stamina_Climb_Team_Modifier_lv2_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2754,8 +2857,9 @@
 				},
 
 
-				"Stamina_Climb_Team_Modifier_lv2_3":
+				"SERVER_Stamina_Climb_Team_Modifier_lv2_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2776,8 +2880,9 @@
 				},
 
 
-				"Stamina_Climb_Team_Modifier_lv2_4":
+				"SERVER_Stamina_Climb_Team_Modifier_lv2_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2798,8 +2903,9 @@
 				},
 
 
-				"Stamina_Climb_Team_Modifier_lv3_1":
+				"SERVER_Stamina_Climb_Team_Modifier_lv3_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2820,8 +2926,9 @@
 				},
 
 
-				"Stamina_Climb_Team_Modifier_lv3_2":
+				"SERVER_Stamina_Climb_Team_Modifier_lv3_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2842,8 +2949,9 @@
 				},
 
 
-				"Stamina_Climb_Team_Modifier_lv3_3":
+				"SERVER_Stamina_Climb_Team_Modifier_lv3_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2864,8 +2972,9 @@
 				},
 
 
-				"Stamina_Climb_Team_Modifier_lv3_4":
+				"SERVER_Stamina_Climb_Team_Modifier_lv3_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2897,8 +3006,9 @@
 			"isDynamicAbility":true,
 			"modifiers":
 			{
-				"Stamina_Swim_Team_Modifier_lv2_1":
+				"SERVER_Stamina_Swim_Team_Modifier_lv2_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2919,8 +3029,9 @@
 				},
 
 
-				"Stamina_Swim_Team_Modifier_lv2_2":
+				"SERVER_Stamina_Swim_Team_Modifier_lv2_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2941,8 +3052,9 @@
 				},
 
 
-				"Stamina_Swim_Team_Modifier_lv2_3":
+				"SERVER_Stamina_Swim_Team_Modifier_lv2_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2963,8 +3075,9 @@
 				},
 
 
-				"Stamina_Swim_Team_Modifier_lv2_4":
+				"SERVER_Stamina_Swim_Team_Modifier_lv2_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -2996,8 +3109,9 @@
 			"isDynamicAbility":true,
 			"modifiers":
 			{
-				"Stamina_Sprint_Team_Modifier_lv2_1":
+				"SERVER_Stamina_Sprint_Team_Modifier_lv2_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -3018,8 +3132,9 @@
 				},
 
 
-				"Stamina_Sprint_Team_Modifier_lv2_2":
+				"SERVER_Stamina_Sprint_Team_Modifier_lv2_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -3040,8 +3155,9 @@
 				},
 
 
-				"Stamina_Sprint_Team_Modifier_lv2_3":
+				"SERVER_Stamina_Sprint_Team_Modifier_lv2_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -3062,8 +3178,9 @@
 				},
 
 
-				"Stamina_Sprint_Team_Modifier_lv2_4":
+				"SERVER_Stamina_Sprint_Team_Modifier_lv2_4":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"modifierMixins":
 					[
@@ -3388,14 +3505,15 @@
 			[
 				{
 					"$type": "AttachModifier",
-					"modifierName": "MoveSpeed_Modifier_lv2_1",
+					"modifierName": "SERVER_MoveSpeed_Modifier_lv2_1",
 					"target": "Target",
 				},
 			],
 			"modifiers":
 			{
-				"MoveSpeed_Modifier_lv2_1":
+				"SERVER_MoveSpeed_Modifier_lv2_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50003,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3426,15 +3544,16 @@
 			[
 				{
 					"$type": "AttachModifier",
-					"modifierName": "Def_Element_Modifier_lv2_1",
+					"modifierName": "SERVER_Def_Element_Modifier_lv2_1",
 					"target": "Target",
 				},
 			],
 			"modifiers":
 			{
 			//队伍角色水火电冰抗性增加25%，持续300秒
-				"Def_Element_Modifier_lv2_1":
+				"SERVER_Def_Element_Modifier_lv2_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3454,8 +3573,9 @@
 					],*/
 				},
 			//队伍角色水火电冰抗性增加8%，持续300秒
-				"Def_Element_Modifier_lv1_1":
+				"SERVER_Def_Element_Modifier_lv1_1":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3475,8 +3595,9 @@
 					],*/
 				},
 			//队伍角色水火电冰抗性增加10%，持续300秒
-				"Def_Element_Modifier_lv1_2":
+				"SERVER_Def_Element_Modifier_lv1_2":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3496,8 +3617,9 @@
 					],*/
 				},
 			//队伍角色水火电冰抗性增加15%，持续300秒
-				"Def_Element_Modifier_lv1_3":
+				"SERVER_Def_Element_Modifier_lv1_3":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3531,8 +3653,9 @@
 			"modifiers":
 			{
 				//队伍角色火系抗性提升35%，持续300秒
-				"Element_Def_Fire":
+				"SERVER_Element_Def_Fire":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3549,8 +3672,9 @@
 				},
 
 				//队伍角色水系抗性提升35%，持续300秒
-				"Element_Def_Water":
+				"SERVER_Element_Def_Water":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3567,8 +3691,9 @@
 				},
 
 				//队伍角色冰系抗性提升35%，持续300秒
-				"Element_Def_Ice":
+				"SERVER_Element_Def_Ice":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3585,8 +3710,9 @@
 				},
 
 				//队伍角色风系抗性提升35%，持续300秒
-				"Element_Def_Wind":
+				"SERVER_Element_Def_Wind":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3603,8 +3729,9 @@
 				},
 
 				//队伍角色电系抗性提升35%，持续300秒
-				"Element_Def_Elec":
+				"SERVER_Element_Def_Elec":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3621,8 +3748,9 @@
 				},
 
 				//队伍角色岩系抗性提升35%，持续300秒
-				"Element_Def_Rock":
+				"SERVER_Element_Def_Rock":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3639,8 +3767,9 @@
 				},
 
 				//队伍角色草系抗性提升35%，持续300秒
-				"Element_Def_Grass":
+				"SERVER_Element_Def_Grass":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3669,8 +3798,9 @@
 			"modifiers":
 			{
 				//队伍角色火系伤害提升35%，持续300秒
-				"Element_Atk_Fire":
+				"SERVER_Element_Atk_Fire":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3687,8 +3817,9 @@
 				},
 
 				//队伍角色水系伤害提升35%，持续300秒
-				"Element_Atk_Water":
+				"SERVER_Element_Atk_Water":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3705,8 +3836,9 @@
 				},
 
 				//队伍角色冰系伤害提升35%，持续300秒
-				"Element_Atk_Ice":
+				"SERVER_Element_Atk_Ice":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3723,8 +3855,9 @@
 				},
 
 				//队伍角色风系伤害提升35%，持续300秒
-				"Element_Atk_Wind":
+				"SERVER_Element_Atk_Wind":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3741,8 +3874,9 @@
 				},
 
 				//队伍角色电系伤害提升35%，持续300秒
-				"Element_Atk_Elec":
+				"SERVER_Element_Atk_Elec":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3759,8 +3893,9 @@
 				},
 
 				//队伍角色岩系伤害提升35%，持续300秒
-				"Element_Atk_Rock":
+				"SERVER_Element_Atk_Rock":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3777,8 +3912,9 @@
 				},
 
 				//队伍角色草系伤害提升35%，持续300秒
-				"Element_Atk_Grass":
+				"SERVER_Element_Atk_Grass":
 				{
+					"stacking": "Multiple",
 					"buffID":50004,
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -3808,7 +3944,7 @@
 			"modifiers":
 			{
 				//攻击百分比20%
-				"Atk_Dungeon_Ratio":
+				"SERVER_Atk_Dungeon_Ratio":
 				{
 					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
@@ -3831,7 +3967,7 @@
 				},
 
 				//暴击8%&爆伤15%
-				"Critical_Dungeon":
+				"SERVER_Critical_Dungeon":
 				{
 					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
@@ -3844,7 +3980,7 @@
 				},
 
 				//物理伤害25%
-				"PhyAdd_Dungeon_Delta":
+				"SERVER_PhyAdd_Dungeon_Delta":
 				{
 					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
@@ -3856,7 +3992,7 @@
 				},
 
 				//元素精通提升80点
-				"ElemMastery_Dungeon_Delta":
+				"SERVER_ElemMastery_Dungeon_Delta":
 				{
 					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
@@ -3868,7 +4004,7 @@
 				},
 
 				//充能效率提升20%
-				"ChargeEfficiency_Dungeon_Delta":
+				"SERVER_ChargeEfficiency_Dungeon_Delta":
 				{
 					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
@@ -3880,7 +4016,7 @@
 				},
 
 				//元素战技造成的伤害提升20%
-				"Element_Art_Dungeon_Ratio":
+				"SERVER_Element_Art_Dungeon_Ratio":
 				{
 					"stacking": "Multiple",
 					"buffID":30001,//爬塔BUFF图标
@@ -3896,7 +4032,7 @@
 				},
 
 				//普通攻击与重击造成的伤害提高20%
-				"NormalAttack_Dungeon_Ratio":
+				"SERVER_NormalAttack_Dungeon_Ratio":
 				{
 					"stacking": "Multiple",
 					"buffID":30002,//爬塔BUFF图标
@@ -3913,7 +4049,7 @@
 
 
 				//元素爆发造成的伤害提升20%
-				"Elemental_Burst_Dungeon_Ratio":
+				"SERVER_Elemental_Burst_Dungeon_Ratio":
 				{
 					"stacking": "Multiple",
 					"buffID":30003,//爬塔BUFF图标
@@ -3930,7 +4066,7 @@
 				},
 
 				//使用冲刺后8秒内造成的伤害提升20%，该效果15秒内最多生效1次
-                "Sprint_Attack_Ratio": {
+                "SERVER_Sprint_Attack_Ratio": {
                     "stacking": "Multiple",
                     "modifierMixins": [
                         {
@@ -4043,8 +4179,9 @@
                     ],
                 },
 				//1091657新增-生命值高于50%时，攻击力提升30%
-				"Atk_HighHP_Dungeon":
+				"SERVER_Atk_HighHP_Dungeon":
                 {
+                	"stacking": "Multiple",
                 	"buffID":30005,//爬塔BUFF图标
                 	"onAdded":
                 	[
@@ -4115,8 +4252,9 @@
                 },
 
 				//1091657新增-生命值低于50%时，攻击力提升60%
-				"Atk_LowHP_Dungeon":
+				"SERVER_Atk_LowHP_Dungeon":
                 {
+                	"stacking": "Multiple",
                 	"buffID":30006,//爬塔BUFF图标
 					"onAdded":
                 	[
@@ -4188,8 +4326,9 @@
 
 
 				//1091657新增-防御降低15%，攻击力提升40%
-				"AtkUp_DefDown_Dungeon":
+				"SERVER_AtkUp_DefDown_Dungeon":
 				{
+					"stacking": "Multiple",
 					"buffID":30007,//爬塔BUFF图标
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -4321,7 +4460,7 @@
 			"modifiers":
 			{
 				//提升防御百分比30%
-				"Def_Dungeon_Ratio":
+				"SERVER_Def_Dungeon_Ratio":
 				{
 					"stacking": "Multiple",
 					"buffID":30010,//爬塔BUFF图标
@@ -4344,8 +4483,9 @@
 				},
 
 				//火系抗性提升35%
-				"Element_Dungeon_Def_Fire":
+				"SERVER_Element_Dungeon_Def_Fire":
 				{
+					"stacking": "Multiple",
 					"buffID":30012,//爬塔BUFF图标
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -4355,9 +4495,10 @@
 				},
 
 				//水系抗性提升35%
-				"Element_Dungeon_Def_Water":
+				"SERVER_Element_Dungeon_Def_Water":
 				{
 					"buffID":30013,//爬塔BUFF图标
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -4366,9 +4507,10 @@
 				},
 
 				//冰系抗性提升35%
-				"Element_Dungeon_Def_Ice":
+				"SERVER_Element_Dungeon_Def_Ice":
 				{
 					"buffID":30014,//爬塔BUFF图标
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -4377,9 +4519,10 @@
 				},
 
 				//风系抗性提升35%
-				"Element_Dungeon_Def_Wind":
+				"SERVER_Element_Dungeon_Def_Wind":
 				{
 					"buffID":30015,//爬塔BUFF图标
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -4388,9 +4531,10 @@
 				},
 
 				//电系抗性提升35%
-				"Element_Dungeon_Def_Elec":
+				"SERVER_Element_Dungeon_Def_Elec":
 				{
 					"buffID":30016,//爬塔BUFF图标
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -4399,9 +4543,10 @@
 				},
 
 				//岩系抗性提升35%
-				"Element_Dungeon_Def_Rock":
+				"SERVER_Element_Dungeon_Def_Rock":
 				{
 					"buffID":30017,//爬塔BUFF图标
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -4410,9 +4555,10 @@
 				},
 
 				//草系抗性提升35%
-				"Element_Dungeon_Def_Grass":
+				"SERVER_Element_Dungeon_Def_Grass":
 				{
 					"buffID":30018,//爬塔BUFF图标
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -4421,9 +4567,10 @@
 				},
 
 				//全系抗性提升25%
-				"Element_Dungeon_Def_All":
+				"SERVER_Element_Dungeon_Def_All":
 				{
 					"buffID":30019,//爬塔BUFF图标
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -4438,9 +4585,10 @@
 				},
 
 				//物理抗性提升30%
-				"PhySub_Dungeon_Delta":
+				"SERVER_PhySub_Dungeon_Delta":
 				{
 					"buffID":30020,//爬塔BUFF图标
+					"stacking": "Multiple",
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
 					{
@@ -4450,7 +4598,7 @@
 				},
 
 				//基础生命值提升25%
-				"MaxHP_Dungeon_Ratio":
+				"SERVER_MaxHP_Dungeon_Ratio":
 				{
 					"stacking": "Multiple",
 					"buffID":30021,//爬塔BUFF图标
@@ -4480,8 +4628,9 @@
 				},
 
 				//1091657新增-生命值高于50%时，防御提升40%
-				"Def_HighHP_Dungeon":
+				"SERVER_Def_HighHP_Dungeon":
                 {
+                	"stacking": "Multiple",
                 	"buffID":30023,//爬塔BUFF图标
 					"onAdded":
                 	[
@@ -4552,8 +4701,9 @@
                 },
 
 				//1091657新增-生命值低于50%时，防御提升80%
-				"Def_LowHP_Dungeon":
+				"SERVER_Def_LowHP_Dungeon":
                 {
+                	"stacking": "Multiple",
                 	"buffID":30024,//爬塔BUFF图标
         			"onAdded":
                 	[
@@ -4578,7 +4728,7 @@
 							"$type":"AttachModifierToPredicateMixin",
 							"type": "Both",
 							"onEvent":"HP",
-							"modifierName":"Def_HighHP_Dungeon_Sub",
+							"modifierName":"Def_LowHP_Dungeon_Sub",
 							"predicates":
 		                    [
 		                        {
@@ -4636,7 +4786,7 @@
 			"modifiers":
 			{
 				//1091657新增-角色造成的治疗效果提升2%
-				"Heal_Dungeon_Ratio":
+				"SERVER_Heal_Dungeon_Ratio":
 				{
 					"stacking": "Multiple",
 					"buffID":30025,//爬塔BUFF图标
@@ -4649,8 +4799,9 @@
 
 
 				//1091657新增-每打倒一个敌人当前角色恢复生命值5%
-				"KillHealHp_Dungeon_Ratio":
+				"SERVER_KillHealHp_Dungeon_Ratio":
 				{
+					"stacking": "Multiple",
 					"buffID":30026,//爬塔BUFF图标
                 	"modifierMixins":
 					[
@@ -4729,8 +4880,9 @@
 				},
 
 				//1091657新增-普攻速度提升25%
-				"AttackSpeed_Dungeon":
+				"SERVER_AttackSpeed_Dungeon":
 				{
+					"stacking": "Multiple",
 					"buffID":30037,//爬塔BUFF图标
 					"isLimitedProperties":true,
 					"properties":
@@ -4740,8 +4892,9 @@
 				},
 
 				//1091657新增-施放元素爆发的时候，回复30%的生命值
-				"UltimateSkillHealHp_Dungeon":
+				"SERVER_UltimateSkillHealHp_Dungeon":
 				{
+					"stacking": "Multiple",
 					"buffID":30038,//爬塔BUFF图标
 					"modifierMixins":
 					[
@@ -4760,8 +4913,9 @@
 				},
 
 				//1091657新增-打倒敌人时，有50%的概率重置元素战技的冷却时间，该效果30秒内最多生效1次
-				"ResetCDWhenKill_Dungeon":
+				"SERVER_ResetCDWhenKill_Dungeon":
 				{
+					"stacking": "Multiple",
 					"buffID":30039,//爬塔BUFF图标
 					"modifierMixins":
 					[
@@ -4831,8 +4985,9 @@
                 },
 
 				//1091657新增-释放重击体力消耗降低30%
-				"Stamina_ExtraAttack_Dungeon":
+				"SERVER_Stamina_ExtraAttack_Dungeon":
 				{
+					"stacking": "Multiple",
 					"buffID":30040,//爬塔BUFF图标
 					"modifierMixins":
 					[
@@ -4852,8 +5007,9 @@
 				},
 
 				//1091657新增-元素战技和元素爆发CD缩短20%
-				"SkillCD_Dungeon_Ratio":
+				"SERVER_SkillCD_Dungeon_Ratio":
 				{
+					"stacking": "Multiple",
 					"buffID":30041,//爬塔BUFF图标
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -4877,14 +5033,15 @@
 			[
 				{
 					"$type": "AttachModifier",
-					"modifierName": "Stamina_Sprint_Dungeon_1",
+					"modifierName": "SERVER_Stamina_Sprint_Dungeon_1",
 					"target": "Target",
 				},
 			],
 			"modifiers":
 			{
-				"Stamina_Sprint_Dungeon_1":
+				"SERVER_Stamina_Sprint_Dungeon_1":
 				{
+					"stacking": "Multiple",
 					"buffID":30042,//爬塔BUFF图标
 					"modifierMixins":
 					[
@@ -4917,14 +5074,15 @@
 			[
 				{
 					"$type": "AttachModifier",
-					"modifierName": "MoveSpeed_Dungeon_1",
+					"modifierName": "SERVER_MoveSpeed_Dungeon_1",
 					"target": "Target",
 				},
 			],
 			"modifiers":
 			{
-				"MoveSpeed_Dungeon_1":
+				"SERVER_MoveSpeed_Dungeon_1":
 				{
+					"stacking": "Multiple",
 					"buffID":30043,//爬塔BUFF图标
 					"reduceDurablityIgnoreTimeScale" : true,
 					"properties":
@@ -4946,10 +5104,10 @@
 			"modifiers":
 			{
 				//恢复25%生命值
-				"ReHP_Ins&Con_Dungeon_1":
+				"SERVER_ReHP_Ins&Con_Dungeon_1":
 				{
 					"reduceDurablityIgnoreTimeScale" : true,
-
+					"stacking": "Multiple",
 					"onAdded":
 					[
 						/*{
@@ -5025,13 +5183,13 @@
             [
 				{
 					"$type": "AttachModifier",
-					"modifierName": "Atk_HitBox_Dungeon",
+					"modifierName": "SERVER_Atk_HitBox_Dungeon",
 					"target": "Target",
 				},
             ],
             "modifiers":
             {
-                "Atk_HitBox_Dungeon":
+                "SERVER_Atk_HitBox_Dungeon":
                 {
                 	"stacking": "Multiple",
                 	"buffID":30044,//爬塔BUFF图标
@@ -5275,10 +5433,11 @@
         				},
 					],
 				},
-        		"Dulins_Blood_Smash_Ice_Buff":
+        		"SERVER_Dulins_Blood_Smash_Ice_Buff":
 				{
+					"stacking": "Multiple",
         			//"buffID":30045,//爬塔BUFF图标
-        			"duration":30,
+        			//"duration":30,
         			"onAdded":
         			[
         				{
@@ -5429,10 +5588,11 @@
 						},
             		],
 				},
-				"Dulins_Blood_Smash_Ice_Buff_Event":
+				"SERVER_Dulins_Blood_Smash_Ice_Buff_Event":
 				{
+					"stacking": "Multiple",
         			//"buffID":30045,//爬塔BUFF图标
-        			"duration":30,
+        			//"duration":30,
         			"onAdded":
         			[
 						{
@@ -5648,8 +5808,9 @@
         	"isDynamicAbility":true,
         	"modifiers":
         	{
-        		"Anti_Cold_Buff_lv2_1":
+        		"SERVER_Anti_Cold_Buff_lv2_1":
 				{
+					"stacking": "Multiple",
         			"buffID":50005,//爬塔BUFF图标	
         			"modifierMixins":
 					[
@@ -5682,8 +5843,9 @@
 						},
 					],
 				},
-				"Anti_Cold_Buff_lv2_2":
+				"SERVER_Anti_Cold_Buff_lv2_2":
 				{
+					"stacking": "Multiple",
         			"buffID":50005,//爬塔BUFF图标	
         			"modifierMixins":
 					[
@@ -5716,8 +5878,9 @@
 						},
 					],
 				},
-				"Anti_Cold_Buff_lv2_3":
+				"SERVER_Anti_Cold_Buff_lv2_3":
 				{
+					"stacking": "Multiple",
         			"buffID":50005,//爬塔BUFF图标	
         			"modifierMixins":
 					[
@@ -5751,8 +5914,9 @@
 						},
 					],
 				},
-				"Anti_Cold_Buff_lv2_4":
+				"SERVER_Anti_Cold_Buff_lv2_4":
 				{
+					"stacking": "Multiple",
         			"buffID":50005,//爬塔BUFF图标	
         			"modifierMixins":
 					[

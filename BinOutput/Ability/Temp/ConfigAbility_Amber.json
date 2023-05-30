@@ -23,7 +23,7 @@
 				"Mist":
 				{
 					"duration": 25,
-					"thinkInterval": 0.25,
+					"thinkInterval": 0.5,
 					"onAdded":
 					[
 						{
@@ -38,7 +38,7 @@
 							"modifierName": "SteamBangWet",
 							"otherTargets":
 							{
-					"$type": "SelectTargetsByShape",
+								"$type": "SelectTargetsByShape",
 								"shapeName": "CircleR10",
 								"centerBasedOn": "Self",
 								"campTargetType": "All",
@@ -63,7 +63,7 @@
 							"modifierName": "SteamBangWet",
 							"otherTargets":
 							{
-					"$type": "SelectTargetsByShape",
+								"$type": "SelectTargetsByShape",
 								"shapeName": "CircleR10",
 								"centerBasedOn": "Self",
 								"campTargetType": "All",
@@ -81,9 +81,9 @@
 				},
 				"SteamBangWet":
 				{
-					"duration": 3.0,
+					"duration": 8.0,
 					"elementType": "Water",
-					"elementDurability": 25,
+					"elementDurability": 30,
 				},
 			},
 		},

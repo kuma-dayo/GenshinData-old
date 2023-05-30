@@ -76,15 +76,6 @@ quest_data["1011101"] =
             room_id = 0,
             data_index = 0,
         },
-        {
-			alias = "Npc1605",
-			script = "Actor/Npc/TempNPC",
-			id = 1605,
-			pos = "Q1011007Ellin",
-			scene_id = 3,
-			room_id = 0,
-			data_index = 0,
-        },
     },
 }
 

@@ -77,6 +77,15 @@ suites = {
 		regions = { },
 		triggers = { "GADGET_CREATE_381009" },
 		rand_weight = 100
+	},
+	{
+		-- suite_id = 3,
+		-- description = ,
+		monsters = { },
+		gadgets = { },
+		regions = { },
+		triggers = { },
+		rand_weight = 100
 	}
 }
 

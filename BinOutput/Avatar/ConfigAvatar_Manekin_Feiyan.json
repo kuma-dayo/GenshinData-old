@@ -21,14 +21,35 @@
 		"attachPoints":
 		{
 			"equip01": "WeaponR",
-			"equip02": "WeaponL",
-			"equip00": "WeaponBackPut",
+			"equip02": "WeaponL"
 		},
 		"sheathPoint": "WeaponBackPut",
-		"dissolveSheathFadeDelay": 0.075,
-		"dissolveSheathFadeTime": 0.3,
-		"patternSheathFadeDelay": 0.075,
-		"patternSheathFadeTime": 0.3
+		"dissolveSheathFadeDelay": 0.0,
+		"dissolveSheathFadeTime": 0.45,//这里参数一般需要两两一致，不然模型出现时间和特效不一样很奇怪。
+		"patternSheathFadeDelay": 0.0,
+		"patternSheathFadeTime": 0.3,
+		"triggerToStates":
+		[
+			{
+				"trigger": "Close",
+				"states": []
+			},
+			{
+				"trigger": "Close",
+				"states":
+				[
+					"ShowWeapon/ShowWeapon_AS",
+				],
+			},
+			{
+				"trigger": "Open",
+				"states":
+				[
+					"ShowWeapon/ShowWeapon",
+					"ShowWeapon_BS",
+				],
+			},
+		],
 	},
 	"stateLayers":
 	{
@@ -95,7 +116,7 @@
 					{
 						"ShowCharacter": [],
 						"Show01": [],
-						"Show02": ["Audio_Girl_Feiyan_StandbyShow_02_UI"],
+						"Show02": ["Manekin_Feiyan_Show02","Audio_Girl_Feiyan_StandbyShow_02_UI"],
 					},
 					"setAnimatorBoolean":
 					[
@@ -110,7 +131,7 @@
 					"$type": "ConfigAvatarStateIDInfo",
 					"animatorStates":
 					{
-						"Skill_BS": [],
+						"Skill_BS": ["Emo_Avatar_Feiyan_UI_Talent_Think_01BS"],
 					},
 					"setAnimatorBoolean":
 					[
@@ -137,7 +158,7 @@
 					"$type": "ConfigAvatarStateIDInfo",
 					"animatorStates":
 					{
-						"Skill_AS": [],
+						"Skill_AS": ["Emo_Avatar_Feiyan_UI_Talent_Think_01AS"],
 					},
 					"setAnimatorBoolean":
 					[
@@ -208,6 +229,15 @@
 					},
 					"otherStateNames": [],
 					"usage": "Any"
+				},
+				{
+					"currentStateName": "Show02",
+					"audioEvent":
+					{
+						"text": "Stop_vo_external_1P_2D"
+					},
+					"otherStateNames": [],
+					"usage": "Any"
 				}
 			],
 	    	"onTransitionIn":
@@ -216,7 +246,7 @@
 					"currentStateName": "ShowWeapon_BS",
 					"audioEvent":
 					{
-						"text": "Play_ui_menu_weapon_show_heroine"
+						"text": "Play_ui_menu_weapon_show_feiyan"
 					},
 					"otherStateNames": [],
 					"usage": "Any"
